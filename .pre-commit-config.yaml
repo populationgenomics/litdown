@@ -1,0 +1,40 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: c4a0b883114b00d8d76b479c820ce7950211c99b  # frozen: v4.5.0
+    hooks:
+      - id: check-yaml
+        exclude: '\.*conda/.*'
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+        exclude: '\.txt$|\.tsv$'
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: detect-private-key
+      - id: debug-statements
+      - id: check-added-large-files
+
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: 1d2f2483dbca436b5e89d208f1ff56688ba4af9e  # frozen: v0.38.0
+    hooks:
+      - id: markdownlint
+
+  - repo: https://github.com/populationgenomics/pre-commits
+    rev: 1ce7fb6b06e456a8341553507ddef49e7e406858  # frozen: v0.1.3
+    hooks:
+      - id: cpg-id-checker
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: 24d039e647a08707e6cb31e75e01844eeff925e7  # frozen: v0.6.2
+    hooks:
+      - id: ruff
+        args: ["--fix"]
+      - id: ruff-format
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: 8cd2d4056637e242709fe09f15a36f0b4b682bda  # frozen: v1.8.0
+    hooks:
+      - id: mypy
+        args: [--pretty, --show-error-codes, --install-types, --non-interactive]
+        additional_dependencies: [types-defusedxml]
+        # Settings (files to check, strict_optional, etc.) live in pyproject.toml.
+        # No suppressions here — strict_optional is on; missing imports are errors.

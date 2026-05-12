@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "mathml-to-latex": "^1.5.0"
+  }
+}
