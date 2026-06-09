@@ -1,7 +1,7 @@
-"""Blind A/B compare jatsdown vs pandoc on the same JATS XML.
+"""Blind A/B compare litdown vs pandoc on the same JATS XML.
 
 For each fixture:
-  1. Convert with jatsdown.convert
+  1. Convert with litdown.convert
   2. Convert with `pandoc -f jats -t markdown`
   3. Randomly assign them to positions A and B
   4. Send (publisher PDF, candidate A, candidate B) to Vertex Gemini
@@ -15,7 +15,7 @@ Output is appended to compare_pandoc.jsonl. Each record has:
     "pmcid": "...",
     "timestamp": "...",
     "model": "...",
-    "a_engine": "jatsdown" | "pandoc",
+    "a_engine": "litdown" | "pandoc",
     "b_engine": "...",
     "winner": "a" | "b" | "tie" | "neither",
     "reasoning": "...",
@@ -23,7 +23,7 @@ Output is appended to compare_pandoc.jsonl. Each record has:
   }
 
 Usage:
-    export JATSDOWN_GCP_PROJECT=your-project
+    export LITDOWN_GCP_PROJECT=your-project
     python tools/compare_pandoc.py PMC60000 PMC1713260
     python tools/compare_pandoc.py --all
 """
@@ -42,7 +42,7 @@ import google.genai as genai
 import google.genai.types as gtypes
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from jatsdown import convert
+from litdown import convert
 
 ROOT = Path(__file__).parent.parent
 FIXTURES = ROOT / 'tests' / 'fixtures'
@@ -158,9 +158,9 @@ def compare(pmcid: str, *, client, model: str) -> dict:
     # Randomize the A/B assignment so position bias doesn't favour
     # either engine systematically across the run.
     if random.random() < 0.5:
-        a_engine, a_md, b_engine, b_md = 'jatsdown', ours, 'pandoc', pandoc
+        a_engine, a_md, b_engine, b_md = 'litdown', ours, 'pandoc', pandoc
     else:
-        a_engine, a_md, b_engine, b_md = 'pandoc', pandoc, 'jatsdown', ours
+        a_engine, a_md, b_engine, b_md = 'pandoc', pandoc, 'litdown', ours
 
     parts = [
         gtypes.Part.from_text(text=PROMPT),
@@ -188,19 +188,19 @@ def compare(pmcid: str, *, client, model: str) -> dict:
 
 def main():
     ap = argparse.ArgumentParser(
-        description='Blind A/B compare jatsdown vs pandoc with Gemini as judge.',
+        description='Blind A/B compare litdown vs pandoc with Gemini as judge.',
     )
     ap.add_argument('pmcids', nargs='*')
     ap.add_argument('--all', action='store_true')
     ap.add_argument('--out', default=str(DEFAULT_OUT))
-    ap.add_argument('--project', default=os.environ.get('JATSDOWN_GCP_PROJECT'))
-    ap.add_argument('--location', default=os.environ.get('JATSDOWN_GCP_LOCATION', DEFAULT_LOCATION))
+    ap.add_argument('--project', default=os.environ.get('LITDOWN_GCP_PROJECT'))
+    ap.add_argument('--location', default=os.environ.get('LITDOWN_GCP_LOCATION', DEFAULT_LOCATION))
     ap.add_argument('--model', default=DEFAULT_MODEL)
     ap.add_argument('--seed', type=int, default=None, help='Random seed for reproducible A/B assignment')
     args = ap.parse_args()
 
     if not args.project:
-        print('no GCP project set; pass --project or set JATSDOWN_GCP_PROJECT', file=sys.stderr)
+        print('no GCP project set; pass --project or set LITDOWN_GCP_PROJECT', file=sys.stderr)
         return 2
     if args.seed is not None:
         random.seed(args.seed)

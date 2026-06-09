@@ -21,7 +21,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 sys.path.insert(0, str(Path(__file__).parent))
 from test_mml import BASE_URL, fetch_cached, load_math_elem, render_latex
 
-from jatsdown.mathml import mml_to_tex
+from litdown.mathml import mml_to_tex
 
 
 def b64(data: bytes | None) -> str:

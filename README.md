@@ -1,6 +1,6 @@
-# jatsdown
+# litdown
 
-[![Lint](https://github.com/populationgenomics/jatsdown/actions/workflows/lint.yaml/badge.svg)](https://github.com/populationgenomics/jatsdown/actions/workflows/lint.yaml)
+[![Lint](https://github.com/populationgenomics/litdown/actions/workflows/lint.yaml/badge.svg)](https://github.com/populationgenomics/litdown/actions/workflows/lint.yaml)
 
 Convert JATS XML articles (the format PubMed Central distributes) to Markdown
 with embedded LaTeX for inline and display math.
@@ -11,7 +11,7 @@ through a typesetter.
 
 ## Spec target
 
-jatsdown is implemented against the **JATS Journal Archiving and Interchange
+litdown is implemented against the **JATS Journal Archiving and Interchange
 Tag Set (Archiving), NISO Z39.96-2024 v1.4** — the format PMC distributes. PMC
 upconverts older content (NLM Archiving 1.x–3.x, JATS 1.0–1.3) into 1.4 when
 serving the OA bucket, so a converter that handles 1.4 covers the entire PMC
@@ -29,21 +29,21 @@ pip install -e '.[dev]'       # runtime + pytest
 pip install -r requirements-dev.txt && pre-commit install   # contributing
 ```
 
-Editable install. Provides a `jatsdown` console script.
+Editable install. Provides a `litdown` console script.
 
 ## Use
 
 CLI:
 
 ```bash
-jatsdown article.xml > article.md
-jatsdown article.xml article.md
+litdown article.xml > article.md
+litdown article.xml article.md
 ```
 
 Library:
 
 ```python
-from jatsdown import convert, mml_to_tex, render_mathml
+from litdown import convert, mml_to_tex, render_mathml
 
 md = convert("article.xml")           # JATS XML path → markdown string
 latex = mml_to_tex(math_element)      # MathML Element → LaTeX
@@ -53,7 +53,7 @@ fragment = render_mathml(math_element, display=True)  # → "$$...$$"
 ## What's in the package
 
 ```text
-jatsdown/
+litdown/
   jats.py    JATS XML → Markdown
   mathml.py  MathML → LaTeX
 ```
@@ -107,7 +107,7 @@ needed for normal use.
 | Script | Purpose |
 |---|---|
 | `fetch_pmc.py` | Cache a PMCID's JATS XML, publisher PDF, plain text and figure assets into `tests/fixtures/<PMCID>/`. Default `core` mode skips supplementary materials; pass `--all` to include them. |
-| `eval_articles.py` | Send fixture PDF + our markdown to Vertex AI Gemini and ask it to enumerate content-fidelity gaps. Findings appended to `eval_findings.jsonl`. Run ad-hoc, not in CI. Requires `JATSDOWN_GCP_PROJECT` env var or `--project`. |
+| `eval_articles.py` | Send fixture PDF + our markdown to Vertex AI Gemini and ask it to enumerate content-fidelity gaps. Findings appended to `eval_findings.jsonl`. Run ad-hoc, not in CI. Requires `LITDOWN_GCP_PROJECT` env var or `--project`. |
 | `test_mml.py` | Run our MathML converter against the W3C test suite and against the npm `mathml-to-latex` package; produce a per-test report. |
 | `grade_mml.py` | Blind A/B grade MathML disagreements against the W3C reference using Gemini. |
 | `build_grading_page.py`, `build_preview_page.py` | Build self-contained HTML pages for human review of the grading runs. |
@@ -118,7 +118,7 @@ needed for normal use.
 ```text
         fetch_pmc.py            (acquire fixture)
               ↓
-        jatsdown.convert
+        litdown.convert
               ↓
         eval_articles.py        (Gemini reads PDF + our markdown)
               ↓

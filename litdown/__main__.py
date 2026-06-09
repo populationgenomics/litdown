@@ -1,8 +1,8 @@
-"""CLI: ``python -m jatsdown article.xml [output.md]``."""
+"""CLI: ``python -m litdown article.xml [output.md]``."""
 
 import sys
 
-from jatsdown.jats import convert
+from litdown.jats import convert
 
 
 def main(argv: list[str] | None = None) -> int:

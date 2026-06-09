@@ -25,7 +25,7 @@ from defusedxml.ElementTree import fromstring as defused_fromstring
 
 _ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(_ROOT))
-from jatsdown.mathml import mml_to_tex  # noqa: E402
+from litdown.mathml import mml_to_tex  # noqa: E402
 
 MML_NS = 'http://www.w3.org/1998/Math/MathML'
 MML_DIR = Path(__file__).parent / 'w3c_mml'
