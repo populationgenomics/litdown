@@ -4,35 +4,35 @@
   <mtable equalrows="false" equalcolumns="false">
     <mtr>
       <mtd>
-        <mi>H</mi> 
-      </mtd> 
+        <mi>H</mi>
+      </mtd>
       <mtd>
-        <mo>&#x2192;</mo> 
-      </mtd> 
+        <mo>&#x2192;</mo>
+      </mtd>
       <mtd>
-        <mi>G</mi> 
-      </mtd> 
-    </mtr> 
+        <mi>G</mi>
+      </mtd>
+    </mtr>
     <mtr>
       <mtd>
-        <mo>&#x2193;</mo> 
-      </mtd> 
+        <mo>&#x2193;</mo>
+      </mtd>
       <mtd>
-        <mspace height="2em" width="3em"></mspace> 
-      </mtd> 
+        <mspace height="2em" width="3em"></mspace>
+      </mtd>
       <mtd>
-        <mo>&#x2193;</mo> 
-      </mtd> 
-    </mtr> 
+        <mo>&#x2193;</mo>
+      </mtd>
+    </mtr>
     <mtr>
       <mtd>
-        <mi>K</mi> 
-      </mtd> 
+        <mi>K</mi>
+      </mtd>
       <mtd>
-        <mo>&#x2192;</mo> 
-      </mtd> 
+        <mo>&#x2192;</mo>
+      </mtd>
       <mtd>
-        <mi>L</mi> 
-      </mtd> 
-    </mtr> 
+        <mi>L</mi>
+      </mtd>
+    </mtr>
   </mtable> </math>

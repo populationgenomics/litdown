@@ -150,9 +150,9 @@ def test_no_adjacent_sup_tags(article: Article) -> None:
     must collapse into one <sup>. Paragraph-break separation is fine.
     """
     matches = re.findall(r'</sup>[ \t]*<sup>', article.md)
-    assert not matches, (
-        f'{len(matches)} adjacent <sup> pairs (would read as concatenated numbers); use a single <sup>1,2</sup>'
-    )
+    assert (
+        not matches
+    ), f'{len(matches)} adjacent <sup> pairs (would read as concatenated numbers); use a single <sup>1,2</sup>'
 
 
 def test_every_fig_has_anchor(article: Article) -> None:
