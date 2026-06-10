@@ -11,7 +11,7 @@ Sends fixture PDFs and converted markdown to the chosen GCP project's
 Vertex AI endpoint — pick a project where this is acceptable.
 
 Usage:
-    export JATSDOWN_GCP_PROJECT=your-project
+    export LITDOWN_GCP_PROJECT=your-project
     python tools/eval_articles.py PMC60000 PMC1713260
     python tools/eval_articles.py --all --project your-project
 """
@@ -28,7 +28,7 @@ import google.genai as genai
 import google.genai.types as gtypes
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from jatsdown import convert
+from litdown import convert
 
 ROOT = Path(__file__).parent.parent
 FIXTURES = ROOT / 'tests' / 'fixtures'
@@ -151,20 +151,20 @@ def main() -> int:
     )
     ap.add_argument(
         '--project',
-        default=os.environ.get('JATSDOWN_GCP_PROJECT'),
-        help='GCP project for Vertex AI (env: JATSDOWN_GCP_PROJECT)',
+        default=os.environ.get('LITDOWN_GCP_PROJECT'),
+        help='GCP project for Vertex AI (env: LITDOWN_GCP_PROJECT)',
     )
     ap.add_argument(
         '--location',
-        default=os.environ.get('JATSDOWN_GCP_LOCATION', DEFAULT_LOCATION),
-        help=f'Vertex AI region (default: {DEFAULT_LOCATION}, env: JATSDOWN_GCP_LOCATION)',
+        default=os.environ.get('LITDOWN_GCP_LOCATION', DEFAULT_LOCATION),
+        help=f'Vertex AI region (default: {DEFAULT_LOCATION}, env: LITDOWN_GCP_LOCATION)',
     )
     ap.add_argument('--model', default=DEFAULT_MODEL, help=f'Gemini model (default: {DEFAULT_MODEL})')
     args = ap.parse_args()
 
     if not args.project:
         print(
-            'no GCP project set; pass --project or set JATSDOWN_GCP_PROJECT',
+            'no GCP project set; pass --project or set LITDOWN_GCP_PROJECT',
             file=sys.stderr,
         )
         return 2

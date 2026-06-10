@@ -4,7 +4,7 @@ test_mml.py — Compare our MathML→LaTeX converter against mathml-to-latex (np
 using the W3C MathML 3 Presentation test suite.
 
 For each test:
-  - Run our Python converter  (jatsdown.mathml.mml_to_tex)
+  - Run our Python converter  (litdown.mathml.mml_to_tex)
   - Run mathml-to-latex       (via mml2tex_shim.js)
   - If they agree: record pass
   - If they disagree: render both outputs + fetch W3C reference PNG,
@@ -33,7 +33,7 @@ from defusedxml.ElementTree import fromstring as defused_fromstring
 
 _ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(_ROOT))
-from jatsdown.mathml import mml_to_tex  # noqa: E402
+from litdown.mathml import mml_to_tex  # noqa: E402
 
 # ---------------------------------------------------------------------------
 # Config

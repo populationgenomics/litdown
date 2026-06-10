@@ -4,7 +4,7 @@
 #     python tools/fetch_pmc.py --manifest tests/fixtures/MANIFEST.txt
 #
 # Lines starting with '#' and blank lines are ignored. One PMCID per line.
-# Each article's licence is declared in the JATS XML; jatsdown does not
+# Each article's licence is declared in the JATS XML; litdown does not
 # redistribute these files. See README "Fetching test fixtures".
 
 PMC10017121

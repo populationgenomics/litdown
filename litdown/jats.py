@@ -9,7 +9,7 @@ from pathlib import Path
 
 from defusedxml.ElementTree import parse as defused_parse
 
-from jatsdown.mathml import mml_to_tex, render_mathml  # noqa: F401
+from litdown.mathml import mml_to_tex, render_mathml  # noqa: F401
 
 XLINK_NS = 'http://www.w3.org/1999/xlink'
 MML_NS = 'http://www.w3.org/1998/Math/MathML'
@@ -1151,7 +1151,7 @@ def _formula_body(formula: ET.Element, display: bool) -> str:
     order:
       1. <tex-math>           — author-authored LaTeX (preferred for
                                  fidelity to source intent).
-      2. <math> (MathML)      — converted via jatsdown.mathml.
+      2. <math> (MathML)      — converted via litdown.mathml.
       3. <graphic>/<inline-graphic> — image fallback for pre-MathML
                                        publisher tooling.
 

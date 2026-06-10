@@ -1,4 +1,4 @@
-"""Comprehensive unittest suite for jatsdown.mathml.
+"""Comprehensive unittest suite for litdown.mathml.
 
 Structure:
   - Tier 1  HandWritten*  — per-element white-box tests
@@ -25,7 +25,7 @@ from pathlib import Path
 
 from defusedxml.ElementTree import fromstring as defused_fromstring
 
-from jatsdown.mathml import mml_to_tex, render_mathml
+from litdown.mathml import mml_to_tex, render_mathml
 
 # ---------------------------------------------------------------------------
 # Helpers

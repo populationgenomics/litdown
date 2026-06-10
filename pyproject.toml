@@ -3,14 +3,14 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "jatsdown"
-version = "0.1.0"
-description = "Convert JATS XML articles (with MathML) to Markdown."
+name = "litdown"
+version = "0.2.0"
+description = "Convert scholarly full-text XML (JATS, Elsevier) to Markdown."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [{ name = "Toby Sargeant" }]
-keywords = ["jats", "pmc", "markdown", "mathml", "latex"]
+keywords = ["jats", "elsevier", "pmc", "markdown", "mathml", "latex"]
 dependencies = ["defusedxml>=0.7"]
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -19,11 +19,11 @@ classifiers = [
 ]
 
 [project.urls]
-Repository = "https://github.com/populationgenomics/jatsdown"
-Issues = "https://github.com/populationgenomics/jatsdown/issues"
+Repository = "https://github.com/populationgenomics/litdown"
+Issues = "https://github.com/populationgenomics/litdown/issues"
 
 [project.scripts]
-jatsdown = "jatsdown.__main__:main"
+litdown = "litdown.__main__:main"
 
 [project.optional-dependencies]
 # Used only by tools/grade_mml.py (Gemini-based MathML grading harness).
@@ -31,11 +31,11 @@ grading = ["google-genai"]
 dev = ["pytest"]
 
 [tool.setuptools.packages.find]
-include = ["jatsdown*"]
+include = ["litdown*"]
 exclude = ["tests*", "tools*"]
 
 [tool.setuptools.package-data]
-jatsdown = ["py.typed"]
+litdown = ["py.typed"]
 
 [tool.ruff]
 line-length = 120
@@ -89,7 +89,7 @@ ignore = [
 ]
 
 [tool.mypy]
-files = ["jatsdown", "tests"]
+files = ["litdown", "tests"]
 strict_optional = true
 check_untyped_defs = true
 

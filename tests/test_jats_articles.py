@@ -1,9 +1,9 @@
 """Structural assertions over JATS fixtures.
 
 Each fixture under ``tests/fixtures/<PMCID>/`` is converted with
-:func:`jatsdown.convert` and a handful of targeted invariants are
+:func:`litdown.convert` and a handful of targeted invariants are
 checked against the source XML. The aim is a regression suite that
-catches real coverage gaps in ``jatsdown.jats`` — not a golden-file
+catches real coverage gaps in ``litdown.jats`` — not a golden-file
 diff.
 
 Known bugs (cases where a fixture currently fails an invariant) are
@@ -23,7 +23,7 @@ from pathlib import Path
 import pytest
 from defusedxml.ElementTree import parse as defused_parse
 
-from jatsdown import convert
+from litdown import convert
 
 FIXTURES_DIR = Path(__file__).parent / 'fixtures'
 
