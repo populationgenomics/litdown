@@ -97,11 +97,7 @@ def test_every_bib_reference_anchored(article: Article) -> None:
 
 def test_every_float_anchored(article: Article) -> None:
     float_ids = [
-        eid
-        for e in article.root.iter()
-        if _local(e.tag) in ('figure', 'table')
-        for eid in [e.get('id')]
-        if eid
+        eid for e in article.root.iter() if _local(e.tag) in ('figure', 'table') for eid in [e.get('id')] if eid
     ]
     missing = [fid for fid in float_ids if not _has_anchor(article.md, fid)]
     assert not missing, f'{len(missing)} float ids missing anchor: {missing[:5]}'

@@ -5,8 +5,10 @@ repos:
       - id: check-yaml
         exclude: '\.*conda/.*'
       - id: end-of-file-fixer
+        # Vendored Elsevier fixtures are verbatim API responses — don't mangle.
+        exclude: '^tests/fixtures/elsevier/.*\.xml$'
       - id: trailing-whitespace
-        exclude: '\.txt$|\.tsv$'
+        exclude: '\.txt$|\.tsv$|^tests/fixtures/elsevier/.*\.xml$'
       - id: check-case-conflict
       - id: check-merge-conflict
       - id: detect-private-key
