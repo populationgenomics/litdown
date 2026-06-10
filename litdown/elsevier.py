@@ -55,6 +55,10 @@ _INLINE_CANONICAL = {
 
 _YEAR_RE = re.compile(r'\b(\d{4})\b')
 
+# Bibliography entry element types (a free-text <other-ref> or a structured
+# <bib-reference>). Used to identify top-level reference entries.
+_ENTRY_TAGS = ('bib-reference', 'other-ref')
+
 
 def _find(elem: ET.Element, name: str) -> ET.Element | None:
     """First descendant (or self) with the given local tag name."""
@@ -1165,29 +1169,27 @@ def _render_bibliography(renderer: _Renderer, tail: ET.Element) -> str:
     blocks: list[str] = []
     for container_tag, default_title in (('bibliography', 'References'), ('further-reading', 'Further reading')):
         for container in (x for x in tail.iter() if get_tag(x) == container_tag):
-            # An entry is a <bib-reference> or a *top-level* <other-ref>. An
-            # <other-ref> nested inside a <bib-reference> is the free-text body
-            # of that reference (handled by _reference), so it must not be
-            # collected as a separate entry — otherwise the citation renders
-            # twice (an empty bib-reference plus the nested other-ref).
+            # A reference entry is a *top-level* <bib-reference> or <other-ref>
+            # — one not nested inside another entry. A nested <other-ref> is
+            # the free-text body of its parent <bib-reference> (rendered by
+            # _reference), so collecting it separately would render the
+            # citation twice. The "no entry inside another entry" rule is
+            # structural (not content-based), so it dedupes by construction
+            # for any nesting without ever dropping a distinct citation.
             parent: dict[int, ET.Element] = {}
             for p in container.iter():
                 for c in p:
                     parent[id(c)] = p
 
-            def _nested_in_bibref(e: ET.Element, _parent: dict[int, ET.Element] = parent) -> bool:
+            def _nested_in_entry(e: ET.Element, _parent: dict[int, ET.Element] = parent) -> bool:
                 cur = _parent.get(id(e))
                 while cur is not None:
-                    if get_tag(cur) == 'bib-reference':
+                    if get_tag(cur) in _ENTRY_TAGS:
                         return True
                     cur = _parent.get(id(cur))
                 return False
 
-            refs = [
-                x
-                for x in container.iter()
-                if get_tag(x) == 'bib-reference' or (get_tag(x) == 'other-ref' and not _nested_in_bibref(x))
-            ]
+            refs = [x for x in container.iter() if get_tag(x) in _ENTRY_TAGS and not _nested_in_entry(x)]
             if not refs:
                 continue
             title = _text(_child(container, 'section-title')) or default_title

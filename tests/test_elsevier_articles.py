@@ -152,6 +152,46 @@ def test_no_dangling_links(article: Article) -> None:
     assert not dangling, f'{len(dangling)} dangling link targets: {dangling[:5]}'
 
 
+def test_no_duplicate_anchors(article: Article) -> None:
+    """No `<a id>` is emitted twice — a precise signal of any double-render.
+
+    A duplicate anchor means some element (a bibliography entry, a float,
+    a section) was rendered more than once. This is a general guard, not
+    bibliography-specific, and also makes the in-document links it backs
+    unambiguous.
+    """
+    ids = re.findall(r'<a id="([^"]+)"></a>', article.md)
+    dups = sorted({i for i in ids if ids.count(i) > 1})
+    assert not dups, f'{len(dups)} anchor id(s) emitted more than once: {dups[:5]}'
+
+
+def test_bibliography_entries_unique(article: Article) -> None:
+    """No two reference entries render identical citation text.
+
+    Elsevier encodes free-text citations as an `<other-ref>/<textref>`
+    nested inside `<bib-reference>`; a naive walk renders both the wrapper
+    and the nested ref, duplicating the citation. This asserts the
+    rendered "## References" list has no repeated entry (anchors + leading
+    label stripped), regardless of the source nesting.
+    """
+    refs_idx = article.md.find('\n## References')
+    if refs_idx < 0:
+        pytest.skip('no References section')
+    block = article.md[refs_idx:]
+    # An entry begins at each anchor line within the references block.
+    entries = re.split(r'(?=<a id=")', block)
+    bodies = []
+    for e in entries:
+        if '<a id="' not in e:
+            continue
+        body = re.sub(r'<a id="[^"]+"></a>', '', e)
+        body = re.sub(r'^\s*\[?\d+\]?[.)]?\s*', '', body).strip()
+        if body:
+            bodies.append(' '.join(body.split()))
+    dups = sorted({b for b in bodies if bodies.count(b) > 1})
+    assert not dups, f'{len(dups)} duplicate reference entr(ies): {[d[:60] for d in dups[:3]]}'
+
+
 def test_cross_ref_targets_resolve(article: Article) -> None:
     """Every ce:cross-ref refid resolves to an emitted anchor.
 
