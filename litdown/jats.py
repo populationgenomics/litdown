@@ -5,14 +5,26 @@ Public entry point: :func:`convert`.
 
 import re
 import xml.etree.ElementTree as ET
-from pathlib import Path
 
-from defusedxml.ElementTree import parse as defused_parse
-
+from litdown.common import (
+    MML_NS,
+    XLINK_NS,
+    get_tag,
+    inline_wrap,
+    md_escape_cell,
+    render_grid,
+    xlink_href,
+)
 from litdown.mathml import mml_to_tex, render_mathml  # noqa: F401
 
-XLINK_NS = 'http://www.w3.org/1999/xlink'
-MML_NS = 'http://www.w3.org/1998/Math/MathML'
+__all__ = [
+    'MML_NS',
+    'XLINK_NS',
+    'get_tag',
+    'md_escape_cell',
+    'render',
+    'xlink_href',
+]
 
 
 # Mapping from common <ext-link ext-link-type="..."> values to a URL
@@ -101,25 +113,6 @@ def _extract_tex(tex_math_el: ET.Element) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
-
-
-def get_tag(elem: ET.Element) -> str:
-    tag = elem.tag
-    return tag.split('}', 1)[1] if '}' in tag else tag
-
-
-def xlink_href(elem: ET.Element) -> str:
-    return elem.get(f'{{{XLINK_NS}}}href') or elem.get('href') or ''
-
-
-def md_escape_cell(text: str) -> str:
-    """Escape pipe characters inside a markdown table cell."""
-    return text.replace('|', '\\|')
-
-
-# ---------------------------------------------------------------------------
 # Inline renderer  (elem → markdown string, no trailing newline)
 # ---------------------------------------------------------------------------
 
@@ -137,22 +130,13 @@ def inline_to_md(elem: ET.Element | None) -> str:
         tag = get_tag(child)
         inner = inline_to_md(child)
 
-        if tag == 'italic':
-            buf.append(f'*{inner}*')
-        elif tag == 'bold':
-            buf.append(f'**{inner}**')
-        elif tag == 'sup':
-            buf.append(f'<sup>{inner}</sup>')
-        elif tag == 'sub':
-            buf.append(f'<sub>{inner}</sub>')
-        elif tag == 'underline':
-            buf.append(f'<u>{inner}</u>')
-        elif tag == 'monospace':
-            # Use a backtick code span for inline code-like content. Doubles
-            # as the markdown convention for variable names, file paths, etc.
-            buf.append(f'`{inner}`')
-        elif tag == 'strike':
-            buf.append(f'~~{inner}~~')
+        # Shared inline typographic leaves (italic/bold/sup/sub/underline/
+        # monospace/strike). JATS tag names line up 1:1 with the canonical
+        # keys, so no remapping is needed. monospace → backtick code span
+        # doubles as the markdown convention for variable names, paths, etc.
+        wrapped = inline_wrap(tag, inner)
+        if wrapped is not None:
+            buf.append(wrapped)
         elif tag == 'break':
             buf.append('<br>')
         elif tag in ('sc', 'overline', 'roman', 'sans-serif', 'ruby'):
@@ -1035,7 +1019,9 @@ def render_table_wrap(tw: ET.Element) -> str:
 
 
 def render_table(table: ET.Element) -> str:
-    def get_cells_raw(tr):
+    """Render an XHTML-model JATS <table> (thead/tbody/tr/td/th)."""
+
+    def get_cells_raw(tr: ET.Element) -> list[tuple[str, int, int]]:
         """Return list of (content, colspan, rowspan) for each cell in a row."""
         cells = []
         for cell in tr.findall('td') + tr.findall('th'):
@@ -1044,35 +1030,6 @@ def render_table(table: ET.Element) -> str:
             rowspan = max(1, int(cell.get('rowspan', 1)))
             cells.append((content, colspan, rowspan))
         return cells
-
-    def expand_rows(raw_rows):
-        """Expand colspan/rowspan into a rectangular grid of strings.
-
-        colspan > 1: content in the first slot, empty string in the rest
-                     (preserves the column label without duplicating it).
-        rowspan > 1: content repeated in each spanned row
-                     (keeps every row self-contained for an LLM reader).
-        """
-        if not raw_rows:
-            return []
-        occupied: dict[tuple[int, int], str] = {}
-        for row_idx, cells in enumerate(raw_rows):
-            col_idx = 0
-            for content, colspan, rowspan in cells:
-                # Advance past any cells already occupied by a rowspan above.
-                while (row_idx, col_idx) in occupied:
-                    col_idx += 1
-                for dr in range(rowspan):
-                    for dc in range(colspan):
-                        # Repeat content across rowspan; use "" for extra colspan slots.
-                        occupied[(row_idx + dr, col_idx + dc)] = content if dc == 0 else ''
-                col_idx += colspan
-
-        if not occupied:
-            return []
-        nrows = max(r for r, _ in occupied) + 1
-        ncols = max(c for _, c in occupied) + 1
-        return [[occupied.get((r, c), '') for c in range(ncols)] for r in range(nrows)]
 
     header_rows_raw = []
     thead = table.find('thead')
@@ -1086,52 +1043,7 @@ def render_table(table: ET.Element) -> str:
         for tr in tbody.findall('tr'):
             body_rows_raw.append(get_cells_raw(tr))
 
-    header_rows = expand_rows(header_rows_raw)
-    body_rows = expand_rows(body_rows_raw)
-
-    all_rows = header_rows + body_rows
-    if not all_rows:
-        return ''
-
-    ncols = max(len(r) for r in all_rows)
-
-    def pad(row):
-        return row + [''] * (ncols - len(row))
-
-    # Markdown tables only support a single header row. When the source
-    # has a multi-row header (Nature / extended-data tables routinely use
-    # 2-4 levels), collapse them column-by-column: take each column's
-    # non-empty values from top to bottom and join with " / ". Skip
-    # decorator-only rows (e.g. <hr/>).
-    def is_decorator(row):
-        text = ''.join(row).strip()
-        return text in {'', '<hr/>', '<hr />'}
-
-    real_header_rows = [pad(r) for r in header_rows if not is_decorator(r)]
-    if real_header_rows:
-        combined = []
-        for col in range(ncols):
-            seen: list[str] = []
-            for r in real_header_rows:
-                v = r[col].strip()
-                if v and v not in seen:
-                    seen.append(v)
-            combined.append(' / '.join(seen))
-    else:
-        combined = []
-
-    lines = []
-    if combined:
-        lines.append('| ' + ' | '.join(combined) + ' |')
-        lines.append('| ' + ' | '.join(['---'] * ncols) + ' |')
-    else:
-        lines.append('| ' + ' | '.join([''] * ncols) + ' |')
-        lines.append('| ' + ' | '.join(['---'] * ncols) + ' |')
-
-    for row in body_rows:
-        lines.append('| ' + ' | '.join(pad(row)) + ' |')
-
-    return '\n'.join(lines)
+    return render_grid(header_rows_raw, body_rows_raw)
 
 
 def render_list(lst: ET.Element) -> str:
@@ -1578,12 +1490,12 @@ def render_ref_list(ref_list: ET.Element) -> str:
 _ADJACENT_SUP_RE = re.compile(r'</sup>[ \t]*<sup>')
 
 
-def convert(xml_path: str | Path) -> str:
-    tree = defused_parse(xml_path)
-    root = tree.getroot()
-    if root is None:
-        return ''
+def render(root: ET.Element) -> str:
+    """Render a parsed JATS ``<article>`` root to Markdown.
 
+    The dispatcher in :func:`litdown.convert` parses and sniffs the root,
+    then calls this; it does not re-parse.
+    """
     sections = []
 
     front = root.find('front')

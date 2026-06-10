@@ -1,0 +1,569 @@
+<full-text-retrieval-response xmlns="http://www.elsevier.com/xml/svapi/article/dtd" xmlns:bk="http://www.elsevier.com/xml/bk/dtd" xmlns:cals="http://www.elsevier.com/xml/common/cals/dtd" xmlns:ce="http://www.elsevier.com/xml/common/dtd" xmlns:ja="http://www.elsevier.com/xml/ja/dtd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:sa="http://www.elsevier.com/xml/common/struct-aff/dtd" xmlns:sb="http://www.elsevier.com/xml/common/struct-bib/dtd" xmlns:tb="http://www.elsevier.com/xml/common/table/dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xocs="http://www.elsevier.com/xml/xocs/dtd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><coredata><prism:url>https://api.elsevier.com/content/article/pii/S2666389926000498</prism:url><dc:identifier>doi:10.1016/j.patter.2026.101540</dc:identifier><eid>1-s2.0-S2666389926000498</eid><prism:doi>10.1016/j.patter.2026.101540</prism:doi><pii>S2666-3899(26)00049-8</pii><dc:title>Encouraging productive struggle in the age of generative AI </dc:title><prism:publicationName>Patterns</prism:publicationName><prism:aggregationType>Journal</prism:aggregationType><pubType>ins</pubType><prism:issn>26663899</prism:issn><prism:volume>7</prism:volume><prism:issueIdentifier>5</prism:issueIdentifier><prism:startingPage>101540</prism:startingPage><prism:pageRange>101540</prism:pageRange><prism:number>5</prism:number><articleNumber>101540</articleNumber><dc:format>text/xml</dc:format><prism:coverDate>2026-05-08</prism:coverDate><prism:coverDisplayDate>8 May 2026</prism:coverDisplayDate><prism:copyright>© 2026 The Author(s). Published by Elsevier Inc.</prism:copyright><prism:publisher>The Author(s). Published by Elsevier Inc.</prism:publisher><dc:creator>Biswas, Andrei</dc:creator><dc:creator>Venkatesaramani, Rajagopal</dc:creator><dc:description>
+                  Computer science (CS) educators are increasingly concerned about students offloading thinking to generative AI (GenAI) tools. Reflecting on experiences teaching a foundational AI course, the authors argue that the community must rethink supportive environments for productive failure and better connect CS concepts to industry contexts to encourage interdisciplinary thinking alongside technical depth.
+               </dc:description><openaccess>1</openaccess><openaccessArticle>true</openaccessArticle><openaccessType>Full</openaccessType><openArchiveArticle>false</openArchiveArticle><openaccessSponsorName/><openaccessSponsorType>ElsevierWaived</openaccessSponsorType><openaccessUserLicense>http://creativecommons.org/licenses/by/4.0/</openaccessUserLicense><link href="https://api.elsevier.com/content/article/pii/S2666389926000498" rel="self"/><link href="https://www.sciencedirect.com/science/article/pii/S2666389926000498" rel="scidir"/></coredata><objects><object ref="fx1" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="243" height="335" size="28067">https://api.elsevier.com/content/object/eid/1-s2.0-S2666389926000498-fx1.jpg?httpAccept=%2A%2F%2A</object><object ref="fx2" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="243" height="238" size="26919">https://api.elsevier.com/content/object/eid/1-s2.0-S2666389926000498-fx2.jpg?httpAccept=%2A%2F%2A</object><object ref="fx1" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="119" height="164" size="17184">https://api.elsevier.com/content/object/eid/1-s2.0-S2666389926000498-fx1.sml?httpAccept=%2A%2F%2A</object><object ref="fx2" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="167" height="163" size="24879">https://api.elsevier.com/content/object/eid/1-s2.0-S2666389926000498-fx2.sml?httpAccept=%2A%2F%2A</object><object ref="fx1" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="1079" height="1487" size="240370">https://api.elsevier.com/content/object/eid/1-s2.0-S2666389926000498-fx1_lrg.jpg?httpAccept=%2A%2F%2A</object><object ref="fx2" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="1079" height="1055" size="246650">https://api.elsevier.com/content/object/eid/1-s2.0-S2666389926000498-fx2_lrg.jpg?httpAccept=%2A%2F%2A</object></objects><scopus-id>105038150477</scopus-id><scopus-eid>2-s2.0-105038150477</scopus-eid><link href="https://api.elsevier.com/content/abstract/scopus_id/105038150477" rel="abstract"/><originalText><xocs:doc xsi:schemaLocation="http://www.elsevier.com/xml/xocs/dtd http://null/schema/dtds/document/fulltext/xcr/xocs-article.xsd"><xocs:meta xmlns:xoe="http://www.elsevier.com/xml/xoe/dtd">
+      <xocs:content-family>serial</xocs:content-family>
+      <xocs:content-type>JL</xocs:content-type>
+      <xocs:cid>776857</xocs:cid>
+      <xocs:ssids>
+         <xocs:ssid type="alllist">291210</xocs:ssid>
+         <xocs:ssid type="subj">291813</xocs:ssid>
+         <xocs:ssid type="subj">291814</xocs:ssid>
+         <xocs:ssid type="subj">291866</xocs:ssid>
+         <xocs:ssid type="subj">291870</xocs:ssid>
+         <xocs:ssid type="content">31</xocs:ssid>
+         <xocs:ssid type="oa">90</xocs:ssid>
+      </xocs:ssids>
+      <xocs:srctitle>Patterns</xocs:srctitle>
+      <xocs:normalized-srctitle>PATTERNS</xocs:normalized-srctitle>
+      <xocs:orig-load-date yyyymmdd="20260508">2026-05-08</xocs:orig-load-date>
+      <xocs:available-online-date yyyymmdd="20260508">2026-05-08</xocs:available-online-date>
+      <xocs:vor-load-date yyyymmdd="20260508">2026-05-08</xocs:vor-load-date>
+      <xocs:vor-available-online-date yyyymmdd="20260508">2026-05-08</xocs:vor-available-online-date>
+      <xocs:ew-transaction-id>2026-05-07T16:35:35.358342Z</xocs:ew-transaction-id>
+      <xocs:eid>1-s2.0-S2666389926000498</xocs:eid>
+      <xocs:pii-formatted>S2666-3899(26)00049-8</xocs:pii-formatted>
+      <xocs:pii-unformatted>S2666389926000498</xocs:pii-unformatted>
+      <xocs:doi>10.1016/j.patter.2026.101540</xocs:doi>
+      <xocs:item-stage>S300</xocs:item-stage>
+      <xocs:item-version-number>S300.1</xocs:item-version-number>
+      <xocs:item-weight>FULL-TEXT</xocs:item-weight>
+      <xocs:hub-eid>1-s2.0-S2666389925X00064</xocs:hub-eid>
+      <xocs:timestamp yyyymmdd="20260508">2026-05-08T14:36:15.603271Z</xocs:timestamp>
+      <xocs:dco>0</xocs:dco>
+      <xocs:tomb>0</xocs:tomb>
+      <xocs:date-search-begin>20260508</xocs:date-search-begin>
+      <xocs:year-nav>2026</xocs:year-nav>
+      <xocs:indexeddate epoch="1778254575">2026-05-08T15:36:15.603271Z</xocs:indexeddate>
+      <xocs:articleinfo>articleinfo articlenumber articletitlenorm authfirstinitialnorm authfirstsurnamenorm cid cids contenttype copyright crossmark dateloaded dateloadedtxt datesearch datesort dateupdated dco docsubtype doctype doi eid ewtransactionid fundingbodyid hubeid indexeddate issfirst issn issnnorm issuelist itemstage itemtransactionid itemweight oauserlicense openaccess openarchive pg pgfirst pii piinorm pubdatestart pubdatetxt pubyr sectiontitle sortorder sponsoredaccesstype srctitle srctitlenorm srctype ssids alllist content oa subj subheadings tomb volfirst volissue volumelist webpdf webpdfpagecount yearnav figure body affil articletitle auth authfirstini authfull authlast primabst pubtype ref teaserabst vitae</xocs:articleinfo>
+      <xocs:issns>
+         <xocs:issn-primary-formatted>2666-3899</xocs:issn-primary-formatted>
+         <xocs:issn-primary-unformatted>26663899</xocs:issn-primary-unformatted>
+      </xocs:issns>
+      <xocs:sponsored-access-type>UNLIMITED</xocs:sponsored-access-type>
+      <xocs:funding-body-id>NONE</xocs:funding-body-id>
+      <xocs:crossmark is-crossmark="1">true</xocs:crossmark>
+      <xocs:vol-first>7</xocs:vol-first>
+      <xocs:volume-list>
+         <xocs:volume>7</xocs:volume>
+      </xocs:volume-list>
+      <xocs:iss-first>5</xocs:iss-first>
+      <xocs:issue-list>
+         <xocs:issue>5</xocs:issue>
+      </xocs:issue-list>
+      <xocs:vol-iss-suppl-text>Volume 7, Issue 5</xocs:vol-iss-suppl-text>
+      <xocs:sort-order>1</xocs:sort-order>
+      <xocs:first-fp>101540</xocs:first-fp>
+      <xocs:article-number>101540</xocs:article-number>
+      <xocs:pages>
+         <xocs:first-page>101540</xocs:first-page>
+      </xocs:pages>
+      <xocs:cover-date-orig>
+         <xocs:start-date>20260508</xocs:start-date>
+      </xocs:cover-date-orig>
+      <xocs:cover-date-text>8 May 2026</xocs:cover-date-text>
+      <xocs:cover-date-start>2026-05-08</xocs:cover-date-start>
+      <xocs:cover-date-year>2026</xocs:cover-date-year>
+      <xocs:hub-sec>
+         <xocs:hub-sec-title>Opinion</xocs:hub-sec-title>
+      </xocs:hub-sec>
+      <xocs:document-type>simple-article</xocs:document-type>
+      <xocs:document-subtype>ins</xocs:document-subtype>
+      <xocs:copyright-line>© 2026 The Author(s). Published by Elsevier Inc.</xocs:copyright-line>
+      <xocs:normalized-article-title>ENCOURAGINGPRODUCTIVESTRUGGLEINAGEGENERATIVEAI</xocs:normalized-article-title>
+      <xocs:normalized-first-auth-surname>BISWAS</xocs:normalized-first-auth-surname>
+      <xocs:normalized-first-auth-initial>A</xocs:normalized-first-auth-initial>
+      <xocs:item-toc>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-section-title>Main text</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-section-title>Declaration of interests</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:bibliography">
+            <xocs:item-toc-section-title>References</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+      </xocs:item-toc>
+      <xocs:references>
+         <xocs:ref-info refid="sref1">
+            <xocs:ref-normalized-surname>KAPUR</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2008</xocs:ref-pub-year>
+            <xocs:ref-first-fp>379</xocs:ref-first-fp>
+            <xocs:ref-last-lp>424</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>M</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sref2"/>
+         <xocs:ref-info refid="sref3">
+            <xocs:ref-normalized-surname>TAN</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2023</xocs:ref-pub-year>
+            <xocs:ref-first-fp>565</xocs:ref-first-fp>
+            <xocs:ref-last-lp>588</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>B</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sref4">
+            <xocs:ref-normalized-surname>HORNSTEIN</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2017</xocs:ref-pub-year>
+            <xocs:ref-article-number>1304016</xocs:ref-article-number>
+            <xocs:ref-normalized-initial>H</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sref5">
+            <xocs:ref-pub-year>2018</xocs:ref-pub-year>
+            <xocs:ref-normalized-srctitle>ASSESSINGRESPONDINGGROWTHCOMPUTERSCIENCEUNDERGRADUATEENROLLMENTS</xocs:ref-normalized-srctitle>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sref6"/>
+         <xocs:ref-info refid="sref7">
+            <xocs:ref-normalized-surname>NIELSEN</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2024</xocs:ref-pub-year>
+            <xocs:ref-normalized-initial>R</xocs:ref-normalized-initial>
+            <xocs:ref-normalized-srctitle>HOWNEWSCOVERAGEOFTENUNCRITICALHELPSBUILDUPAIHYPE</xocs:ref-normalized-srctitle>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sref8">
+            <xocs:ref-normalized-surname>GRABMEIER</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2024</xocs:ref-pub-year>
+            <xocs:ref-normalized-initial>J</xocs:ref-normalized-initial>
+            <xocs:ref-normalized-srctitle>HOWADOUBLEMAJORINCOLLEGECANPROTECTFUTUREINCOME</xocs:ref-normalized-srctitle>
+         </xocs:ref-info>
+      </xocs:references>
+      <xocs:refkeys>
+         <xocs:refkey3>BISWASX2026X101540</xocs:refkey3>
+         <xocs:refkey4ai>BISWASX2026X101540XA</xocs:refkey4ai>
+      </xocs:refkeys>
+      <xocs:open-access>
+         <xocs:oa-article-status is-open-access="1" is-open-archive="0">Full</xocs:oa-article-status>
+         <xocs:oa-access-effective-date>2026-03-18T14:40:45Z</xocs:oa-access-effective-date>
+         <xocs:oa-sponsor>
+            <xocs:oa-sponsor-type>ElsevierWaived</xocs:oa-sponsor-type>
+         </xocs:oa-sponsor>
+         <xocs:oa-user-license>http://creativecommons.org/licenses/by/4.0/</xocs:oa-user-license>
+      </xocs:open-access>
+      <xocs:copyright-info>
+         <xocs:cp-license-lines>
+            <xocs:cp-license-line lang="en">This is an open access article under the CC BY license.</xocs:cp-license-line>
+         </xocs:cp-license-lines>
+         <xocs:cp-notices>
+            <xocs:cp-notice lang="en">© 2026 The Author(s). Published by Elsevier Inc.</xocs:cp-notice>
+         </xocs:cp-notices>
+      </xocs:copyright-info>
+      <xocs:article-sharing-framework/>
+      <xocs:attachment-metadata-doc>
+         <xocs:attachment-set-type>item</xocs:attachment-set-type>
+         <xocs:pii-formatted>S2666-3899(26)00049-8</xocs:pii-formatted>
+         <xocs:pii-unformatted>S2666389926000498</xocs:pii-unformatted>
+         <xocs:eid>1-s2.0-S2666389926000498</xocs:eid>
+         <xocs:doi>10.1016/j.patter.2026.101540</xocs:doi>
+         <xocs:cid>776857</xocs:cid>
+         <xocs:timestamp>2026-05-08T14:36:15.603271Z</xocs:timestamp>
+         <xocs:cover-date-start>2026-05-08</xocs:cover-date-start>
+         <xocs:sponsored-access-type>UNLIMITED</xocs:sponsored-access-type>
+         <xocs:funding-body-id>NONE</xocs:funding-body-id>
+         <xocs:attachments>
+            <xocs:web-pdf>
+               <xocs:attachment-eid>1-s2.0-S2666389926000498-main.pdf</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666389926000498/MAIN/application/pdf/5b21bf864e1ec55dd5b32cdebe05b870/main.pdf</xocs:ucs-locator>
+               <xocs:filename>main.pdf</xocs:filename>
+               <xocs:extension>pdf</xocs:extension>
+               <xocs:pdf-optimized>true</xocs:pdf-optimized>
+               <xocs:filesize>2803778</xocs:filesize>
+               <xocs:web-pdf-purpose>MAIN</xocs:web-pdf-purpose>
+               <xocs:web-pdf-page-count>3</xocs:web-pdf-page-count>
+               <xocs:web-pdf-images>
+                  <xocs:web-pdf-image>
+                     <xocs:attachment-eid>1-s2.0-S2666389926000498-main_1.png</xocs:attachment-eid>
+                     <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666389926000498/PREVIEW/image/png/6d8ed49cc99dd0c422afeef708e9f7b8/main_1.png</xocs:ucs-locator>
+                     <xocs:filename>main_1.png</xocs:filename>
+                     <xocs:extension>png</xocs:extension>
+                     <xocs:filesize>114928</xocs:filesize>
+                     <xocs:pixel-height>928</xocs:pixel-height>
+                     <xocs:pixel-width>656</xocs:pixel-width>
+                     <xocs:attachment-type>IMAGE-WEB-PDF</xocs:attachment-type>
+                     <xocs:pdf-page-num>1</xocs:pdf-page-num>
+                  </xocs:web-pdf-image>
+               </xocs:web-pdf-images>
+            </xocs:web-pdf>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666389926000498-fx1.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666389926000498/fx1/DOWNSAMPLED/image/jpeg/1c19a110c3890beb6c6992b7574c88fa/fx1.jpg</xocs:ucs-locator>
+               <xocs:file-basename>fx1</xocs:file-basename>
+               <xocs:filename>fx1.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>28067</xocs:filesize>
+               <xocs:pixel-height>335</xocs:pixel-height>
+               <xocs:pixel-width>243</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666389926000498-fx2.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666389926000498/fx2/DOWNSAMPLED/image/jpeg/e5e63c3abf0e2f1363964d53feef43e3/fx2.jpg</xocs:ucs-locator>
+               <xocs:file-basename>fx2</xocs:file-basename>
+               <xocs:filename>fx2.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>26919</xocs:filesize>
+               <xocs:pixel-height>238</xocs:pixel-height>
+               <xocs:pixel-width>243</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666389926000498-fx1.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666389926000498/fx1/THUMBNAIL/image/gif/9bacada9f2f24f955316ef3388f20099/fx1.sml</xocs:ucs-locator>
+               <xocs:file-basename>fx1</xocs:file-basename>
+               <xocs:filename>fx1.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>17184</xocs:filesize>
+               <xocs:pixel-height>164</xocs:pixel-height>
+               <xocs:pixel-width>119</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666389926000498-fx2.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666389926000498/fx2/THUMBNAIL/image/gif/ff921aef75788dc82ed45fa0b389f8fc/fx2.sml</xocs:ucs-locator>
+               <xocs:file-basename>fx2</xocs:file-basename>
+               <xocs:filename>fx2.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>24879</xocs:filesize>
+               <xocs:pixel-height>163</xocs:pixel-height>
+               <xocs:pixel-width>167</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666389926000498-fx1_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666389926000498/HIGHRES/image/jpeg/c45b3fba6280973276bb601c0b71b1df/fx1_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>fx1</xocs:file-basename>
+               <xocs:filename>fx1_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>240370</xocs:filesize>
+               <xocs:pixel-height>1487</xocs:pixel-height>
+               <xocs:pixel-width>1079</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666389926000498-fx2_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666389926000498/HIGHRES/image/jpeg/04b415fcba33cb1c1277e02e6596875a/fx2_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>fx2</xocs:file-basename>
+               <xocs:filename>fx2_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>246650</xocs:filesize>
+               <xocs:pixel-height>1055</xocs:pixel-height>
+               <xocs:pixel-width>1079</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+         </xocs:attachments>
+      </xocs:attachment-metadata-doc>
+   </xocs:meta><xocs:serial-item xmlns:xoe="http://www.elsevier.com/xml/xoe/dtd">
+      <simple-article xmlns="http://www.elsevier.com/xml/ja/dtd" docsubtype="ins" version="5.7" xml:lang="en">
+         <item-info>
+            <jid>PATTER</jid>
+            <aid>101540</aid>
+            <ce:article-number>101540</ce:article-number>
+            <ce:pii>S2666-3899(26)00049-8</ce:pii>
+            <ce:doi>10.1016/j.patter.2026.101540</ce:doi>
+            <ce:copyright type="other" year="2026">The Author(s)</ce:copyright>
+         </item-info>
+         <simple-head>
+            <ce:dochead id="dhead0010">
+               <ce:textfn>Opinion</ce:textfn>
+            </ce:dochead>
+            <ce:title id="title0010">Encouraging productive struggle in the age of generative AI</ce:title>
+            <ce:author-group id="augrp0010">
+               <ce:author id="au1" biographyid="vt1" author-id="S2666389926000498-bf732753dfb7ff0ff67a10943f848c01">
+                  <ce:given-name>Andrei</ce:given-name>
+                  <ce:surname>Biswas</ce:surname>
+                  <ce:cross-ref refid="aff1" id="crosref0010">
+                     <ce:sup loc="post">1</ce:sup>
+                  </ce:cross-ref>
+               </ce:author>
+               <ce:author id="au2" biographyid="vt2" author-id="S2666389926000498-10df23ee6cce23d215c3b4157abbeaf4">
+                  <ce:given-name>Rajagopal</ce:given-name>
+                  <ce:surname>Venkatesaramani</ce:surname>
+                  <ce:cross-ref refid="aff1" id="crosref0015">
+                     <ce:sup loc="post">1</ce:sup>
+                  </ce:cross-ref>
+                  <ce:cross-ref refid="cor1" id="crosref0020">
+                     <ce:sup loc="post">∗</ce:sup>
+                  </ce:cross-ref>
+                  
+               </ce:author>
+               <ce:affiliation id="aff1" affiliation-id="S2666389926000498-9d171a3f34109b71d264fb8611c7718e">
+                  <ce:label>1</ce:label>
+                  <ce:textfn>Khoury College of Computer Sciences, Northeastern University, Boston, MA 02115, USA</ce:textfn>
+                  <sa:affiliation>
+                     <sa:organization>Khoury College of Computer Sciences</sa:organization>
+                     <sa:organization>Northeastern University</sa:organization>
+                     <sa:city>Boston</sa:city>
+                     <sa:state>MA</sa:state>
+                     <sa:postal-code>02115</sa:postal-code>
+                     <sa:country iso3166-1-alpha-3="USA">USA</sa:country>
+                  </sa:affiliation>
+                  <ce:source-text id="srct0010">Khoury College of Computer Sciences, Northeastern University, Boston MA 02115, USA</ce:source-text>
+               </ce:affiliation>
+               <ce:correspondence id="cor1">
+                  <ce:label>∗</ce:label>
+                  <ce:text>Corresponding author</ce:text>
+               </ce:correspondence>
+            </ce:author-group>
+            <ce:abstract id="abs0010" view="all" class="author"><ce:abstract-sec id="abssec0010" view="all">
+                  <ce:simple-para id="abspara0010" view="all">Computer science (CS) educators are increasingly concerned about students offloading thinking to generative AI (GenAI) tools. Reflecting on experiences teaching a foundational AI course, the authors argue that the community must rethink supportive environments for productive failure and better connect CS concepts to industry contexts to encourage interdisciplinary thinking alongside technical depth.</ce:simple-para>
+               </ce:abstract-sec></ce:abstract>
+            <ce:abstract class="teaser" id="abs0015" view="all">
+               <ce:abstract-sec id="abssec0015" view="all">
+                  <ce:simple-para id="abspara0015" view="all">Computer science (CS) educators are increasingly concerned about students offloading thinking to generative AI (GenAI) tools. Reflecting on experiences teaching a foundational AI course, the authors argue that the community must rethink supportive environments for productive failure and better connect CS concepts to industry contexts to encourage interdisciplinary thinking alongside technical depth.</ce:simple-para>
+               </ce:abstract-sec>
+            </ce:abstract>
+         </simple-head>
+         <body view="all">
+            <ce:sections>
+               <ce:section id="sec1" view="all">
+                  <ce:section-title id="sectitle0010">Main text</ce:section-title>
+                  <ce:para id="p0010" view="all">Over the last half a century, nearly every educator has experienced at least one event that majorly impacted the pedagogical landscape. The introduction of digital calculators and the internet drew widespread concern (including protests) among educators, and today, the same can be said of generative AI (GenAI) tools. We believe that computer science (CS) fundamentally concerns itself with computational problem-solving rather than mere coding proficiency. But if that is the premise, then why would students cheat themselves of the very exercise that they signed up for to become CS practitioners? Our position is that GenAI tools have exacerbated an existing problem: a student pursuing a CS degree in today’s technological landscape lacks sufficient motivation to engage in productive struggle<ce:cross-ref refid="bib1" id="crosref0025">
+                        <ce:sup loc="post">1</ce:sup>
+                     </ce:cross-ref> in a traditional direct-instruction setting and, moreover, faces active disincentives to do so.</ce:para>
+                  <ce:para id="p0015" view="all">The first such disincentive, in our view, is students’ perceived importance of a perfect grade point average (GPA). We attribute such perceptions to (1) expectations set by upward trends in average high school GPA, (2) the consequences of high variance in letter grade assignments across courses, instructors, and institutions, and (3) artificial grade inflation.<ce:cross-ref refid="bib2" id="crosref0030">
+                        <ce:sup loc="post">2</ce:sup>
+                     </ce:cross-ref> Although demonstrated effort may contribute to a student’s grade at the middle and high school level, this is seldom the case in higher learning institutions, which emphasize outcomes. For a student who is used to being rewarded for working hard, being asked to spend hours on a problem where mistakes can cost them their grade can be a frustrating experience. Despite this, students are quick to acknowledge that effort is inherently subjective and cannot be graded using a quantitative rubric. Such situations can lead to low morale, which in turn may lead students to seek the path of least resistance to their desired letter grade. In addition to our own experiences, prior research<ce:cross-ref refid="bib3" id="crosref0035">
+                        <ce:sup loc="post">3</ce:sup>
+                     </ce:cross-ref> also indicates that students who score lower grades in initial courses refrain from taking more advanced courses, presumably due to low morale or to boost their overall GPA, or both, and yet end up with a lower cumulative GPA on average. Point (2) is challenging to address, since academic freedom and standardization can be viewed as somewhat incompatible. Our position is that academic freedom is central to scientific and pedagogical innovation, and therefore, must be preserved. However, we would like to acknowledge the challenges this presents for CS education. Grade-oriented students have a tendency to seek out sections or courses with higher average grade outcomes—whatever the reasons for such outcomes may be—even when the pedagogical techniques employed by instructors perceived as more “difficult” are better aligned with their needs. We also note that we do not fault such students for being grade oriented; rather, we wish to highlight the comedy of errors that has led to higher grades being perceived as the sole indicator of better post-graduation outcomes. Finally, grade inflation is a well-studied problem in higher education, which subsequently sets unrealistic standards and expectations for graduates. This is often a byproduct of adjunct and teaching-track faculty contracts and merit reviews being conditioned on student evaluations of teaching (SET), which have been shown to be notoriously unreliable indicators of teaching effectiveness.<ce:cross-ref refid="bib4" id="crosref0040">
+                        <ce:sup loc="post">4</ce:sup>
+                     </ce:cross-ref> These factors place undue pressure on faculty to placate students through diluted grading standards as a safeguard against loss of employment, and it is our opinion that faculty (adjunct/part-time/teaching-track faculty in particular) often feel inadequately supported in their defense of academic rigor.</ce:para>
+                  <ce:para id="p0020" view="all">The second key disincentive is the ease of access and short response times that GenAI tools offer, combined with widespread adoption. Superficially, those qualities seem like a point in favor of AI tools. But such rapid response times can be counterproductive to the objective of exercises designed to help students build the ability to formulate and express, rather than to simply arrive at and report solutions. In our experience, students are increasingly reluctant to engage with time-consuming problem-solving exercises unless explicitly encouraged to do so in a supportive environment such as office hours. We see this as an opportunity and a signal that we need to reflect as educators and adapt our pedagogy accordingly. We are further concerned that the need for such solutions arises due to a more fundamental problem at institutions of higher learning—in that declining faculty recruitment and retention rates, higher teaching loads, enrollment growth, and challenges with scalable teaching assistant (TA) training and support have made it increasingly difficult for courses to offer sufficient and timely support to every student. While active learning strategies have proven effective, the scale of large classes can be a deterrent to an instructor effectively deploying them. Larger classes also make the student experience notably worse and have been shown to be less effective in building computational thinking skills. Recommendations from both the National Academies<ce:cross-ref refid="bib5" id="crosref0045">
+                        <ce:sup loc="post">5</ce:sup>
+                     </ce:cross-ref> and the Computing Research Association<ce:cross-ref refid="bib6" id="crosref0050">
+                        <ce:sup loc="post">6</ce:sup>
+                     </ce:cross-ref> mirror our concerns and highlight the need for institutions to respond by ensuring reasonable student-faculty ratios, competitive teaching loads and salaries for faculty, and investment in improvements to graduate education and robust TA training programs.</ce:para>
+                  <ce:para id="p0025" view="all">The third key disincentive is that GenAI tools produce plausible-sounding, human-like text. This capability leads many to perceive these tools not as fallible technologies but as sources of authoritative knowledge. Media coverage of GenAI tools is dominated by sensationalism and uncritical reporting, with news outlets often presenting these technologies as “capable of solving nearly any problem” through “largely positive evaluations and economic framing.”<ce:cross-ref refid="bib7" id="crosref0055">
+                        <ce:sup loc="post">7</ce:sup>
+                     </ce:cross-ref> This combination becomes particularly problematic given that large language models (LLMs) frequently generate false information, which can mislead students. While professionals demonstrate increased skepticism and fact-checking behavior when AI authorship is explicitly disclosed, students engaged in learning tasks may not maintain such critical evaluation, especially given the overwhelmingly positive media narratives. As institutions expand GenAI tool access to students, they must establish institutional policies that preserve academic freedom and integrity while enabling students to use these tools for meaningful learning.</ce:para>
+                  <ce:para id="p0030" view="all">To address the challenge of grade-oriented thinking, we have found it effective to frame lectures as a progression of self-discovery steps rather than offering information upfront and testing comprehension afterward. Instead of the traditional format, the instructor continually poses leading questions until the class collectively arrives at key takeaways in incremental steps. This scalable active learning strategy addresses all categories of Bloom’s Taxonomy while building students’ confidence to speak up and engage with problems directly. Crucially, the instructor demonstrates deductive reasoning by treating incorrect or partially correct answers not as failures, but as steps toward finding the right answer. Student feedback credits this approach with fostering a sense of discovery, enjoyment, and achievement throughout the learning process, and cites it as a motivator for increased in-person office hours attendance.</ce:para>
+                  <ce:para id="p0035" view="all">We also recognize the importance of enabling an environment where students feel comfortable adapting to tools that industry uses, which requires plainly differentiating between constructive and problematic AI use. To this end, we divide homework into theoretical “problem sets” and programming assignments. For theoretical work, we limit AI assistance to linguistic refinement and require students to submit both their original unedited answers as well as the AI-enhanced versions, helping graders verify the authenticity of their conceptual understanding. For programming assignments, we permit broader AI usage but with mandatory attribution through code comments. Most critically, we enforce a comprehension requirement: students must be able to explain any AI-generated code when seeking TA support or filing regrade requests, ensuring that AI amplifies rather than replaces learning.</ce:para>
+                  <ce:para id="p0040" view="all">Increased in-person office hours attendance necessitates rethinking how we deliver TA support. Student TAs are “near-peers,” many of whom completed the same courses just one semester prior. This fresh perspective on course challenges and recent experience with the same conceptual hurdles makes them relatable to students and transforms office hours into collaborative learning experiences. TAs provide support that transcends technical problem-solving: they create spaces where students can safely explore ideas, express confusion, and debate concepts. TAs are also well positioned to connect the material to how they applied these concepts during internships or jobs, providing additional motivation for students to pursue productive struggle. The most transformative element of our approach involves implementing pair programming during office hours. Research shows that pair programming improves both project performance and course completion rates while reducing frustration and increasing confidence through peer connections. Pair programming sessions during TA office hours create a scalable model that fosters collaborative problem-solving and the ability to scope problems for human explanation, both of which are technical soft skills sought within the industry. Training TAs to serve as communication bridges between students and instructors creates a dynamic loop of continuous improvement. This real-time insight into student misconceptions allows instructors to adapt their teaching accordingly, ensuring that support evolves with emerging needs.</ce:para>
+                  <ce:para id="p0045" view="all">Finally, we turn our attention to aligning CS pedagogy with industry practices and expectations. Within the past decade, the number of students seeking double majors has risen sharply, especially in pairings such as business and CS. According to NCES data, the share of college graduates earning more than one credential doubled from 6% to 12% between 2014 and 2024. The economic rationale is substantial: recent research<ce:cross-ref refid="bib8" id="crosref0060">
+                        <ce:sup loc="post">8</ce:sup>
+                     </ce:cross-ref> shows that double majors reduce income shock by 56%, with unrelated combinations (such as engineering with business) providing nearly double the protection of related pairs: 64% vs. 36%. These students are not only more financially resilient but better positioned to leverage their interdisciplinary expertise. Industry signals a similar shift toward analytical thinking, resilience, and creative thinking. Companies like Meta now allow AI tool usage during technical interviews, evaluating not whether candidates can write algorithms from memory but how they reason about, communicate, and iterate on code produced with AI assistance. Interviewers observe how candidates scope problems, explain their thought process, and verify AI-generated output; these are significantly more complex skills to demonstrate than prompting a way to a solution. We believe that students who engage in productive struggle are much better positioned to excel in such interview settings because they possess a deep understanding of core concepts.</ce:para>
+                  <ce:para id="p0050" view="all">The integration of GenAI into computing is irreversible, but what makes a strong CS graduate has not fundamentally changed: the ability to formulate and algorithmically solve complex problems. While GenAI makes it easier for students to sidestep the very struggle that builds this skill, our experience has shown that aligning student attitudes to what benefits them, and what the industry ultimately expects, is achievable. Self-discovery-driven lectures build the necessary confidence needed to work through difficult problems. Near-peer TAs and pair programming create environments where struggle is collaborative rather than isolating. Connecting CS to the broader landscape gives students a reason to engage deeply with the material beyond the next test. The goal is not to shield students from AI tools, but to ensure they experience productive struggle in controlled environments to build genuine understanding before leveraging these tools for amplification. Our enduring responsibility as educators is to ensure that students discover joy in challenge, wisdom in failure, and confidence in their capacity to think across boundaries.</ce:para>
+               </ce:section>
+               <ce:section id="sec2" role="conflict-of-interest" view="all">
+                  <ce:section-title id="sectitle0015">Declaration of interests</ce:section-title>
+                  <ce:para id="p0055" view="all">The authors declare no competing interests.</ce:para>
+               </ce:section>
+            </ce:sections>
+         </body>
+         <simple-tail view="all">
+            <ce:bibliography id="cebib0010" view="all">
+               <ce:section-title id="sectitle0020">References</ce:section-title>
+               <ce:bibliography-sec id="cebibsec0010" view="all">
+                  <ce:bib-reference id="bib1">
+                     <ce:label>1</ce:label>
+                     <sb:reference id="sref1">
+                        <sb:contribution xml:lang="en" langtype="iso">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Kapur</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Productive failure</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Cogn. Instr.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>26</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2008</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>379</sb:first-page>
+                              <sb:last-page>424</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1080/07370000802212669</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srct0015">Kapur, M. (2008). Productive failure. Cogn. Instr. 26, 379-424. 10.1080/07370000802212669en</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib2">
+                     <ce:label>2</ce:label>
+                     <ce:other-ref id="sref2">
+                        <ce:textref>Gernstein, A.S., and Mahajan, A.S. (2026). Faculty committee proposes cap on A grades, new internal ranking system. The Harvard Crimson. <ce:inter-ref xlink:href="https://www.thecrimson.com/article/2026/2/6/faculty-propose-grade-cap" id="intref0010" xlink:type="simple">https://www.thecrimson.com/article/2026/2/6/faculty-propose-grade-cap</ce:inter-ref>.</ce:textref>
+                     </ce:other-ref>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib3">
+                     <ce:label>3</ce:label>
+                     <sb:reference id="sref3">
+                        <sb:contribution xml:lang="en" langtype="iso">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>B.J.</ce:given-name>
+                                 <ce:surname>Tan</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>The consequences of letter grades for labor market outcomes and student behavior</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>J. Labor Econ.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>41</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2023</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>565</sb:first-page>
+                              <sb:last-page>588</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1086/719994</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srct0020">Tan, B.J. (2023). The consequences of letter grades for labor market outcomes and student behavior. J. Labor Econ. 41, 565-588. 10.1086/719994en</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib4">
+                     <ce:label>4</ce:label>
+                     <sb:reference id="sref4">
+                        <sb:contribution xml:lang="en" langtype="iso">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>H.A.</ce:given-name>
+                                 <ce:surname>Hornstein</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Student evaluations of teaching are an inadequate assessment tool for evaluating faculty performance</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Cogent Educ.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>4</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2017</sb:date>
+                           </sb:issue>
+                           <sb:article-number>1304016</sb:article-number>
+                           <ce:doi>10.1080/2331186X.2017.1304016</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srct0025">Hornstein, H.A. (2017). Student evaluations of teaching are an inadequate assessment tool for evaluating faculty performance. Cogent Educ. 4, 1304016. 10.1080/2331186X.2017.1304016en</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib5">
+                     <ce:label>5</ce:label>
+                     <sb:reference id="sref5">
+                        <sb:contribution xml:lang="en" langtype="iso">
+                           <sb:authors>
+                              <sb:collaboration>National Academies of Sciences, Engineering, and Medicine</sb:collaboration>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Assessing and Responding to the Growth of Computer Science Undergraduate Enrollments</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:book>
+                              <sb:date>2018</sb:date>
+                              <sb:publisher>
+                                 <sb:name>The National Academies Press</sb:name>
+                              </sb:publisher>
+                           </sb:book>
+                           <ce:doi>10.17226/24926</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srct0030">National Academies of Sciences, Engineering, and Medicine. (2018). Assessing and Responding to the Growth of Computer Science Undergraduate Enrollments. (The National Academies Press) 10.17226/24926en</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib6">
+                     <ce:label>6</ce:label>
+                     <ce:other-ref id="sref6">
+                        <ce:textref>Stankovic, J., and Aspray, W. (2003). Recruitment and Retention of Faculty in Computer Science and Engineering. (Computing Research Association).</ce:textref>
+                     </ce:other-ref>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib7">
+                     <ce:label>7</ce:label>
+                     <sb:reference id="sref7">
+                        <sb:contribution xml:lang="en" langtype="iso">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>R.K.</ce:given-name>
+                                 <ce:surname>Nielsen</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>How News Coverage, Often Uncritical, Helps Build up the AI Hype</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:book>
+                              <sb:date>2024</sb:date>
+                              <sb:publisher>
+                                 <sb:name>Reuters Institute</sb:name>
+                              </sb:publisher>
+                           </sb:book>
+                        </sb:host>
+                        <sb:host>
+                           <sb:e-host>
+                              <ce:inter-ref xlink:href="https://reutersinstitute.politics.ox.ac.uk/news/how-news-coverage-often-uncritical-helps-build-ai-hype" id="intref0015" xlink:type="simple">https://reutersinstitute.politics.ox.ac.uk/news/how-news-coverage-often-uncritical-helps-build-ai-hype</ce:inter-ref>
+                           </sb:e-host>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srct0035">Nielsen, R.K. (2024). How News Coverage, Often Uncritical, Helps Build up the AI Hype. Reuters Institute. https://reutersinstitute.politics.ox.ac.uk/news/how-news-coverage-often-uncritical-helps-build-ai-hype.en</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib8">
+                     <ce:label>8</ce:label>
+                     <sb:reference id="sref8">
+                        <sb:contribution xml:lang="en" langtype="iso">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>J.</ce:given-name>
+                                 <ce:surname>Grabmeier</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>How a Double Major in College Can Protect Future Income</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:book>
+                              <sb:date>2024</sb:date>
+                              <sb:publisher>
+                                 <sb:name>Ohio State University, College of Education and Human Ecology</sb:name>
+                              </sb:publisher>
+                           </sb:book>
+                        </sb:host>
+                        <sb:host>
+                           <sb:e-host>
+                              <ce:inter-ref xlink:href="https://ehe.osu.edu/news/listing/how-double-major-college-can-protect-future-income" id="intref0020" xlink:type="simple">https://ehe.osu.edu/news/listing/how-double-major-college-can-protect-future-income</ce:inter-ref>
+                           </sb:e-host>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srct0040">Grabmeier, J. (2024). How a Double Major in College Can Protect Future Income. Ohio State University, College of Education and Human Ecology. https://ehe.osu.edu/news/listing/how-double-major-college-can-protect-future-income.en</ce:source-text>
+                  </ce:bib-reference>
+               </ce:bibliography-sec>
+            </ce:bibliography>
+            <ce:biography id="vt1" view="all">
+               <ce:simple-para id="biospara0010" view="all">About the authors</ce:simple-para>
+               <ce:simple-para id="biospara0015" view="all">
+                  <ce:display>
+                     <ce:figure id="undfig1">
+                        <ce:link locator="fx1" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2666389926000498/fx1"/>
+                     </ce:figure>
+                  </ce:display>
+               </ce:simple-para>
+               <ce:simple-para id="biospara0020" view="all">
+                  <ce:bold>Andrei Biswas</ce:bold> is a student at Khoury College, Northeastern University, Boston, pursuing a Master of Science in Artificial Intelligence. Andrei has served thrice as a teaching assistant for the Foundations of Artificial Intelligence course at Khoury College. Prior to graduate school, Andrei was a product manager at Microsoft. Andrei’s research interests lie at the intersection of artificial intelligence, education, and productivity, with a particular focus on exploring how AI tools can be effectively integrated into learning environments or professional workflows to enhance positive outcomes.</ce:simple-para>
+            </ce:biography>
+            <ce:biography id="vt2" view="all">
+               <ce:simple-para id="biospara0025" view="all">
+                  <ce:display>
+                     <ce:figure id="undfig2">
+                        <ce:link locator="fx2" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2666389926000498/fx2"/>
+                     </ce:figure>
+                  </ce:display>
+               </ce:simple-para>
+               <ce:simple-para id="biospara0030" view="all">
+                  <ce:bold>Rajagopal Venkatesaramani</ce:bold> is an assistant teaching professor at Khoury College, Northeastern University, Boston. Rajagopal’s research interests lie at the intersection of AI and privacy, reinforcement learning, and complex networks. Rajagopal joined Khoury College in 2023, drawn in by the college’s commitment to CS for everyone. His pedagogical focus is in building innovative assignments for the teaching of artificial intelligence and interactive tools and technologies that support student learning at scale.</ce:simple-para>
+            </ce:biography>
+         </simple-tail>
+      </simple-article>
+   </xocs:serial-item></xocs:doc></originalText></full-text-retrieval-response>
