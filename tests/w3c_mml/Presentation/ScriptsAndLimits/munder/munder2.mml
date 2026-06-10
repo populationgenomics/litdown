@@ -4,23 +4,23 @@
   <mrow>
     <munder accentunder="true">
       <mrow>
-        <mi>x</mi> 
-        <mo>+</mo> 
-        <mi>y</mi> 
-        <mo>+</mo> 
-        <mi>z</mi> 
-      </mrow> 
-      <mo stretchy="true"> &#x23DF;</mo> 
-    </munder> 
-    <mtext> &#x2003;vs &#x2003;</mtext> 
+        <mi>x</mi>
+        <mo>+</mo>
+        <mi>y</mi>
+        <mo>+</mo>
+        <mi>z</mi>
+      </mrow>
+      <mo stretchy="true"> &#x23DF;</mo>
+    </munder>
+    <mtext> &#x2003;vs &#x2003;</mtext>
     <munder accentunder="false">
       <mrow>
-        <mi>x</mi> 
-        <mo>+</mo> 
-        <mi>y</mi> 
-        <mo>+</mo> 
-        <mi>z</mi> 
-      </mrow> 
-      <mo stretchy="true"> &#x23DF;</mo> 
-    </munder> 
+        <mi>x</mi>
+        <mo>+</mo>
+        <mi>y</mi>
+        <mo>+</mo>
+        <mi>z</mi>
+      </mrow>
+      <mo stretchy="true"> &#x23DF;</mo>
+    </munder>
   </mrow> </math>

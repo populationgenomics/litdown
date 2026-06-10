@@ -7,28 +7,28 @@
       <mi>a</mi>
       <mi>b</mi>
     </msubsup>
-    <mo>,</mo> 
+    <mo>,</mo>
     <msubsup>
       <mi>X</mi>
       <mi mathcolor="#FF0000">a</mi>
       <mi mathcolor="#FF0000">b</mi>
     </msubsup>
-    <mo>,</mo> 
+    <mo>,</mo>
     <msubsup mathcolor="#FF0000">
       <mi>X</mi>
       <mi>a</mi>
       <mi>b</mi>
     </msubsup>
-    <mo>,</mo> 
+    <mo>,</mo>
     <msubsup>
       <mi>X</mi>
       <mi mathbackground="#80FF80">a</mi>
       <mi mathbackground="#80FF80">b</mi>
     </msubsup>
-    <mo>,</mo> 
+    <mo>,</mo>
     <msubsup mathbackground="#80FF80">
       <mi>X</mi>
       <mi>a</mi>
       <mi>b</mi>
-    </msubsup> 
+    </msubsup>
   </mrow> </math>

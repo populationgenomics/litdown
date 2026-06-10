@@ -52,7 +52,7 @@ fragment = render_mathml(math_element, display=True)  # → "$$...$$"
 
 ## What's in the package
 
-```
+```text
 jatsdown/
   jats.py    JATS XML → Markdown
   mathml.py  MathML → LaTeX
@@ -115,7 +115,7 @@ needed for normal use.
 
 ## The discovery loop
 
-```
+```text
         fetch_pmc.py            (acquire fixture)
               ↓
         jatsdown.convert

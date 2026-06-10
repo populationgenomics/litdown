@@ -4,18 +4,18 @@
   <mtable frame="solid" width="50%">
     <mtr>
       <mtd>
-        <mn>1</mn> 
-      </mtd> 
+        <mn>1</mn>
+      </mtd>
       <mtd>
-        <mn>2</mn> 
-      </mtd> 
-    </mtr> 
+        <mn>2</mn>
+      </mtd>
+    </mtr>
     <mtr>
       <mtd>
-        <mi>x</mi> 
-      </mtd> 
+        <mi>x</mi>
+      </mtd>
       <mtd>
-        <mi>y</mi> 
-      </mtd> 
-    </mtr> 
+        <mi>y</mi>
+      </mtd>
+    </mtr>
   </mtable> </math>
