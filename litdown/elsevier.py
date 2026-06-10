@@ -726,6 +726,11 @@ class _Renderer:
             # Structured parse empty → fall back to the publisher's rendered
             # citation string.
             body = _text(_find(bib_ref, 'source-text'))
+        if not body:
+            # Free-text citation: <bib-reference> wrapping <other-ref><textref>.
+            textref = _find(bib_ref, 'textref')
+            if textref is not None:
+                body = _norm(self.inline(textref))
 
         # DOI / external link, appended if not already in the body text.
         doi_link = ''
@@ -907,12 +912,14 @@ def _render_front(renderer: _Renderer, head: ET.Element | None, coredata: ET.Ele
         doi = cd('doi')
         if doi:
             meta_lines.append(f'**DOI:** [{doi}](https://doi.org/{doi})')
+        # coredata/copyright is a copyright statement, not the licence; the
+        # licence itself is the openaccessUserLicense URL below.
         copyright_stmt = cd('copyright')
         if copyright_stmt:
-            meta_lines.append(f'**License:** {copyright_stmt}')
+            meta_lines.append(f'**Copyright:** {copyright_stmt}')
         license_url = cd('openaccessUserLicense')
         if license_url:
-            meta_lines.append(f'License: [{license_url}]({license_url})')
+            meta_lines.append(f'**License:** [{license_url}]({license_url})')
         if meta_lines:
             parts.append('\n'.join(meta_lines))
 
@@ -1158,9 +1165,29 @@ def _render_bibliography(renderer: _Renderer, tail: ET.Element) -> str:
     blocks: list[str] = []
     for container_tag, default_title in (('bibliography', 'References'), ('further-reading', 'Further reading')):
         for container in (x for x in tail.iter() if get_tag(x) == container_tag):
-            # <bib-reference> (structured) and <other-ref> (free-text <textref>)
-            # both appear, in document order — render each in place.
-            refs = [x for x in container.iter() if get_tag(x) in ('bib-reference', 'other-ref')]
+            # An entry is a <bib-reference> or a *top-level* <other-ref>. An
+            # <other-ref> nested inside a <bib-reference> is the free-text body
+            # of that reference (handled by _reference), so it must not be
+            # collected as a separate entry — otherwise the citation renders
+            # twice (an empty bib-reference plus the nested other-ref).
+            parent: dict[int, ET.Element] = {}
+            for p in container.iter():
+                for c in p:
+                    parent[id(c)] = p
+
+            def _nested_in_bibref(e: ET.Element, _parent: dict[int, ET.Element] = parent) -> bool:
+                cur = _parent.get(id(e))
+                while cur is not None:
+                    if get_tag(cur) == 'bib-reference':
+                        return True
+                    cur = _parent.get(id(cur))
+                return False
+
+            refs = [
+                x
+                for x in container.iter()
+                if get_tag(x) == 'bib-reference' or (get_tag(x) == 'other-ref' and not _nested_in_bibref(x))
+            ]
             if not refs:
                 continue
             title = _text(_child(container, 'section-title')) or default_title
