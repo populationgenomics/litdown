@@ -2,8 +2,13 @@
 
 [![Lint](https://github.com/populationgenomics/litdown/actions/workflows/lint.yaml/badge.svg)](https://github.com/populationgenomics/litdown/actions/workflows/lint.yaml)
 
-Convert JATS XML articles (the format PubMed Central distributes) to Markdown
-with embedded LaTeX for inline and display math.
+Convert scholarly full-text XML to Markdown with embedded LaTeX for inline and
+display math. Two dialects are supported behind a single `convert` entry point
+that sniffs the document root and dispatches:
+
+- **JATS** (`<article>`) — the format PubMed Central distributes.
+- **Elsevier** (`<full-text-retrieval-response>`) — the ScienceDirect Article
+  Retrieval API's `xocs`/`ja`/`ce` schema.
 
 The intended consumer is downstream LLM tooling — the markdown is plain text
 suitable for retrieval, summarisation, or analysis without round-tripping
@@ -11,15 +16,22 @@ through a typesetter.
 
 ## Spec target
 
-litdown is implemented against the **JATS Journal Archiving and Interchange
-Tag Set (Archiving), NISO Z39.96-2024 v1.4** — the format PMC distributes. PMC
-upconverts older content (NLM Archiving 1.x–3.x, JATS 1.0–1.3) into 1.4 when
-serving the OA bucket, so a converter that handles 1.4 covers the entire PMC
-corpus regardless of when the article was authored.
+The **JATS** dialect is implemented against the **JATS Journal Archiving and
+Interchange Tag Set (Archiving), NISO Z39.96-2024 v1.4** — the format PMC
+distributes. PMC upconverts older content (NLM Archiving 1.x–3.x, JATS
+1.0–1.3) into 1.4 when serving the OA bucket, so a converter that handles 1.4
+covers the entire PMC corpus regardless of when the article was authored.
 
 This is **not** the Article Authoring tag set (more restrictive; intended as
 an authoring target, not a corpus). Article-Authoring-only content is a
 subset of Archiving content and works without code changes.
+
+The **Elsevier** dialect targets the `ce:`/`ja:`/`xocs:` schema returned by
+the ScienceDirect Article Retrieval API. Math is standard W3C MathML (shared
+with the JATS math path); tables are CALS (`tgroup`/`row`/`entry`); references
+parse the structured `sb:` (Siemens) model. An unrecognised root element
+raises `ValueError` rather than returning an empty string, so a caller passing
+the wrong bytes fails loudly.
 
 ## Install
 
@@ -45,7 +57,7 @@ Library:
 ```python
 from litdown import convert, mml_to_tex, render_mathml
 
-md = convert("article.xml")           # JATS XML path → markdown string
+md = convert("article.xml")           # JATS or Elsevier XML path → markdown
 latex = mml_to_tex(math_element)      # MathML Element → LaTeX
 fragment = render_mathml(math_element, display=True)  # → "$$...$$"
 ```
@@ -54,8 +66,10 @@ fragment = render_mathml(math_element, display=True)  # → "$$...$$"
 
 ```text
 litdown/
-  jats.py    JATS XML → Markdown
-  mathml.py  MathML → LaTeX
+  jats.py      JATS XML → Markdown
+  elsevier.py  Elsevier (ce:/ja:/xocs:) XML → Markdown
+  common.py    dialect-neutral leaves (tag helpers, table grid, inline wraps)
+  mathml.py    MathML → LaTeX
 ```
 
 The MathML converter is the more battle-tested piece — it has been graded
@@ -70,7 +84,7 @@ the regression suite re-runs the converter over them on every test run.
 pytest                                # full suite
 ```
 
-Two test files:
+Three test files:
 
 - `tests/test_mml_unit.py` — exhaustive per-element MathML cases.
 - `tests/test_jats_articles.py` — structural assertions over real PMC
@@ -79,6 +93,11 @@ Two test files:
   xfail-marked in a `KNOWN_BUGS` dict so the suite stays green; when a fix
   lands the xfail flips to "unexpectedly passed" and forces the entry's
   removal.
+- `tests/test_elsevier_articles.py` — structural assertions over Elsevier
+  articles committed as flat `*.xml` files under `tests/fixtures/elsevier/`
+  (math not dropped, CALS tables rendered, every cross-ref/float/reference
+  anchored). Vendor only CC-BY (`by/4.0`) articles; see
+  `docs/elsevier-dialect-plan.md` for how to harvest fixtures.
 
 ### Fetching test fixtures
 

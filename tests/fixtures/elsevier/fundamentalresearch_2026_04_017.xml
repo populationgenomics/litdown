@@ -1,0 +1,1077 @@
+<full-text-retrieval-response xmlns="http://www.elsevier.com/xml/svapi/article/dtd" xmlns:bk="http://www.elsevier.com/xml/bk/dtd" xmlns:cals="http://www.elsevier.com/xml/common/cals/dtd" xmlns:ce="http://www.elsevier.com/xml/common/dtd" xmlns:ja="http://www.elsevier.com/xml/ja/dtd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:sa="http://www.elsevier.com/xml/common/struct-aff/dtd" xmlns:sb="http://www.elsevier.com/xml/common/struct-bib/dtd" xmlns:tb="http://www.elsevier.com/xml/common/table/dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xocs="http://www.elsevier.com/xml/xocs/dtd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><coredata><prism:url>https://api.elsevier.com/content/article/pii/S2667325826002384</prism:url><dc:identifier>doi:10.1016/j.fmre.2026.04.017</dc:identifier><eid>1-s2.0-S2667325826002384</eid><prism:doi>10.1016/j.fmre.2026.04.017</prism:doi><pii>S2667-3258(26)00238-4</pii><dc:title>Amino acid insufficiency orchestrates AMPK and mTOR signaling </dc:title><prism:publicationName>Fundamental Research</prism:publicationName><prism:aggregationType>Journal</prism:aggregationType><pubType>dis</pubType><prism:issn>26673258</prism:issn><prism:volume>6</prism:volume><prism:issueIdentifier>3</prism:issueIdentifier><prism:startingPage>1501</prism:startingPage><prism:endingPage>1503</prism:endingPage><prism:pageRange>1501-1503</prism:pageRange><prism:number>3</prism:number><dc:format>text/xml</dc:format><prism:coverDate>2026-05-31</prism:coverDate><prism:coverDisplayDate>May 2026</prism:coverDisplayDate><prism:copyright>© 2026 The Authors. Publishing Services by Elsevier B.V. on behalf of KeAi Communications Co. Ltd.</prism:copyright><prism:publisher>The Authors. Publishing Services by Elsevier B.V. on behalf of KeAi Communications Co. Ltd.</prism:publisher><dc:creator>Li, Tianxing</dc:creator><dc:creator>Zhao, Lin</dc:creator><dc:creator>Jia, Da</dc:creator><dc:description/><openaccess>1</openaccess><openaccessArticle>true</openaccessArticle><openaccessType>Full</openaccessType><openArchiveArticle>false</openArchiveArticle><openaccessSponsorName>National Natural Science Foundation of China</openaccessSponsorName><openaccessSponsorType>FundingBody</openaccessSponsorType><openaccessUserLicense>http://creativecommons.org/licenses/by/4.0/</openaccessUserLicense><link href="https://api.elsevier.com/content/article/pii/S2667325826002384" rel="self"/><link href="https://www.sciencedirect.com/science/article/pii/S2667325826002384" rel="scidir"/></coredata><objects><object ref="gr1" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="337" height="479" size="47067">https://api.elsevier.com/content/object/eid/1-s2.0-S2667325826002384-gr1.jpg?httpAccept=%2A%2F%2A</object><object ref="ga1" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="141" height="200" size="12883">https://api.elsevier.com/content/object/eid/1-s2.0-S2667325826002384-ga1.jpg?httpAccept=%2A%2F%2A</object><object ref="gr1" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="115" height="164" size="6419">https://api.elsevier.com/content/object/eid/1-s2.0-S2667325826002384-gr1.sml?httpAccept=%2A%2F%2A</object><object ref="ga1" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="115" height="163" size="6807">https://api.elsevier.com/content/object/eid/1-s2.0-S2667325826002384-ga1.sml?httpAccept=%2A%2F%2A</object><object ref="gr1" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="1495" height="2126" size="356061">https://api.elsevier.com/content/object/eid/1-s2.0-S2667325826002384-gr1_lrg.jpg?httpAccept=%2A%2F%2A</object><object ref="ga1" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="624" height="886" size="109267">https://api.elsevier.com/content/object/eid/1-s2.0-S2667325826002384-ga1_lrg.jpg?httpAccept=%2A%2F%2A</object></objects><scopus-id>105037120301</scopus-id><scopus-eid>2-s2.0-105037120301</scopus-eid><link href="https://api.elsevier.com/content/abstract/scopus_id/105037120301" rel="abstract"/><originalText><xocs:doc xsi:schemaLocation="http://www.elsevier.com/xml/xocs/dtd http://null/schema/dtds/document/fulltext/xcr/xocs-article.xsd"><xocs:meta xmlns:xoe="http://www.elsevier.com/xml/xoe/dtd">
+      <xocs:content-family>serial</xocs:content-family>
+      <xocs:content-type>JL</xocs:content-type>
+      <xocs:cid>779234</xocs:cid>
+      <xocs:ssids>
+         <xocs:ssid type="alllist">291210</xocs:ssid>
+         <xocs:ssid type="subj">291690</xocs:ssid>
+         <xocs:ssid type="subj">291795</xocs:ssid>
+         <xocs:ssid type="subj">291802</xocs:ssid>
+         <xocs:ssid type="subj">291848</xocs:ssid>
+         <xocs:ssid type="content">31</xocs:ssid>
+         <xocs:ssid type="oa">90</xocs:ssid>
+      </xocs:ssids>
+      <xocs:srctitle>Fundamental Research</xocs:srctitle>
+      <xocs:normalized-srctitle>FUNDAMENTALRESEARCH</xocs:normalized-srctitle>
+      <xocs:orig-load-date yyyymmdd="20260420">2026-04-20</xocs:orig-load-date>
+      <xocs:available-online-date yyyymmdd="20260420">2026-04-20</xocs:available-online-date>
+      <xocs:vor-load-date yyyymmdd="20260605">2026-06-05</xocs:vor-load-date>
+      <xocs:vor-available-online-date yyyymmdd="20260605">2026-06-05</xocs:vor-available-online-date>
+      <xocs:ew-transaction-id>2026-06-05T16:03:36</xocs:ew-transaction-id>
+      <xocs:eid>1-s2.0-S2667325826002384</xocs:eid>
+      <xocs:pii-formatted>S2667-3258(26)00238-4</xocs:pii-formatted>
+      <xocs:pii-unformatted>S2667325826002384</xocs:pii-unformatted>
+      <xocs:doi>10.1016/j.fmre.2026.04.017</xocs:doi>
+      <xocs:item-stage>S300</xocs:item-stage>
+      <xocs:item-version-number>S300.1</xocs:item-version-number>
+      <xocs:item-weight>FULL-TEXT</xocs:item-weight>
+      <xocs:hub-eid>1-s2.0-S2667325826X20027</xocs:hub-eid>
+      <xocs:timestamp yyyymmdd="20260605">2026-06-05T16:13:43.554583Z</xocs:timestamp>
+      <xocs:dco>0</xocs:dco>
+      <xocs:tomb>0</xocs:tomb>
+      <xocs:date-search-begin>20260501</xocs:date-search-begin>
+      <xocs:date-search-end>20260531</xocs:date-search-end>
+      <xocs:year-nav>2026</xocs:year-nav>
+      <xocs:indexeddate epoch="1776729520">2026-04-20T23:58:40.749883Z</xocs:indexeddate>
+      <xocs:articleinfo>absattachment articleinfo articletitlenorm authfirstinitialnorm authfirstsurnamenorm cid cids contenttype copyright crossmark dateloaded dateloadedtxt datesearch datesort dateupdated dco docsubtype doctype doi eid ewtransactionid hubeid indexeddate issfirst issn issnnorm issuelist itemstage itemtransactionid itemweight oauserlicense openaccess openarchive pg pgfirst pglast pii piinorm pubdateend pubdatestart pubdatetxt pubyr sectiontitle sortorder srctitle srctitlenorm srctype ssids alllist content oa subj subheadings tomb volfirst volissue volumelist webpdf webpdfpagecount yearnav figure body acknowledge affil articletitle auth authfirstini authfull authlast grantnumber grantsponsor orcid pubtype ref specialabst vitae</xocs:articleinfo>
+      <xocs:issns>
+         <xocs:issn-primary-formatted>2667-3258</xocs:issn-primary-formatted>
+         <xocs:issn-primary-unformatted>26673258</xocs:issn-primary-unformatted>
+      </xocs:issns>
+      <xocs:crossmark is-crossmark="1">true</xocs:crossmark>
+      <xocs:vol-first>6</xocs:vol-first>
+      <xocs:volume-list>
+         <xocs:volume>6</xocs:volume>
+      </xocs:volume-list>
+      <xocs:iss-first>3</xocs:iss-first>
+      <xocs:issue-list>
+         <xocs:issue>3</xocs:issue>
+      </xocs:issue-list>
+      <xocs:vol-iss-suppl-text>Volume 6, Issue 3</xocs:vol-iss-suppl-text>
+      <xocs:sort-order>24</xocs:sort-order>
+      <xocs:first-fp>1501</xocs:first-fp>
+      <xocs:last-lp>1503</xocs:last-lp>
+      <xocs:pages>
+         <xocs:first-page>1501</xocs:first-page>
+         <xocs:last-page>1503</xocs:last-page>
+      </xocs:pages>
+      <xocs:cover-date-orig>
+         <xocs:start-date>202605</xocs:start-date>
+      </xocs:cover-date-orig>
+      <xocs:cover-date-text>May 2026</xocs:cover-date-text>
+      <xocs:cover-date-start>2026-05-01</xocs:cover-date-start>
+      <xocs:cover-date-end>2026-05-31</xocs:cover-date-end>
+      <xocs:cover-date-year>2026</xocs:cover-date-year>
+      <xocs:hub-sec>
+         <xocs:hub-sec-title>Biology</xocs:hub-sec-title>
+         <xocs:hub-sec>
+            <xocs:hub-sec-title>News &amp; Views</xocs:hub-sec-title>
+         </xocs:hub-sec>
+      </xocs:hub-sec>
+      <xocs:document-type>simple-article</xocs:document-type>
+      <xocs:document-subtype>dis</xocs:document-subtype>
+      <xocs:copyright-line>© 2026 The Authors. Publishing Services by Elsevier B.V. on behalf of KeAi Communications Co. Ltd.</xocs:copyright-line>
+      <xocs:normalized-article-title>AMINOACIDINSUFFICIENCYORCHESTRATESAMPKMTORSIGNALING</xocs:normalized-article-title>
+      <xocs:normalized-first-auth-surname>LI</xocs:normalized-first-auth-surname>
+      <xocs:normalized-first-auth-initial>T</xocs:normalized-first-auth-initial>
+      <xocs:item-toc>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-section-title>CRediT authorship contribution statement</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:acknowledgment">
+            <xocs:item-toc-section-title>Acknowledgments</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:bibliography">
+            <xocs:item-toc-section-title>References</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+      </xocs:item-toc>
+      <xocs:references>
+         <xocs:ref-info refid="sbref0001">
+            <xocs:ref-normalized-surname>MAO</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2026</xocs:ref-pub-year>
+            <xocs:ref-first-fp>192</xocs:ref-first-fp>
+            <xocs:ref-last-lp>207.e8</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>Y</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0002">
+            <xocs:ref-normalized-surname>SANCAK</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2008</xocs:ref-pub-year>
+            <xocs:ref-first-fp>1496</xocs:ref-first-fp>
+            <xocs:ref-last-lp>1501</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>Y</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0003">
+            <xocs:ref-normalized-surname>BURNETT</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>1998</xocs:ref-pub-year>
+            <xocs:ref-first-fp>1432</xocs:ref-first-fp>
+            <xocs:ref-last-lp>1437</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>P</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0004">
+            <xocs:ref-normalized-surname>GE</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2023</xocs:ref-pub-year>
+            <xocs:ref-first-fp>2216</xocs:ref-first-fp>
+            <xocs:ref-last-lp>2230.e8</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>M</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0005">
+            <xocs:ref-normalized-surname>SMILES</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2024</xocs:ref-pub-year>
+            <xocs:ref-article-number>102042</xocs:ref-article-number>
+            <xocs:ref-normalized-initial>W</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0006">
+            <xocs:ref-normalized-surname>STAPLETON</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>1996</xocs:ref-pub-year>
+            <xocs:ref-first-fp>611</xocs:ref-first-fp>
+            <xocs:ref-last-lp>614</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>D</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0007">
+            <xocs:ref-normalized-surname>LIN</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2018</xocs:ref-pub-year>
+            <xocs:ref-first-fp>299</xocs:ref-first-fp>
+            <xocs:ref-last-lp>313</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>S</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0008">
+            <xocs:ref-normalized-surname>HORMAN</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2002</xocs:ref-pub-year>
+            <xocs:ref-first-fp>1419</xocs:ref-first-fp>
+            <xocs:ref-last-lp>1423</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>S</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0009">
+            <xocs:ref-normalized-surname>BUSCHE</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2020</xocs:ref-pub-year>
+            <xocs:ref-first-fp>1183</xocs:ref-first-fp>
+            <xocs:ref-last-lp>1193</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>M</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0010">
+            <xocs:ref-normalized-surname>COURADE</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2025</xocs:ref-pub-year>
+            <xocs:ref-first-fp>7337</xocs:ref-first-fp>
+            <xocs:ref-last-lp>7354</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>J</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0011">
+            <xocs:ref-normalized-surname>WON</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2010</xocs:ref-pub-year>
+            <xocs:ref-first-fp>487</xocs:ref-first-fp>
+            <xocs:ref-last-lp>491</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>J</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0012">
+            <xocs:ref-normalized-surname>YIN</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2024</xocs:ref-pub-year>
+            <xocs:ref-first-fp>795</xocs:ref-first-fp>
+            <xocs:ref-last-lp>811.e6</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>J</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0013">
+            <xocs:ref-normalized-surname>MA</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2022</xocs:ref-pub-year>
+            <xocs:ref-first-fp>159</xocs:ref-first-fp>
+            <xocs:ref-last-lp>165</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>T</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0014">
+            <xocs:ref-normalized-surname>PERNICOVA</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2014</xocs:ref-pub-year>
+            <xocs:ref-first-fp>143</xocs:ref-first-fp>
+            <xocs:ref-last-lp>156</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>I</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0015">
+            <xocs:ref-normalized-surname>PINKOSKY</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2020</xocs:ref-pub-year>
+            <xocs:ref-first-fp>873</xocs:ref-first-fp>
+            <xocs:ref-last-lp>881</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>S</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+      </xocs:references>
+      <xocs:refkeys>
+         <xocs:refkey3>LIX2026X1501</xocs:refkey3>
+         <xocs:refkey4lp>LIX2026X1501X1503</xocs:refkey4lp>
+         <xocs:refkey4ai>LIX2026X1501XT</xocs:refkey4ai>
+         <xocs:refkey5>LIX2026X1501X1503XT</xocs:refkey5>
+      </xocs:refkeys>
+      <xocs:open-access>
+         <xocs:oa-article-status is-open-access="1" is-open-archive="0">Full</xocs:oa-article-status>
+         <xocs:oa-access-effective-date>2026-04-16T03:08:03Z</xocs:oa-access-effective-date>
+         <xocs:oa-sponsor>
+            <xocs:oa-sponsor-type>FundingBody</xocs:oa-sponsor-type>
+            <xocs:oa-sponsor-name>National Natural Science Foundation of China</xocs:oa-sponsor-name>
+         </xocs:oa-sponsor>
+         <xocs:oa-user-license>http://creativecommons.org/licenses/by/4.0/</xocs:oa-user-license>
+         <xocs:oa-access-inherited-from winid="http://vtw.elsevier.com/content/oaw/26673258_UNBOUNDED_FB">OA-Window</xocs:oa-access-inherited-from>
+      </xocs:open-access>
+      <xocs:copyright-info>
+         <xocs:cp-license-lines>
+            <xocs:cp-license-line lang="en">This is an open access article under the CC BY license.</xocs:cp-license-line>
+         </xocs:cp-license-lines>
+         <xocs:cp-notices>
+            <xocs:cp-notice lang="en">© 2026 The Authors. Publishing Services by Elsevier B.V. on behalf of KeAi Communications Co. Ltd.</xocs:cp-notice>
+         </xocs:cp-notices>
+      </xocs:copyright-info>
+      <xocs:funding-list has-funding-info="1">
+         <xocs:funding-addon-generated-timestamp>2026-04-19T08:14:08.689Z</xocs:funding-addon-generated-timestamp>
+         <xocs:funding-addon-type>http://vtw.elsevier.com/data/voc/AddOnTypes/50.7/eoas</xocs:funding-addon-type>
+         <xocs:funding>
+            <xocs:funding-agency>National Natural Science Foundation of China</xocs:funding-agency>
+            <xocs:funding-agency-id>http://data.elsevier.com/vocabulary/SciValFunders/501100001809</xocs:funding-agency-id>
+            <xocs:funding-agency-country>http://sws.geonames.org/1814991</xocs:funding-agency-country>
+         </xocs:funding>
+      </xocs:funding-list>
+      <xocs:article-sharing-framework/>
+      <xocs:attachment-metadata-doc>
+         <xocs:attachment-set-type>item</xocs:attachment-set-type>
+         <xocs:pii-formatted>S2667-3258(26)00238-4</xocs:pii-formatted>
+         <xocs:pii-unformatted>S2667325826002384</xocs:pii-unformatted>
+         <xocs:eid>1-s2.0-S2667325826002384</xocs:eid>
+         <xocs:doi>10.1016/j.fmre.2026.04.017</xocs:doi>
+         <xocs:cid>779234</xocs:cid>
+         <xocs:timestamp>2026-06-05T16:13:43.554583Z</xocs:timestamp>
+         <xocs:cover-date-start>2026-05-01</xocs:cover-date-start>
+         <xocs:cover-date-end>2026-05-31</xocs:cover-date-end>
+         <xocs:attachments>
+            <xocs:web-pdf>
+               <xocs:attachment-eid>1-s2.0-S2667325826002384-main.pdf</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2667325826002384/MAIN/application/pdf/0148fdac2d83aa357579a0209efbcd63/main.pdf</xocs:ucs-locator>
+               <xocs:filename>main.pdf</xocs:filename>
+               <xocs:extension>pdf</xocs:extension>
+               <xocs:pdf-optimized>true</xocs:pdf-optimized>
+               <xocs:filesize>553141</xocs:filesize>
+               <xocs:web-pdf-purpose>MAIN</xocs:web-pdf-purpose>
+               <xocs:web-pdf-page-count>3</xocs:web-pdf-page-count>
+               <xocs:web-pdf-images>
+                  <xocs:web-pdf-image>
+                     <xocs:attachment-eid>1-s2.0-S2667325826002384-main_1.png</xocs:attachment-eid>
+                     <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2667325826002384/PREVIEW/image/png/2f82f634eca549fdafe7b528cc7a25d1/main_1.png</xocs:ucs-locator>
+                     <xocs:filename>main_1.png</xocs:filename>
+                     <xocs:extension>png</xocs:extension>
+                     <xocs:filesize>75312</xocs:filesize>
+                     <xocs:pixel-height>928</xocs:pixel-height>
+                     <xocs:pixel-width>656</xocs:pixel-width>
+                     <xocs:attachment-type>IMAGE-WEB-PDF</xocs:attachment-type>
+                     <xocs:pdf-page-num>1</xocs:pdf-page-num>
+                  </xocs:web-pdf-image>
+               </xocs:web-pdf-images>
+            </xocs:web-pdf>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2667325826002384-gr1.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2667325826002384/gr1/DOWNSAMPLED/image/jpeg/fb66814e35897843dd4b15f6e10529fd/gr1.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr1</xocs:file-basename>
+               <xocs:filename>gr1.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>47067</xocs:filesize>
+               <xocs:pixel-height>479</xocs:pixel-height>
+               <xocs:pixel-width>337</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2667325826002384-ga1.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2667325826002384/ga1/DOWNSAMPLED/image/jpeg/05c579f46fafa34d125a5c6e7d74fac7/ga1.jpg</xocs:ucs-locator>
+               <xocs:file-basename>ga1</xocs:file-basename>
+               <xocs:abstract-attachment>true</xocs:abstract-attachment>
+               <xocs:filename>ga1.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>12883</xocs:filesize>
+               <xocs:pixel-height>200</xocs:pixel-height>
+               <xocs:pixel-width>141</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2667325826002384-gr1.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2667325826002384/gr1/THUMBNAIL/image/gif/e2d2ff5d15e44bc2292a5452f2dd8591/gr1.sml</xocs:ucs-locator>
+               <xocs:file-basename>gr1</xocs:file-basename>
+               <xocs:filename>gr1.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>6419</xocs:filesize>
+               <xocs:pixel-height>164</xocs:pixel-height>
+               <xocs:pixel-width>115</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2667325826002384-ga1.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2667325826002384/ga1/THUMBNAIL/image/gif/949e72b02a6ffd45ce29a318f484a4c8/ga1.sml</xocs:ucs-locator>
+               <xocs:file-basename>ga1</xocs:file-basename>
+               <xocs:abstract-attachment>true</xocs:abstract-attachment>
+               <xocs:filename>ga1.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>6807</xocs:filesize>
+               <xocs:pixel-height>163</xocs:pixel-height>
+               <xocs:pixel-width>115</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2667325826002384-gr1_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2667325826002384/HIGHRES/image/jpeg/2f57bff9231d0c495032bcb3bdb0e6a7/gr1_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr1</xocs:file-basename>
+               <xocs:filename>gr1_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>356061</xocs:filesize>
+               <xocs:pixel-height>2126</xocs:pixel-height>
+               <xocs:pixel-width>1495</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2667325826002384-ga1_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2667325826002384/HIGHRES/image/jpeg/03085e3fca2448c08df6ccfa67a59d66/ga1_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>ga1</xocs:file-basename>
+               <xocs:abstract-attachment>true</xocs:abstract-attachment>
+               <xocs:filename>ga1_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>109267</xocs:filesize>
+               <xocs:pixel-height>886</xocs:pixel-height>
+               <xocs:pixel-width>624</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+         </xocs:attachments>
+      </xocs:attachment-metadata-doc>
+   </xocs:meta><xocs:serial-item xmlns:xoe="http://www.elsevier.com/xml/xoe/dtd">
+      <simple-article xmlns="http://www.elsevier.com/xml/ja/dtd" docsubtype="dis" version="5.7" xml:lang="en">
+         <item-info>
+            <jid>FMRE</jid>
+            <aid>1266</aid>
+            <ce:pii>S2667-3258(26)00238-4</ce:pii>
+            <ce:doi>10.1016/j.fmre.2026.04.017</ce:doi>
+            <ce:copyright type="other" year="2026">The Authors</ce:copyright>
+         </item-info>
+         <ce:floats>
+            <ce:figure id="fig0001">
+               <ce:label>Fig. 1</ce:label>
+               <ce:caption id="cap0001">
+                  <ce:simple-para id="spara001" view="all">
+                     <ce:bold>Cooperative Inhibition of Protein Synthesis by AMPK and mTOR under Amino Acid Insufficiency.</ce:bold> Amino acid insufficiency causes uncharged tRNA to accumulate, and this accumulation then activates GCN2. Left: Activated GCN2 phosphorylates FBXO22. After that, FBXO22 triggers the ubiquitination of mTOR, which suppresses mTOR’s function. This suppression reduces the phosphorylation of S6K1 and 4EBP1, ultimately leading to the inhibition of protein synthesis. Right: When GCN2 is activated, it specifically phosphorylates and activates AMPKα2, but not AMPKα1. This activation triggers a phosphorylation cascade through eEF2K, which inactivates eEF2. When eEF2 is inactivated, peptide elongation is arrested, and this leads to the inhibition of protein synthesis.</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0001" role="short">Fig 1 dummy alt text</ce:alt-text>
+               <ce:link id="celink0001" locator="gr1" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2667325826002384/gr1"/>
+            </ce:figure>
+         </ce:floats>
+         <simple-head>
+            <ce:article-footnote>
+               <ce:note-para id="notep0001" view="all">Peer review under the responsibility of Editorial Board of Fundamental Research.</ce:note-para>
+            </ce:article-footnote>
+            <ce:dochead id="dchd0001">
+               <ce:textfn id="dhtxt0001">News &amp; Views</ce:textfn>
+            </ce:dochead>
+            <ce:title id="tte0002">Amino acid insufficiency orchestrates AMPK and mTOR signaling</ce:title>
+            <ce:author-group id="aut0001">
+               <ce:author id="au0001" author-id="S2667325826002384-957756d19605b3862016e3a6916ad836">
+                  <ce:given-name>Tianxing</ce:given-name>
+                  <ce:surname>Li</ce:surname>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/writing-original-draft">Writing – original draft</ce:contributor-role>
+               </ce:author>
+               <ce:author id="au0002" biographyid="auth2Bio1" author-id="S2667325826002384-c50682afea080c564dc962799d839b46" orcid="0009-0002-4649-7828">
+                  <ce:given-name>Lin</ce:given-name>
+                  <ce:surname>Zhao</ce:surname>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/writing-review-editing">Writing – review &amp; editing</ce:contributor-role>
+                  <ce:cross-ref id="crf0001" refid="cor0001">
+                     <ce:sup loc="post">⁎</ce:sup>
+                  </ce:cross-ref>
+                  
+               </ce:author>
+               <ce:author id="au0003" biographyid="auth3Bio2" author-id="S2667325826002384-37770d89d5c899add226e297e770bcb4">
+                  <ce:given-name>Da</ce:given-name>
+                  <ce:surname>Jia</ce:surname>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/writing-review-editing">Writing – review &amp; editing</ce:contributor-role>
+                  <ce:cross-ref id="crf0002" refid="cor0001">
+                     <ce:sup loc="post">⁎</ce:sup>
+                  </ce:cross-ref>
+                  
+               </ce:author>
+               <ce:affiliation id="aff0001" affiliation-id="S2667325826002384-5cfcb772c3d83a952d413b73cf515049">
+                  <ce:textfn id="cetextfn0001">Key Laboratory of Birth Defects and Related Diseases of Women and Children, Department of Paediatrics, West China Second University Hospital, State Key Laboratory of Biotherapy and Collaborative Innovation Center of Biotherapy, Sichuan University, Chengdu 610041, China</ce:textfn>
+                  <sa:affiliation>
+                     <sa:organization>Key Laboratory of Birth Defects and Related Diseases of Women and Children</sa:organization>
+                     <sa:organization>Department of Paediatrics</sa:organization>
+                     <sa:organization>West China Second University Hospital</sa:organization>
+                     <sa:organization>State Key Laboratory of Biotherapy and Collaborative Innovation Center of Biotherapy</sa:organization>
+                     <sa:organization>Sichuan University</sa:organization>
+                     <sa:city>Chengdu</sa:city>
+                     <sa:postal-code>610041</sa:postal-code>
+                     <sa:country iso3166-1-alpha-3="CHN">China</sa:country>
+                  </sa:affiliation>
+                  <ce:source-text id="staff0001">Key Laboratory of Birth Defects and Related Diseases of Women and Children, Department of Paediatrics, West China Second University Hospital, State Key Laboratory of Biotherapy and Collaborative Innovation Center of Biotherapy, Sichuan University, Chengdu 610041, China</ce:source-text>
+               </ce:affiliation>
+               <ce:correspondence id="cor0001">
+                  <ce:label>⁎</ce:label>
+                  <ce:text id="cetext0001">Corresponding authors.</ce:text>
+               </ce:correspondence>
+            </ce:author-group>
+            <ce:date-received day="17" month="10" year="2025"/>
+            <ce:date-revised day="15" month="4" year="2026"/>
+            <ce:date-accepted day="15" month="4" year="2026"/>
+            <ce:abstract id="abs0001" class="graphical" view="all">
+               <ce:section-title id="cesectitle0001">Graphical abstract</ce:section-title>
+               <ce:abstract-sec id="abss0001" view="all">
+                  <ce:simple-para id="spara002" view="all">
+                     <ce:display>
+                        <ce:figure id="fig0002">
+                           <ce:alt-text id="alttx001" role="short">Image, graphical abstract</ce:alt-text>
+                           <ce:link id="celink0002" locator="ga1" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2667325826002384/ga1"/>
+                        </ce:figure>
+                     </ce:display>
+                  </ce:simple-para>
+               </ce:abstract-sec>
+            </ce:abstract>
+         </simple-head>
+         <body view="all">
+            <ce:sections>
+               <ce:para id="para0004" view="all">A recent study by Mao et al. in <ce:italic>Cell Metabolism</ce:italic> reported that AMPKα2 specifically responds to amino acid insufficiency to inhibit protein translation, thereby preventing Alzheimer’s disease-like symptoms [<ce:cross-ref id="crf0003" refid="bib0001">1</ce:cross-ref>]. Their findings reveal a new regulatory mechanism that allows cells to rapidly halt protein synthesis when amino acids are deficient, coordinating with mTOR signaling to determine cellular fate.</ce:para>
+               <ce:para id="para0005" view="all">Amino acids fuel protein synthesis and modulate metabolism. Under ample supply, mTORC1—a central growth promoter—is switched on. Specific sensors relay the amino acid signal via Rag GTPases, bringing mTORC1 to lysosomal membranes to initiate anabolism [<ce:cross-ref id="crf0004" refid="bib0002">2</ce:cross-ref>]. Active mTORC1 then boosts translation by phosphorylating effectors, including S6K1 and 4EBP1 [<ce:cross-ref id="crf0005" refid="bib0003">3</ce:cross-ref>]. However, amino acid deficiency can disrupt this system, employing ubiquitination as a primary shut-off mechanism [<ce:cross-ref id="crf0006" refid="bib0004">4</ce:cross-ref>]. The cascade starts with uncharged tRNA engaging GCN2, which directs FBXO22 to tag mTOR with ubiquitin (<ce:cross-ref id="crf0007" refid="fig0001">Fig. 1</ce:cross-ref>
+                  <ce:float-anchor refid="fig0001"/> left). This tag directly dials down mTOR’s activity, putting protein synthesis on hold [<ce:cross-ref id="crf0008" refid="bib0004">4</ce:cross-ref>].</ce:para>
+               <ce:para id="para0006" view="all">The AMPK complex, a key metabolic regulator, contains catalytic α1 and α2 subunits. Their kinase domains are highly similar, granting equivalent ability to phosphorylate common targets [<ce:cross-ref id="crf0009" refid="bib0005">5</ce:cross-ref>]. Their primary divergence lies in tissue localization: α1 is abundant in liver, adipose, and kidney tissues, while α2 is chiefly found in skeletal muscle, heart, and neurons [<ce:cross-ref id="crf0010" refid="bib0006">6</ce:cross-ref>]. Within neurons, AMPK-mediated translation arrest is a critical survival response. Given its strong neuronal presence, α2 likely contributes more significantly than α1 to neuronal stability.</ce:para>
+               <ce:para id="para0007" view="all">Traditionally, AMPK has been recognized as a vital detector of metabolic stress cues, such as calcium flux, AMP/ATP ratio, and fructose-1,6-bisphosphate (FBP) [<ce:cross-ref id="crf0011" refid="bib0007">7</ce:cross-ref>]. When activated, AMPK sets off a phosphorylation chain reaction via eEF2K, which shuts down eEF2. This shutdown stops eEF2 from helping ribosomes move, quickly putting a pause on peptide chain elongation [<ce:cross-ref id="crf0012" refid="bib0008">8</ce:cross-ref>]. Given the exceptionally high energy demands and inherent vulnerability of neurons, this mechanism is far more crucial here than in other tissues. However, whether AMPK can directly perceive amino acid levels and thereby regulate protein synthesis during amino acid deficiency remains a question requiring further investigation. Mao et al. found that AMPKα2, but not AMPKα1, is directly activated by amino acid insufficiency to inhibit protein synthesis (<ce:cross-ref id="crf0013" refid="fig0001">Fig. 1</ce:cross-ref> right). The absence of AMPKα2 leads to the buildup of tau and β-amyloid (Aβ) aggregates in neuronal cells, which ultimately results in apoptosis. These results establish a new function for AMPK in sensing nutrient stress. They also point to AMPK’s possible role in counteracting the progression of neurodegenerative diseases.</ce:para>
+               <ce:para id="para0008" view="all">Alzheimer’s disease (AD) is driven by the accumulation of pathological tau and Aβ proteins, which form toxic aggregates in the brain [<ce:cross-ref id="crf0014" refid="bib0009">9</ce:cross-ref>]. Essentially, the disease can be viewed as a disorder caused by an imbalance in the proteostasis network, wherein the formation of pathological tau and Aβ aggregates directly results from protein misfolding, abnormal aggregation, and impaired clearance [<ce:cross-ref id="crf0015" refid="bib0010">10</ce:cross-ref>]. Furthermore, AMPK is inactive in AD, and this impairment is linked to aberrant tau phosphorylation [<ce:cross-ref id="crf0016" refid="bib0011">11</ce:cross-ref>]. Mao et al. observed that in AD assays, AMPKα2<ce:sup loc="post">−/−</ce:sup> mice, but not AMPKα1<ce:sup loc="post">−/−</ce:sup> mice, experienced more severe cognitive and behavioral decline than WT mice [<ce:cross-ref id="crf0017" refid="bib0001">1</ce:cross-ref>]. Correspondingly, mice with a genetic modification that makes AMPKα2 unable to be phosphorylated (the T172A mutant) developed the same AD-like traits as AMPKα2<ce:sup loc="post">−/−</ce:sup> mice. These findings demonstrate that losing phosphorylated AMPKα2 (at T172) in mice directly drives AD-like phenotypes, indicating that AMPKα2’s role in curbing protein translation is critical for guarding against AD development.</ce:para>
+               <ce:para id="para0009" view="all">Mechanistically, the authors identified GCN2 as the kinase that phosphorylates AMPKα2 at T172 [<ce:cross-ref id="crf0018" refid="bib0001">1</ce:cross-ref>]. Previous studies have reported that under amino acid deficiency, uncharged tRNA activates GCN2, thereby triggering the eIF2α-ATF4 axis [<ce:cross-ref id="crf0019" refid="bib0012">12</ce:cross-ref>]. The authors’ newly identified AMPKα2 axis provides another critical functional endpoint for this signaling cascade. Once active, GCN2 then adds a phosphate group to AMPKα2 at the T172 site (<ce:cross-ref id="crf0020" refid="fig0001">Fig. 1</ce:cross-ref> right). Moreover, the loss of GCN2 in neuronal cells concurrently induced the aggregation of tau and Aβ and triggered apoptosis. Notably, GCN2<ce:sup loc="post">−/−</ce:sup> mice developed AD-like traits that were similar to those seen in AMPKα2<ce:sup loc="post">−/−</ce:sup> mice.</ce:para>
+               <ce:para id="para0010" view="all">While Mao et al.’s study focuses on mouse models, it’s supported by steady evidence from human pathology work [<ce:cross-ref id="crf0021" refid="bib0001">1</ce:cross-ref>]. The study included a cohort of 40 AD patients and 40 matched healthy controls, providing initial insights despite the sample size being modest for definitive clinical validation. AD patients’ white blood cells had significantly less phosphorylation of AMPKα-T172 and GCN2-T899. This molecular trait lined up with a distinct metabolic profile, total protein was higher in plasma and leukocytes, and plasma levels of 13 proteinogenic amino acids were lower.</ce:para>
+               <ce:para id="para0011" view="all">Finally, another notable finding of the study was that AMPK activation, as well as restriction of branched-chain amino acids (BCAAs) or dietary protein, protects against AD-like symptoms in mice in an AMPKα2-p-T172-dependent manner [<ce:cross-ref id="crf0022" refid="bib0001">1</ce:cross-ref>]. The classic oral hypoglycemic drug metformin exerts its physiological effects through multiple mechanisms to activate AMPK: on the one hand, it inhibits mitochondrial complex I to increase the AMP/ATP and ADP/ATP ratios in high doses; on the other hand, it promotes AMPK phosphorylation and activation via the lysosomal pathway in low doses [<ce:cross-ref id="crf0023" refid="bib0013">13</ce:cross-ref>]. The concentration of metformin used in Mao et al.’s study was insufficient to activate mitochondrial AMPK, suggesting that the GCN2-AMPKα2 axis relies more on the lysosomal pathway. Considering metformin’s widespread clinical use as an AMPK activator [<ce:cross-ref id="crf0024" refid="bib0014">14</ce:cross-ref>], Mao et al.’s findings thereby provide a mechanistic basis for the use of metformin in AD prevention and open a potentially therapeutic avenue for nutritional interventions.</ce:para>
+               <ce:para id="para0012" view="all">In conclusion, Mao et al.’s study demonstrates how AMPKα2 specifically senses amino acid shortages and uses this signal to inhibit protein translation, which indicates that AMPKα possesses a dual-sensing capability—it is responsive to both energy signals and amino acid signals, thereby serving as a regulatory hub that integrates nutrient and environmental signals. This finding also highlights a key protective role of this pathway in fighting AD. The uncharged tRNA-GCN2-AMPKα2 axis directly suppresses protein synthesis, thereby blocking the accumulation of pathological tau and Aβ proteins at their source to prevent AD. Their work further explains that AMPKα1 and AMPKα2 split their tasks: they can detect and combine different metabolic signals, then coordinate the cell’s adaptive responses to keep its internal environment stable. This work not only deepens our mechanistic understanding of how AMPKα responds to metabolic signals but also provides a promising way for the early prevention of AD. Furthermore, the application of limiting BCAAs or dietary protein offers novel potential therapeutic strategies for diseases beyond AD that are caused by aberrant protein synthesis, such as cancer.</ce:para>
+               <ce:para id="para0013" view="all">Despite offering a novel perspective on AMPK and AD pathogenesis, it should be noted that the study by Mao et al. has inherent limitations. Furthermore, given that amino acid availability is already reduced in patients with AD, further dietary restriction of amino acids may not be beneficial and could even exacerbate underlying metabolic imbalances. Therefore, caution is warranted when considering the translation of such nutritional interventions into clinical practice. Meanwhile, the human data in the study were derived from peripheral blood cells and plasma rather than specific brain regions; the role of the GCN2-AMPKα2 axis within specific brain areas and across distinct neuronal populations remains to be investigated. Lastly, while the authors focused on the inhibition of protein synthesis via activation of the GCN2-AMPK axis to prevent AD, the GCN2-ATF4 axis and the AMPK-ULK1-autophagy axis are equally important in AD, as they respectively suppress protein synthesis and facilitate the clearance of accumulated proteins.</ce:para>
+               <ce:para id="para0014" view="all">Like many groundbreaking studies, Mao et al.’s study raises a host of questions. Firstly, upon sensing uncharged tRNA during amino acid deficiency, GCN2 is known not only to activate AMPKα2 but also to mediate the ubiquitination of mTOR [<ce:cross-ref id="crf0025" refid="bib0004">4</ce:cross-ref>], both of which ultimately suppress protein synthesis. We are then prompted to ask: how are these two signaling branches coordinated? Do they act simultaneously or sequentially? Considering that GCN2 phosphorylates AMPKα2 through a one-step direct mechanism, whereas inducing mTOR ubiquitination requires a multi-step cascade involving phosphorylation, translocation, and ubiquitination, the activation of AMPKα2 by GCN2 likely occurs earlier than the ubiquitination event. Secondly, AMPK is traditionally known to be activated by energy stress and glucose deprivation. This study reports its activation in response to amino acid deficiency. Some key questions emerge: what is the full scope of its sensory capacity? Long-chain fatty acyl-CoA has been reported to directly bind and activate AMPK [<ce:cross-ref id="crf0026" refid="bib0015">15</ce:cross-ref>], demonstrating that AMPK also functions as a direct sensor for multiple nutrients. Hence, it is crucial to discover more nutrients that can directly activate AMPK. Finally, there is a crucial question about how widely this mechanism applies: Does the way AMPK detects amino acids work the same across all different non-neuronal tissues? If so, this discovery would enable a novel therapeutic strategy for conditions characterized by dysregulated protein metabolism, and cancer stands as a foremost example for its application.</ce:para>
+               <ce:section id="sec0001a" view="all">
+                  <ce:section-title id="cesectitle0001a">CRediT authorship contribution statement</ce:section-title>
+                  <ce:para id="para0014a" view="all">
+                     <ce:bold>Tianxing Li:</ce:bold> Writing – original draft. <ce:bold>Lin Zhao:</ce:bold> Writing – review &amp; editing. <ce:bold>Da Jia:</ce:bold> Writing – review &amp; editing.</ce:para>
+               </ce:section>
+            </ce:sections>
+            <ce:conflict-of-interest id="coi0001" view="all">
+               <ce:section-title id="cesectitle0004">Declaration of competing interest</ce:section-title>
+               <ce:para id="para0016" view="all">The authors declare that they have no conflicts of interest in this work.</ce:para>
+            </ce:conflict-of-interest>
+            <ce:acknowledgment id="ack0001" view="all">
+               <ce:section-title id="cesectitle0003">Acknowledgments</ce:section-title>
+               <ce:para id="para0015" view="all">This work is supported by <ce:grant-sponsor id="gs0001" xlink:type="simple" xlink:role="http://www.elsevier.com/xml/linking-roles/grant-sponsor">Natural Science Foundation of China</ce:grant-sponsor> (<ce:grant-number refid="gs0001" id="gn0001">92254302</ce:grant-number>, <ce:grant-number refid="gs0001" id="gn0002">32430027</ce:grant-number>, <ce:grant-number refid="gs0001" id="gn0003">32300578</ce:grant-number>), <ce:grant-sponsor id="gs0002" xlink:type="simple" xlink:role="http://www.elsevier.com/xml/linking-roles/grant-sponsor">National Science Fund for Distinguished Young Scholars</ce:grant-sponsor> (<ce:grant-number refid="gs0002" id="gn0004">32125012</ce:grant-number>), the <ce:grant-sponsor id="gs0003" xlink:type="simple" xlink:role="http://www.elsevier.com/xml/linking-roles/grant-sponsor">China Postdoctoral Science Foundation</ce:grant-sponsor> (<ce:grant-number refid="gs0003" id="gn0005">2023M732475</ce:grant-number>), the <ce:grant-sponsor id="gs0004" xlink:type="simple" xlink:role="http://www.elsevier.com/xml/linking-roles/grant-sponsor">Young Scientists Project of the National Key R&amp;D Program of China</ce:grant-sponsor> (<ce:grant-number refid="gs0004" id="gn0006">2024YFC3407300</ce:grant-number>), and <ce:grant-sponsor id="gs0005" xlink:type="simple" xlink:role="http://www.elsevier.com/xml/linking-roles/grant-sponsor">Sichuan Science and Technology Program</ce:grant-sponsor> (<ce:grant-number refid="gs0005" id="gn0007">2025NSFTD0028</ce:grant-number>).</ce:para>
+            </ce:acknowledgment>
+         </body>
+         <simple-tail view="all">
+            <ce:bibliography id="cebibl1" view="all">
+               <ce:section-title id="cesectitle0005">References</ce:section-title>
+               <ce:bibliography-sec id="cebibsec1" view="all">
+                  <ce:bib-reference id="bib0001">
+                     <ce:label>[1]</ce:label>
+                     <sb:reference id="sbref0001">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>Y.</ce:given-name>
+                                 <ce:surname>Mao</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Cui</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>Y.</ce:given-name>
+                                 <ce:surname>Jiang</ce:surname>
+                              </sb:author>
+                              <sb:et-al/>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>AMPKα2 signals amino acid insufficiency to inhibit protein synthesis</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Cell Metab.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>38</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>1</sb:issue-nr>
+                              <sb:date>2026</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>192</sb:first-page>
+                              <sb:last-page>207.e8</sb:last-page>
+                           </sb:pages>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0001">Y. Mao, M. Cui, Y. Jiang, et al., AMPKα2 signals amino acid insufficiency to inhibit protein synthesis. Cell Metab. 38 (1) (2026) 192–207.e8.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0002">
+                     <ce:label>[2]</ce:label>
+                     <sb:reference id="sbref0002">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>Y.</ce:given-name>
+                                 <ce:surname>Sancak</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>T.R.</ce:given-name>
+                                 <ce:surname>Peterson</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>Y.D.</ce:given-name>
+                                 <ce:surname>Shaul</ce:surname>
+                              </sb:author>
+                              <sb:et-al/>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>The Rag GTPases bind raptor and mediate amino acid signaling to mTORC1</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Science</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>320</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>5882</sb:issue-nr>
+                              <sb:date>2008</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>1496</sb:first-page>
+                              <sb:last-page>1501</sb:last-page>
+                           </sb:pages>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0002">Y. Sancak, T.R. Peterson, Y.D. Shaul, et al., The Rag GTPases bind raptor and mediate amino acid signaling to mTORC1. Science 320 (5882) (2008) 1496–1501.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0003">
+                     <ce:label>[3]</ce:label>
+                     <sb:reference id="sbref0003">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>P.E.</ce:given-name>
+                                 <ce:surname>Burnett</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>R.K.</ce:given-name>
+                                 <ce:surname>Barrow</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>N.A.</ce:given-name>
+                                 <ce:surname>Cohen</ce:surname>
+                              </sb:author>
+                              <sb:et-al/>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>RAFT1 phosphorylation of the translational regulators p70 S6 kinase and 4E-BP1</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Proc. Natl. Acad. Sci. U. S. A.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>95</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>4</sb:issue-nr>
+                              <sb:date>1998</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>1432</sb:first-page>
+                              <sb:last-page>1437</sb:last-page>
+                           </sb:pages>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0003">P.E. Burnett, R.K. Barrow, N.A. Cohen, et al., RAFT1 phosphorylation of the translational regulators p70 S6 kinase and 4E-BP1. Proc. Natl. Acad. Sci. U. S. A. 95 (4) (1998) 1432–1437.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0004">
+                     <ce:label>[4]</ce:label>
+                     <sb:reference id="sbref0004">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>M.K.</ce:given-name>
+                                 <ce:surname>Ge</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>C.</ce:given-name>
+                                 <ce:surname>Zhang</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>N.</ce:given-name>
+                                 <ce:surname>Zhang</ce:surname>
+                              </sb:author>
+                              <sb:et-al/>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>The tRNA-GCN2-FBXO22 axis-mediated mTOR ubiquitination senses amino acid insufficiency</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Cell Metab.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>35</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>12</sb:issue-nr>
+                              <sb:date>2023</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>2216</sb:first-page>
+                              <sb:last-page>2230.e8</sb:last-page>
+                           </sb:pages>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0004">M.K. Ge, C. Zhang, N. Zhang, et al., The tRNA-GCN2-FBXO22 axis-mediated mTOR ubiquitination senses amino acid insufficiency. Cell Metab. 35 (12) (2023) 2216–2230.e8.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0005">
+                     <ce:label>[5]</ce:label>
+                     <sb:reference id="sbref0005">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>W.J.</ce:given-name>
+                                 <ce:surname>Smiles</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>A.J.</ce:given-name>
+                                 <ce:surname>Ovens</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>J.S.</ce:given-name>
+                                 <ce:surname>Oakhill</ce:surname>
+                              </sb:author>
+                              <sb:et-al/>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>The metabolic sensor AMPK: Twelve enzymes in one</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Mol. Metab.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>90</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2024</sb:date>
+                           </sb:issue>
+                           <sb:article-number>102042</sb:article-number>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0005">W.J. Smiles, A.J. Ovens, J.S. Oakhill, et al., The metabolic sensor AMPK: twelve enzymes in one. Mol. Metab. 90 (2024) 102042.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0006">
+                     <ce:label>[6]</ce:label>
+                     <sb:reference id="sbref0006">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>D.</ce:given-name>
+                                 <ce:surname>Stapleton</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>K.I.</ce:given-name>
+                                 <ce:surname>Mitchelhill</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>G.</ce:given-name>
+                                 <ce:surname>Gao</ce:surname>
+                              </sb:author>
+                              <sb:et-al/>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Mammalian AMP-activated protein kinase subfamily</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>J. Biol. Chem.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>271</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>2</sb:issue-nr>
+                              <sb:date>1996</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>611</sb:first-page>
+                              <sb:last-page>614</sb:last-page>
+                           </sb:pages>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0006">D. Stapleton, K.I. Mitchelhill, G. Gao, et al., Mammalian AMP-activated protein kinase subfamily. J. Biol. Chem. 271 (2) (1996) 611–614.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0007">
+                     <ce:label>[7]</ce:label>
+                     <sb:reference id="sbref0007">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>S.C.</ce:given-name>
+                                 <ce:surname>Lin</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>D.G.</ce:given-name>
+                                 <ce:surname>Hardie</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>AMPK: Sensing glucose as well as cellular energy status</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Cell Metab.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>27</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>2</sb:issue-nr>
+                              <sb:date>2018</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>299</sb:first-page>
+                              <sb:last-page>313</sb:last-page>
+                           </sb:pages>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0007">S.C. Lin, D.G. Hardie, AMPK: sensing glucose as well as cellular energy status. Cell Metab. 27 (2) (2018) 299–313.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0008">
+                     <ce:label>[8]</ce:label>
+                     <sb:reference id="sbref0008">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>S.</ce:given-name>
+                                 <ce:surname>Horman</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>G.</ce:given-name>
+                                 <ce:surname>Browne</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>U.</ce:given-name>
+                                 <ce:surname>Krause</ce:surname>
+                              </sb:author>
+                              <sb:et-al/>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Activation of AMP-activated protein kinase leads to the phosphorylation of elongation factor 2 and an inhibition of protein synthesis</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Curr. Biol.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>12</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>16</sb:issue-nr>
+                              <sb:date>2002</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>1419</sb:first-page>
+                              <sb:last-page>1423</sb:last-page>
+                           </sb:pages>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0008">S. Horman, G. Browne, U. Krause, et al., Activation of AMP-activated protein kinase leads to the phosphorylation of elongation factor 2 and an inhibition of protein synthesis. Curr. Biol. 12 (16) (2002) 1419–1423.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0009">
+                     <ce:label>[9]</ce:label>
+                     <sb:reference id="sbref0009">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>M.A.</ce:given-name>
+                                 <ce:surname>Busche</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>B.T.</ce:given-name>
+                                 <ce:surname>Hyman</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Synergy between amyloid-β and tau in Alzheimer’s disease</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Nat. Neurosci.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>23</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>10</sb:issue-nr>
+                              <sb:date>2020</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>1183</sb:first-page>
+                              <sb:last-page>1193</sb:last-page>
+                           </sb:pages>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0009">M.A. Busche, B.T. Hyman, Synergy between amyloid-β and tau in Alzheimer’s disease. Nat. Neurosci. 23 (10) (2020) 1183–1193.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0010">
+                     <ce:label>[10]</ce:label>
+                     <sb:reference id="sbref0010">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>J.P.</ce:given-name>
+                                 <ce:surname>Courade</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>H.</ce:given-name>
+                                 <ce:surname>Zetterberg</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>G.U.</ce:given-name>
+                                 <ce:surname>Höglinger</ce:surname>
+                              </sb:author>
+                              <sb:et-al/>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>The evolving landscape of Alzheimer’s disease therapy: From Aβ to tau</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Cell</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>188</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>26</sb:issue-nr>
+                              <sb:date>2025</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>7337</sb:first-page>
+                              <sb:last-page>7354</sb:last-page>
+                           </sb:pages>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0010">J.P. Courade, H. Zetterberg, G.U. Höglinger, et al., The evolving landscape of Alzheimer’s disease therapy: from Aβ to tau. Cell 188 (26) (2025) 7337–7354.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0011">
+                     <ce:label>[11]</ce:label>
+                     <sb:reference id="sbref0011">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>J.S.</ce:given-name>
+                                 <ce:surname>Won</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>Y.B.</ce:given-name>
+                                 <ce:surname>Im</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>J.</ce:given-name>
+                                 <ce:surname>Kim</ce:surname>
+                              </sb:author>
+                              <sb:et-al/>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Involvement of AMP-activated protein kinase (AMPK) in neuronal amyloidogenesis</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Biochem. Biophys. Res. Commun.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>399</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>4</sb:issue-nr>
+                              <sb:date>2010</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>487</sb:first-page>
+                              <sb:last-page>491</sb:last-page>
+                           </sb:pages>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0011">J.S. Won, Y.B. Im, J. Kim, et al., Involvement of AMP-activated protein kinase (AMPK) in neuronal amyloidogenesis. Biochem. Biophys. Res. Commun. 399 (4) (2010) 487–491.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0012">
+                     <ce:label>[12]</ce:label>
+                     <sb:reference id="sbref0012">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>J.Z.</ce:given-name>
+                                 <ce:surname>Yin</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>A.F.A.</ce:given-name>
+                                 <ce:surname>Keszei</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>S.</ce:given-name>
+                                 <ce:surname>Houliston</ce:surname>
+                              </sb:author>
+                              <sb:et-al/>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>The HisRS-like domain of GCN2 is a pseudoenzyme that can bind uncharged tRNA</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Structure</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>32</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>6</sb:issue-nr>
+                              <sb:date>2024</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>795</sb:first-page>
+                              <sb:last-page>811.e6</sb:last-page>
+                           </sb:pages>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0012">J.Z. Yin, A.F.A. Keszei, S. Houliston, et al., The HisRS-like domain of GCN2 is a pseudoenzyme that can bind uncharged tRNA. Structure 32 (6) (2024) 795–811.e6.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0013">
+                     <ce:label>[13]</ce:label>
+                     <sb:reference id="sbref0013">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>T.</ce:given-name>
+                                 <ce:surname>Ma</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>X.</ce:given-name>
+                                 <ce:surname>Tian</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>B.</ce:given-name>
+                                 <ce:surname>Zhang</ce:surname>
+                              </sb:author>
+                              <sb:et-al/>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Low-dose metformin targets the lysosomal AMPK pathway through PEN2</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Nature</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>603</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>7899</sb:issue-nr>
+                              <sb:date>2022</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>159</sb:first-page>
+                              <sb:last-page>165</sb:last-page>
+                           </sb:pages>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0013">T. Ma, X. Tian, B. Zhang, et al., Low-dose metformin targets the lysosomal AMPK pathway through PEN2. Nature 603 (7899) (2022) 159–165.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0014">
+                     <ce:label>[14]</ce:label>
+                     <sb:reference id="sbref0014">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>I.</ce:given-name>
+                                 <ce:surname>Pernicova</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Korbonits</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Metformin—mode of action and clinical implications for diabetes and cancer</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Nat. Rev. Endocrinol.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>10</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>3</sb:issue-nr>
+                              <sb:date>2014</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>143</sb:first-page>
+                              <sb:last-page>156</sb:last-page>
+                           </sb:pages>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0014">I. Pernicova, M. Korbonits, Metformin—mode of action and clinical implications for diabetes and cancer. Nat. Rev. Endocrinol. 10 (3) (2014) 143–156.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0015">
+                     <ce:label>[15]</ce:label>
+                     <sb:reference id="sbref0015">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>S.L.</ce:given-name>
+                                 <ce:surname>Pinkosky</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>J.W.</ce:given-name>
+                                 <ce:surname>Scott</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>E.M.</ce:given-name>
+                                 <ce:surname>Desjardins</ce:surname>
+                              </sb:author>
+                              <sb:et-al/>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Long-chain fatty acyl-CoA esters regulate metabolism via allosteric control of AMPK β1 isoforms</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Nat. Metab.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>2</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>9</sb:issue-nr>
+                              <sb:date>2020</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>873</sb:first-page>
+                              <sb:last-page>881</sb:last-page>
+                           </sb:pages>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0015">S.L. Pinkosky, J.W. Scott, E.M. Desjardins, et al., Long-chain fatty acyl-CoA esters regulate metabolism via allosteric control of AMPK β1 isoforms. Nat. Metab. 2 (9) (2020) 873–881.</ce:source-text>
+                  </ce:bib-reference>
+               </ce:bibliography-sec>
+            </ce:bibliography>
+            <ce:biography id="auth2Bio1" view="all">
+               <ce:simple-para id="spara003" view="all">
+                  <ce:bold>Lin Zhao</ce:bold> is currently a postdoctoral fellow at the State Key Laboratory of Biotherapy/West China Second University Hospital, Sichuan University, specializing in vesicular trafficking mechanisms and related diseases. To date, she has authored or co-authored multiple high-impact publications in prestigious journals such as <ce:italic>Cell, PNAS</ce:italic>, and <ce:italic>PLoS Biology</ce:italic>, accumulating over 600 citations. Furthermore, she has secured several competitive research grants, including projects from the National Natural Science Foundation of China.</ce:simple-para>
+            </ce:biography>
+            <ce:biography id="auth3Bio2" view="all">
+               <ce:simple-para id="spara004" view="all">
+                  <ce:bold>Da Jia</ce:bold> is a professor at the State Key Laboratory of Biotherapy/West China Second University Hospital, Sichuan University. Dr. Jia’s group investigates the dynamic regulation of organelles, vesicular trafficking, and pathogenic mechanisms of related neurological disorders. His group is also dedicated in developing novel therapeutic strategies for these diseases. He has published over 70 papers with &gt;8000 citations. In the past 5 years, as corresponding author, he published research articles in journals including <ce:italic>Cell, Molecular Cell, Nature Metabolism, Nature Structural &amp; Molecular Biology, Nature Communications, PNAS, Journal of Cell Biology, STTT</ce:italic>, and <ce:italic>Cell Research</ce:italic>.</ce:simple-para>
+            </ce:biography>
+         </simple-tail>
+      </simple-article>
+   </xocs:serial-item></xocs:doc></originalText></full-text-retrieval-response>

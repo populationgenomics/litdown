@@ -2,7 +2,7 @@
 
 import sys
 
-from litdown.jats import convert
+from litdown import convert
 
 
 def main(argv: list[str] | None = None) -> int:

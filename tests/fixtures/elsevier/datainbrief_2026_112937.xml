@@ -1,0 +1,2113 @@
+<full-text-retrieval-response xmlns="http://www.elsevier.com/xml/svapi/article/dtd" xmlns:bk="http://www.elsevier.com/xml/bk/dtd" xmlns:cals="http://www.elsevier.com/xml/common/cals/dtd" xmlns:ce="http://www.elsevier.com/xml/common/dtd" xmlns:ja="http://www.elsevier.com/xml/ja/dtd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:sa="http://www.elsevier.com/xml/common/struct-aff/dtd" xmlns:sb="http://www.elsevier.com/xml/common/struct-bib/dtd" xmlns:tb="http://www.elsevier.com/xml/common/table/dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xocs="http://www.elsevier.com/xml/xocs/dtd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><coredata><prism:url>https://api.elsevier.com/content/article/pii/S2352340926004889</prism:url><dc:identifier>doi:10.1016/j.dib.2026.112937</dc:identifier><eid>1-s2.0-S2352340926004889</eid><prism:doi>10.1016/j.dib.2026.112937</prism:doi><pii>S2352-3409(26)00488-9</pii><dc:title>SVH-BD: Synthetic vegetation hyperspectral benchmark dataset derived from sentinel-2 tiles over France, Spain, Tanzania, and India during 1–6 May 2023 </dc:title><prism:publicationName>Data in Brief</prism:publicationName><prism:aggregationType>Journal</prism:aggregationType><pubType>dat</pubType><prism:issn>23523409</prism:issn><prism:volume>67</prism:volume><prism:startingPage>112937</prism:startingPage><prism:pageRange>112937</prism:pageRange><articleNumber>112937</articleNumber><dc:format>text/xml</dc:format><prism:coverDate>2026-08-31</prism:coverDate><prism:coverDisplayDate>August 2026</prism:coverDisplayDate><prism:copyright>© 2026 The Author(s). Published by Elsevier Inc.</prism:copyright><prism:publisher>The Author(s). Published by Elsevier Inc.</prism:publisher><dc:creator>Ben Azizi, Chedly</dc:creator><dc:creator>Guilloteau, Claire</dc:creator><dc:creator>Roussel, Gilles</dc:creator><dc:creator>Puigt, Matthieu</dc:creator><dc:description>
+                  This dataset provides a large collection of 10,915 synthetic hyperspectral image cubes paired with pixel‑level vegetation trait maps, designed to support research in radiative transfer emulation, vegetation trait retrieval, and uncertainty quantification. Each hyperspectral cube contains 211 bands spanning 400–2500 nm at 10 nm resolution and a fixed spatial layout of 64 × 64 pixels, offering continuous simulated surface reflectance spectra suitable for emulator development and machine‑learning tasks requiring high spectral detail. Vegetation traits were derived by inverting Sentinel‑2 Level‑2A[1] surface reflectance using a PROSAIL‑based lookup‑table approach[2,3,4], followed by forward PROSAIL simulations to generate hyperspectral reflectance under physically consistent canopy and illumination conditions. The dataset covers four ecologically diverse regions—East Africa, Northern France, Eastern India, and Southern Spain—and includes 5th and 95th percentile uncertainty maps as well as Sentinel‑2 scene classification layers. This resource enables benchmarking of inversion methods, development of fast radiative transfer emulators, and studies of spectral–biophysical relationships under controlled yet realistic environmental variability.
+               </dc:description><openaccess>1</openaccess><openaccessArticle>true</openaccessArticle><openaccessType>Full</openaccessType><openArchiveArticle>false</openArchiveArticle><openaccessSponsorName>French institutions 2024: Hybrid journals</openaccessSponsorName><openaccessSponsorType>FundingBody</openaccessSponsorType><openaccessUserLicense>http://creativecommons.org/licenses/by/4.0/</openaccessUserLicense><dcterms:subject>Radiative transfer modelling</dcterms:subject><dcterms:subject>Biophysical parameter retrieval</dcterms:subject><dcterms:subject>Canopy reflectance simulation</dcterms:subject><dcterms:subject>Uncertainty quantification</dcterms:subject><dcterms:subject>PROSAIL inversion</dcterms:subject><link href="https://api.elsevier.com/content/article/pii/S2352340926004889" rel="self"/><link href="https://www.sciencedirect.com/science/article/pii/S2352340926004889" rel="scidir"/></coredata><objects><object ref="gr1" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="566" height="509" size="81669">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-gr1.jpg?httpAccept=%2A%2F%2A</object><object ref="gr3" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="566" height="426" size="101094">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-gr3.jpg?httpAccept=%2A%2F%2A</object><object ref="gr2" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="566" height="316" size="93358">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-gr2.jpg?httpAccept=%2A%2F%2A</object><object ref="gr1" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="182" height="164" size="12648">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-gr1.sml?httpAccept=%2A%2F%2A</object><object ref="gr3" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="218" height="164" size="22006">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-gr3.sml?httpAccept=%2A%2F%2A</object><object ref="gr2" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="219" height="122" size="24572">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-gr2.sml?httpAccept=%2A%2F%2A</object><object ref="gr1" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="2508" height="2255" size="636557">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-gr1_lrg.jpg?httpAccept=%2A%2F%2A</object><object ref="gr3" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="2508" height="1886" size="979755">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-gr3_lrg.jpg?httpAccept=%2A%2F%2A</object><object ref="gr2" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="2508" height="1399" size="826990">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-gr2_lrg.jpg?httpAccept=%2A%2F%2A</object><object ref="si2" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="933">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si2.svg?httpAccept=%2A%2F%2A</object><object ref="si29" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="8464">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si29.svg?httpAccept=%2A%2F%2A</object><object ref="si34" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="7360">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si34.svg?httpAccept=%2A%2F%2A</object><object ref="si14" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="4638">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si14.svg?httpAccept=%2A%2F%2A</object><object ref="si13" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="4018">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si13.svg?httpAccept=%2A%2F%2A</object><object ref="si12" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="5770">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si12.svg?httpAccept=%2A%2F%2A</object><object ref="si35" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="2596">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si35.svg?httpAccept=%2A%2F%2A</object><object ref="si39" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="1772">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si39.svg?httpAccept=%2A%2F%2A</object><object ref="si11" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="1985">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si11.svg?httpAccept=%2A%2F%2A</object><object ref="si8" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="2058">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si8.svg?httpAccept=%2A%2F%2A</object><object ref="si37" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="3261">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si37.svg?httpAccept=%2A%2F%2A</object><object ref="si19" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="1604">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si19.svg?httpAccept=%2A%2F%2A</object><object ref="si38" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="13641">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si38.svg?httpAccept=%2A%2F%2A</object><object ref="si23" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="9856">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si23.svg?httpAccept=%2A%2F%2A</object><object ref="si24" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="7193">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si24.svg?httpAccept=%2A%2F%2A</object><object ref="si28" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="2038">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si28.svg?httpAccept=%2A%2F%2A</object><object ref="si5" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="3767">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si5.svg?httpAccept=%2A%2F%2A</object><object ref="si1" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="2750">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si1.svg?httpAccept=%2A%2F%2A</object><object ref="si3" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="5181">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si3.svg?httpAccept=%2A%2F%2A</object><object ref="si4" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="2643">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si4.svg?httpAccept=%2A%2F%2A</object><object ref="si10" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="2255">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si10.svg?httpAccept=%2A%2F%2A</object><object ref="si32" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="2411">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si32.svg?httpAccept=%2A%2F%2A</object><object ref="si36" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="3787">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si36.svg?httpAccept=%2A%2F%2A</object><object ref="si22" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="8732">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si22.svg?httpAccept=%2A%2F%2A</object><object ref="si27" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="2759">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si27.svg?httpAccept=%2A%2F%2A</object><object ref="si20" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="2084">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si20.svg?httpAccept=%2A%2F%2A</object><object ref="si26" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="3643">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si26.svg?httpAccept=%2A%2F%2A</object><object ref="si15" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="1885">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si15.svg?httpAccept=%2A%2F%2A</object><object ref="si7" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="5018">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si7.svg?httpAccept=%2A%2F%2A</object><object ref="si40" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="1184">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si40.svg?httpAccept=%2A%2F%2A</object><object ref="si18" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="3854">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si18.svg?httpAccept=%2A%2F%2A</object><object ref="si17" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="1228">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si17.svg?httpAccept=%2A%2F%2A</object><object ref="si25" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="6161">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si25.svg?httpAccept=%2A%2F%2A</object><object ref="si33" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="4115">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si33.svg?httpAccept=%2A%2F%2A</object><object ref="si6" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="5182">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si6.svg?httpAccept=%2A%2F%2A</object><object ref="si21" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="8839">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si21.svg?httpAccept=%2A%2F%2A</object><object ref="si9" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="4311">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si9.svg?httpAccept=%2A%2F%2A</object><object ref="si30" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="1068">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si30.svg?httpAccept=%2A%2F%2A</object><object ref="si16" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="1889">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si16.svg?httpAccept=%2A%2F%2A</object><object ref="si31" category="thumbnail" type="ALTIMG" multimediatype="Scalable Vector Graphics file" mimetype="image/svg+xml" size="13797">https://api.elsevier.com/content/object/eid/1-s2.0-S2352340926004889-si31.svg?httpAccept=%2A%2F%2A</object></objects><originalText><xocs:doc xsi:schemaLocation="http://www.elsevier.com/xml/xocs/dtd http://null/schema/dtds/document/fulltext/xcr/xocs-article.xsd"><xocs:meta xmlns:xoe="http://www.elsevier.com/xml/xoe/dtd">
+      <xocs:content-family>serial</xocs:content-family>
+      <xocs:content-type>JL</xocs:content-type>
+      <xocs:cid>311593</xocs:cid>
+      <xocs:ssids>
+         <xocs:ssid type="alllist">291210</xocs:ssid>
+         <xocs:ssid type="subj">291690</xocs:ssid>
+         <xocs:ssid type="subj">291786</xocs:ssid>
+         <xocs:ssid type="subj">291806</xocs:ssid>
+         <xocs:ssid type="subj">291848</xocs:ssid>
+         <xocs:ssid type="content">31</xocs:ssid>
+         <xocs:ssid type="oa">90</xocs:ssid>
+      </xocs:ssids>
+      <xocs:srctitle>Data in Brief</xocs:srctitle>
+      <xocs:normalized-srctitle>DATAINBRIEF</xocs:normalized-srctitle>
+      <xocs:orig-load-date yyyymmdd="20260606">2026-06-06</xocs:orig-load-date>
+      <xocs:available-online-date yyyymmdd="20260606">2026-06-06</xocs:available-online-date>
+      <xocs:vor-load-date yyyymmdd="20260609">2026-06-09</xocs:vor-load-date>
+      <xocs:vor-available-online-date yyyymmdd="20260609">2026-06-09</xocs:vor-available-online-date>
+      <xocs:ew-transaction-id>2026-06-09T00:37:58</xocs:ew-transaction-id>
+      <xocs:eid>1-s2.0-S2352340926004889</xocs:eid>
+      <xocs:pii-formatted>S2352-3409(26)00488-9</xocs:pii-formatted>
+      <xocs:pii-unformatted>S2352340926004889</xocs:pii-unformatted>
+      <xocs:doi>10.1016/j.dib.2026.112937</xocs:doi>
+      <xocs:item-stage>S250</xocs:item-stage>
+      <xocs:item-version-number>S250.1</xocs:item-version-number>
+      <xocs:item-weight>FULL-TEXT</xocs:item-weight>
+      <xocs:hub-eid>1-s2.0-S2352340926X20030</xocs:hub-eid>
+      <xocs:timestamp yyyymmdd="20260609">2026-06-09T00:22:20.621804Z</xocs:timestamp>
+      <xocs:dco>0</xocs:dco>
+      <xocs:tomb>0</xocs:tomb>
+      <xocs:date-search-begin>20260801</xocs:date-search-begin>
+      <xocs:date-search-end>20260831</xocs:date-search-end>
+      <xocs:year-nav>2026</xocs:year-nav>
+      <xocs:indexeddate epoch="1780719634">2026-06-06T04:20:34.624763Z</xocs:indexeddate>
+      <xocs:articleinfo>articleinfo articlenumber articletitlenorm authfirstinitialnorm authfirstsurnamenorm cid cids contenttype copyright crossmark dateloaded dateloadedtxt datesearch datesort dateupdated dco docsubtype doctype doi eid ewtransactionid fundingbodyid hubeid indexeddate issn issnnorm itemstage itemtransactionid itemweight oauserlicense openaccess openarchive pg pgfirst pii piinorm pubdateend pubdatestart pubdatetxt pubyr sectiontitle sortorder sponsoredaccesstype srctitle srctitlenorm srctype ssids alllist content oa subj subheadings suppl tomb volfirst volissue volumelist webpdf webpdfpagecount yearnav figure table body mmlmath acknowledge affil articletitle auth authfirstini authfull authkeywords authlast grantnumber grantsponsor orcid primabst pubtype ref</xocs:articleinfo>
+      <xocs:issns>
+         <xocs:issn-primary-formatted>2352-3409</xocs:issn-primary-formatted>
+         <xocs:issn-primary-unformatted>23523409</xocs:issn-primary-unformatted>
+      </xocs:issns>
+      <xocs:sponsored-access-type>UNLIMITED</xocs:sponsored-access-type>
+      <xocs:funding-body-id>FRENCHYB24</xocs:funding-body-id>
+      <xocs:crossmark is-crossmark="1">true</xocs:crossmark>
+      <xocs:vol-first>67</xocs:vol-first>
+      <xocs:volume-list>
+         <xocs:volume>67</xocs:volume>
+      </xocs:volume-list>
+      <xocs:suppl>C</xocs:suppl>
+      <xocs:vol-iss-suppl-text>Volume 67</xocs:vol-iss-suppl-text>
+      <xocs:sort-order>11</xocs:sort-order>
+      <xocs:first-fp>112937</xocs:first-fp>
+      <xocs:article-number>112937</xocs:article-number>
+      <xocs:pages>
+         <xocs:first-page>112937</xocs:first-page>
+      </xocs:pages>
+      <xocs:cover-date-orig>
+         <xocs:start-date>202608</xocs:start-date>
+      </xocs:cover-date-orig>
+      <xocs:cover-date-text>August 2026</xocs:cover-date-text>
+      <xocs:cover-date-start>2026-08-01</xocs:cover-date-start>
+      <xocs:cover-date-end>2026-08-31</xocs:cover-date-end>
+      <xocs:cover-date-year>2026</xocs:cover-date-year>
+      <xocs:hub-sec>
+         <xocs:hub-sec-title>Earth &amp; Environmental Sciences</xocs:hub-sec-title>
+      </xocs:hub-sec>
+      <xocs:document-type>article</xocs:document-type>
+      <xocs:document-subtype>dat</xocs:document-subtype>
+      <xocs:copyright-line>© 2026 The Author(s). Published by Elsevier Inc.</xocs:copyright-line>
+      <xocs:normalized-article-title>SVHBDSYNTHETICVEGETATIONHYPERSPECTRALBENCHMARKDATASETDERIVEDSENTINEL2TILESOVERFRANCESPAINTANZANIAINDIADURING16MAY2023</xocs:normalized-article-title>
+      <xocs:normalized-first-auth-surname>BENAZIZI</xocs:normalized-first-auth-surname>
+      <xocs:normalized-first-auth-initial>C</xocs:normalized-first-auth-initial>
+      <xocs:item-toc>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-label>1</xocs:item-toc-label>
+            <xocs:item-toc-section-title>Value of the Data</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-label>2</xocs:item-toc-label>
+            <xocs:item-toc-section-title>Background</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-label>3</xocs:item-toc-label>
+            <xocs:item-toc-section-title>Data Description</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-label>4</xocs:item-toc-label>
+            <xocs:item-toc-section-title>Experimental Design, Materials and Methods</xocs:item-toc-section-title>
+            <xocs:item-toc-entry ref-elem="ce:sections">
+               <xocs:item-toc-label>4.1</xocs:item-toc-label>
+               <xocs:item-toc-section-title>Sentinel 2 data preprocessing and image selection</xocs:item-toc-section-title>
+            </xocs:item-toc-entry>
+            <xocs:item-toc-entry ref-elem="ce:sections">
+               <xocs:item-toc-label>4.2</xocs:item-toc-label>
+               <xocs:item-toc-section-title>Radiative transfer modelling and look-up table inversion</xocs:item-toc-section-title>
+            </xocs:item-toc-entry>
+            <xocs:item-toc-entry ref-elem="ce:sections">
+               <xocs:item-toc-label>4.3</xocs:item-toc-label>
+               <xocs:item-toc-section-title>Leaf-Level simulation: prospect-d</xocs:item-toc-section-title>
+            </xocs:item-toc-entry>
+            <xocs:item-toc-entry ref-elem="ce:sections">
+               <xocs:item-toc-label>4.4</xocs:item-toc-label>
+               <xocs:item-toc-section-title>Canopy-level simulation: SAIL</xocs:item-toc-section-title>
+            </xocs:item-toc-entry>
+            <xocs:item-toc-entry ref-elem="ce:sections">
+               <xocs:item-toc-label>4.5</xocs:item-toc-label>
+               <xocs:item-toc-section-title>RTM inversion</xocs:item-toc-section-title>
+            </xocs:item-toc-entry>
+            <xocs:item-toc-entry ref-elem="ce:sections">
+               <xocs:item-toc-label>4.6</xocs:item-toc-label>
+               <xocs:item-toc-section-title>Visualisation</xocs:item-toc-section-title>
+            </xocs:item-toc-entry>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-section-title>Limitations</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-section-title>Ethics Statement</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-section-title>CRediT Author Statement</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:acknowledgment">
+            <xocs:item-toc-section-title>Acknowledgements</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:bibliography">
+            <xocs:item-toc-section-title>References</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+      </xocs:item-toc>
+      <xocs:references>
+         <xocs:ref-info refid="sbref0001"/>
+         <xocs:ref-info refid="sbref0002">
+            <xocs:ref-normalized-surname>JACQUEMOUD</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>1990</xocs:ref-pub-year>
+            <xocs:ref-first-fp>75</xocs:ref-first-fp>
+            <xocs:ref-last-lp>91</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>S</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0003">
+            <xocs:ref-normalized-surname>VERHOEF</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>1984</xocs:ref-pub-year>
+            <xocs:ref-first-fp>125</xocs:ref-first-fp>
+            <xocs:ref-last-lp>141</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>W</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0004">
+            <xocs:ref-normalized-surname>JACQUEMOUD</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2009</xocs:ref-pub-year>
+            <xocs:ref-first-fp>S56</xocs:ref-first-fp>
+            <xocs:ref-last-lp>S66</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>S</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0005">
+            <xocs:ref-normalized-surname>WORLDAGROFORESTRYICRAFANDINTERNATIONALSOILREFERENCEANDINFORMATIONCENTREISRIC</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2021</xocs:ref-pub-year>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0006">
+            <xocs:ref-normalized-surname>DANNER</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2021</xocs:ref-pub-year>
+            <xocs:ref-first-fp>278</xocs:ref-first-fp>
+            <xocs:ref-last-lp>296</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>M</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0007">
+            <xocs:ref-normalized-surname>WOCHER</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2020</xocs:ref-pub-year>
+            <xocs:ref-article-number>102219</xocs:ref-article-number>
+            <xocs:ref-normalized-initial>M</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+      </xocs:references>
+      <xocs:refkeys>
+         <xocs:refkey3>BENAZIZIX2026X112937</xocs:refkey3>
+         <xocs:refkey4ai>BENAZIZIX2026X112937XC</xocs:refkey4ai>
+      </xocs:refkeys>
+      <xocs:open-access>
+         <xocs:oa-article-status is-open-access="1" is-open-archive="0">Full</xocs:oa-article-status>
+         <xocs:oa-access-effective-date>2026-06-03T12:58:20Z</xocs:oa-access-effective-date>
+         <xocs:oa-sponsor>
+            <xocs:oa-sponsor-type>FundingBody</xocs:oa-sponsor-type>
+            <xocs:oa-sponsor-name>French institutions 2024: Hybrid journals</xocs:oa-sponsor-name>
+         </xocs:oa-sponsor>
+         <xocs:oa-user-license>http://creativecommons.org/licenses/by/4.0/</xocs:oa-user-license>
+      </xocs:open-access>
+      <xocs:copyright-info>
+         <xocs:cp-license-lines>
+            <xocs:cp-license-line lang="en">This is an open access article under the CC BY license.</xocs:cp-license-line>
+         </xocs:cp-license-lines>
+         <xocs:cp-notices>
+            <xocs:cp-notice lang="en">© 2026 The Author(s). Published by Elsevier Inc.</xocs:cp-notice>
+         </xocs:cp-notices>
+      </xocs:copyright-info>
+      <xocs:funding-list has-funding-info="1">
+         <xocs:funding-addon-generated-timestamp>2026-06-05T11:43:59.354Z</xocs:funding-addon-generated-timestamp>
+         <xocs:funding-addon-type>http://vtw.elsevier.com/data/voc/AddOnTypes/50.7/eoas</xocs:funding-addon-type>
+         <xocs:funding>
+            <xocs:funding-agency>University of the Littoral Opal Coast</xocs:funding-agency>
+            <xocs:funding-agency-id>http://data.elsevier.com/vocabulary/SciValFunders/100016592</xocs:funding-agency-id>
+            <xocs:funding-agency-country>http://sws.geonames.org/3017382</xocs:funding-agency-country>
+         </xocs:funding>
+         <xocs:funding>
+            <xocs:funding-agency>Hauts-de-France Region</xocs:funding-agency>
+            <xocs:funding-agency-id>http://data.elsevier.com/vocabulary/SciValFunders/501100010095</xocs:funding-agency-id>
+            <xocs:funding-agency-country>http://sws.geonames.org/3017382</xocs:funding-agency-country>
+         </xocs:funding>
+      </xocs:funding-list>
+      <xocs:article-sharing-framework/>
+      <xocs:attachment-metadata-doc>
+         <xocs:attachment-set-type>item</xocs:attachment-set-type>
+         <xocs:pii-formatted>S2352-3409(26)00488-9</xocs:pii-formatted>
+         <xocs:pii-unformatted>S2352340926004889</xocs:pii-unformatted>
+         <xocs:eid>1-s2.0-S2352340926004889</xocs:eid>
+         <xocs:doi>10.1016/j.dib.2026.112937</xocs:doi>
+         <xocs:cid>311593</xocs:cid>
+         <xocs:timestamp>2026-06-09T00:22:20.621804Z</xocs:timestamp>
+         <xocs:cover-date-start>2026-08-01</xocs:cover-date-start>
+         <xocs:cover-date-end>2026-08-31</xocs:cover-date-end>
+         <xocs:sponsored-access-type>UNLIMITED</xocs:sponsored-access-type>
+         <xocs:funding-body-id>FRENCHYB24</xocs:funding-body-id>
+         <xocs:attachments>
+            <xocs:web-pdf>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-main.pdf</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/MAIN/application/pdf/cff8bdb800b14e5a224d81283e4e07f5/main.pdf</xocs:ucs-locator>
+               <xocs:filename>main.pdf</xocs:filename>
+               <xocs:extension>pdf</xocs:extension>
+               <xocs:pdf-optimized>true</xocs:pdf-optimized>
+               <xocs:filesize>1571508</xocs:filesize>
+               <xocs:web-pdf-purpose>MAIN</xocs:web-pdf-purpose>
+               <xocs:web-pdf-page-count>9</xocs:web-pdf-page-count>
+               <xocs:web-pdf-images>
+                  <xocs:web-pdf-image>
+                     <xocs:attachment-eid>1-s2.0-S2352340926004889-main_1.png</xocs:attachment-eid>
+                     <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/PREVIEW/image/png/22a52ef56761ccabc6157251f07d22d1/main_1.png</xocs:ucs-locator>
+                     <xocs:filename>main_1.png</xocs:filename>
+                     <xocs:extension>png</xocs:extension>
+                     <xocs:filesize>54608</xocs:filesize>
+                     <xocs:pixel-height>928</xocs:pixel-height>
+                     <xocs:pixel-width>656</xocs:pixel-width>
+                     <xocs:attachment-type>IMAGE-WEB-PDF</xocs:attachment-type>
+                     <xocs:pdf-page-num>1</xocs:pdf-page-num>
+                  </xocs:web-pdf-image>
+               </xocs:web-pdf-images>
+            </xocs:web-pdf>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-gr1.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/gr1/DOWNSAMPLED/image/jpeg/25dab1336fb35baf65931a34f06a2035/gr1.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr1</xocs:file-basename>
+               <xocs:filename>gr1.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>81669</xocs:filesize>
+               <xocs:pixel-height>509</xocs:pixel-height>
+               <xocs:pixel-width>566</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-gr3.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/gr3/DOWNSAMPLED/image/jpeg/ba4b686e44ec9ef3861d25c208177bb6/gr3.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr3</xocs:file-basename>
+               <xocs:filename>gr3.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>101094</xocs:filesize>
+               <xocs:pixel-height>426</xocs:pixel-height>
+               <xocs:pixel-width>566</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-gr2.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/gr2/DOWNSAMPLED/image/jpeg/4d1cbe205a081594b0196854824113a3/gr2.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr2</xocs:file-basename>
+               <xocs:filename>gr2.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>93358</xocs:filesize>
+               <xocs:pixel-height>316</xocs:pixel-height>
+               <xocs:pixel-width>566</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-gr1.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/gr1/THUMBNAIL/image/gif/0ea511b5013d9731ca19c261c4b58530/gr1.sml</xocs:ucs-locator>
+               <xocs:file-basename>gr1</xocs:file-basename>
+               <xocs:filename>gr1.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>12648</xocs:filesize>
+               <xocs:pixel-height>164</xocs:pixel-height>
+               <xocs:pixel-width>182</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-gr3.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/gr3/THUMBNAIL/image/gif/547f4b1e65498f008c618275de2b7df4/gr3.sml</xocs:ucs-locator>
+               <xocs:file-basename>gr3</xocs:file-basename>
+               <xocs:filename>gr3.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>22006</xocs:filesize>
+               <xocs:pixel-height>164</xocs:pixel-height>
+               <xocs:pixel-width>218</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-gr2.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/gr2/THUMBNAIL/image/gif/cd157e34ff977b2989859075d9caf1f1/gr2.sml</xocs:ucs-locator>
+               <xocs:file-basename>gr2</xocs:file-basename>
+               <xocs:filename>gr2.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>24572</xocs:filesize>
+               <xocs:pixel-height>122</xocs:pixel-height>
+               <xocs:pixel-width>219</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-gr1_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/HIGHRES/image/jpeg/1e0e72cdc2afce4c806a447ed842e306/gr1_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr1</xocs:file-basename>
+               <xocs:filename>gr1_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>636557</xocs:filesize>
+               <xocs:pixel-height>2255</xocs:pixel-height>
+               <xocs:pixel-width>2508</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-gr3_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/HIGHRES/image/jpeg/66362766c5eaa377296381de128f9ab9/gr3_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr3</xocs:file-basename>
+               <xocs:filename>gr3_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>979755</xocs:filesize>
+               <xocs:pixel-height>1886</xocs:pixel-height>
+               <xocs:pixel-width>2508</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-gr2_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/HIGHRES/image/jpeg/e1b0e47ccf1ed99d7f6fd4d700555a27/gr2_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr2</xocs:file-basename>
+               <xocs:filename>gr2_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>826990</xocs:filesize>
+               <xocs:pixel-height>1399</xocs:pixel-height>
+               <xocs:pixel-width>2508</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si2.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/2d118243a18f99d4ea98ae6b647ca7ee/si2.svg</xocs:ucs-locator>
+               <xocs:file-basename>si2</xocs:file-basename>
+               <xocs:filename>si2.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>933</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si29.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/b001431f611e8f9abb85cee65a78bdc1/si29.svg</xocs:ucs-locator>
+               <xocs:file-basename>si29</xocs:file-basename>
+               <xocs:filename>si29.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>8464</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si34.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/057bb51d24c8874424576a493dc61586/si34.svg</xocs:ucs-locator>
+               <xocs:file-basename>si34</xocs:file-basename>
+               <xocs:filename>si34.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>7360</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si14.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/728920474d0f1e9f4544460e97eca901/si14.svg</xocs:ucs-locator>
+               <xocs:file-basename>si14</xocs:file-basename>
+               <xocs:filename>si14.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>4638</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si13.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/50f93f4cc3654730719ff3eada4f4fe5/si13.svg</xocs:ucs-locator>
+               <xocs:file-basename>si13</xocs:file-basename>
+               <xocs:filename>si13.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>4018</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si12.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/e387f5045bc53e4e16e1903130105b5f/si12.svg</xocs:ucs-locator>
+               <xocs:file-basename>si12</xocs:file-basename>
+               <xocs:filename>si12.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>5770</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si35.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/ea76f7ea91d65a29f3dcb83723589007/si35.svg</xocs:ucs-locator>
+               <xocs:file-basename>si35</xocs:file-basename>
+               <xocs:filename>si35.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>2596</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si39.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/5c854580f126d6ec5af55a5e9334de7a/si39.svg</xocs:ucs-locator>
+               <xocs:file-basename>si39</xocs:file-basename>
+               <xocs:filename>si39.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>1772</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si11.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/4703459a59352cb794dc6fe098239f09/si11.svg</xocs:ucs-locator>
+               <xocs:file-basename>si11</xocs:file-basename>
+               <xocs:filename>si11.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>1985</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si8.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/b20fd3ba3f243bceffa2d95da27e20a8/si8.svg</xocs:ucs-locator>
+               <xocs:file-basename>si8</xocs:file-basename>
+               <xocs:filename>si8.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>2058</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si37.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/d9a1e4dde936800615ebd57d1dcd5321/si37.svg</xocs:ucs-locator>
+               <xocs:file-basename>si37</xocs:file-basename>
+               <xocs:filename>si37.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>3261</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si19.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/f0eb2b0ca31a4f48735d6b7742305f4a/si19.svg</xocs:ucs-locator>
+               <xocs:file-basename>si19</xocs:file-basename>
+               <xocs:filename>si19.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>1604</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si38.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/f76a2219220238e8487e337444629530/si38.svg</xocs:ucs-locator>
+               <xocs:file-basename>si38</xocs:file-basename>
+               <xocs:filename>si38.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>13641</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si23.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/94e1bad0bed4a4d7a800cb55327635fc/si23.svg</xocs:ucs-locator>
+               <xocs:file-basename>si23</xocs:file-basename>
+               <xocs:filename>si23.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>9856</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si24.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/7613193206acd0bb5d4d14a22e4714f4/si24.svg</xocs:ucs-locator>
+               <xocs:file-basename>si24</xocs:file-basename>
+               <xocs:filename>si24.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>7193</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si28.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/a0efaeeaffe4791540cbc50ba628708b/si28.svg</xocs:ucs-locator>
+               <xocs:file-basename>si28</xocs:file-basename>
+               <xocs:filename>si28.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>2038</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si5.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/cb210d4ebb993ba7f160765110d1e0db/si5.svg</xocs:ucs-locator>
+               <xocs:file-basename>si5</xocs:file-basename>
+               <xocs:filename>si5.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>3767</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si1.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/0f7c08f5e1cc5fe40d8fec0833a2098c/si1.svg</xocs:ucs-locator>
+               <xocs:file-basename>si1</xocs:file-basename>
+               <xocs:filename>si1.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>2750</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si3.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/5f6661e5814d3bc87aed55c744463911/si3.svg</xocs:ucs-locator>
+               <xocs:file-basename>si3</xocs:file-basename>
+               <xocs:filename>si3.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>5181</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si4.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/5af075cefc4cee1c3996c2000ad020bc/si4.svg</xocs:ucs-locator>
+               <xocs:file-basename>si4</xocs:file-basename>
+               <xocs:filename>si4.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>2643</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si10.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/e02c1add38941d3ee3269fe2002f41bf/si10.svg</xocs:ucs-locator>
+               <xocs:file-basename>si10</xocs:file-basename>
+               <xocs:filename>si10.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>2255</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si32.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/f869218fddd51e58fe830d21efbf6ed1/si32.svg</xocs:ucs-locator>
+               <xocs:file-basename>si32</xocs:file-basename>
+               <xocs:filename>si32.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>2411</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si36.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/9c6906765e9266102708f79bb96a6dd7/si36.svg</xocs:ucs-locator>
+               <xocs:file-basename>si36</xocs:file-basename>
+               <xocs:filename>si36.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>3787</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si22.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/e11df7514ee95898115017bcc74f2fda/si22.svg</xocs:ucs-locator>
+               <xocs:file-basename>si22</xocs:file-basename>
+               <xocs:filename>si22.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>8732</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si27.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/2361004d7ebb2bc2dbddab3820dce400/si27.svg</xocs:ucs-locator>
+               <xocs:file-basename>si27</xocs:file-basename>
+               <xocs:filename>si27.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>2759</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si20.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/7908db6ece0b4c60d1a56f935475cb39/si20.svg</xocs:ucs-locator>
+               <xocs:file-basename>si20</xocs:file-basename>
+               <xocs:filename>si20.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>2084</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si26.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/011c7b6e6851ac48cc2331383bf7803f/si26.svg</xocs:ucs-locator>
+               <xocs:file-basename>si26</xocs:file-basename>
+               <xocs:filename>si26.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>3643</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si15.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/dcc1b0eddf683c40ec98b376f1db6863/si15.svg</xocs:ucs-locator>
+               <xocs:file-basename>si15</xocs:file-basename>
+               <xocs:filename>si15.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>1885</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si7.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/5efba3543da31f8d640c620cfd091fe5/si7.svg</xocs:ucs-locator>
+               <xocs:file-basename>si7</xocs:file-basename>
+               <xocs:filename>si7.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>5018</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si40.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/70c3e22e8dddd1ad05b9fa1193097c79/si40.svg</xocs:ucs-locator>
+               <xocs:file-basename>si40</xocs:file-basename>
+               <xocs:filename>si40.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>1184</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si18.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/76e33387bd0e97b19332607e071fc325/si18.svg</xocs:ucs-locator>
+               <xocs:file-basename>si18</xocs:file-basename>
+               <xocs:filename>si18.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>3854</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si17.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/3e4605038b6153d1d77ab21376d277b7/si17.svg</xocs:ucs-locator>
+               <xocs:file-basename>si17</xocs:file-basename>
+               <xocs:filename>si17.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>1228</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si25.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/5fbcafa25e7ce9b26a461ba6c2639439/si25.svg</xocs:ucs-locator>
+               <xocs:file-basename>si25</xocs:file-basename>
+               <xocs:filename>si25.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>6161</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si33.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/2cc00a0e834c53e9b2c81a4887797386/si33.svg</xocs:ucs-locator>
+               <xocs:file-basename>si33</xocs:file-basename>
+               <xocs:filename>si33.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>4115</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si6.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/6e0897888097ea99da92e286f28f0219/si6.svg</xocs:ucs-locator>
+               <xocs:file-basename>si6</xocs:file-basename>
+               <xocs:filename>si6.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>5182</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si21.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/2ac4b9a3fdc05ac643c97760e55fd909/si21.svg</xocs:ucs-locator>
+               <xocs:file-basename>si21</xocs:file-basename>
+               <xocs:filename>si21.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>8839</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si9.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/ee3a9de574fb447620cc8503e5ca043d/si9.svg</xocs:ucs-locator>
+               <xocs:file-basename>si9</xocs:file-basename>
+               <xocs:filename>si9.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>4311</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si30.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/b87d1730f9298299bcefb9f111692028/si30.svg</xocs:ucs-locator>
+               <xocs:file-basename>si30</xocs:file-basename>
+               <xocs:filename>si30.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>1068</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si16.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/bda23fa79414ef8131348bd7ab263f5d/si16.svg</xocs:ucs-locator>
+               <xocs:file-basename>si16</xocs:file-basename>
+               <xocs:filename>si16.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>1889</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2352340926004889-si31.svg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2352340926004889/STRIPIN/image/svg+xml/52f298d79229bd7a21ec707230954c94/si31.svg</xocs:ucs-locator>
+               <xocs:file-basename>si31</xocs:file-basename>
+               <xocs:filename>si31.svg</xocs:filename>
+               <xocs:extension>svg</xocs:extension>
+               <xocs:filesize>13797</xocs:filesize>
+               <xocs:attachment-type>ALTIMG</xocs:attachment-type>
+            </xocs:attachment>
+         </xocs:attachments>
+      </xocs:attachment-metadata-doc>
+   </xocs:meta><xocs:serial-item xmlns:xoe="http://www.elsevier.com/xml/xoe/dtd">
+      <article xmlns="http://www.elsevier.com/xml/ja/dtd" docsubtype="dat" xml:lang="en" version="5.7">
+         <item-info>
+            <jid>DIB</jid>
+            <aid>112937</aid>
+            <ce:article-number>112937</ce:article-number>
+            <ce:pii>S2352-3409(26)00488-9</ce:pii>
+            <ce:doi>10.1016/j.dib.2026.112937</ce:doi>
+            <ce:copyright type="other" year="2026">The Author(s)</ce:copyright>
+         </item-info>
+         <ce:floats>
+            <ce:figure id="fig0001">
+               <ce:label>Fig. 1</ce:label>
+               <ce:caption id="cap0001">
+                  <ce:simple-para id="spara001" view="all">Geographic distribution of the four study regions used for synthetic hyperspectral dataset generation.</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0001" role="short">Fig 1: dummy alt text</ce:alt-text>
+               <ce:link id="celink0001" locator="gr1" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2352340926004889/gr1"/>
+            </ce:figure>
+            <ce:figure id="fig0002">
+               <ce:label>Fig. 2</ce:label>
+               <ce:caption id="cap0002">
+                  <ce:simple-para id="spara002" view="all">Representative examples of simulated hyperspectral image cubes and their corresponding chlorophyll a+b (<mml:math altimg="si1.svg">
+                        <mml:msub>
+                           <mml:mi>C</mml:mi>
+                           <mml:mrow>
+                              <mml:mi>a</mml:mi>
+                              <mml:mi>b</mml:mi>
+                           </mml:mrow>
+                        </mml:msub>
+                     </mml:math>) maps from the four study regions. For each row, the left column shows the <mml:math altimg="si1.svg">
+                        <mml:msub>
+                           <mml:mi>C</mml:mi>
+                           <mml:mrow>
+                              <mml:mi>a</mml:mi>
+                              <mml:mi>b</mml:mi>
+                           </mml:mrow>
+                        </mml:msub>
+                     </mml:math> map and the right column shows the associated HSI scene. All scenes are displayed using an RGB composite. Ground sample distance (GSD) is 20 m.</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0002" role="short">Fig 2: dummy alt text</ce:alt-text>
+               <ce:link id="celink0002" locator="gr2" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2352340926004889/gr2"/>
+            </ce:figure>
+            <ce:figure id="fig0003">
+               <ce:label>Fig. 3</ce:label>
+               <ce:caption id="cap0003">
+                  <ce:simple-para id="spara003" view="all">Simulated hyperspectral reflectance spectra from the four study regions, color-coded by chlorophyll a+b content (<mml:math altimg="si1.svg">
+                        <mml:msub>
+                           <mml:mi>C</mml:mi>
+                           <mml:mrow>
+                              <mml:mi>a</mml:mi>
+                              <mml:mi>b</mml:mi>
+                           </mml:mrow>
+                        </mml:msub>
+                     </mml:math>).</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0003" role="short">Fig 3: dummy alt text</ce:alt-text>
+               <ce:link id="celink0003" locator="gr3" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2352340926004889/gr3"/>
+            </ce:figure>
+            <ce:table xmlns="http://www.elsevier.com/xml/common/cals/dtd" id="tbl0001" rowsep="0" colsep="0" frame="topbot">
+               <ce:label>Table 1</ce:label>
+               <ce:caption id="cap0004">
+                  <ce:simple-para id="spara004" view="all">Summary of files provided for each tile.</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0004" role="short">Table 1: dummy alt text</ce:alt-text>
+               <tgroup cols="2">
+                  <colspec colnum="1" colname="col1" align="left"/>
+                  <colspec colnum="2" colname="col2" align="left"/>
+                  <thead>
+                     <row rowsep="1">
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0015" colname="col1" valign="top">Filename</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0016" colname="col2" valign="top">Description</entry>
+                     </row>
+                  </thead>
+                  <tbody>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0017" colname="col1" valign="top">surf-refl.tif</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0018" colname="col2" valign="top">Hyperspectral surface reflectance cube (64×64×211)</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0019" colname="col1" valign="top">traits.tif</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0020" colname="col2" valign="top">Retrieved bio‑optical parameters (16 traits).</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0021" colname="col1" valign="top">p5.tif</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0022" colname="col2" valign="top">5th percentile uncertainty map for trait retrievals.</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0023" colname="col1" valign="top">p95.tif</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0024" colname="col2" valign="top">95th percentile uncertainty map for trait retrievals.</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0025" colname="col1" valign="top">quality_scene_classifcation.img</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0026" colname="col2" valign="top">Sentinel-2 scene classification map.</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0027" colname="col1" valign="top">quality_scene_classifcation.hdr</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0028" colname="col2" valign="top">Metadata associated with the classification map.</entry>
+                     </row>
+                  </tbody>
+               </tgroup>
+            </ce:table>
+            <ce:table xmlns="http://www.elsevier.com/xml/common/cals/dtd" id="tbl0002" rowsep="0" colsep="0" frame="topbot">
+               <ce:label>Table 2</ce:label>
+               <ce:caption id="cap0005">
+                  <ce:simple-para id="spara005" view="all">Parameter ranges for the combined leaf (PROSPECT-D) and canopy (4SAIL) RTM (PROSAIL).</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0005" role="short">Table 2: dummy alt text</ce:alt-text>
+               <tgroup cols="5">
+                  <colspec colnum="1" colname="col1" align="left"/>
+                  <colspec colnum="2" colname="col2" align="left"/>
+                  <colspec colnum="3" colname="col3" align="left"/>
+                  <colspec colnum="4" colname="col4" align="left"/>
+                  <colspec colnum="5" colname="col5" align="left"/>
+                  <thead>
+                     <row rowsep="1">
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0029" colname="col1" valign="top">Index</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0030" colname="col2" valign="top">Symbol</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0031" colname="col3" valign="top">Description</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0032" colname="col4" valign="top">Unit</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0033" colname="col5" valign="top">Range</entry>
+                     </row>
+                  </thead>
+                  <tbody>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0034" align="left" valign="top" role="colgroup" namest="col1" nameend="col5">Leaf Biochemical Parameters (Prospect-D)</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0035" colname="col1" valign="top">0</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0036" colname="col2" valign="top">
+                           <mml:math altimg="si2.svg">
+                              <mml:mi>N</mml:mi>
+                           </mml:math>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0037" colname="col3" valign="top">Leaf structure parameter</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0038" colname="col4" valign="top">–</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0039" colname="col5" valign="top">[1, 2.5]</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0040" colname="col1" valign="top">1</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0041" colname="col2" valign="top">
+                           <mml:math altimg="si1.svg">
+                              <mml:msub>
+                                 <mml:mi>C</mml:mi>
+                                 <mml:mrow>
+                                    <mml:mi>a</mml:mi>
+                                    <mml:mi>b</mml:mi>
+                                 </mml:mrow>
+                              </mml:msub>
+                           </mml:math>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0042" colname="col3" valign="top">Leaf chlorophyll a+b content</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0043" colname="col4" valign="top">
+                           <mml:math altimg="si3.svg">
+                              <mml:mrow>
+                                 <mml:mi>μ</mml:mi>
+                                 <mml:mspace width="0.33em"/>
+                                 <mml:mi>g</mml:mi>
+                                 <mml:mo linebreak="goodbreak">/</mml:mo>
+                                 <mml:mi>c</mml:mi>
+                                 <mml:msup>
+                                    <mml:mi>m</mml:mi>
+                                    <mml:mn>2</mml:mn>
+                                 </mml:msup>
+                              </mml:mrow>
+                           </mml:math>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0044" colname="col5" valign="top">[O, 160]</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0045" colname="col1" valign="top">2</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0046" colname="col2" valign="top">
+                           <mml:math altimg="si4.svg">
+                              <mml:msub>
+                                 <mml:mi>C</mml:mi>
+                                 <mml:mrow>
+                                    <mml:mi>a</mml:mi>
+                                    <mml:mi>r</mml:mi>
+                                 </mml:mrow>
+                              </mml:msub>
+                           </mml:math>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0047" colname="col3" valign="top">Leaf carotenoids content</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0048" colname="col4" valign="top">
+                           <mml:math altimg="si3.svg">
+                              <mml:mrow>
+                                 <mml:mi>μ</mml:mi>
+                                 <mml:mspace width="0.33em"/>
+                                 <mml:mi>g</mml:mi>
+                                 <mml:mo linebreak="goodbreak">/</mml:mo>
+                                 <mml:mi>c</mml:mi>
+                                 <mml:msup>
+                                    <mml:mi>m</mml:mi>
+                                    <mml:mn>2</mml:mn>
+                                 </mml:msup>
+                              </mml:mrow>
+                           </mml:math>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0049" colname="col5" valign="top">[O, 60]</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0050" colname="col1" valign="top">3</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0051" colname="col2" valign="top">
+                           <mml:math altimg="si5.svg">
+                              <mml:msub>
+                                 <mml:mi>C</mml:mi>
+                                 <mml:mrow>
+                                    <mml:mi>a</mml:mi>
+                                    <mml:mi>n</mml:mi>
+                                    <mml:mi>t</mml:mi>
+                                 </mml:mrow>
+                              </mml:msub>
+                           </mml:math>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0052" colname="col3" valign="top">Leaf anthocyanins content</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0053" colname="col4" valign="top">
+                           <mml:math altimg="si6.svg">
+                              <mml:mrow>
+                                 <mml:mi>μ</mml:mi>
+                                 <mml:mi>g</mml:mi>
+                                 <mml:mo linebreak="goodbreak">/</mml:mo>
+                                 <mml:mi>c</mml:mi>
+                                 <mml:msup>
+                                    <mml:mi>m</mml:mi>
+                                    <mml:mn>2</mml:mn>
+                                 </mml:msup>
+                              </mml:mrow>
+                           </mml:math>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0054" colname="col5" valign="top">[0, 5]</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0055" colname="col1" valign="top">4</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0056" colname="col2" valign="top">
+                           <mml:math altimg="si7.svg">
+                              <mml:msub>
+                                 <mml:mi>C</mml:mi>
+                                 <mml:mrow>
+                                    <mml:mi>b</mml:mi>
+                                    <mml:mi>r</mml:mi>
+                                    <mml:mi>o</mml:mi>
+                                    <mml:mi>w</mml:mi>
+                                    <mml:mi>n</mml:mi>
+                                 </mml:mrow>
+                              </mml:msub>
+                           </mml:math>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0057" colname="col3" valign="top">Brown pigments</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0058" colname="col4" valign="top">–</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0059" colname="col5" valign="top">[0, 0.1]</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0060" colname="col1" valign="top">5</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0061" colname="col2" valign="top">
+                           <mml:math altimg="si8.svg">
+                              <mml:msub>
+                                 <mml:mi>C</mml:mi>
+                                 <mml:mi>w</mml:mi>
+                              </mml:msub>
+                           </mml:math>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0062" colname="col3" valign="top">Equivalent water thickness</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0063" colname="col4" valign="top">
+                           <mml:math altimg="si9.svg">
+                              <mml:mrow>
+                                 <mml:mi>g</mml:mi>
+                                 <mml:mo linebreak="goodbreak">/</mml:mo>
+                                 <mml:mi>c</mml:mi>
+                                 <mml:msup>
+                                    <mml:mi>m</mml:mi>
+                                    <mml:mn>2</mml:mn>
+                                 </mml:msup>
+                              </mml:mrow>
+                           </mml:math>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0064" colname="col5" valign="top">[0, 0.07]</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0065" colname="col1" valign="top">6</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0066" colname="col2" valign="top">
+                           <mml:math altimg="si10.svg">
+                              <mml:msub>
+                                 <mml:mi>C</mml:mi>
+                                 <mml:mi>m</mml:mi>
+                              </mml:msub>
+                           </mml:math>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0067" colname="col3" valign="top">Dry matter content</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0068" colname="col4" valign="top">
+                           <mml:math altimg="si9.svg">
+                              <mml:mrow>
+                                 <mml:mi>g</mml:mi>
+                                 <mml:mo linebreak="goodbreak">/</mml:mo>
+                                 <mml:mi>c</mml:mi>
+                                 <mml:msup>
+                                    <mml:mi>m</mml:mi>
+                                    <mml:mn>2</mml:mn>
+                                 </mml:msup>
+                              </mml:mrow>
+                           </mml:math>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0069" colname="col5" valign="top">[0, 0.1]</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0070" align="left" valign="top" role="colgroup" namest="col1" nameend="col5">Canopy Structural Parameters (SAIL)</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0071" colname="col1" valign="top">7</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0072" colname="col2" valign="top">
+                           <mml:math altimg="si11.svg">
+                              <mml:mrow>
+                                 <mml:mi>L</mml:mi>
+                                 <mml:mi>A</mml:mi>
+                                 <mml:mi>I</mml:mi>
+                              </mml:mrow>
+                           </mml:math>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0073" colname="col3" valign="top">Leaf Area Index</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0074" colname="col4" valign="top">–</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0075" colname="col5" valign="top">[0, 10]</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0076" colname="col1" valign="top">8</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0077" colname="col2" valign="top">
+                           <mml:math altimg="si12.svg">
+                              <mml:mrow>
+                                 <mml:mi>L</mml:mi>
+                                 <mml:mi>I</mml:mi>
+                                 <mml:mi>D</mml:mi>
+                                 <mml:msub>
+                                    <mml:mi>F</mml:mi>
+                                    <mml:mi>a</mml:mi>
+                                 </mml:msub>
+                                 <mml:mrow>
+                                    <mml:mo>(</mml:mo>
+                                    <mml:mrow>
+                                       <mml:mi>A</mml:mi>
+                                       <mml:mi>L</mml:mi>
+                                       <mml:mi>A</mml:mi>
+                                    </mml:mrow>
+                                    <mml:mo>)</mml:mo>
+                                 </mml:mrow>
+                              </mml:mrow>
+                           </mml:math>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0078" colname="col3" valign="top">Average leaf angle</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0079" colname="col4" valign="top">degrees</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0080" colname="col5" valign="top">[30, 70]</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0081" colname="col1" valign="top">9</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0082" colname="col2" valign="top">
+                           <mml:math altimg="si13.svg">
+                              <mml:mrow>
+                                 <mml:mi>L</mml:mi>
+                                 <mml:mi>I</mml:mi>
+                                 <mml:mi>D</mml:mi>
+                                 <mml:msub>
+                                    <mml:mi>F</mml:mi>
+                                    <mml:mi>b</mml:mi>
+                                 </mml:msub>
+                              </mml:mrow>
+                           </mml:math>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0083" colname="col3" valign="top">Bimodality</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0084" colname="col4" valign="top">–</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0085" colname="col5" valign="top">0</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0086" colname="col1" valign="top">14</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0087" colname="col2" valign="top">TypeLIDF</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0088" colname="col3" valign="top">leaf inclination distribution function</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0089" colname="col4" valign="top">-</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0090" colname="col5" valign="top">1</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0091" colname="col1" valign="top">10</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0092" colname="col2" valign="top">
+                           <mml:math altimg="si14.svg">
+                              <mml:msub>
+                                 <mml:mi>h</mml:mi>
+                                 <mml:mrow>
+                                    <mml:mi>s</mml:mi>
+                                    <mml:mi>p</mml:mi>
+                                    <mml:mi>o</mml:mi>
+                                    <mml:mi>t</mml:mi>
+                                 </mml:mrow>
+                              </mml:msub>
+                           </mml:math>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0093" colname="col3" valign="top">Hot spot parameter</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0094" colname="col4" valign="top">–</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0095" colname="col5" valign="top">[0.01, 0.5]</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0096" align="left" valign="top" role="colgroup" namest="col1" nameend="col5">Observation Geometry</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0097" colname="col1" valign="top">11</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0098" colname="col2" valign="top">
+                           <mml:math altimg="si15.svg">
+                              <mml:msub>
+                                 <mml:mi>θ</mml:mi>
+                                 <mml:mi>s</mml:mi>
+                              </mml:msub>
+                           </mml:math>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0099" colname="col3" valign="top">Solar zenith</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0100" colname="col4" valign="top">degrees</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0101" colname="col5" valign="top">[15, 80]</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0102" colname="col1" valign="top">12</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0103" colname="col2" valign="top">
+                           <mml:math altimg="si16.svg">
+                              <mml:msub>
+                                 <mml:mi>θ</mml:mi>
+                                 <mml:mi>v</mml:mi>
+                              </mml:msub>
+                           </mml:math>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0104" colname="col3" valign="top">Vien zenith</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0105" colname="col4" valign="top">degrees</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0106" colname="col5" valign="top">[0, 35]</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0107" colname="col1" valign="top">13</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0108" colname="col2" valign="top">
+                           <mml:math altimg="si17.svg">
+                              <mml:mi>ϕ</mml:mi>
+                           </mml:math>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0109" colname="col3" valign="top">Relative azimuth</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0110" colname="col4" valign="top">degrees</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0111" colname="col5" valign="top">[100, 150]</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0112" align="left" valign="top" role="colgroup" namest="col1" nameend="col5">Soil Parameters</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0113" colname="col1" valign="top">15</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0114" colname="col2" valign="top">
+                           <mml:math altimg="si18.svg">
+                              <mml:msub>
+                                 <mml:mi>ρ</mml:mi>
+                                 <mml:mrow>
+                                    <mml:mi>s</mml:mi>
+                                    <mml:mi>o</mml:mi>
+                                    <mml:mi>i</mml:mi>
+                                    <mml:mi>l</mml:mi>
+                                 </mml:mrow>
+                              </mml:msub>
+                           </mml:math>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0115" colname="col3" valign="top">Soil spectrum</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0116" colname="col4" valign="top">–</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0117" colname="col5" valign="top">Library (ICRAF)</entry>
+                     </row>
+                  </tbody>
+               </tgroup>
+            </ce:table>
+         </ce:floats>
+         <head>
+            <ce:dochead id="dchd0001">
+               <ce:textfn id="dhtxt0001">Data Article</ce:textfn>
+            </ce:dochead>
+            <ce:title id="tte0002">SVH-BD: Synthetic vegetation hyperspectral benchmark dataset derived from sentinel-2 tiles over France, Spain, Tanzania, and India during 1–6 May 2023</ce:title>
+            <ce:author-group id="aut0001">
+               <ce:author id="au0001" author-id="S2352340926004889-a02d775e1fdce9a1e329f4a6ee5289ad" orcid="0009-0004-2269-5613">
+                  <ce:given-name>Chedly</ce:given-name>
+                  <ce:surname>Ben Azizi</ce:surname>
+                  <ce:cross-ref id="crf0001" refid="cor0001">
+                     <ce:sup loc="post">⁎</ce:sup>
+                  </ce:cross-ref>
+                  
+                  
+               </ce:author>
+               <ce:author id="au0002" author-id="S2352340926004889-856861a20577a2e3dd79501cd64c02a8" orcid="0000-0001-5800-9647">
+                  <ce:given-name>Claire</ce:given-name>
+                  <ce:surname>Guilloteau</ce:surname>
+               </ce:author>
+               <ce:author id="au0003" author-id="S2352340926004889-0fa8cc7088be79eedfaea5878c9fa4b1" orcid="0000-0002-8531-1566">
+                  <ce:given-name>Gilles</ce:given-name>
+                  <ce:surname>Roussel</ce:surname>
+               </ce:author>
+               <ce:author id="au0004" author-id="S2352340926004889-1a42f686fc2895b82e28e7c8308d4a32" orcid="0000-0002-3264-4981">
+                  <ce:given-name>Matthieu</ce:given-name>
+                  <ce:surname>Puigt</ce:surname>
+               </ce:author>
+               <ce:affiliation id="aff0001" affiliation-id="S2352340926004889-1278a327f2ffe9a9628f5e60d327cf5d">
+                  <ce:textfn id="cetextfn0001">Univ. Littoral Côte d’Opale, LISIC – UR 4491, EILCO, Campus de la Malassise, CS 50109, F-62698 Longuenesse Cedex, France</ce:textfn>
+                  <sa:affiliation>
+                     <sa:organization>Univ. Littoral Côte d’Opale</sa:organization>
+                     <sa:address-line>LISIC – UR 4491, EILCO, Campus de la Malassise, CS 50109</sa:address-line>
+                     <sa:city>Longuenesse Cedex</sa:city>
+                     <sa:postal-code>F-62698</sa:postal-code>
+                     <sa:country iso3166-1-alpha-3="FRA">France</sa:country>
+                  </sa:affiliation>
+                  <ce:source-text id="staff0001">Univ. Littoral Côte d’Opale, LISIC – UR 4491, EILCO, Campus de la Malassise, CS 50109, F-62698 Longuenesse Cedex, France</ce:source-text>
+               </ce:affiliation>
+               <ce:correspondence id="cor0001">
+                  <ce:label>⁎</ce:label>
+                  <ce:text id="cetext0001">Corresponding author.</ce:text>
+               </ce:correspondence>
+            </ce:author-group>
+            <ce:date-received day="12" month="3" year="2026"/>
+            <ce:date-revised day="2" month="6" year="2026"/>
+            <ce:date-accepted day="3" month="6" year="2026"/>
+            <ce:abstract id="abs0001" class="author" view="all"><ce:abstract-sec id="abss0001" view="all">
+                  <ce:simple-para id="spara006" view="all">This dataset provides a large collection of 10,915 synthetic hyperspectral image cubes paired with pixel‑level vegetation trait maps, designed to support research in radiative transfer emulation, vegetation trait retrieval, and uncertainty quantification. Each hyperspectral cube contains 211 bands spanning 400–2500 nm at 10 nm resolution and a fixed spatial layout of 64 × 64 pixels, offering continuous simulated surface reflectance spectra suitable for emulator development and machine‑learning tasks requiring high spectral detail. Vegetation traits were derived by inverting Sentinel‑2 Level‑2A[1] surface reflectance using a PROSAIL‑based lookup‑table approach[2,3,4], followed by forward PROSAIL simulations to generate hyperspectral reflectance under physically consistent canopy and illumination conditions. The dataset covers four ecologically diverse regions—East Africa, Northern France, Eastern India, and Southern Spain—and includes 5th and 95th percentile uncertainty maps as well as Sentinel‑2 scene classification layers. This resource enables benchmarking of inversion methods, development of fast radiative transfer emulators, and studies of spectral–biophysical relationships under controlled yet realistic environmental variability.</ce:simple-para>
+               </ce:abstract-sec></ce:abstract>
+            <ce:keywords id="keys0001" class="keyword" view="all">
+               <ce:section-title id="cesectitle0002">Keywords</ce:section-title>
+               <ce:keyword id="key0001">
+                  <ce:text id="cetext0002">Radiative transfer modelling</ce:text>
+               </ce:keyword>
+               <ce:keyword id="key0002">
+                  <ce:text id="cetext0003">Biophysical parameter retrieval</ce:text>
+               </ce:keyword>
+               <ce:keyword id="key0003">
+                  <ce:text id="cetext0004">Canopy reflectance simulation</ce:text>
+               </ce:keyword>
+               <ce:keyword id="key0004">
+                  <ce:text id="cetext0005">Uncertainty quantification</ce:text>
+               </ce:keyword>
+               <ce:keyword id="key0005">
+                  <ce:text id="cetext0006">PROSAIL inversion</ce:text>
+               </ce:keyword>
+            </ce:keywords>
+            <ce:data-availability id="refdata001" view="all">
+               <ce:section-title id="cesectitle0003">Data Availability</ce:section-title>
+               <ce:para id="para9001" view="all">
+                  <ce:list id="dacelist0001">
+                     <ce:list-item id="rdlistitem0001" class="original-data">
+                        <ce:para id="para9002" view="all">
+                           <ce:associated-resource>
+                              <ce:title id="assresttl0001">Zenono</ce:title>
+                              <ce:inter-ref id="interref0001" xlink:role="http://www.elsevier.com/xml/linking-roles/research-data" xlink:href="https://zenodo.org/records/18660571" xlink:type="simple">SVH-BD : Synthetic Vegetation Hyperspectral Benchmark Dataset for Emulation of Remote Sensing Images (Original data)</ce:inter-ref>
+                           </ce:associated-resource>
+                        </ce:para>
+                     </ce:list-item>
+                  </ce:list>
+               </ce:para>
+            </ce:data-availability>
+         </head>
+         <body view="all">
+            <ce:sections>
+               <ce:para id="para0002" view="all">Specifications Table<ce:display>
+                     <ce:table xmlns="http://www.elsevier.com/xml/common/cals/dtd" id="utbl0001" rowsep="0" colsep="0" frame="topbot">
+                        <tgroup cols="2">
+                           <colspec colnum="1" colname="col1" align="left"/>
+                           <colspec colnum="2" colname="col2" align="left"/>
+                           <tbody>
+                              <row>
+                                 <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0001" colname="col1" valign="top" role="rowhead">Subject</entry>
+                                 <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0002" colname="col2" valign="top">Earth &amp; Environmental Sciences</entry>
+                              </row>
+                              <row>
+                                 <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0003" colname="col1" valign="top" role="rowhead">Specific subject area</entry>
+                                 <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0004" colname="col2" valign="top">Hyperspectral Remote Sensing, Vegetation Trait Retrieval, Radiative Transfer Model Emulation</entry>
+                              </row>
+                              <row>
+                                 <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0005" colname="col1" valign="top" role="rowhead">Type of data</entry>
+                                 <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0006" colname="col2" valign="top">Reflectance hyperspectral images<br/>Vegetation Bio-optical parameter maps</entry>
+                              </row>
+                              <row>
+                                 <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0007" colname="col1" valign="top" role="rowhead">Data collection</entry>
+                                 <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0008" colname="col2" valign="top">The dataset was generated through a multi-step pipeline combining satellite data preprocessing, radiative transfer model inversion, and forward hyperspectral simulation. Sentinel-2 Level-2A [<cross-ref id="crf0002" refid="bib0001">1</cross-ref>] products were first selected across four geographic regions (East Africa, France, Spain, India). The Sentinel-2 tiles were acquired from Level-2A surface reflectance products via the Harmonised Data Access service, with acquisition dates between 1 and 6 May 2023. The relevant spectral bands were extracted from each Level-2A tile, specifically [‘B1’, ‘B2’, ‘B3’, ‘B4’, ‘B5’, ‘B6’, ‘B7’, ‘B8’, ‘B8A’, ‘B9’, ‘B11’, ‘B12’], and were subsequently cropped and harmonized to obtain spatially consistent multispectral inputs of 64 by 64 pixels, and 20 m ground sampling distance. These inputs were then inverted using a PROSAIL-based look-up table inversion [<cross-refs id="crf0003" refid="bib0002 bib0003 bib0004">2–4</cross-refs>] to estimate pixel-level vegetation biophysical parameters. Finally, the retrieved parameters were used to drive a forward PROSAIL simulation to produce hyperspectral reflectance cubes in the range of 400–2500 nm.</entry>
+                              </row>
+                              <row>
+                                 <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0009" colname="col1" valign="top" role="rowhead">Data source location</entry>
+                                 <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0010" colname="col2" valign="top">
+                                    <list id="celist0001">
+                                       <list-item id="celistitem0001">
+                                          <label>•</label>
+                                          <para id="para0003" view="all">Institution: Laboratoire d’Informatique, d’Image et du Signal de la Côte d’Opale.</para>
+                                       </list-item>
+                                       <list-item id="celistitem0002">
+                                          <label>•</label>
+                                          <para id="para0004" view="all">City/Town/Region: Longuenesse.</para>
+                                       </list-item>
+                                       <list-item id="celistitem0003">
+                                          <label>•</label>
+                                          <para id="para0005" view="all">Country: France</para>
+                                       </list-item>
+                                    </list>
+                                 </entry>
+                              </row>
+                              <row>
+                                 <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0011" colname="col1" valign="top" role="rowhead">Data accessibility</entry>
+                                 <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0012" colname="col2" valign="top">Repository name: SVH-BD: Synthetic Vegetation Hyperspectral Benchmark Dataset for Emulation of Remote Sensing Images.<br/>Data identification number:<br/>
+                                    <inter-ref id="interref0002" xlink:role="http://www.elsevier.com/xml/linking-roles/research-data" xlink:href="https://doi.org/10.5281/zenodo.18660571" xlink:type="simple">https://doi.org/10.5281/zenodo.18660571</inter-ref>.<br/>Direct URL to data: <inter-ref id="interref0003" xlink:href="https://zenodo.org/records/18660571" xlink:type="simple">https://zenodo.org/records/18660571</inter-ref>
+                                 </entry>
+                              </row>
+                              <row>
+                                 <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0013" colname="col1" valign="top" role="rowhead">Related research article</entry>
+                                 <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0014" colname="col2" valign="top">None</entry>
+                              </row>
+                           </tbody>
+                        </tgroup>
+                     </ce:table>
+                  </ce:display>
+               </ce:para>
+               <ce:section id="sec0002" view="all">
+                  <ce:label>1</ce:label>
+                  <ce:section-title id="cesectitle0005">Value of the Data</ce:section-title>
+                  <ce:para id="para9003" view="all">
+                     <ce:list id="celist0002">
+                        <ce:list-item id="celistitem0004">
+                           <ce:label>•</ce:label>
+                           <ce:para id="para0006" view="all">The dataset provides 10 915 synthetic hyperspectral image cubes with pixel-level vegetation trait maps, offering explicit vegetation trait annotations that are typically unavailable in observational remote sensing archives.</ce:para>
+                        </ce:list-item>
+                        <ce:list-item id="celistitem0005">
+                           <ce:label>•</ce:label>
+                           <ce:para id="para0007" view="all">Each hyperspectral cube includes 211 spectral bands from 400 to 2500 nm at 10 nm resolution, with a fixed spatial resolution of 64×64 pixels and a uniform 20 m ground sampling distance, which ensures spatial consistency across the scenes.</ce:para>
+                        </ce:list-item>
+                        <ce:list-item id="celistitem0006">
+                           <ce:label>•</ce:label>
+                           <ce:para id="para0008" view="all">The forward and inverse modeling steps are guided by plant biophysical constraints, region-specific parameter distributions and soil types. This ensures that simulated reflectance and retrieved traits reflect realistic environmental variability and remain consistent with the ecological characteristics of each region.</ce:para>
+                        </ce:list-item>
+                        <ce:list-item id="celistitem0007">
+                           <ce:label>•</ce:label>
+                           <ce:para id="para0009" view="all">The dataset is specifically designed to support the development of machine learning based hyperspectral emulation for pixel‑wise and spatial-wise settings. Nonetheless, it can also support the evaluation of biophysical parameter retrieval.</ce:para>
+                        </ce:list-item>
+                        <ce:list-item id="celistitem0008">
+                           <ce:label>•</ce:label>
+                           <ce:para id="para0010" view="all">The dataset includes uncertainty maps for vegetation trait retrievals, providing 5th and 95th percentile estimates that support the evaluation of model robustness and the study of uncertainty propagation. Additional Sentinel-2 classification maps are provided for each scene, offering contextual information that supports land-cover-aware analysis, and enables studies that integrate spectral, biophysical, and categorical landscape information.</ce:para>
+                        </ce:list-item>
+                     </ce:list>
+                  </ce:para>
+               </ce:section>
+               <ce:section id="sec0003" role="background" view="all">
+                  <ce:label>2</ce:label>
+                  <ce:section-title id="cesectitle0006">Background</ce:section-title>
+                  <ce:para id="para0011" view="all">The increasing availability of multispectral and hyperspectral satellite missions has made remote sensing indispensable for Earth observation and vegetation monitoring at regional to global scales. Despite this progress, the development of data-driven retrieval and emulation models remains constrained by the limited availability of pixel-level vegetation trait annotations. Large remote sensing archives provide extensive observational coverage but rarely include physically consistent biophysical variables such as chlorophyll content, leaf water content, or leaf area index. This lack of reference data limits the training, benchmarking, and validation of machine learning approaches aimed at linking top-of-canopy reflectance to underlying vegetation properties and observation conditions. To address this gap, physically based simulation has become an essential strategy. In the specific case of vegetation remote sensing, the combined model PROSAIL [<ce:cross-ref id="crf0006" refid="bib0004">4</ce:cross-ref>] has been proven popular. PROSAIL combines the PROSPECT leaf optical properties model [<ce:cross-ref id="crf0007" refid="bib0002">2</ce:cross-ref>] and SAIL canopy bidirectional reflectance model [<ce:cross-ref id="crf0008" refid="bib0002">2</ce:cross-ref>], in order to generate top of canopy reflectance from a combination of plant and soil bio-optical parameters and observation geometry. This allows for a detailed analysis of vegetation characteristics under realistic conditions. Using PROSAIL as a forward model, this dataset has been developed to fill the aforementioned gap, supporting the development of fast emulators that approximate radiative transfer models at significantly reduced computational cost, and providing a benchmark for large scale inversion workflows for vegetation trait retrieval and uncertainty propagation.</ce:para>
+               </ce:section>
+               <ce:section id="sec0004" view="all">
+                  <ce:label>3</ce:label>
+                  <ce:section-title id="cesectitle0007">Data Description</ce:section-title>
+                  <ce:para id="para0012" view="all">The dataset contains 10 915 hyperspectral image cubes, each with spatial dimensions of 64 × 64 pixels and 211 spectral bands. The spectral range spans 400–2500 nm with a fixed 10 nm sampling interval, and all images share a 20 m ground sampling distance (GSD). Each hyperspectral cube is paired with a trait file (traits.tif) containing 16 leaf‑, canopy‑, and observation‑level parameters. Additional files provide uncertainty estimates for trait retrievals (p5.tif, p95.tif) and Sentinel‑2 scene classification maps (quality_scene_classification.img with metadata in quality_scene_classification.hdr). <ce:cross-ref id="crf0009" refid="tbl0001">Table 1</ce:cross-ref>
+                     <ce:float-anchor refid="tbl0001"/> provides a summary of the content of each tile folder. Details about traits index mapping can be found in <ce:cross-ref id="crf0010" refid="tbl0002">Table 2</ce:cross-ref>
+                     <ce:float-anchor refid="tbl0002"/>.</ce:para>
+                  <ce:para id="para0013" view="all">The dataset is organized by geographical region (Africa, France, India, Spain). Within each region, subfolders correspond to tile identifiers as shown in <ce:cross-ref id="crf0011" refid="fig0001">Fig. 1</ce:cross-ref>
+                     <ce:float-anchor refid="fig0001"/>.</ce:para>
+               </ce:section>
+               <ce:section id="sec0005" role="materials-methods" view="all">
+                  <ce:label>4</ce:label>
+                  <ce:section-title id="cesectitle0008">Experimental Design, Materials and Methods</ce:section-title>
+                  <ce:para id="para0014" view="all">The dataset was generated through a multi-step pipeline combining satellite data preprocessing, radiative transfer model inversion, and forward hyperspectral simulation. Sentinel-2 Level-2A [<ce:cross-ref id="crf0012" refid="bib0001">1</ce:cross-ref>] products were first selected and harmonized to obtain spatially consistent multispectral inputs across four geographic regions. These inputs were then inverted using a PROSAIL-based look-up table to estimate pixel-level vegetation biophysical parameters. Finally, the retrieved parameters were used to drive a forward PROSAIL simulation to produce hyperspectral reflectance cubes.</ce:para>
+                  <ce:section id="sec0006" view="all">
+                     <ce:label>4.1</ce:label>
+                     <ce:section-title id="cesectitle0009">Sentinel 2 data preprocessing and image selection</ce:section-title>
+                     <ce:para id="para0015" view="all">Sentinel-2 is a multispectral Earth observation mission operated by the European Space Agency (ESA) within the Copernicus Programme. It consists of twin satellites (S2A and S2B) equipped with the MultiSpectral Instrument (MSI), which provides imagery across 13 spectral bands spanning the. visible to shortwave infrared regions. These data are widely used for vegetation monitoring, land cover mapping, and retrieval of biophysical and biochemical parameters. The MSI acquires data at three spatial resolutions—10 m, 20 m, and 60 m—depending on the spectral band configuration. The Sentinel-2 tiles used for this dataset were acquired from Level-2A surface reflectance products (S2MSI2A) via the Harmonised Data Access service. Four regions—East Africa (Tanzania), Northern France, Spain, and Eastern India—were selected to provide diverse vegetation types and environmental conditions. Scene selection was performed using spatio-temporal queries specifying geographic bounding boxes (<ce:cross-ref id="crf0013" refid="fig0001">Fig. 1</ce:cross-ref>) and acquisition dates between 1 and 6 May 2023. All scenes corresponded to platform S2A, instrument MSI, and ONLINE data status. After retrieval, a harmonizing preprocessing pipeline was applied to ensure spectral and spatial consistency across all products. The relevant spectral bands were extracted from each Level-2A tile, specifically [‘B1’, ‘B2’, ‘B3’, ‘B4’, ‘B5’, ‘B6’, ‘B7’, ‘B8’, ‘B8A’, ‘B9’, ‘B11’, ‘B12’]. The 20 m tiles - bands 1–8, bands 11 and 12 - were cropped into patches of <mml:math altimg="si19.svg">
+                           <mml:mrow>
+                              <mml:mn>64</mml:mn>
+                              <mml:mo linebreak="goodbreak">×</mml:mo>
+                              <mml:mn>64</mml:mn>
+                              <mml:mspace width="0.33em"/>
+                           </mml:mrow>
+                        </mml:math>pixels, while the 60 m tiles - band 9- were initially cropped at <mml:math altimg="si20.svg">
+                           <mml:mrow>
+                              <mml:mn>32</mml:mn>
+                              <mml:mo linebreak="goodbreak">×</mml:mo>
+                              <mml:mn>32</mml:mn>
+                           </mml:mrow>
+                        </mml:math> pixels and subsequently upsampled to <mml:math altimg="si19.svg">
+                           <mml:mrow>
+                              <mml:mn>64</mml:mn>
+                              <mml:mo linebreak="goodbreak">×</mml:mo>
+                              <mml:mn>64</mml:mn>
+                           </mml:mrow>
+                        </mml:math> using nearest neighbour interpolation to maintain uniform spatial resolution across all bands. The resulting 10,883 multispectral cubes are inverted in the next step in order to obtain leaf and canopy biophysical parameters using PROSAIL.</ce:para>
+                  </ce:section>
+                  <ce:section id="sec0007" view="all">
+                     <ce:label>4.2</ce:label>
+                     <ce:section-title id="cesectitle0010">Radiative transfer modelling and look-up table inversion</ce:section-title>
+                     <ce:para id="para0017" view="all">The dataset was generated using a two-stage radiative transfer modeling (RTM) pipeline designed to simulate hyperspectral canopy reflectance spectra from vegetation biophysical parameters. This framework integrates two physically based models —PROSPECT-D [<ce:cross-ref id="crf0014" refid="bib0002">2</ce:cross-ref>,<ce:cross-ref id="crf0015" refid="bib0004">4</ce:cross-ref>] and SAIL [<ce:cross-ref id="crf0016" refid="bib0003">3</ce:cross-ref>]— which model light interactions at the leaf and canopy scales, respectively.</ce:para>
+                  </ce:section>
+                  <ce:section id="sec0008" view="all">
+                     <ce:label>4.3</ce:label>
+                     <ce:section-title id="cesectitle0011">Leaf-Level simulation: prospect-d</ce:section-title>
+                     <ce:para id="para0018" view="all">The PROSPECT-D model simulates leaf reflectance and transmittance as a function of biochemical and structural leaf properties. The model requires six input parameters: the leaf structure parameter <mml:math altimg="si2.svg">
+                           <mml:mi>N</mml:mi>
+                        </mml:math> (number of effective layers), chlorophyll a+b content <mml:math altimg="si21.svg">
+                           <mml:mrow>
+                              <mml:msub>
+                                 <mml:mi>C</mml:mi>
+                                 <mml:mrow>
+                                    <mml:mi>a</mml:mi>
+                                    <mml:mi>b</mml:mi>
+                                 </mml:mrow>
+                              </mml:msub>
+                              <mml:mrow>
+                                 <mml:mo>(</mml:mo>
+                                 <mml:mrow>
+                                    <mml:mi>μ</mml:mi>
+                                    <mml:mspace width="0.33em"/>
+                                    <mml:mi>g</mml:mi>
+                                    <mml:mo linebreak="badbreak">/</mml:mo>
+                                    <mml:mi>c</mml:mi>
+                                    <mml:msup>
+                                       <mml:mi>m</mml:mi>
+                                       <mml:mn>2</mml:mn>
+                                    </mml:msup>
+                                 </mml:mrow>
+                                 <mml:mo>)</mml:mo>
+                              </mml:mrow>
+                           </mml:mrow>
+                        </mml:math>, carotenoid content <mml:math altimg="si22.svg">
+                           <mml:mrow>
+                              <mml:msub>
+                                 <mml:mi>C</mml:mi>
+                                 <mml:mrow>
+                                    <mml:mi>a</mml:mi>
+                                    <mml:mi>r</mml:mi>
+                                 </mml:mrow>
+                              </mml:msub>
+                              <mml:mrow>
+                                 <mml:mo>(</mml:mo>
+                                 <mml:mrow>
+                                    <mml:mi>μ</mml:mi>
+                                    <mml:mspace width="0.33em"/>
+                                    <mml:mi>g</mml:mi>
+                                    <mml:mo linebreak="badbreak">/</mml:mo>
+                                    <mml:mi>c</mml:mi>
+                                    <mml:msup>
+                                       <mml:mi>m</mml:mi>
+                                       <mml:mn>2</mml:mn>
+                                    </mml:msup>
+                                 </mml:mrow>
+                                 <mml:mo>)</mml:mo>
+                              </mml:mrow>
+                           </mml:mrow>
+                        </mml:math>, anthocyanin content <mml:math altimg="si23.svg">
+                           <mml:mrow>
+                              <mml:msub>
+                                 <mml:mi>C</mml:mi>
+                                 <mml:mrow>
+                                    <mml:mi>a</mml:mi>
+                                    <mml:mi>n</mml:mi>
+                                    <mml:mi>t</mml:mi>
+                                 </mml:mrow>
+                              </mml:msub>
+                              <mml:mrow>
+                                 <mml:mo>(</mml:mo>
+                                 <mml:mrow>
+                                    <mml:mi>μ</mml:mi>
+                                    <mml:mi>g</mml:mi>
+                                    <mml:mo linebreak="badbreak">/</mml:mo>
+                                    <mml:mi>c</mml:mi>
+                                    <mml:msup>
+                                       <mml:mi>m</mml:mi>
+                                       <mml:mn>2</mml:mn>
+                                    </mml:msup>
+                                 </mml:mrow>
+                                 <mml:mo>)</mml:mo>
+                              </mml:mrow>
+                           </mml:mrow>
+                        </mml:math>, brown pigment content <mml:math altimg="si7.svg">
+                           <mml:msub>
+                              <mml:mi>C</mml:mi>
+                              <mml:mrow>
+                                 <mml:mi>b</mml:mi>
+                                 <mml:mi>r</mml:mi>
+                                 <mml:mi>o</mml:mi>
+                                 <mml:mi>w</mml:mi>
+                                 <mml:mi>n</mml:mi>
+                              </mml:mrow>
+                           </mml:msub>
+                        </mml:math> (dimensionless), equivalent water thickness <mml:math altimg="si24.svg">
+                           <mml:mrow>
+                              <mml:msub>
+                                 <mml:mi>C</mml:mi>
+                                 <mml:mi>w</mml:mi>
+                              </mml:msub>
+                              <mml:mrow>
+                                 <mml:mo>(</mml:mo>
+                                 <mml:mrow>
+                                    <mml:mi>g</mml:mi>
+                                    <mml:mo linebreak="badbreak">/</mml:mo>
+                                    <mml:mi>c</mml:mi>
+                                    <mml:msup>
+                                       <mml:mi>m</mml:mi>
+                                       <mml:mn>2</mml:mn>
+                                    </mml:msup>
+                                 </mml:mrow>
+                                 <mml:mo>)</mml:mo>
+                              </mml:mrow>
+                           </mml:mrow>
+                        </mml:math>, and dry matter content <mml:math altimg="si25.svg">
+                           <mml:mrow>
+                              <mml:msub>
+                                 <mml:mi>C</mml:mi>
+                                 <mml:mi>m</mml:mi>
+                              </mml:msub>
+                              <mml:mrow>
+                                 <mml:mo>(</mml:mo>
+                                 <mml:mrow>
+                                    <mml:mi>g</mml:mi>
+                                    <mml:mo linebreak="badbreak">/</mml:mo>
+                                    <mml:mi>c</mml:mi>
+                                    <mml:msup>
+                                       <mml:mi>m</mml:mi>
+                                       <mml:mn>2</mml:mn>
+                                    </mml:msup>
+                                 </mml:mrow>
+                                 <mml:mo>)</mml:mo>
+                              </mml:mrow>
+                           </mml:mrow>
+                        </mml:math>. These parameters collectively describe the optical behavior of leaves across the visible to shortwave infrared spectrum.</ce:para>
+                  </ce:section>
+                  <ce:section id="sec0009" view="all">
+                     <ce:label>4.4</ce:label>
+                     <ce:section-title id="cesectitle0012">Canopy-level simulation: SAIL</ce:section-title>
+                     <ce:para id="para0019" view="all">At the canopy level, the SAIL model integrates the outputs of PROSPECT-D with structural and environmental variables to simulate canopy reflectance. The required canopy parameters include the leaf area index LAI (dimensionless), average leaf inclination angle (ALA, degrees), a hotspot parameter controlling directional reflectance, and the fraction of diffuse incoming radiation. Observation geometry (solar zenith, viewing zenith, and relative azimuth angles) is included to capture bidirectional reflectance effects. Finally, soil spectra are supplied for each selected region under the assumption of within-region homogeneity, drawn from the ICRAF-ISRIC soil spectral database [<ce:cross-ref id="crf0017" refid="bib0005">5</ce:cross-ref>] using the nearest available measurement site to the target area. The model also computes auxiliary variables such as the fraction of absorbed photosynthetically active radiation <mml:math altimg="si26.svg">
+                           <mml:msub>
+                              <mml:mi>f</mml:mi>
+                              <mml:mrow>
+                                 <mml:mi>A</mml:mi>
+                                 <mml:mi>P</mml:mi>
+                                 <mml:mi>A</mml:mi>
+                                 <mml:mi>R</mml:mi>
+                              </mml:mrow>
+                           </mml:msub>
+                        </mml:math> and albedo, which are key indicators of canopy-level energy exchange.</ce:para>
+                  </ce:section>
+                  <ce:section id="sec0010" view="all">
+                     <ce:label>4.5</ce:label>
+                     <ce:section-title id="cesectitle0013">RTM inversion</ce:section-title>
+                     <ce:para id="para0020" view="all">To generate the synthetic hyperspectral dataset, Sentinel-2 surface reflectance images were inverted using a lookup-table (LUT) derived from the PROSAIL model to estimate spatially coherent maps of vegetation biophysical parameters. The LUT contained <mml:math altimg="si27.svg">
+                           <mml:mrow>
+                              <mml:mi>M</mml:mi>
+                              <mml:mo linebreak="goodbreak">=</mml:mo>
+                              <mml:mn>50</mml:mn>
+                              <mml:mspace width="0.33em"/>
+                              <mml:mn>000</mml:mn>
+                           </mml:mrow>
+                        </mml:math> simulated spectra generated by sampling the parameter space defined in <ce:cross-ref id="crf0018" refid="tbl0002">Table 2</ce:cross-ref>. Parameter values were drawn using Latin Hypercube Sampling (LHS) to ensure a homogeneous and statistically efficient exploration of the multidimensional space. For a parameter <mml:math altimg="si28.svg">
+                           <mml:mrow>
+                              <mml:msub>
+                                 <mml:mi>θ</mml:mi>
+                                 <mml:mi>j</mml:mi>
+                              </mml:msub>
+                              <mml:mspace width="0.33em"/>
+                           </mml:mrow>
+                        </mml:math>defined over <mml:math altimg="si29.svg">
+                           <mml:mrow>
+                              <mml:mo>[</mml:mo>
+                              <mml:mrow>
+                                 <mml:msubsup>
+                                    <mml:mi>θ</mml:mi>
+                                    <mml:mi>j</mml:mi>
+                                    <mml:mrow>
+                                       <mml:mi>m</mml:mi>
+                                       <mml:mi>i</mml:mi>
+                                       <mml:mi>n</mml:mi>
+                                    </mml:mrow>
+                                 </mml:msubsup>
+                                 <mml:mo>,</mml:mo>
+                                 <mml:msubsup>
+                                    <mml:mi>θ</mml:mi>
+                                    <mml:mi>j</mml:mi>
+                                    <mml:mrow>
+                                       <mml:mi>m</mml:mi>
+                                       <mml:mi>a</mml:mi>
+                                       <mml:mi>x</mml:mi>
+                                    </mml:mrow>
+                                 </mml:msubsup>
+                              </mml:mrow>
+                              <mml:mo>]</mml:mo>
+                           </mml:mrow>
+                        </mml:math>, the <mml:math altimg="si30.svg">
+                           <mml:mi>i</mml:mi>
+                        </mml:math>-th LHS sample was computed as.<ce:display>
+                           <ce:formula id="ueqn0001">
+                              <mml:math altimg="si31.svg">
+                                 <mml:mrow>
+                                    <mml:msup>
+                                       <mml:mrow>
+                                          <mml:msub>
+                                             <mml:mi>θ</mml:mi>
+                                             <mml:mi>j</mml:mi>
+                                          </mml:msub>
+                                       </mml:mrow>
+                                       <mml:mrow>
+                                          <mml:mo stretchy="true">(</mml:mo>
+                                          <mml:mi>i</mml:mi>
+                                          <mml:mo stretchy="true">)</mml:mo>
+                                       </mml:mrow>
+                                    </mml:msup>
+                                    <mml:mo linebreak="goodbreak">=</mml:mo>
+                                    <mml:msup>
+                                       <mml:mrow>
+                                          <mml:msub>
+                                             <mml:mi>θ</mml:mi>
+                                             <mml:mi>j</mml:mi>
+                                          </mml:msub>
+                                       </mml:mrow>
+                                       <mml:mrow>
+                                          <mml:mi>m</mml:mi>
+                                          <mml:mi>i</mml:mi>
+                                          <mml:mi>n</mml:mi>
+                                       </mml:mrow>
+                                    </mml:msup>
+                                    <mml:mo linebreak="goodbreak">+</mml:mo>
+                                    <mml:mfrac>
+                                       <mml:mrow>
+                                          <mml:msub>
+                                             <mml:mi>π</mml:mi>
+                                             <mml:mi>j</mml:mi>
+                                          </mml:msub>
+                                          <mml:mrow>
+                                             <mml:mo stretchy="true">(</mml:mo>
+                                             <mml:mi>i</mml:mi>
+                                             <mml:mo stretchy="true">)</mml:mo>
+                                          </mml:mrow>
+                                          <mml:mo>−</mml:mo>
+                                          <mml:msup>
+                                             <mml:mrow>
+                                                <mml:msub>
+                                                   <mml:mi>U</mml:mi>
+                                                   <mml:mi>j</mml:mi>
+                                                </mml:msub>
+                                             </mml:mrow>
+                                             <mml:mrow>
+                                                <mml:mo stretchy="true">(</mml:mo>
+                                                <mml:mi>i</mml:mi>
+                                                <mml:mo stretchy="true">)</mml:mo>
+                                             </mml:mrow>
+                                          </mml:msup>
+                                       </mml:mrow>
+                                       <mml:mi>M</mml:mi>
+                                    </mml:mfrac>
+                                    <mml:mrow>
+                                       <mml:mo stretchy="true">(</mml:mo>
+                                       <mml:mrow>
+                                          <mml:msup>
+                                             <mml:mrow>
+                                                <mml:msub>
+                                                   <mml:mi>θ</mml:mi>
+                                                   <mml:mi>j</mml:mi>
+                                                </mml:msub>
+                                             </mml:mrow>
+                                             <mml:mrow>
+                                                <mml:mi>m</mml:mi>
+                                                <mml:mi>a</mml:mi>
+                                                <mml:mi>x</mml:mi>
+                                             </mml:mrow>
+                                          </mml:msup>
+                                          <mml:mo linebreak="badbreak">−</mml:mo>
+                                          <mml:msup>
+                                             <mml:mrow>
+                                                <mml:msub>
+                                                   <mml:mi>θ</mml:mi>
+                                                   <mml:mi>j</mml:mi>
+                                                </mml:msub>
+                                             </mml:mrow>
+                                             <mml:mrow>
+                                                <mml:mi>m</mml:mi>
+                                                <mml:mi>i</mml:mi>
+                                                <mml:mi>n</mml:mi>
+                                             </mml:mrow>
+                                          </mml:msup>
+                                       </mml:mrow>
+                                       <mml:mo stretchy="true">)</mml:mo>
+                                    </mml:mrow>
+                                    <mml:mo>,</mml:mo>
+                                 </mml:mrow>
+                              </mml:math>
+                           </ce:formula>
+                        </ce:display>where <mml:math altimg="si32.svg">
+                           <mml:msub>
+                              <mml:mi>π</mml:mi>
+                              <mml:mi>j</mml:mi>
+                           </mml:msub>
+                        </mml:math> is a random permutation of <mml:math altimg="si33.svg">
+                           <mml:mrow>
+                              <mml:mo>{</mml:mo>
+                              <mml:mrow>
+                                 <mml:mn>1</mml:mn>
+                                 <mml:mo>,</mml:mo>
+                                 <mml:mspace width="0.33em"/>
+                                 <mml:mn>2</mml:mn>
+                                 <mml:mo>,</mml:mo>
+                                 <mml:mspace width="0.33em"/>
+                                 <mml:mi>…</mml:mi>
+                                 <mml:mo>,</mml:mo>
+                                 <mml:mspace width="0.33em"/>
+                                 <mml:mi>M</mml:mi>
+                              </mml:mrow>
+                              <mml:mo>}</mml:mo>
+                           </mml:mrow>
+                        </mml:math> and <mml:math altimg="si34.svg">
+                           <mml:mrow>
+                              <mml:msup>
+                                 <mml:mrow>
+                                    <mml:msub>
+                                       <mml:mi>U</mml:mi>
+                                       <mml:mi>j</mml:mi>
+                                    </mml:msub>
+                                 </mml:mrow>
+                                 <mml:mrow>
+                                    <mml:mo>(</mml:mo>
+                                    <mml:mi>i</mml:mi>
+                                    <mml:mo>)</mml:mo>
+                                 </mml:mrow>
+                              </mml:msup>
+                              <mml:mo>∼</mml:mo>
+                              <mml:mi mathvariant="script">U</mml:mi>
+                              <mml:mrow>
+                                 <mml:mo>(</mml:mo>
+                                 <mml:mrow>
+                                    <mml:mn>0</mml:mn>
+                                    <mml:mo>,</mml:mo>
+                                    <mml:mn>1</mml:mn>
+                                 </mml:mrow>
+                                 <mml:mo>)</mml:mo>
+                              </mml:mrow>
+                           </mml:mrow>
+                        </mml:math> is a uniform random variable.</ce:para>
+                     <ce:para id="para0021" view="all">Physiological constraints were applied during LUT construction following [<ce:cross-ref id="crf0019" refid="bib0006">6</ce:cross-ref>], notably the empirical coupling between chlorophyll content (<mml:math altimg="si1.svg">
+                           <mml:msub>
+                              <mml:mi>C</mml:mi>
+                              <mml:mrow>
+                                 <mml:mi>a</mml:mi>
+                                 <mml:mi>b</mml:mi>
+                              </mml:mrow>
+                           </mml:msub>
+                        </mml:math>) and leaf area index (LAI), ensuring that sampled parameters corresponded to realistic vegetation states. Additional plausibility checks were performed at the spectral level: simulated spectra exhibiting green peaks at wavelengths lower than 547 nm were removed, following the criterion of [<ce:cross-ref id="crf0020" refid="bib0007">7</ce:cross-ref>]. Each retained LUT entry consisted of a parameter vector <mml:math altimg="si35.svg">
+                           <mml:msup>
+                              <mml:mrow>
+                                 <mml:mi>θ</mml:mi>
+                              </mml:mrow>
+                              <mml:mrow>
+                                 <mml:mo>(</mml:mo>
+                                 <mml:mi mathvariant="bold-italic">i</mml:mi>
+                                 <mml:mo>)</mml:mo>
+                              </mml:mrow>
+                           </mml:msup>
+                        </mml:math> and its corresponding PROSAIL-simulated reflectance spectrum <mml:math altimg="si36.svg">
+                           <mml:mrow>
+                              <mml:msup>
+                                 <mml:mrow>
+                                    <mml:mi>ρ</mml:mi>
+                                 </mml:mrow>
+                                 <mml:mrow>
+                                    <mml:mo>(</mml:mo>
+                                    <mml:mi>i</mml:mi>
+                                    <mml:mo>)</mml:mo>
+                                 </mml:mrow>
+                              </mml:msup>
+                              <mml:mrow>
+                                 <mml:mo>(</mml:mo>
+                                 <mml:mi>λ</mml:mi>
+                                 <mml:mo>)</mml:mo>
+                              </mml:mrow>
+                           </mml:mrow>
+                        </mml:math>. The inversion step consisted of matching observed Sentinel-2 reflectance <mml:math altimg="si37.svg">
+                           <mml:msup>
+                              <mml:mrow>
+                                 <mml:mi>ρ</mml:mi>
+                              </mml:mrow>
+                              <mml:mrow>
+                                 <mml:mi>o</mml:mi>
+                                 <mml:mi>b</mml:mi>
+                                 <mml:mi>s</mml:mi>
+                              </mml:mrow>
+                           </mml:msup>
+                        </mml:math> to the simulated LUT entries. For each pixel, spectral discrepancy was quantified using the root mean square error (RMSE) as a cost function,<ce:display>
+                           <ce:formula id="ueqn0002">
+                              <mml:math altimg="si38.svg">
+                                 <mml:mrow>
+                                    <mml:mi>R</mml:mi>
+                                    <mml:mi>M</mml:mi>
+                                    <mml:mi>S</mml:mi>
+                                    <mml:mi>E</mml:mi>
+                                    <mml:mspace width="0.33em"/>
+                                    <mml:mo linebreak="goodbreak">=</mml:mo>
+                                    <mml:mspace width="0.33em"/>
+                                    <mml:msqrt>
+                                       <mml:mrow>
+                                          <mml:mfrac>
+                                             <mml:mn>1</mml:mn>
+                                             <mml:mn>211</mml:mn>
+                                          </mml:mfrac>
+                                          <mml:munderover>
+                                             <mml:mo>∑</mml:mo>
+                                             <mml:mrow>
+                                                <mml:mi>b</mml:mi>
+                                                <mml:mo>=</mml:mo>
+                                                <mml:mn>1</mml:mn>
+                                             </mml:mrow>
+                                             <mml:mn>211</mml:mn>
+                                          </mml:munderover>
+                                          <mml:msup>
+                                             <mml:mrow>
+                                                <mml:mrow>
+                                                   <mml:mo>(</mml:mo>
+                                                   <mml:msup>
+                                                      <mml:mrow>
+                                                         <mml:msub>
+                                                            <mml:mi>ρ</mml:mi>
+                                                            <mml:mi>b</mml:mi>
+                                                         </mml:msub>
+                                                      </mml:mrow>
+                                                      <mml:mrow>
+                                                         <mml:mi>o</mml:mi>
+                                                         <mml:mi>b</mml:mi>
+                                                         <mml:mi>s</mml:mi>
+                                                      </mml:mrow>
+                                                   </mml:msup>
+                                                   <mml:mo>−</mml:mo>
+                                                   <mml:msup>
+                                                      <mml:mrow>
+                                                         <mml:msub>
+                                                            <mml:mi>ρ</mml:mi>
+                                                            <mml:mi>b</mml:mi>
+                                                         </mml:msub>
+                                                      </mml:mrow>
+                                                      <mml:mrow>
+                                                         <mml:mi>s</mml:mi>
+                                                         <mml:mi>i</mml:mi>
+                                                         <mml:mi>m</mml:mi>
+                                                      </mml:mrow>
+                                                   </mml:msup>
+                                                   <mml:mo>)</mml:mo>
+                                                </mml:mrow>
+                                             </mml:mrow>
+                                             <mml:mn>2</mml:mn>
+                                          </mml:msup>
+                                       </mml:mrow>
+                                    </mml:msqrt>
+                                    <mml:mo>.</mml:mo>
+                                 </mml:mrow>
+                              </mml:math>
+                           </ce:formula>
+                        </ce:display>
+                     </ce:para>
+                     <ce:para id="para0022" view="all">For each pixel, <mml:math altimg="si39.svg">
+                           <mml:mrow>
+                              <mml:mi>n</mml:mi>
+                              <mml:mo linebreak="goodbreak">=</mml:mo>
+                              <mml:mn>1</mml:mn>
+                           </mml:mrow>
+                        </mml:math>0 LUT entries with the lowest cost values were retained, forming an ensemble of plausible biophysical solutions. Final parameter estimates were derived using the median. Parameter uncertainty was assessed non-parametrically from the 5th and 95th percentiles of the <mml:math altimg="si40.svg">
+                           <mml:mi>n</mml:mi>
+                        </mml:math>-best ensemble, providing pixel-level confidence intervals. The resulting spatially explicit maps of PROSAIL biophysical parameters were then used as inputs to a forward PROSAIL simulation chain to generate pixel-level hyperspectral reflectance spectra. Each simulated spectrum represents canopy-scale reflectance under the geometric, physiological, and structural conditions estimated during the inversion.</ce:para>
+                  </ce:section>
+                  <ce:section id="sec0011" view="all">
+                     <ce:label>4.6</ce:label>
+                     <ce:section-title id="cesectitle0014">Visualisation</ce:section-title>
+                     <ce:para id="para0023" view="all">Representative examples of HSI cubes from each region are shown in <ce:cross-ref id="crf0021" refid="fig0002">Fig. 2</ce:cross-ref>
+                        <ce:float-anchor refid="fig0002"/>. These samples illustrate the visual diversity of the dataset in terms of canopy cover, landscape structure, and spectral signatures. For each region, the figure displays the chlorophyll a+b (<mml:math altimg="si1.svg">
+                           <mml:msub>
+                              <mml:mi>C</mml:mi>
+                              <mml:mrow>
+                                 <mml:mi>a</mml:mi>
+                                 <mml:mi>b</mml:mi>
+                              </mml:mrow>
+                           </mml:msub>
+                        </mml:math>) map alongside its corresponding RGB composite HSI scene, allowing simultaneous inspection of biochemical variability and spatial reflectance patterns. The examples highlight transitions between cropland parcels, forested clusters, semi-arid shrublands, and heterogeneous mosaics characteristic of the selected environments. In addition, the spectral behavior associated with these land-cover configurations is illustrated in <ce:cross-ref id="crf0022" refid="fig0003">Fig. 3</ce:cross-ref>
+                        <ce:float-anchor refid="fig0003"/>, which shows representative reflectance spectra for each region, color-coded by <mml:math altimg="si1.svg">
+                           <mml:msub>
+                              <mml:mi>C</mml:mi>
+                              <mml:mrow>
+                                 <mml:mi>a</mml:mi>
+                                 <mml:mi>b</mml:mi>
+                              </mml:mrow>
+                           </mml:msub>
+                        </mml:math> concentration to emphasize the relationship between vegetation biochemistry and spectral shape.</ce:para>
+                  </ce:section>
+               </ce:section>
+               <ce:section id="sec0012" view="all">
+                  <ce:section-title id="cesectitle0015">Limitations</ce:section-title>
+                  <ce:para id="para0024" view="all">While the dataset covers four ecological regions, it does not capture the full diversity of global vegetation or environmental conditions. One notable omission are the Americas, which are not represented in this work. Additionally, due to the limited time coverage of the original Sentinel 2 tiles, seasonal change is not taken into account, which may limit the ability of models trained on this dataset to generalize across seasons. Furthermore, each region is represented using a single soil type, which does not reflect intra-regional soil variability and therefore the full range of soil-driven effects on bio-optical parameters. Moreover, the synthetic generation process also relies on strong assumptions in both the forward and inverse modeling steps —namely a fixed leaf inclination distribution function and pure or weakly mixed pixels— which should be considered when applying the dataset beyond controlled experimental settings. Finally, the resolution of the simulated dataset is limited by the resolution of the Sentinel-2 inputs. This may limit the use of the dataset in applications requiring fine spatial details or involving sub-pixel heterogeneity. Pixels that don’t represent soil or vegetation should be masked using the provided Sentinel-2 classification maps.</ce:para>
+               </ce:section>
+               <ce:section id="sec0013" view="all">
+                  <ce:section-title id="cesectitle0016">Ethics Statement</ce:section-title>
+                  <ce:para id="para0025" view="all">The authors have read and follow the ethical requirements for publication in Data in Brief. The current work does not involve human subjects, animal experiments, or any data collected from social media platforms.</ce:para>
+               </ce:section>
+               <ce:section id="sec0014" view="all">
+                  <ce:section-title id="cesectitle0017">CRediT Author Statement</ce:section-title>
+                  <ce:para id="para0026" view="all">
+                     <ce:bold>Chedly Ben Azizi:</ce:bold> Conceptualization, Methodology, Software, Validation, Data Curation, Writing – Original Draft. <ce:bold>Claire Guilloteau:</ce:bold> Conceptualization, Validation, Writing – Reviews &amp; Editing, Supervision, Funding acquisition. <ce:bold>Gilles Roussel:</ce:bold> Conceptualization, Validation, Writing – Reviews &amp; Editing, Supervision, Funding acquisition. <ce:bold>Matthieu Puigt:</ce:bold> Writing – Reviews &amp; Editing.</ce:para>
+               </ce:section>
+            </ce:sections>
+            <ce:acknowledgment id="ack0001" view="all">
+               <ce:section-title id="cesectitle0018">Acknowledgements</ce:section-title>
+               <ce:para id="para0027" view="all">This work is partially funded by the ULCO research pole ``<ce:grant-sponsor id="gs0001" xlink:type="simple" xlink:role="http://www.elsevier.com/xml/linking-roles/grant-sponsor">Mutations Technologiques et Environnementales", EUR MAIA</ce:grant-sponsor> (<ce:grant-number refid="gs0001" id="gn0001">ANR-22-EXES-0009</ce:grant-number>) and Hauts-de-France region. Experiments presented in this paper were carried out using the CALCULCO computing platform, supported by DSI/ULCO (Direction des Systèmes d'Information de l’Université du Littoral Côte d’Opale).</ce:para>
+               <ce:section id="sec0013a" view="all">
+                  <ce:section-title id="cesectitle0019">Declaration of Competing Interest</ce:section-title>
+                  <ce:para id="para0028" view="all">The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.</ce:para>
+               </ce:section>
+            </ce:acknowledgment>
+         </body>
+         <tail view="all">
+            <ce:bibliography id="cebibl1" view="all">
+               <ce:section-title id="cesectitle0020">References</ce:section-title>
+               <ce:bibliography-sec id="cebibsec1" view="all">
+                  <ce:bib-reference id="bib0001">
+                     <ce:label>[1]</ce:label>
+                     <ce:other-ref id="sbref0001">
+                        <ce:textref>Modified Copernicus sentinel data 2023/Sentinel Hub, <ce:inter-ref id="interref0004" xlink:href="https://www.sentinel-hub.com/" xlink:type="simple">https://www.sentinel-hub.com/</ce:inter-ref>.</ce:textref>
+                     </ce:other-ref>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0002">
+                     <ce:label>[2]</ce:label>
+                     <sb:reference id="sbref0002">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>S.</ce:given-name>
+                                 <ce:surname>Jacquemoud</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>F.</ce:given-name>
+                                 <ce:surname>Baret</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>PROSPECT: a model of leaf optical properties spectra</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Remote Sens. Environ.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>34</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>2</sb:issue-nr>
+                              <sb:date>1990</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>75</sb:first-page>
+                              <sb:last-page>91</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1016/0034-4257(90)90100-Z</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0002">Jacquemoud, S., and F. Baret. PROSPECT: a model of leaf optical properties spectra Remote Sens. Environ. 34.2 (1990): 75–91, https://doi.org/10.1016/0034-4257(90)90100-Z.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0003">
+                     <ce:label>[3]</ce:label>
+                     <sb:reference id="sbref0003">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>W.</ce:given-name>
+                                 <ce:surname>Verhoef</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Light scattering by leaf layers with application to canopy reflectance modeling: the SAIL model</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Remote Sens. Environ.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>16</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>2</sb:issue-nr>
+                              <sb:date>1984</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>125</sb:first-page>
+                              <sb:last-page>141</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1016/0034-4257(84)90057-9</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0003">Verhoef, W.. Light scattering by leaf layers with application to canopy reflectance modeling: the SAIL model Remote Sens. Environ. 16.2 (1984): 125–141, https://doi.org/10.1016/0034-4257(84)90057-9.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0004">
+                     <ce:label>[4]</ce:label>
+                     <sb:reference id="sbref0004">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>S.</ce:given-name>
+                                 <ce:surname>Jacquemoud</ce:surname>
+                              </sb:author>
+                              <sb:et-al/>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>PROSPECT+ SAIL models: a review of use for vegetation characterization</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Remote Sens. Environ.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>113</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2009</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>S56</sb:first-page>
+                              <sb:last-page>S66</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1016/j.rse.2008.01.026</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0004">Jacquemoud, S., et al. PROSPECT+ SAIL models: a review of use for vegetation characterization Remote Sens. Environ. 113 (2009): S56–S66, https://doi.org/10.1016/j.rse.2008.01.026.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0005">
+                     <ce:label>[5]</ce:label>
+                     <sb:reference id="sbref0005">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:surname>World Agroforestry (ICRAF) and International Soil Reference and Information Centre (ISRIC)</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:book>
+                              <sb:book-series>
+                                 <sb:series>
+                                    <sb:volume-nr>v1</sb:volume-nr>
+                                 </sb:series>
+                              </sb:book-series>
+                              <sb:date>2021</sb:date>
+                              <sb:publisher>
+                                 <sb:name>ICRAF-ISRIC Soil VNIR Spectral Library</sb:name>
+                              </sb:publisher>
+                           </sb:book>
+                           <ce:doi>10.34725/DVN/MFHA9C</ce:doi>
+                        </sb:host>
+                        <sb:comment>Accessed 2025</sb:comment>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0005">World Agroforestry (ICRAF) and International Soil Reference and Information Centre (ISRIC), ICRAF-ISRIC Soil VNIR Spectral Library. v1, 2021, https://doi.org/10.34725/DVN/MFHA9C. Accessed 2025.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0006">
+                     <ce:label>[6]</ce:label>
+                     <sb:reference id="sbref0006">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Danner</ce:surname>
+                              </sb:author>
+                              <sb:et-al/>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Efficient RTM-based training of machine learning regression algorithms to quantify biophysical &amp; biochemical traits of agricultural crops</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>ISPRS J. Photogram. Remote Sens.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>173</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2021</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>278</sb:first-page>
+                              <sb:last-page>296</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1016/j.isprsjprs.2021.01.017</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0006">Danner, M., et al. Efficient RTM-based training of machine learning regression algorithms to quantify biophysical &amp; biochemical traits of agricultural crops ISPRS J. Photogram. Remote Sens. 173 (2021): 278–296, https://doi.org/10.1016/j.isprsjprs.2021.01.017</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0007">
+                     <ce:label>[7]</ce:label>
+                     <sb:reference id="sbref0007">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Wocher</ce:surname>
+                              </sb:author>
+                              <sb:et-al/>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>RTM-based dynamic absorption integrals for the retrieval of biochemical vegetation traits</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Int. J. Appl. Earth Observ. Geoinform.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>93</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2020</sb:date>
+                           </sb:issue>
+                           <sb:article-number>102219</sb:article-number>
+                           <ce:doi>10.1016/j.jag.2020.102219</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0007">Wocher, M., et al. RTM-based dynamic absorption integrals for the retrieval of biochemical vegetation traits Int. J. Appl. Earth Observ. Geoinform. 93 (2020): 102219, https://doi.org/10.1016/j.jag.2020.102219.</ce:source-text>
+                  </ce:bib-reference>
+               </ce:bibliography-sec>
+            </ce:bibliography>
+         </tail>
+      </article>
+   </xocs:serial-item></xocs:doc></originalText></full-text-retrieval-response>

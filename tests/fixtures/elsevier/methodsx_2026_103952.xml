@@ -1,0 +1,1147 @@
+<full-text-retrieval-response xmlns="http://www.elsevier.com/xml/svapi/article/dtd" xmlns:bk="http://www.elsevier.com/xml/bk/dtd" xmlns:cals="http://www.elsevier.com/xml/common/cals/dtd" xmlns:ce="http://www.elsevier.com/xml/common/dtd" xmlns:ja="http://www.elsevier.com/xml/ja/dtd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:sa="http://www.elsevier.com/xml/common/struct-aff/dtd" xmlns:sb="http://www.elsevier.com/xml/common/struct-bib/dtd" xmlns:tb="http://www.elsevier.com/xml/common/table/dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xocs="http://www.elsevier.com/xml/xocs/dtd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><coredata><prism:url>https://api.elsevier.com/content/article/pii/S2215016126001706</prism:url><dc:identifier>doi:10.1016/j.mex.2026.103952</dc:identifier><eid>1-s2.0-S2215016126001706</eid><prism:doi>10.1016/j.mex.2026.103952</prism:doi><pii>S2215-0161(26)00170-6</pii><dc:title>A dual expression plasmid with protegrin-1 compatible with both prokaryotic and mammalian systems </dc:title><prism:publicationName>MethodsX</prism:publicationName><prism:aggregationType>Journal</prism:aggregationType><pubType>mic</pubType><prism:issn>22150161</prism:issn><prism:volume>16</prism:volume><prism:startingPage>103952</prism:startingPage><prism:pageRange>103952</prism:pageRange><articleNumber>103952</articleNumber><dc:format>text/xml</dc:format><prism:coverDate>2026-06-30</prism:coverDate><prism:coverDisplayDate>June 2026</prism:coverDisplayDate><prism:copyright>© 2026 The Author(s). Published by Elsevier B.V.</prism:copyright><prism:publisher>The Author(s). Published by Elsevier B.V.</prism:publisher><dc:creator>Murakami, Manabu</dc:creator><dc:creator>Koda, Hiroshi</dc:creator><dc:creator>Murakami, Agnieszka M.</dc:creator><dc:creator>Niwa, Yasutaka</dc:creator><dc:description>
+                  Antimicrobial peptide (AMP)-based positive selection is a powerful strategy for rapid gene cloning. A notable example is the use of the Escherichia coli (E. coli) CcdB toxin to eliminate non-recombinant plasmids. Building on this, dual prokaryotic/mammalian expression vectors like pgMAX and pgMAX-II minimize subcloning by allowing direct expression after a single ligation. However, combining selection modules (e.g., CcdB and Microcin B17) may affect recovery, particularly when their mechanisms both target DNA gyrase.
+                  In this study, we evaluated the feasibility of cloning and expressing the porcine AMP protegrin-1 (PG-1) using an AMP-assisted selection framework. PG-1 is an 18-residue, cysteine-rich cathelicidin that adopts a disulfide bond–stabilized β-hairpin structure. It exhibits potent antibacterial activity by permeabilizing anionic lipid bilayers through pore formation. We demonstrate that protegrin-1 functions as an effective selectable marker for plasmid recombination within the pgMAX-II system, achieving high cloning efficiency. This novel framework enables simple, high-efficiency subcloning with dual-expression capability in both E. coli and mammalian cells.
+               </dc:description><openaccess>1</openaccess><openaccessArticle>true</openaccessArticle><openaccessType>Full</openaccessType><openArchiveArticle>false</openArchiveArticle><openaccessSponsorName/><openaccessSponsorType>Author</openaccessSponsorType><openaccessUserLicense>http://creativecommons.org/licenses/by/4.0/</openaccessUserLicense><dcterms:subject>Antimicrobial peptide</dcterms:subject><dcterms:subject>Protein expression</dcterms:subject><dcterms:subject>Fluorescence</dcterms:subject><dcterms:subject>Plasmid</dcterms:subject><dcterms:subject>DNA recombination</dcterms:subject><link href="https://api.elsevier.com/content/article/pii/S2215016126001706" rel="self"/><link href="https://www.sciencedirect.com/science/article/pii/S2215016126001706" rel="scidir"/></coredata><objects><object ref="gr1" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="678" height="515" size="65671">https://api.elsevier.com/content/object/eid/1-s2.0-S2215016126001706-gr1.jpg?httpAccept=%2A%2F%2A</object><object ref="gr2" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="602" height="367" size="48464">https://api.elsevier.com/content/object/eid/1-s2.0-S2215016126001706-gr2.jpg?httpAccept=%2A%2F%2A</object><object ref="ga1" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="257" height="200" size="22794">https://api.elsevier.com/content/object/eid/1-s2.0-S2215016126001706-ga1.jpg?httpAccept=%2A%2F%2A</object><object ref="gr1" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="216" height="164" size="11793">https://api.elsevier.com/content/object/eid/1-s2.0-S2215016126001706-gr1.sml?httpAccept=%2A%2F%2A</object><object ref="gr2" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="219" height="134" size="16258">https://api.elsevier.com/content/object/eid/1-s2.0-S2215016126001706-gr2.sml?httpAccept=%2A%2F%2A</object><object ref="ga1" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="210" height="163" size="11146">https://api.elsevier.com/content/object/eid/1-s2.0-S2215016126001706-ga1.sml?httpAccept=%2A%2F%2A</object><object ref="gr1" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="3000" height="2279" size="458876">https://api.elsevier.com/content/object/eid/1-s2.0-S2215016126001706-gr1_lrg.jpg?httpAccept=%2A%2F%2A</object><object ref="gr2" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="2667" height="1627" size="377411">https://api.elsevier.com/content/object/eid/1-s2.0-S2215016126001706-gr2_lrg.jpg?httpAccept=%2A%2F%2A</object><object ref="ga1" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="1138" height="886" size="164735">https://api.elsevier.com/content/object/eid/1-s2.0-S2215016126001706-ga1_lrg.jpg?httpAccept=%2A%2F%2A</object><object ref="mmc1" category="standard" type="APPLICATION" multimediatype="Acrobat PDF file" mimetype="application/pdf" size="155445">https://api.elsevier.com/content/object/eid/1-s2.0-S2215016126001706-mmc1.pdf?httpAccept=%2A%2F%2A</object></objects><scopus-id>105038921580</scopus-id><scopus-eid>2-s2.0-105038921580</scopus-eid><link href="https://api.elsevier.com/content/abstract/scopus_id/105038921580" rel="abstract"/><originalText><xocs:doc xsi:schemaLocation="http://www.elsevier.com/xml/xocs/dtd http://null/schema/dtds/document/fulltext/xcr/xocs-article.xsd"><xocs:meta xmlns:xoe="http://www.elsevier.com/xml/xoe/dtd">
+      <xocs:content-family>serial</xocs:content-family>
+      <xocs:content-type>JL</xocs:content-type>
+      <xocs:cid>306208</xocs:cid>
+      <xocs:ssids>
+         <xocs:ssid type="alllist">291210</xocs:ssid>
+         <xocs:ssid type="subj">291682</xocs:ssid>
+         <xocs:ssid type="subj">291735</xocs:ssid>
+         <xocs:ssid type="subj">291848</xocs:ssid>
+         <xocs:ssid type="subj">291889</xocs:ssid>
+         <xocs:ssid type="subj">291929</xocs:ssid>
+         <xocs:ssid type="content">31</xocs:ssid>
+         <xocs:ssid type="oa">90</xocs:ssid>
+      </xocs:ssids>
+      <xocs:srctitle>MethodsX</xocs:srctitle>
+      <xocs:normalized-srctitle>METHODSX</xocs:normalized-srctitle>
+      <xocs:orig-load-date yyyymmdd="20260510">2026-05-10</xocs:orig-load-date>
+      <xocs:available-online-date yyyymmdd="20260510">2026-05-10</xocs:available-online-date>
+      <xocs:vor-load-date yyyymmdd="20260515">2026-05-15</xocs:vor-load-date>
+      <xocs:vor-available-online-date yyyymmdd="20260515">2026-05-15</xocs:vor-available-online-date>
+      <xocs:ew-transaction-id>2026-06-06T09:36:59</xocs:ew-transaction-id>
+      <xocs:eid>1-s2.0-S2215016126001706</xocs:eid>
+      <xocs:pii-formatted>S2215-0161(26)00170-6</xocs:pii-formatted>
+      <xocs:pii-unformatted>S2215016126001706</xocs:pii-unformatted>
+      <xocs:doi>10.1016/j.mex.2026.103952</xocs:doi>
+      <xocs:item-stage>S250</xocs:item-stage>
+      <xocs:item-version-number>S250.1</xocs:item-version-number>
+      <xocs:item-weight>FULL-TEXT</xocs:item-weight>
+      <xocs:hub-eid>1-s2.0-S2215016125X00030</xocs:hub-eid>
+      <xocs:timestamp yyyymmdd="20260606">2026-06-06T09:33:36.716935Z</xocs:timestamp>
+      <xocs:dco>0</xocs:dco>
+      <xocs:tomb>0</xocs:tomb>
+      <xocs:date-search-begin>20260601</xocs:date-search-begin>
+      <xocs:date-search-end>20260630</xocs:date-search-end>
+      <xocs:year-nav>2026</xocs:year-nav>
+      <xocs:indexeddate epoch="1778451601">2026-05-10T22:20:01.903662Z</xocs:indexeddate>
+      <xocs:articleinfo>absattachment articleinfo articlenumber articletitlenorm authfirstinitialnorm authfirstsurnamenorm cid cids contenttype copyright crossmark dateloaded dateloadedtxt datesearch datesort dateupdated dco docsubtype doctype doi eid ewtransactionid fundingbodyid hubeid indexeddate issn issnnorm itemstage itemtransactionid itemweight oauserlicense openaccess openarchive pg pgfirst pii piinorm pubdateend pubdatestart pubdatetxt pubyr sectiontitle sortorder sponsoredaccesstype srctitle srctitlenorm srctype ssids alllist content oa subj subheadings suppl tomb volfirst volissue volumelist webpdf webpdfpagecount yearnav figure table e-component body acknowledge affil appendices articletitle auth authfirstini authfull authkeywords authlast grantnumber grantsponsor grantsponsorid orcid primabst ref specialabst</xocs:articleinfo>
+      <xocs:issns>
+         <xocs:issn-primary-formatted>2215-0161</xocs:issn-primary-formatted>
+         <xocs:issn-primary-unformatted>22150161</xocs:issn-primary-unformatted>
+      </xocs:issns>
+      <xocs:sponsored-access-type>UNLIMITED</xocs:sponsored-access-type>
+      <xocs:funding-body-id>NONE</xocs:funding-body-id>
+      <xocs:crossmark is-crossmark="1">true</xocs:crossmark>
+      <xocs:vol-first>16</xocs:vol-first>
+      <xocs:volume-list>
+         <xocs:volume>16</xocs:volume>
+      </xocs:volume-list>
+      <xocs:suppl>C</xocs:suppl>
+      <xocs:vol-iss-suppl-text>Volume 16</xocs:vol-iss-suppl-text>
+      <xocs:sort-order>208</xocs:sort-order>
+      <xocs:first-fp>103952</xocs:first-fp>
+      <xocs:article-number>103952</xocs:article-number>
+      <xocs:pages>
+         <xocs:first-page>103952</xocs:first-page>
+      </xocs:pages>
+      <xocs:cover-date-orig>
+         <xocs:start-date>202606</xocs:start-date>
+      </xocs:cover-date-orig>
+      <xocs:cover-date-text>June 2026</xocs:cover-date-text>
+      <xocs:cover-date-start>2026-06-01</xocs:cover-date-start>
+      <xocs:cover-date-end>2026-06-30</xocs:cover-date-end>
+      <xocs:cover-date-year>2026</xocs:cover-date-year>
+      <xocs:hub-sec>
+         <xocs:hub-sec-title>Pharmacology, Toxicology and Pharmaceutical Science</xocs:hub-sec-title>
+      </xocs:hub-sec>
+      <xocs:document-type>article</xocs:document-type>
+      <xocs:document-subtype>mic</xocs:document-subtype>
+      <xocs:copyright-line>© 2026 The Author(s). Published by Elsevier B.V.</xocs:copyright-line>
+      <xocs:normalized-article-title>ADUALEXPRESSIONPLASMIDPROTEGRIN1COMPATIBLEBOTHPROKARYOTICMAMMALIANSYSTEMS</xocs:normalized-article-title>
+      <xocs:normalized-first-auth-surname>MURAKAMI</xocs:normalized-first-auth-surname>
+      <xocs:normalized-first-auth-initial>M</xocs:normalized-first-auth-initial>
+      <xocs:item-toc>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-section-title>Specifications table</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-section-title>Background</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-section-title>Method details</xocs:item-toc-section-title>
+            <xocs:item-toc-entry ref-elem="ce:sections">
+               <xocs:item-toc-section-title>Materials and methods</xocs:item-toc-section-title>
+               <xocs:item-toc-entry ref-elem="ce:sections">
+                  <xocs:item-toc-section-title>Plasmid construction</xocs:item-toc-section-title>
+               </xocs:item-toc-entry>
+               <xocs:item-toc-entry ref-elem="ce:sections">
+                  <xocs:item-toc-section-title>Transformation and purification</xocs:item-toc-section-title>
+               </xocs:item-toc-entry>
+            </xocs:item-toc-entry>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-section-title>Method validation</xocs:item-toc-section-title>
+            <xocs:item-toc-entry ref-elem="ce:sections">
+               <xocs:item-toc-section-title>Subcloning and fluorescent protein expression analysis</xocs:item-toc-section-title>
+               <xocs:item-toc-entry ref-elem="ce:sections">
+                  <xocs:item-toc-section-title>
+                     <ce:italic>α</ce:italic>-complementation assay</xocs:item-toc-section-title>
+               </xocs:item-toc-entry>
+            </xocs:item-toc-entry>
+            <xocs:item-toc-entry ref-elem="ce:sections">
+               <xocs:item-toc-section-title>Fluorescent protein expression</xocs:item-toc-section-title>
+            </xocs:item-toc-entry>
+            <xocs:item-toc-entry ref-elem="ce:sections">
+               <xocs:item-toc-section-title>Cell culture and transfection of HEK 293 cells</xocs:item-toc-section-title>
+            </xocs:item-toc-entry>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-section-title>Limitations</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-section-title>Ethics statements</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-section-title>CRediT authorship contribution statement</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:acknowledgment">
+            <xocs:item-toc-section-title>Acknowledgments</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:appendices">
+            <xocs:item-toc-label>Appendix</xocs:item-toc-label>
+            <xocs:item-toc-section-title>Supplementary materials</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:bibliography">
+            <xocs:item-toc-section-title>References</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+      </xocs:item-toc>
+      <xocs:references>
+         <xocs:ref-info refid="sbref0001">
+            <xocs:ref-normalized-surname>BERNARD</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>1995</xocs:ref-pub-year>
+            <xocs:ref-first-fp>159</xocs:ref-first-fp>
+            <xocs:ref-last-lp>160</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>P</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0002">
+            <xocs:ref-normalized-surname>BERNARD</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>1992</xocs:ref-pub-year>
+            <xocs:ref-first-fp>735</xocs:ref-first-fp>
+            <xocs:ref-last-lp>745</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>P</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0003">
+            <xocs:ref-normalized-surname>MURAKAMI</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2019</xocs:ref-pub-year>
+            <xocs:ref-article-number>e0216169</xocs:ref-article-number>
+            <xocs:ref-normalized-initial>M</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0004">
+            <xocs:ref-normalized-surname>MURAKAMI</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2023</xocs:ref-pub-year>
+            <xocs:ref-first-fp>1</xocs:ref-first-fp>
+            <xocs:ref-last-lp>3</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>M</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0005">
+            <xocs:ref-normalized-surname>MURAKAMI</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2025</xocs:ref-pub-year>
+            <xocs:ref-article-number>103135</xocs:ref-article-number>
+            <xocs:ref-normalized-initial>A</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0006">
+            <xocs:ref-normalized-surname>KOKRYAKOV</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>1993</xocs:ref-pub-year>
+            <xocs:ref-first-fp>231</xocs:ref-first-fp>
+            <xocs:ref-last-lp>236</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>V</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0007">
+            <xocs:ref-normalized-surname>CAPONE</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2010</xocs:ref-pub-year>
+            <xocs:ref-first-fp>2644</xocs:ref-first-fp>
+            <xocs:ref-last-lp>2652</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>R</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0008">
+            <xocs:ref-normalized-surname>ULLMANN</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>1967</xocs:ref-pub-year>
+            <xocs:ref-first-fp>339</xocs:ref-first-fp>
+            <xocs:ref-last-lp>343</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>A</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0009">
+            <xocs:ref-normalized-surname>MURAKAMI</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2023</xocs:ref-pub-year>
+            <xocs:ref-article-number>13986</xocs:ref-article-number>
+            <xocs:ref-normalized-initial>A</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0010">
+            <xocs:ref-normalized-surname>HOLTON</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>1991</xocs:ref-pub-year>
+            <xocs:ref-first-fp>1156</xocs:ref-first-fp>
+            <xocs:ref-normalized-initial>T</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0011">
+            <xocs:ref-normalized-surname>KLOCK</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2009</xocs:ref-pub-year>
+            <xocs:ref-first-fp>91</xocs:ref-first-fp>
+            <xocs:ref-last-lp>103</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>H</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0012">
+            <xocs:ref-normalized-surname>LI</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2012</xocs:ref-pub-year>
+            <xocs:ref-first-fp>51</xocs:ref-first-fp>
+            <xocs:ref-last-lp>59</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>M</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+      </xocs:references>
+      <xocs:refkeys>
+         <xocs:refkey3>MURAKAMIX2026X103952</xocs:refkey3>
+         <xocs:refkey4ai>MURAKAMIX2026X103952XM</xocs:refkey4ai>
+      </xocs:refkeys>
+      <xocs:open-access>
+         <xocs:oa-article-status is-open-access="1" is-open-archive="0">Full</xocs:oa-article-status>
+         <xocs:oa-access-effective-date>2026-05-09T17:59:40Z</xocs:oa-access-effective-date>
+         <xocs:oa-sponsor>
+            <xocs:oa-sponsor-type>Author</xocs:oa-sponsor-type>
+         </xocs:oa-sponsor>
+         <xocs:oa-user-license>http://creativecommons.org/licenses/by/4.0/</xocs:oa-user-license>
+      </xocs:open-access>
+      <xocs:open-research>
+         <xocs:or-agreements>
+            <xocs:or-agreement>
+               <xocs:or-agreement-name>NR_JUSTICE</xocs:or-agreement-name>
+            </xocs:or-agreement>
+         </xocs:or-agreements>
+      </xocs:open-research>
+      <xocs:copyright-info>
+         <xocs:cp-license-lines>
+            <xocs:cp-license-line lang="en">This is an open access article under the CC BY license.</xocs:cp-license-line>
+         </xocs:cp-license-lines>
+         <xocs:cp-notices>
+            <xocs:cp-notice lang="en">© 2026 The Author(s). Published by Elsevier B.V.</xocs:cp-notice>
+         </xocs:cp-notices>
+      </xocs:copyright-info>
+      <xocs:funding-list has-funding-info="1">
+         <xocs:funding-addon-generated-timestamp>2026-05-09T21:35:39.186Z</xocs:funding-addon-generated-timestamp>
+         <xocs:funding-addon-type>http://vtw.elsevier.com/data/voc/AddOnTypes/50.7/eoas</xocs:funding-addon-type>
+         <xocs:funding>
+            <xocs:funding-agency>Japan Society for the Promotion of Science</xocs:funding-agency>
+            <xocs:funding-agency-id>http://data.elsevier.com/vocabulary/SciValFunders/501100001691</xocs:funding-agency-id>
+            <xocs:funding-agency-country>http://sws.geonames.org/1861060</xocs:funding-agency-country>
+         </xocs:funding>
+      </xocs:funding-list>
+      <xocs:article-sharing-framework/>
+      <xocs:attachment-metadata-doc>
+         <xocs:attachment-set-type>item</xocs:attachment-set-type>
+         <xocs:pii-formatted>S2215-0161(26)00170-6</xocs:pii-formatted>
+         <xocs:pii-unformatted>S2215016126001706</xocs:pii-unformatted>
+         <xocs:eid>1-s2.0-S2215016126001706</xocs:eid>
+         <xocs:doi>10.1016/j.mex.2026.103952</xocs:doi>
+         <xocs:cid>306208</xocs:cid>
+         <xocs:timestamp>2026-06-06T09:33:36.716935Z</xocs:timestamp>
+         <xocs:cover-date-start>2026-06-01</xocs:cover-date-start>
+         <xocs:cover-date-end>2026-06-30</xocs:cover-date-end>
+         <xocs:sponsored-access-type>UNLIMITED</xocs:sponsored-access-type>
+         <xocs:funding-body-id>NONE</xocs:funding-body-id>
+         <xocs:attachments>
+            <xocs:web-pdf>
+               <xocs:attachment-eid>1-s2.0-S2215016126001706-main.pdf</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2215016126001706/MAIN/application/pdf/4d503ce661515608dd5aa20fe67ea5ec/main.pdf</xocs:ucs-locator>
+               <xocs:filename>main.pdf</xocs:filename>
+               <xocs:extension>pdf</xocs:extension>
+               <xocs:pdf-optimized>true</xocs:pdf-optimized>
+               <xocs:filesize>2353882</xocs:filesize>
+               <xocs:web-pdf-purpose>MAIN</xocs:web-pdf-purpose>
+               <xocs:web-pdf-page-count>6</xocs:web-pdf-page-count>
+               <xocs:web-pdf-images>
+                  <xocs:web-pdf-image>
+                     <xocs:attachment-eid>1-s2.0-S2215016126001706-main_1.png</xocs:attachment-eid>
+                     <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2215016126001706/PREVIEW/image/png/1297266389a02ba524254feadbe3d661/main_1.png</xocs:ucs-locator>
+                     <xocs:filename>main_1.png</xocs:filename>
+                     <xocs:extension>png</xocs:extension>
+                     <xocs:filesize>40518</xocs:filesize>
+                     <xocs:pixel-height>928</xocs:pixel-height>
+                     <xocs:pixel-width>656</xocs:pixel-width>
+                     <xocs:attachment-type>IMAGE-WEB-PDF</xocs:attachment-type>
+                     <xocs:pdf-page-num>1</xocs:pdf-page-num>
+                  </xocs:web-pdf-image>
+               </xocs:web-pdf-images>
+            </xocs:web-pdf>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2215016126001706-gr1.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2215016126001706/gr1/DOWNSAMPLED/image/jpeg/262ca5e48dc1b864d220ad1dbc50f6ff/gr1.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr1</xocs:file-basename>
+               <xocs:filename>gr1.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>65671</xocs:filesize>
+               <xocs:pixel-height>515</xocs:pixel-height>
+               <xocs:pixel-width>678</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2215016126001706-gr2.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2215016126001706/gr2/DOWNSAMPLED/image/jpeg/44119755dade88a0ce7c7984cfbdfcc9/gr2.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr2</xocs:file-basename>
+               <xocs:filename>gr2.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>48464</xocs:filesize>
+               <xocs:pixel-height>367</xocs:pixel-height>
+               <xocs:pixel-width>602</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2215016126001706-ga1.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2215016126001706/ga1/DOWNSAMPLED/image/jpeg/5a3aa22ccab0ce63a132552533678ece/ga1.jpg</xocs:ucs-locator>
+               <xocs:file-basename>ga1</xocs:file-basename>
+               <xocs:abstract-attachment>true</xocs:abstract-attachment>
+               <xocs:filename>ga1.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>22794</xocs:filesize>
+               <xocs:pixel-height>200</xocs:pixel-height>
+               <xocs:pixel-width>257</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2215016126001706-gr1.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2215016126001706/gr1/THUMBNAIL/image/gif/6ba44c590ec9d532e13e6818fe505abe/gr1.sml</xocs:ucs-locator>
+               <xocs:file-basename>gr1</xocs:file-basename>
+               <xocs:filename>gr1.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>11793</xocs:filesize>
+               <xocs:pixel-height>164</xocs:pixel-height>
+               <xocs:pixel-width>216</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2215016126001706-gr2.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2215016126001706/gr2/THUMBNAIL/image/gif/aaeac1e657e038dda6d0bdbcff3e570a/gr2.sml</xocs:ucs-locator>
+               <xocs:file-basename>gr2</xocs:file-basename>
+               <xocs:filename>gr2.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>16258</xocs:filesize>
+               <xocs:pixel-height>134</xocs:pixel-height>
+               <xocs:pixel-width>219</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2215016126001706-ga1.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2215016126001706/ga1/THUMBNAIL/image/gif/7077e22d96a944679a40bb415f743fd0/ga1.sml</xocs:ucs-locator>
+               <xocs:file-basename>ga1</xocs:file-basename>
+               <xocs:abstract-attachment>true</xocs:abstract-attachment>
+               <xocs:filename>ga1.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>11146</xocs:filesize>
+               <xocs:pixel-height>163</xocs:pixel-height>
+               <xocs:pixel-width>210</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2215016126001706-gr1_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2215016126001706/HIGHRES/image/jpeg/ca8f774ac71da4e5a45b854f70d85d17/gr1_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr1</xocs:file-basename>
+               <xocs:filename>gr1_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>458876</xocs:filesize>
+               <xocs:pixel-height>2279</xocs:pixel-height>
+               <xocs:pixel-width>3000</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2215016126001706-gr2_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2215016126001706/HIGHRES/image/jpeg/ba88513b2b64a77b60ed29bc3b9e4c4a/gr2_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr2</xocs:file-basename>
+               <xocs:filename>gr2_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>377411</xocs:filesize>
+               <xocs:pixel-height>1627</xocs:pixel-height>
+               <xocs:pixel-width>2667</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2215016126001706-ga1_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2215016126001706/HIGHRES/image/jpeg/c57160d0694b3bf7c3989787d632a5f0/ga1_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>ga1</xocs:file-basename>
+               <xocs:abstract-attachment>true</xocs:abstract-attachment>
+               <xocs:filename>ga1_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>164735</xocs:filesize>
+               <xocs:pixel-height>886</xocs:pixel-height>
+               <xocs:pixel-width>1138</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2215016126001706-mmc1.pdf</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2215016126001706/mmc1/MAIN/application/pdf/be5402b0620f84bce8ec73c582963144/mmc1.pdf</xocs:ucs-locator>
+               <xocs:file-basename>mmc1</xocs:file-basename>
+               <xocs:filename>mmc1.pdf</xocs:filename>
+               <xocs:extension>pdf</xocs:extension>
+               <xocs:pdf-optimized>false</xocs:pdf-optimized>
+               <xocs:filesize>155445</xocs:filesize>
+               <xocs:attachment-type>APPLICATION</xocs:attachment-type>
+            </xocs:attachment>
+         </xocs:attachments>
+      </xocs:attachment-metadata-doc>
+   </xocs:meta><xocs:serial-item xmlns:xoe="http://www.elsevier.com/xml/xoe/dtd">
+      <article xmlns="http://www.elsevier.com/xml/ja/dtd" docsubtype="mic" xml:lang="en" version="5.7">
+         <item-info>
+            <jid>MEX</jid>
+            <aid>103952</aid>
+            <ce:article-number>103952</ce:article-number>
+            <ce:pii>S2215-0161(26)00170-6</ce:pii>
+            <ce:doi>10.1016/j.mex.2026.103952</ce:doi>
+            <ce:copyright type="other" year="2026">The Author(s)</ce:copyright>
+         </item-info>
+         <ce:floats>
+            <ce:figure id="fig0001">
+               <ce:label>Fig. 1</ce:label>
+               <ce:caption id="cap0002">
+                  <ce:simple-para id="spara001" view="all">
+                     <ce:bold>A. Diagram of the pgMAX-II/His/protegrin-1 dual-expression system.</ce:bold> The pgMAX-II vector features dual promoters: CMV for mammalian expression (orange) and <ce:italic>lac</ce:italic> (Lac P/O) for prokaryotic expression. The protegrin-1 gene (blue arrow) was inserted between <ce:italic>Eco</ce:italic>RV and <ce:italic>Xba</ce:italic>I. Target gene insertion at the <ce:italic>Eco</ce:italic>RV site generates a chimeric fusion protein containing a poly-histidine tag (His; green). <ce:bold>B. Amino acid sequences of protegrin-1</ce:bold>. Amino acid sequences of protein-1 are shown in blue with corresponding DNA sequences for plasmid construction. The <ce:italic>EcoRV</ce:italic> restriction site (GATATC) is highlighted in red. <ce:bold>C. Prokaryotic expression analysis</ce:bold>. Top: α-complementation selection; blue arrows indicate representative blue colonies. Bottom: PCR screening of clones following α-peptide ligation. Seven of eight clones (87.5%) contained the desired insert for both protegrin-1 (left) and CcdB (right). "n" denotes the negative control.</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0002" role="short">Fig 1 dummy alt text</ce:alt-text>
+               <ce:link id="celink0001" locator="gr1" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2215016126001706/gr1"/>
+            </ce:figure>
+            <ce:figure id="fig0002">
+               <ce:label>Fig. 2</ce:label>
+               <ce:caption id="cap0003">
+                  <ce:simple-para id="spara002" view="all">
+                     <ce:bold>A. Expression of DsRed2 in <ce:italic>E. coli</ce:italic>
+                     </ce:bold>. Fluorescent protein expression in the pgMAX-II/His/protegrin-1 system was visualized under green light (excitation: 563 nm) using a red filter (emission: 582 nm). Red arrows indicate colonies successfully expressing DsRed2. <ce:bold>B. Plasmid expression in HEK293 cells</ce:bold>. Representative phase-contrast (PhC; top) and DsRed2 fluorescence (bottom) images are shown. Bright red fluorescence (red arrows) confirms successful transfection and expression of the pgMAX-II/DsRed2/protegrin-1 plasmid in mammalian cells.</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0003" role="short">Fig 2 dummy alt text</ce:alt-text>
+               <ce:link id="celink0002" locator="gr2" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2215016126001706/gr2"/>
+            </ce:figure>
+         </ce:floats>
+         <head>
+            <ce:article-footnote>
+               <ce:label>✰</ce:label>
+               <ce:note-para id="tfn1" view="all">Related research article: None.</ce:note-para>
+            </ce:article-footnote>
+            <ce:article-footnote>
+               <ce:label>✰✰</ce:label>
+               <ce:note-para id="tfn2" view="all">For a published article: None.</ce:note-para>
+            </ce:article-footnote>
+            <ce:title id="tte0002">A dual expression plasmid with protegrin-1 compatible with both prokaryotic and mammalian systems</ce:title>
+            <ce:author-group id="aut0001">
+               <ce:author id="au0001" author-id="S2215016126001706-d4fccc07a6f0c458b9a6c83a547c2897" orcid="0000-0001-6704-1796">
+                  <ce:given-name>Manabu</ce:given-name>
+                  <ce:surname>Murakami</ce:surname>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/conceptualization">Conceptualization</ce:contributor-role>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/methodology">Methodology</ce:contributor-role>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/data-curation">Data curation</ce:contributor-role>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/writing-original-draft">Writing – original draft</ce:contributor-role>
+               </ce:author>
+               <ce:author id="au0002" author-id="S2215016126001706-d2036e1806796212cf3a0dddd11388f5">
+                  <ce:given-name>Hiroshi</ce:given-name>
+                  <ce:surname>Koda</ce:surname>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/investigation">Investigation</ce:contributor-role>
+               </ce:author>
+               <ce:author id="au0003" author-id="S2215016126001706-db89a5aff6a92b3b14cd6efc1e4029bf">
+                  <ce:given-name>Agnieszka M.</ce:given-name>
+                  <ce:surname>Murakami</ce:surname>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/investigation">Investigation</ce:contributor-role>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/visualization">Visualization</ce:contributor-role>
+               </ce:author>
+               <ce:author id="au0004" author-id="S2215016126001706-00e11133de621779263c4206ec18a2e5">
+                  <ce:given-name>Yasutaka</ce:given-name>
+                  <ce:surname>Niwa</ce:surname>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/writing-review-editing">Writing – review &amp; editing</ce:contributor-role>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/supervision">Supervision</ce:contributor-role>
+                  <ce:cross-ref id="crf0003" refid="cor0001">
+                     <ce:sup loc="post">⁎</ce:sup>
+                  </ce:cross-ref>
+                  
+               </ce:author>
+               <ce:affiliation id="aff0001" affiliation-id="S2215016126001706-acdaf4da469e53f4664f56f4a725b841">
+                  <ce:textfn id="cetextfn0001">Department of Pharmacology, Hirosaki University Graduate School of Medicine, 5 Zaifucho, Hirosaki, Aomori 036-8562, Japan</ce:textfn>
+                  <sa:affiliation>
+                     <sa:organization>Department of Pharmacology</sa:organization>
+                     <sa:organization>Hirosaki University Graduate School of Medicine</sa:organization>
+                     <sa:address-line>5 Zaifucho, Hirosaki</sa:address-line>
+                     <sa:city>Aomori</sa:city>
+                     <sa:postal-code>036-8562</sa:postal-code>
+                     <sa:country iso3166-1-alpha-3="JPN">Japan</sa:country>
+                  </sa:affiliation>
+                  <ce:source-text id="staff0001">Department of Pharmacology, Hirosaki University Graduate School of Medicine, 5 Zaifucho, Hirosaki, Aomori 036-8562, Japan</ce:source-text>
+               </ce:affiliation>
+               <ce:correspondence id="cor0001">
+                  <ce:label>⁎</ce:label>
+                  <ce:text id="cetext0001">Corresponding author.</ce:text>
+               </ce:correspondence>
+            </ce:author-group>
+            <ce:date-received day="1" month="3" year="2026"/>
+            <ce:date-accepted day="9" month="5" year="2026"/>
+            <ce:abstract id="abs0001" class="author" view="all"><ce:abstract-sec id="abss0001" view="all">
+                  <ce:simple-para id="spara003" view="all">Antimicrobial peptide (AMP)-based positive selection is a powerful strategy for rapid gene cloning. A notable example is the use of the <ce:italic>Escherichia coli</ce:italic> (<ce:italic>E. coli</ce:italic>) CcdB toxin to eliminate non-recombinant plasmids. Building on this, dual prokaryotic/mammalian expression vectors like pgMAX and pgMAX-II minimize subcloning by allowing direct expression after a single ligation. However, combining selection modules (e.g., CcdB and Microcin B17) may affect recovery, particularly when their mechanisms both target DNA gyrase.</ce:simple-para>
+                  <ce:simple-para id="spara004" view="all">In this study, we evaluated the feasibility of cloning and expressing the porcine AMP protegrin-1 (PG-1) using an AMP-assisted selection framework. PG-1 is an 18-residue, cysteine-rich cathelicidin that adopts a disulfide bond–stabilized β-hairpin structure. It exhibits potent antibacterial activity by permeabilizing anionic lipid bilayers through pore formation. We demonstrate that protegrin-1 functions as an effective selectable marker for plasmid recombination within the pgMAX-II system, achieving high cloning efficiency. This novel framework enables simple, high-efficiency subcloning with dual-expression capability in both <ce:italic>E. coli</ce:italic> and mammalian cells.</ce:simple-para>
+               </ce:abstract-sec></ce:abstract>
+            <ce:abstract id="abs0002" class="graphical" view="all">
+               <ce:section-title id="cesectitle0002">Graphical abstract</ce:section-title>
+               <ce:abstract-sec id="abss0003" view="all">
+                  <ce:simple-para id="spara005" view="all">
+                     <ce:display>
+                        <ce:figure id="fig0003">
+                           <ce:alt-text id="alttx001" role="short">Image, graphical abstract</ce:alt-text>
+                           <ce:link id="celink0003" locator="ga1" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2215016126001706/ga1"/>
+                        </ce:figure>
+                     </ce:display>
+                  </ce:simple-para>
+               </ce:abstract-sec>
+            </ce:abstract>
+            <ce:keywords id="keys0001" class="keyword" view="all">
+               <ce:section-title id="cesectitle0003">Keywords</ce:section-title>
+               <ce:keyword id="key0001">
+                  <ce:text id="cetext0002">Antimicrobial peptide</ce:text>
+               </ce:keyword>
+               <ce:keyword id="key0002">
+                  <ce:text id="cetext0003">Protein expression</ce:text>
+               </ce:keyword>
+               <ce:keyword id="key0003">
+                  <ce:text id="cetext0004">Fluorescence</ce:text>
+               </ce:keyword>
+               <ce:keyword id="key0004">
+                  <ce:text id="cetext0005">Plasmid</ce:text>
+               </ce:keyword>
+               <ce:keyword id="key0005">
+                  <ce:text id="cetext0006">DNA recombination</ce:text>
+               </ce:keyword>
+            </ce:keywords>
+            <ce:data-availability id="refdata001" view="all">
+               <ce:section-title id="cesectitle0004">Data availability</ce:section-title>
+               <ce:para id="para9001" view="all">Data will be made available on request.</ce:para>
+            </ce:data-availability>
+         </head>
+         <body view="all">
+            <ce:sections>
+               <ce:para id="para9002" view="all">
+                  <ce:display>
+                     <ce:textbox id="tbox0002">
+                        <ce:caption id="tbcap1">
+                           <ce:simple-para id="spara006" view="all">Key points</ce:simple-para>
+                        </ce:caption>
+                        <ce:alt-text role="short" id="alte1">Unlabelled box dummy alt text</ce:alt-text>
+                        <ce:textbox-body>
+                           <ce:sections>
+                              <ce:para id="para0005" view="all">• Protegrin-1 is a cationic, β-hairpin AMP whose membrane-disruptive activity is highly potent.</ce:para>
+                              <ce:para id="para0006" view="all">• Protegrin-1 demonstrates potential for DNA recombination efficiency comparable to CcdB.</ce:para>
+                              <ce:para id="para0007" view="all">• We successfully developed a Protegrin-1-based dual-expression plasmid effective in both prokaryotic and mammalian systems.</ce:para>
+                           </ce:sections>
+                        </ce:textbox-body>
+                     </ce:textbox>
+                  </ce:display>
+               </ce:para>
+               <ce:section id="sec0001" view="all">
+                  <ce:section-title id="cesectitle0007">Specifications table</ce:section-title>
+                  <ce:para id="para0008" view="all">
+                     <ce:hsp sp="1"/>
+                     <ce:display>
+                        <ce:table xmlns="http://www.elsevier.com/xml/common/cals/dtd" id="utbl0001" rowsep="0" colsep="0" frame="topbot">
+                           <tgroup cols="2">
+                              <colspec colnum="1" colname="col1" align="left"/>
+                              <colspec colnum="2" colname="col2" align="left"/>
+                              <tbody>
+                                 <row>
+                                    <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0001" colname="col1" valign="top" role="rowhead">
+                                       <bold>Subject area</bold>
+                                    </entry>
+                                    <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0002" colname="col2" valign="top">Pharmacology, Toxicology and Pharmaceutical Science</entry>
+                                 </row>
+                                 <row>
+                                    <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0003" colname="col1" valign="top" role="rowhead">
+                                       <bold>More specific subject area</bold>
+                                    </entry>
+                                    <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0004" colname="col2" valign="top">Gene expression</entry>
+                                 </row>
+                                 <row>
+                                    <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0005" colname="col1" valign="top" role="rowhead">
+                                       <bold>Name of your method</bold>
+                                    </entry>
+                                    <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0006" colname="col2" valign="top">A dual expression plasmid with protegrin-1 compatible with both prokaryotic and mammalian systems</entry>
+                                 </row>
+                                 <row>
+                                    <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0007" colname="col1" valign="top" role="rowhead">
+                                       <bold>Name and reference of original method</bold>
+                                    </entry>
+                                    <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0008" colname="col2" valign="top">pgMAX-II:<br/>Murakami, M., et al., A simple, dual direct expression plasmid system in prokaryotic and mammalian cells. PNAS Nexus 2, (2023) 1–3, doi: 10.1093/pnasnexus/pgad139.</entry>
+                                 </row>
+                                 <row>
+                                    <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0009" colname="col1" valign="top" role="rowhead">
+                                       <bold>Resource availability</bold>
+                                    </entry>
+                                    <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0010" colname="col2" valign="top">Not applicable</entry>
+                                 </row>
+                              </tbody>
+                           </tgroup>
+                        </ce:table>
+                     </ce:display>
+                  </ce:para>
+               </ce:section>
+               <ce:section id="sec0002" role="background" view="all">
+                  <ce:section-title id="cesectitle0008">Background</ce:section-title>
+                  <ce:para id="para0009" view="all">Gene cloning and functional evaluation are fundamental in molecular biology, yet workflows often require multiple subcloning rounds between propagation and expression vectors. A common streamlining strategy utilizes the <ce:italic>Escherichia coli</ce:italic> (<ce:italic>E. coli</ce:italic>) CcdB toxin, which targets DNA gyrase by stabilizing cleaved DNA–enzyme complexes [<ce:cross-ref id="crf0004" refid="bib0001">1</ce:cross-ref>,<ce:cross-ref id="crf0005" refid="bib0002">2</ce:cross-ref>]. In these positive-selection plasmids, target insertion disrupts the toxin, ensuring only recombinant clones survive. However, this approach usually requires subsequent gene transfer into an expression backbone for functional assays.</ce:para>
+                  <ce:para id="para0010" view="all">To bypass these steps, dual-expression plasmids have been developed. Our pgMAX system enables direct expression in <ce:italic>E. coli</ce:italic> after a single ligation and allows conversion into a mammalian vector via blunt-end excision (SwaI/PmeI) and re-ligation [<ce:cross-ref id="crf0006" refid="bib0003">3</ce:cross-ref>]. The subsequent pgMAX-II platform advanced this by supporting direct expression in both prokaryotic and mammalian cells [<ce:cross-ref id="crf0007" refid="bib0004">4</ce:cross-ref>]. These systems rely on antimicrobial modules like CcdB or Microcin B17 (MccB17), both of which perturb DNA gyrase [<ce:cross-ref id="crf0008" refid="bib0005">5</ce:cross-ref>]. Since their mechanisms overlap, combining these toxins within a single framework may affect recombination efficiency and requires evaluation.</ce:para>
+                  <ce:para id="para0011" view="all">In parallel with vector development, antimicrobial peptides (AMPs) provide attractive target genes for functional expression studies. Protegrin-1 (PG-1) is a small, arginine (R) and cysteine (C) -rich porcine cathelicidin (18 amino acids) [<ce:cross-ref id="crf0009a" refid="bib0006">6</ce:cross-ref>]. PG-1 binds strongly to negatively charged microbial membranes and can permeabilize lipid bilayers; accumulating evidence supports a mechanism involving oligomerization and formation of ion-channel-like pores in anionic membranes, leading to dysregulation of ionic homeostasis and microbial death [<ce:cross-ref id="crf0010a" refid="bib0007">7</ce:cross-ref>]. Consequently, simple expression of PG-1 in <ce:italic>E. coli</ce:italic> is expected to be toxic and may prevent colony formation.</ce:para>
+                  <ce:para id="para0012" view="all">In this study, we evaluate PG-1 expression within a toxin-assisted framework. We specifically examine how toxin-based selection and the intrinsic antibacterial activity of PG-1 collectively impact recombinant recovery and functional outcomes.</ce:para>
+               </ce:section>
+               <ce:section id="sec0003" role="methods" view="all">
+                  <ce:section-title id="cesectitle0009">Method details</ce:section-title>
+                  <ce:section id="sec0004" view="all">
+                     <ce:section-title id="cesectitle0010">Materials and methods</ce:section-title>
+                     <ce:section id="sec0005" view="all">
+                        <ce:section-title id="cesectitle0011">Plasmid construction</ce:section-title>
+                        <ce:para id="para0013" view="all">The pgMAX-II plasmid, containing <ce:italic>lac</ce:italic> and CMV promoters, was employed for dual expression in <ce:italic>E. coli</ce:italic> and mammalian cells (<ce:cross-ref id="crf0009" refid="fig0001">Fig. 1</ce:cross-ref>
+                           <ce:float-anchor refid="fig0001"/>A) [<ce:cross-ref id="crf0010" refid="bib0003">3</ce:cross-ref>,<ce:cross-ref id="crf0011" refid="bib0004">4</ce:cross-ref>]. The protegrin-1 gene (lacking the leader sequence) was amplified using high-fidelity Pfu DNA polymerase (Agilent Technologies, Santa Clara, CA, USA) with primers listed in Supplementary Table 1 [<ce:cross-ref id="crf0012" refid="bib0006">6</ce:cross-ref>]. PCR conditions were optimized as follows: 25 cycles of denaturation at 98°C for 10 s, annealing at ∼ 50°C for 30 s, and extension at 72 °C for 30 s. The resulting PCR product was digested with <ce:italic>Eco</ce:italic>RV/<ce:italic>Xba</ce:italic>I, gel-purified, and ligated into pgMAX-II at 16 °C for 30 min.</ce:para>
+                     </ce:section>
+                     <ce:section id="sec0006" view="all">
+                        <ce:section-title id="cesectitle0012">Transformation and purification</ce:section-title>
+                        <ce:para id="para0014" view="all">Ligated DNA was transformed into Turbo Competent <ce:italic>E. coli</ce:italic> (New England Biolabs, Inc., Ipswich, MA, USA). Competent cells were developed using the K12 strain with the following genotype: [F’ proA+B+ lacIq ∆lacZM15 / fhuA2∆(lac-proAB)glnVgalK16galE15R(zgb-210::Tn10)TetS endA1thi-1∆(hsdS-mcrB)5]. After 1 h recovery in Luria–Bertani (LB) medium (Tryptone 10.0 g/L, Yeast extract 5.0 g/L, NaCl 5.0 g/L, pH 7.0) at 37 °C, cells were plated on LB-ampicillin (150 µg/mL) agar. Single colonies were cultured in 4 mL LB-ampicillin for 12 h. Plasmid DNA was then harvested and purified using an ion-exchange mini kit.</ce:para>
+                     </ce:section>
+                  </ce:section>
+               </ce:section>
+               <ce:section id="sec0007" role="methods" view="all">
+                  <ce:section-title id="cesectitle0013">Method validation</ce:section-title>
+                  <ce:section id="sec0008" view="all">
+                     <ce:section-title id="cesectitle0014">Subcloning and fluorescent protein expression analysis</ce:section-title>
+                     <ce:section id="sec0009" view="all">
+                        <ce:section-title id="cesectitle0015">
+                           <ce:italic>α</ce:italic>-complementation assay</ce:section-title>
+                        <ce:para id="para0015" view="all">To validate recombination and protein expression, a PCR-amplified <ce:italic>lacZ α</ce:italic>-peptide sequence (LQRRDWENPGVTQLNRLAAHPPFASWRNSEE) was inserted into the <ce:italic>Eco</ce:italic>RV site (<ce:cross-ref id="crf0015" refid="fig0001">Fig. 1</ce:cross-ref>C). The host <ce:italic>E. coli</ce:italic> strain (K12) carries the <ce:italic>lacZΔM15</ce:italic> mutation, producing the ω-peptide [<ce:cross-ref id="crf0016" refid="bib0008">8</ce:cross-ref>]. Following ligation and transformation, clones were grown on LB agar containing ampicillin, X-gal (1.0 mM), and IPTG (1.0 mM) to induce the <ce:italic>lac</ce:italic> operon. After 16 h, blue (<ce:italic>α</ce:italic>-complementation) and white colonies were quantified [<ce:cross-ref id="crf0017" refid="bib0004">4</ce:cross-ref>].</ce:para>
+                        <ce:para id="para0016" view="all">The selection mechanism operates as follows: in self-ligated plasmids, IPTG-induced toxin expression inhibits DNA gyrase, preventing colony formation. Only recombinants—where the toxin gene is disrupted by the <ce:italic>α</ce:italic>-peptide sequence (in either orientation)—survive [<ce:cross-ref id="crf0018" refid="bib0008">8</ce:cross-ref>]. When the <ce:italic>α</ce:italic>-peptide is inserted in-frame and in the sense direction, a chimeric fusion protein is expressed. This fusion protein exhibits reduced toxicity, allowing <ce:italic>E. coli</ce:italic> proliferation and the formation of blue colonies [<ce:cross-ref id="crf0019" refid="bib0008">8</ce:cross-ref>]. Conversely, if the selection module has low inhibitory effects, self-ligation would result in a high frequency of white colonies.</ce:para>
+                        <ce:para id="para0017" view="all">Protegrin-1 (18 amino acids) demonstrated high cloning efficacy, with PCR screening confirming inserts in seven of eight colonies (<ce:cross-ref id="crf0020" refid="fig0001">Fig. 1</ce:cross-ref>C, left). The <ce:italic>α</ce:italic>-complementation assay yielded 27.9% blue colonies, indicating potent selection. This performance was comparable to the CcdB control (29.2% blue colonies; <ce:cross-ref id="crf0021" refid="fig0001">Fig. 1</ce:cross-ref>C, right).</ce:para>
+                     </ce:section>
+                  </ce:section>
+                  <ce:section id="sec0010" view="all">
+                     <ce:section-title id="cesectitle0016">Fluorescent protein expression</ce:section-title>
+                     <ce:para id="para0018" view="all">A blunt-end DsRed2 fragment (∼700 bp) was amplified using Pfu DNA polymerase with specific primers (DsRed2for: 5′-AAAGCTAGCATGGCCTCCTCCGAGAACGTCATCA-3′; DsRed2rev: 5′-AAAGAATTCAGATCTCAGGAACAGGTGGTG-3′). The product was inserted into the <ce:italic>Eco</ce:italic>RV site of pgMAX-II/protegrin-1. Following ligation and transformation, recombinants were plated on LB agar with ampicillin and IPTG to induce the <ce:italic>lac</ce:italic> operon. After 16 h, colonies were visualized under green light (excitation: 563 nm; emission: 582 nm). Although the frequency of sense-oriented DsRed2 inserts was lower (6.2%) than that observed in the <ce:italic>α</ce:italic>-complementation assay (27.9%), colonies with the correct orientation exhibited distinct red fluorescence (<ce:cross-ref id="crf0022" refid="fig0002">Fig. 2</ce:cross-ref>
+                        <ce:float-anchor refid="fig0002"/>A, red arrows).</ce:para>
+                     <ce:para id="para0019" view="all">The pgMAX-II plasmid contains a modified sequence near the lac promoter [<ce:cross-ref id="crf0023" refid="bib0004">4</ce:cross-ref>]. This specific configuration may result in lower promoter activity compared to specialized single-host expression vectors. Therefore, we evaluated IPTG-dependent changes in red fluorescence using the pgMAX-II/His/DsRed2/protegrin-1 plasmid (S3Fig.). A clear dose-dependent response was observed. While background fluorescence inherent to <ce:italic>E. coli</ce:italic> was observed, these results demonstrate that the pgMAX-II system functions effectively as a tunable expression vector.</ce:para>
+                  </ce:section>
+                  <ce:section id="sec0011" view="all">
+                     <ce:section-title id="cesectitle0017">Cell culture and transfection of HEK 293 cells</ce:section-title>
+                     <ce:para id="para0020" view="all">Cell culture and lipofection followed standard protocols [<ce:cross-ref id="crf0024" refid="bib0004">4</ce:cross-ref>]. HEK 293 cells (ATCC CRL1573; ATCC, Manassas, VA, USA) were maintained in Dulbecco’s Modified Eagle’s Medium (DMEM) supplemented with 10% fetal bovine serum (FBS). Transfection was performed using Lipofectamine (Invitrogen, Carlsbad, CA, USA). The pgMAX-II/DsRed2/protegrin-1 plasmid was utilized directly for transient expression without further recombination. Bright red fluorescence was observed in HEK 293 cells 48 h post-transfection, confirming the utility of this novel construct as a single-step shuttle vector for both prokaryotic and mammalian systems (<ce:cross-ref id="crf0025" refid="fig0002">Fig. 2</ce:cross-ref>B, red arrows).</ce:para>
+                     <ce:para id="para0021" view="all">In this study, the protegrin-1 gene (54 bp) inserted into pgMAX-II is significantly shorter than the conventional CcdB (309 bp). Since standard oligonucleotides are typically ∼60 bases long, the protegrin-1 sequence can be synthesized or amplified in a single PCR step, facilitating its integration into diverse expression plasmids with minimal genetic manipulation.</ce:para>
+                     <ce:para id="para0022" view="all">Generally, shorter peptides are less prone to nonspecific protein-protein interactions. Therefore, compact antimicrobial peptides that retain potent activity are particularly advantageous. In applications involving chimeric toxins—such as antigen-antibody studies—shorter toxin sequences are expected to minimize unintended steric hindrance or off-target interactions. Previously, we established a toxin-sensitivity assay and examined protein-protein interaction using the toxin activity of CcdB [<ce:cross-ref id="crf0026" refid="bib0009">9</ce:cross-ref>]. As protegrin-1 possesses a different antimicrobial activity from CcdB, the application of protegrin-1 may reduce false positive clones in the toxin-sensitivity assay.</ce:para>
+                     <ce:para id="para0023" view="all">The minimal color formation observed with the pgMAX-II/α-peptide/PG-1 fusion plasmid under basal condition (0 mM IPTG), coupled with the dose-dependent increase in blue intensity upon IPTG induction (Supplementary Fig. 4), indicates that the leaky expression of the pgMAX-II/protegrin-1 system is low.</ce:para>
+                     <ce:para id="para0024" view="all">Protegrin-1 (PG-1), an 18-amino acid peptide, typically forms two antiparallel β-sheets stabilized by disulfide bonds, exerting its antimicrobial activity by forming oligomeric pores in bacterial membranes. Although we did not directly observe the folding state or disulfide bond formation of PG-1 within the <ce:italic>E. coli</ce:italic> cytoplasm, our functional data provide key insights. First, the immediate growth arrest observed upon IPTG induction suggests that the expressed PG-1 retains its membrane-disrupting activity, implying that it achieves a functional, toxic conformation. Second, our results demonstrate that the insertion of external genes—forming a chimeric fusion with PG-1—allows for normal <ce:italic>E. coli</ce:italic> growth. This suggests that the chimeric protein does not adopt the same toxic pore-forming structure as the native PG-1. While the exact folding mechanism in the environment of the cytoplasm remains to be fully elucidated, the functional switch between the "toxic" (native) and "non-toxic" (chimeric) states provides a robust mechanism for this screening vector.</ce:para>
+                     <ce:para id="para0025" view="all">In this study, we established a dual (prokaryotic and mammalian) expression plasmid vector with protegrin-1 (pgMAX-II/His/Protegrin-1). Due to the antimicrobial activity of protegrin-1, only clones harboring the insert form colonies, thereby enabling efficient subcloning and subsequent protein expression.</ce:para>
+                     <ce:para id="para0026" view="all">Although various subcloning methods, such as T/A cloning, PIPE (polymerase incomplete primer extension), and SLIC (sequence and ligation independent cloning) have recently became available [<ce:cross-refs id="crf0027" refid="bib0010 bib0011 bib0012">10–12</ce:cross-refs>], most of these are dependent upon PCR. Our pgMAX-II system, featuring antimicrobial peptides, is not only compatible with these methods but can also be applied to standard DNA fragments.</ce:para>
+                     <ce:para id="para0027" view="all">In conclusion, we successfully validated protegrin-1 as an effective selectable marker for plasmid recombination within the pgMAX-II system. Protegrin-1 achieved cloning efficiencies comparable to CcdB (<ce:cross-ref id="crf0029" refid="fig0001">Fig. 1</ce:cross-ref>A; Supplementary Fig. 1B). Furthermore, we demonstrated a dose-dependent increase in red fluorescence in response to IPTG. This novel framework enables simple, high-efficiency subcloning with dual-expression utility in both <ce:italic>E. coli</ce:italic> and mammalian cells.</ce:para>
+                  </ce:section>
+               </ce:section>
+               <ce:section id="sec0012" view="all">
+                  <ce:section-title id="cesectitle0018">Limitations</ce:section-title>
+                  <ce:para id="para0029" view="all">None.</ce:para>
+               </ce:section>
+               <ce:section id="sec0013" view="all">
+                  <ce:section-title id="cesectitle0019">Ethics statements</ce:section-title>
+                  <ce:para id="para0030" view="all">This study was conducted with the approval of the Institutional Review Board of Hirosaki University.</ce:para>
+               </ce:section>
+               <ce:section id="sec0001a" view="all">
+                  <ce:section-title id="cesectitle0001a">CRediT authorship contribution statement</ce:section-title>
+                  <ce:para id="para0007a" view="all">
+                     <ce:bold>Manabu Murakami:</ce:bold> Conceptualization, Methodology, Data curation, Writing – original draft. <ce:bold>Hiroshi Koda:</ce:bold> Investigation. <ce:bold>Agnieszka M. Murakami:</ce:bold> Investigation, Visualization. <ce:bold>Yasutaka Niwa:</ce:bold> Writing – review &amp; editing, Supervision.</ce:para>
+               </ce:section>
+            </ce:sections>
+            <ce:conflict-of-interest id="coi0001" view="all">
+               <ce:section-title id="cesectitle0020">Declaration of competing interest</ce:section-title>
+               <ce:para id="para0031" view="all">The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.</ce:para>
+            </ce:conflict-of-interest>
+            <ce:acknowledgment id="ack0001" view="all">
+               <ce:section-title id="cesectitle0021">Acknowledgments</ce:section-title>
+               <ce:para id="para0032" view="all">We thank Dr. Hirofumi Toda for his technical advice.</ce:para>
+               <ce:para id="para0033" view="all">This research was sponsored by Grants-in-Aid for Scientific Research from the <ce:grant-sponsor id="gs0001" sponsor-id="https://doi.org/10.13039/501100001691" xlink:type="simple" xlink:role="http://www.elsevier.com/xml/linking-roles/grant-sponsor">Japan Society for the Promotion of Science</ce:grant-sponsor> (KAKENHI no <ce:grant-number refid="gs0001" id="gn0001">A23K06342</ce:grant-number>, <ce:grant-number refid="gs0001" id="gn0002">A25K11335</ce:grant-number>, and <ce:grant-number refid="gs0001" id="gn0003">26K02107</ce:grant-number>).</ce:para>
+            </ce:acknowledgment>
+            <ce:appendices view="all">
+               <ce:section id="sec0014" view="compact-standard">
+                  <ce:section-title id="cesectitle9001">Supplementary materials</ce:section-title>
+                  <ce:para id="para0004a" view="all">Supplementary material associated with this article can be found, in the online version, at <ce:inter-ref id="interref0001" xlink:href="https://doi.org/10.1016/j.mex.2026.103952" xlink:type="simple">doi:10.1016/j.mex.2026.103952</ce:inter-ref>.</ce:para>
+               </ce:section>
+               <ce:section id="sec0015" view="extended">
+                  <ce:label>Appendix</ce:label>
+                  <ce:section-title id="cesectitle9002">Supplementary materials</ce:section-title>
+                  <ce:para id="para0028a" view="all">
+                     <ce:display>
+                        <ce:e-component id="ecom0001">
+                           <ce:caption id="cap0001">
+                              <ce:simple-para id="spara007" view="all">S1 Table. Oligo-DNAs used in this study.</ce:simple-para>
+                              <ce:simple-para id="spara008" view="all">S1 Fig.</ce:simple-para>
+                              <ce:simple-para id="spara009" view="all">DNA sequences of the protegrin-1 (A) and CcdB (B) peptides, along with their predicted protein sequences. Amino acid sequences of protegrin-1 are indicated in blue.</ce:simple-para>
+                              <ce:simple-para id="spara010" view="all">S2 Fig.</ce:simple-para>
+                              <ce:simple-para id="spara011" view="all">(A) Sequence of pgMAX-II/His/protegrin-1.</ce:simple-para>
+                              <ce:simple-para id="spara012" view="all">(B) Plasmid map pf pgMAX-II/His/protegrin-1</ce:simple-para>
+                              <ce:simple-para id="spara013" view="all">S3 Fig.</ce:simple-para>
+                              <ce:simple-para id="spara014" view="all">Dose-dependent induction of DsRed2 by IPTG.</ce:simple-para>
+                              <ce:simple-para id="spara015" view="all">(A) Representative images of <ce:italic>E. coli</ce:italic> clones harboring the pgMAX-II/His/DsRed2/protegrin-1 system. Images were captured under white light (left panel) at the indicated IPTG concentrations. Fluorescent protein expression was visualized under green excitation light using a red emission filter (right panel, Red Fluorescence).</ce:simple-para>
+                              <ce:simple-para id="spara016" view="all">(B) Quantitative analysis of red fluorescence intensity in response to IPTG. Fluorescence levels were quantified using ImageJ software (<ce:inter-ref id="interref0002" xlink:href="https://imagej.net/" xlink:type="simple">https://imagej.net/</ce:inter-ref>).</ce:simple-para>
+                              <ce:simple-para id="spara017" view="all">S4 Fig.</ce:simple-para>
+                              <ce:simple-para id="spara018" view="all">Dose-dependent induction of blue color by IPTG</ce:simple-para>
+                              <ce:simple-para id="spara019" view="all">To evaluate the basal expression level of the pgMAX-II/protegrin-1 plasmid, we constructed a pgMAX-II/α-peptide/PG-1 fusion plasmid, which enables the induction of α-complementation by IPTG. <ce:italic>E. coli</ce:italic> cells harboring the recombinant plasmid were grown under several conditions: negative control (nc; no X-gal or IPTG), basal (with X-gal, without IPTG), and IPTG-containing media. After incubation, 1.0 ml of each culture was harvested by centrifugation (5000 x<ce:italic>g</ce:italic>, 1 min). The intensity of the blue color was then evaluated. As expected, <ce:italic>E. coli</ce:italic> showed no blue color under basal conditions (without IPTG). In contrast, IPTG induced blue color formation in a dose-dependent manner. The inset shows the overall appearance of the inverted Eppendorf tubes.</ce:simple-para>
+                              <ce:simple-para id="spara020" view="all">S1 Dataset.</ce:simple-para>
+                              <ce:simple-para id="spara021" view="all">Original gel image.</ce:simple-para>
+                           </ce:caption>
+                           <ce:alt-text id="alt0004" role="short">Image, application 1</ce:alt-text>
+                           <ce:link id="celink0004" locator="mmc1" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/46.1" xlink:href="pii:S2215016126001706/mmc1"/>
+                        </ce:e-component>
+                     </ce:display>
+                  </ce:para>
+               </ce:section>
+            </ce:appendices>
+         </body>
+         <tail view="all">
+            <ce:bibliography id="cebibl1" view="all">
+               <ce:section-title id="cesectitle0022">References</ce:section-title>
+               <ce:bibliography-sec id="cebibsec1" view="all">
+                  <ce:bib-reference id="bib0001">
+                     <ce:label>[1]</ce:label>
+                     <sb:reference id="sbref0001">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>P.</ce:given-name>
+                                 <ce:surname>Bernard</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>New ccdB positive-selection cloning vectors with kanamycin or chloramphenicol selectable markers</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Gene</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>162</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>1995</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>159</sb:first-page>
+                              <sb:last-page>160</sb:last-page>
+                           </sb:pages>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0001">Bernard, P., New ccdB positive-selection cloning vectors with kanamycin or chloramphenicol selectable markers. Gene. 162 (1995) 159–160.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0002">
+                     <ce:label>[2]</ce:label>
+                     <sb:reference id="sbref0002">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>P.</ce:given-name>
+                                 <ce:surname>Bernard</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Couturier</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Cell killing by the F plasmid CcdB protein involves poisoning of DNA-topoisomerase II complexes</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>J. Mol. Biol.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>226</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>1992</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>735</sb:first-page>
+                              <sb:last-page>745</sb:last-page>
+                           </sb:pages>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0002">Bernard, P. Couturier, M., Cell killing by the F plasmid CcdB protein involves poisoning of DNA-topoisomerase II complexes. J. Mol. Biol. 226 (1992) 735–745.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0003">
+                     <ce:label>[3]</ce:label>
+                     <sb:reference id="sbref0003">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Murakami</ce:surname>
+                              </sb:author>
+                              <sb:et-al/>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>A simple and dual expression plasmid system in prokaryotic (E. coli) and mammalian cells</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>PLoS. One</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>14</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2019</sb:date>
+                           </sb:issue>
+                           <sb:article-number>e0216169</sb:article-number>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0003">Murakami, M., et al., A simple and dual expression plasmid system in prokaryotic (E. coli) and mammalian cells. PLoS. One. 14, (2019) e0216169.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0004">
+                     <ce:label>[4]</ce:label>
+                     <sb:reference id="sbref0004">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Murakami</ce:surname>
+                              </sb:author>
+                              <sb:et-al/>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>A simple, dual direct expression plasmid system in prokaryotic and mammalian cells</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>PNAS. Nexus.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>2</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2023</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>1</sb:first-page>
+                              <sb:last-page>3</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1093/pnasnexus/pgad139</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0004">Murakami, M., et al., A simple, dual direct expression plasmid system in prokaryotic and mammalian cells. PNAS. Nexus. 2, (2023) 1–3, doi: 10.1093/pnasnexus/pgad139.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0005">
+                     <ce:label>[5]</ce:label>
+                     <sb:reference id="sbref0005">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>A.M.</ce:given-name>
+                                 <ce:surname>Murakami</ce:surname>
+                              </sb:author>
+                              <sb:et-al/>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>A dual expression plasmid with Microcin B17 compatible with both prokaryotic and mammalian systems</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>MethodsX</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>14</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2025</sb:date>
+                           </sb:issue>
+                           <sb:article-number>103135</sb:article-number>
+                           <ce:doi>10.1016/j.mex.2024.103135</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0005">Murakami, A.M., et al., A dual expression plasmid with Microcin B17 compatible with both prokaryotic and mammalian systems. MethodsX. 14 (2025) 103135. doi: 10.1016/j.mex.2024.103135.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0006">
+                     <ce:label>[6]</ce:label>
+                     <sb:reference id="sbref0006">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>V.N.</ce:given-name>
+                                 <ce:surname>Kokryakov</ce:surname>
+                              </sb:author>
+                              <sb:et-al/>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Protegrins: leukocyte antimicrobial peptides that combine features of corticostatic defensins and tachyplesins</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>FEBS Lett.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>327</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>1993</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>231</sb:first-page>
+                              <sb:last-page>236</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1016/0014-5793(93)80175-t</ce:doi>
+                        </sb:host>
+                        <sb:comment>PMID: 8335113</sb:comment>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0006">Kokryakov, V.N., et al., Protegrins: leukocyte antimicrobial peptides that combine features of corticostatic defensins and tachyplesins. FEBS Lett. 327 (1993) 231–236. doi: 10.1016/0014-5793(93)80175-t. PMID: 8335113</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0007">
+                     <ce:label>[7]</ce:label>
+                     <sb:reference id="sbref0007">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>R.</ce:given-name>
+                                 <ce:surname>Capone</ce:surname>
+                              </sb:author>
+                              <sb:et-al/>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Antimicrobial protegrin-1 forms ion channels: molecular dynamic simulation, atomic force microscopy, and electrical conductance studies</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Biophys. J.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>98</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2010</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>2644</sb:first-page>
+                              <sb:last-page>2652</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1016/j.bpj.2010.02.024</ce:doi>
+                        </sb:host>
+                        <sb:comment>PMID: 20513409</sb:comment>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0007">Capone, R., et al., Antimicrobial protegrin-1 forms ion channels: molecular dynamic simulation, atomic force microscopy, and electrical conductance studies. Biophys. J. 98(2010) 2644–2652. doi: 10.1016/j.bpj.2010.02.024. PMID: 20513409</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0008">
+                     <ce:label>[8]</ce:label>
+                     <sb:reference id="sbref0008">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>A.</ce:given-name>
+                                 <ce:surname>Ullmann</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>F.</ce:given-name>
+                                 <ce:surname>Jacob</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>J.</ce:given-name>
+                                 <ce:surname>Monod</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Characterization by in vitro complementation of a peptide corresponding to an operator-proximal segment of the beta-galactosidase structural gene of Escherichia coli</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>J. Molec. Bio.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>24</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>1967</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>339</sb:first-page>
+                              <sb:last-page>343</sb:last-page>
+                           </sb:pages>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0008">Ullmann, A., Jacob, F., Monod, J., Characterization by in vitro complementation of a peptide corresponding to an operator-proximal segment of the beta-galactosidase structural gene of Escherichia coli. J. Molec. Bio. 24 (1967) 339–343.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0009">
+                     <ce:label>[9]</ce:label>
+                     <sb:reference id="sbref0009">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>A.M.</ce:given-name>
+                                 <ce:surname>Murakami</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>K.</ce:given-name>
+                                 <ce:surname>Nagatomo</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>I.</ce:given-name>
+                                 <ce:surname>Miyoshi</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>S.</ce:given-name>
+                                 <ce:surname>Itagaki</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>Y.</ce:given-name>
+                                 <ce:surname>Niwa</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Murakami</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>A novel binding site between the voltage-dependent calcium channel CaV1.2 subunit and Cavβ2 subunit discovered using a new analysis method for protein-protein interactions</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Sci. Rep.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>13</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2023</sb:date>
+                           </sb:issue>
+                           <sb:article-number>13986</sb:article-number>
+                           <ce:doi>10.1038/s41598-023-41168-4</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0009">Murakami, A.M., Nagatomo, K., Miyoshi, I., Itagaki, S., Niwa, Y., Murakami, M. A novel binding site between the voltage-dependent calcium channel CaV1.2 subunit and Cavβ2 subunit discovered using a new analysis method for protein-protein interactions. Sci. Rep., 13 (2023) 13986. doi: 10.1038/s41598-023-41168-4</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0010">
+                     <ce:label>[10]</ce:label>
+                     <sb:reference id="sbref0010">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>T.A.</ce:given-name>
+                                 <ce:surname>Holton</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>M.W.</ce:given-name>
+                                 <ce:surname>Graham</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>A simple and efficient method for direct cloning of PCR products using ddT-tailed vectors</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Nucleic. Acids. Res.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>19</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>5</sb:issue-nr>
+                              <sb:date>1991</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>1156</sb:first-page>
+                           </sb:pages>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0010">Holton, T.A., &amp; Graham, M.W. A simple and efficient method for direct cloning of PCR products using ddT-tailed vectors. (1991). Nucleic. Acids. Res., 19(5), 1156.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0011">
+                     <ce:label>[11]</ce:label>
+                     <sb:reference id="sbref0011">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>H.E.</ce:given-name>
+                                 <ce:surname>Klock</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>S.A.</ce:given-name>
+                                 <ce:surname>Lesley</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>The Polymerase incomplete primer extension (PIPE) method applied to high-throughput cloning and site-directed mutagenesis</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Methods Mol. Biol.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>498</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2009</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>91</sb:first-page>
+                              <sb:last-page>103</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1007/978-1-59745-196-3_6</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0011">Klock, H.E., Lesley, S.A. The Polymerase incomplete primer extension (PIPE) method applied to high-throughput cloning and site-directed mutagenesis. Methods Mol. Biol. (2009) 498:91–103. doi: 10.1007/978-1-59745-196-3_6.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0012">
+                     <ce:label>[12]</ce:label>
+                     <sb:reference id="sbref0012">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>M.Z.</ce:given-name>
+                                 <ce:surname>Li</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>S.J.</ce:given-name>
+                                 <ce:surname>Elledge</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>SLIC: a method for sequence- and ligation-independent cloning</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Methods Mol. Biol.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>852</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2012</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>51</sb:first-page>
+                              <sb:last-page>59</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1007/978-1-61779-564-0_5</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0012">Li, M.Z., Elledge, S.J. SLIC: a method for sequence- and ligation-independent cloning. Methods Mol. Biol. (2012) 852:51–9. doi: 10.1007/978-1-61779-564-0_5.</ce:source-text>
+                  </ce:bib-reference>
+               </ce:bibliography-sec>
+            </ce:bibliography>
+         </tail>
+      </article>
+   </xocs:serial-item></xocs:doc></originalText></full-text-retrieval-response>

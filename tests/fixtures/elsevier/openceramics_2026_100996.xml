@@ -1,0 +1,2313 @@
+<full-text-retrieval-response xmlns="http://www.elsevier.com/xml/svapi/article/dtd" xmlns:bk="http://www.elsevier.com/xml/bk/dtd" xmlns:cals="http://www.elsevier.com/xml/common/cals/dtd" xmlns:ce="http://www.elsevier.com/xml/common/dtd" xmlns:ja="http://www.elsevier.com/xml/ja/dtd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:sa="http://www.elsevier.com/xml/common/struct-aff/dtd" xmlns:sb="http://www.elsevier.com/xml/common/struct-bib/dtd" xmlns:tb="http://www.elsevier.com/xml/common/table/dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xocs="http://www.elsevier.com/xml/xocs/dtd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><coredata><prism:url>https://api.elsevier.com/content/article/pii/S2666539526000921</prism:url><dc:identifier>doi:10.1016/j.oceram.2026.100996</dc:identifier><eid>1-s2.0-S2666539526000921</eid><prism:doi>10.1016/j.oceram.2026.100996</prism:doi><pii>S2666-5395(26)00092-1</pii><dc:title>Co-precipitation synthesis of carbon-free BaCeO3 for use in bulk superconductor growth </dc:title><prism:publicationName>Open Ceramics</prism:publicationName><prism:aggregationType>Journal</prism:aggregationType><pubType>fla</pubType><prism:issn>26665395</prism:issn><prism:volume>27</prism:volume><prism:startingPage>100996</prism:startingPage><prism:pageRange>100996</prism:pageRange><articleNumber>100996</articleNumber><dc:format>text/xml</dc:format><prism:coverDate>2026-09-30</prism:coverDate><prism:coverDisplayDate>September 2026</prism:coverDisplayDate><prism:copyright>© 2026 The Authors. Published by Elsevier Ltd on behalf of European Ceramic Society.</prism:copyright><prism:publisher>The Authors. Published by Elsevier Ltd on behalf of European Ceramic Society.</prism:publisher><dc:creator>Ševčík, Vojtěch</dc:creator><dc:creator>Jakeš, Vít</dc:creator><dc:creator>Rubešová, Kateřina</dc:creator><dc:creator>Lojka, Michal</dc:creator><dc:creator>Jankovský, Ondřej</dc:creator><dc:creator>Sedmidubský, David</dc:creator><dc:description>
+                  BaCeO3 is a mixed oxide with a wide variety of potential applications, from solid-oxide fuel cells to hydrogen detectors. However, a common issue in its preparation is the preferential formation of carbonates. This poses an issue when the material is intended for use in bulk REBCO growth, a role it otherwise appears suitable for. In this work, we present a synthesis of BaCeO3 through the carbonate-free co-precipitation method based on the acid-base and redox behaviors of its constituent cations, with carbon-containing precursors and precipitating agents purposefully omitted. Three pH-adjusting/precipitation agents were compared together with the comparison of cerium(III) nitrate and cerium dioxide as the sources of cerium cations. Through this, the elimination of carbonate content (confirmed by XRD but also with more carbonate-sensitive Raman spectroscopy) as well as significant reduction in average particle size was achieved. The obtained powder is therefore suitable for the growth of bulk REBCO crystals.
+               </dc:description><openaccess>1</openaccess><openaccessArticle>true</openaccessArticle><openaccessType>Full</openaccessType><openArchiveArticle>false</openArchiveArticle><openaccessSponsorName/><openaccessSponsorType>Author</openaccessSponsorType><openaccessUserLicense>http://creativecommons.org/licenses/by/4.0/</openaccessUserLicense><dcterms:subject>BaCeO3
+                  </dcterms:subject><dcterms:subject>REBCO</dcterms:subject><dcterms:subject>Carbon-free synthesis</dcterms:subject><link href="https://api.elsevier.com/content/article/pii/S2666539526000921" rel="self"/><link href="https://www.sciencedirect.com/science/article/pii/S2666539526000921" rel="scidir"/></coredata><objects><object ref="gr12" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="376" height="189" size="12621">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr12.jpg?httpAccept=%2A%2F%2A</object><object ref="gr8" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="659" height="255" size="61352">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr8.jpg?httpAccept=%2A%2F%2A</object><object ref="gr11" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="659" height="534" size="80963">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr11.jpg?httpAccept=%2A%2F%2A</object><object ref="gr9" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="659" height="533" size="103653">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr9.jpg?httpAccept=%2A%2F%2A</object><object ref="ga1" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="482" height="200" size="25099">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-ga1.jpg?httpAccept=%2A%2F%2A</object><object ref="gr10" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="659" height="530" size="74127">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr10.jpg?httpAccept=%2A%2F%2A</object><object ref="gr2" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="376" height="196" size="23499">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr2.jpg?httpAccept=%2A%2F%2A</object><object ref="gr3" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="659" height="775" size="86099">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr3.jpg?httpAccept=%2A%2F%2A</object><object ref="gr1" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="376" height="88" size="12525">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr1.jpg?httpAccept=%2A%2F%2A</object><object ref="gr6" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="376" height="175" size="17025">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr6.jpg?httpAccept=%2A%2F%2A</object><object ref="gr7" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="659" height="639" size="89633">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr7.jpg?httpAccept=%2A%2F%2A</object><object ref="gr4" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="376" height="286" size="35482">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr4.jpg?httpAccept=%2A%2F%2A</object><object ref="gr5" category="standard" type="IMAGE-DOWNSAMPLED" multimediatype="JPEG image file" mimetype="image/jpeg" width="376" height="286" size="30471">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr5.jpg?httpAccept=%2A%2F%2A</object><object ref="gr12" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="219" height="110" size="11259">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr12.sml?httpAccept=%2A%2F%2A</object><object ref="gr8" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="219" height="85" size="9231">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr8.sml?httpAccept=%2A%2F%2A</object><object ref="gr11" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="202" height="164" size="16277">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr11.sml?httpAccept=%2A%2F%2A</object><object ref="gr9" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="203" height="164" size="17189">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr9.sml?httpAccept=%2A%2F%2A</object><object ref="ga1" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="219" height="91" size="9483">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-ga1.sml?httpAccept=%2A%2F%2A</object><object ref="gr10" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="204" height="164" size="12274">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr10.sml?httpAccept=%2A%2F%2A</object><object ref="gr2" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="219" height="114" size="7958">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr2.sml?httpAccept=%2A%2F%2A</object><object ref="gr3" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="139" height="163" size="8147">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr3.sml?httpAccept=%2A%2F%2A</object><object ref="gr1" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="219" height="51" size="6040">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr1.sml?httpAccept=%2A%2F%2A</object><object ref="gr6" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="219" height="102" size="6319">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr6.sml?httpAccept=%2A%2F%2A</object><object ref="gr7" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="169" height="164" size="9794">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr7.sml?httpAccept=%2A%2F%2A</object><object ref="gr4" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="215" height="164" size="10708">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr4.sml?httpAccept=%2A%2F%2A</object><object ref="gr5" category="thumbnail" type="IMAGE-THUMBNAIL" multimediatype="GIF image file" mimetype="image/gif" width="215" height="164" size="9479">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr5.sml?httpAccept=%2A%2F%2A</object><object ref="gr12" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="1667" height="839" size="143229">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr12_lrg.jpg?httpAccept=%2A%2F%2A</object><object ref="gr8" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="2917" height="1130" size="450347">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr8_lrg.jpg?httpAccept=%2A%2F%2A</object><object ref="gr11" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="2917" height="2363" size="669323">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr11_lrg.jpg?httpAccept=%2A%2F%2A</object><object ref="gr9" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="2917" height="2358" size="847410">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr9_lrg.jpg?httpAccept=%2A%2F%2A</object><object ref="ga1" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="2133" height="886" size="185876">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-ga1_lrg.jpg?httpAccept=%2A%2F%2A</object><object ref="gr10" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="2917" height="2345" size="627290">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr10_lrg.jpg?httpAccept=%2A%2F%2A</object><object ref="gr2" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="1667" height="868" size="147477">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr2_lrg.jpg?httpAccept=%2A%2F%2A</object><object ref="gr3" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="2917" height="3429" size="614604">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr3_lrg.jpg?httpAccept=%2A%2F%2A</object><object ref="gr1" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="1667" height="392" size="74476">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr1_lrg.jpg?httpAccept=%2A%2F%2A</object><object ref="gr6" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="1667" height="777" size="93136">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr6_lrg.jpg?httpAccept=%2A%2F%2A</object><object ref="gr7" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="2917" height="2829" size="564607">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr7_lrg.jpg?httpAccept=%2A%2F%2A</object><object ref="gr4" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="1667" height="1268" size="266128">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr4_lrg.jpg?httpAccept=%2A%2F%2A</object><object ref="gr5" category="high" type="IMAGE-HIGH-RES" multimediatype="JPEG image file" mimetype="image/jpeg" width="1667" height="1269" size="228962">https://api.elsevier.com/content/object/eid/1-s2.0-S2666539526000921-gr5_lrg.jpg?httpAccept=%2A%2F%2A</object></objects><scopus-id>105040782926</scopus-id><scopus-eid>2-s2.0-105040782926</scopus-eid><link href="https://api.elsevier.com/content/abstract/scopus_id/105040782926" rel="abstract"/><originalText><xocs:doc xsi:schemaLocation="http://www.elsevier.com/xml/xocs/dtd http://null/schema/dtds/document/fulltext/xcr/xocs-article.xsd"><xocs:meta xmlns:xoe="http://www.elsevier.com/xml/xoe/dtd">
+      <xocs:content-family>serial</xocs:content-family>
+      <xocs:content-type>JL</xocs:content-type>
+      <xocs:cid>777359</xocs:cid>
+      <xocs:ssids>
+         <xocs:ssid type="alllist">291210</xocs:ssid>
+         <xocs:ssid type="subj">291788</xocs:ssid>
+         <xocs:ssid type="content">31</xocs:ssid>
+         <xocs:ssid type="oa">90</xocs:ssid>
+      </xocs:ssids>
+      <xocs:srctitle>Open Ceramics</xocs:srctitle>
+      <xocs:normalized-srctitle>OPENCERAMICS</xocs:normalized-srctitle>
+      <xocs:orig-load-date yyyymmdd="20260530">2026-05-30</xocs:orig-load-date>
+      <xocs:available-online-date yyyymmdd="20260530">2026-05-30</xocs:available-online-date>
+      <xocs:vor-load-date yyyymmdd="20260602">2026-06-02</xocs:vor-load-date>
+      <xocs:vor-available-online-date yyyymmdd="20260602">2026-06-02</xocs:vor-available-online-date>
+      <xocs:ew-transaction-id>2026-06-03T00:20:25</xocs:ew-transaction-id>
+      <xocs:eid>1-s2.0-S2666539526000921</xocs:eid>
+      <xocs:pii-formatted>S2666-5395(26)00092-1</xocs:pii-formatted>
+      <xocs:pii-unformatted>S2666539526000921</xocs:pii-unformatted>
+      <xocs:doi>10.1016/j.oceram.2026.100996</xocs:doi>
+      <xocs:item-stage>S250</xocs:item-stage>
+      <xocs:item-version-number>S250.1</xocs:item-version-number>
+      <xocs:item-weight>FULL-TEXT</xocs:item-weight>
+      <xocs:hub-eid>1-s2.0-S2666539526X20028</xocs:hub-eid>
+      <xocs:timestamp yyyymmdd="20260602">2026-06-02T23:29:09.028365Z</xocs:timestamp>
+      <xocs:dco>0</xocs:dco>
+      <xocs:tomb>0</xocs:tomb>
+      <xocs:date-search-begin>20260901</xocs:date-search-begin>
+      <xocs:date-search-end>20260930</xocs:date-search-end>
+      <xocs:year-nav>2026</xocs:year-nav>
+      <xocs:indexeddate epoch="1780119113">2026-05-30T05:31:53.02957Z</xocs:indexeddate>
+      <xocs:articleinfo>absattachment articleinfo articlenumber articletitlenorm authfirstinitialnorm authfirstsurnamenorm cid cids contenttype copyright crossmark dateloaded dateloadedtxt datesearch datesort dateupdated dco docsubtype doctype doi eid ewtransactionid fundingbodyid hubeid indexeddate issn issnnorm itemstage itemtransactionid itemweight oauserlicense openaccess openarchive pg pgfirst pii piinorm pubdateend pubdatestart pubdatetxt pubyr sectiontitle sortorder sponsoredaccesstype srctitle srctitlenorm srctype ssids alllist content oa subj subheadings suppl tomb volfirst volissue volumelist webpdf webpdfpagecount yearnav figure table body acknowledge affil articletitle auth authfirstini authfull authkeywords authlast grantnumber grantsponsor highlightsabst orcid primabst ref specialabst</xocs:articleinfo>
+      <xocs:issns>
+         <xocs:issn-primary-formatted>2666-5395</xocs:issn-primary-formatted>
+         <xocs:issn-primary-unformatted>26665395</xocs:issn-primary-unformatted>
+      </xocs:issns>
+      <xocs:sponsored-access-type>UNLIMITED</xocs:sponsored-access-type>
+      <xocs:funding-body-id>NONE</xocs:funding-body-id>
+      <xocs:crossmark is-crossmark="1">true</xocs:crossmark>
+      <xocs:vol-first>27</xocs:vol-first>
+      <xocs:volume-list>
+         <xocs:volume>27</xocs:volume>
+      </xocs:volume-list>
+      <xocs:suppl>C</xocs:suppl>
+      <xocs:vol-iss-suppl-text>Volume 27</xocs:vol-iss-suppl-text>
+      <xocs:sort-order>4</xocs:sort-order>
+      <xocs:first-fp>100996</xocs:first-fp>
+      <xocs:article-number>100996</xocs:article-number>
+      <xocs:pages>
+         <xocs:first-page>100996</xocs:first-page>
+      </xocs:pages>
+      <xocs:cover-date-orig>
+         <xocs:start-date>202609</xocs:start-date>
+      </xocs:cover-date-orig>
+      <xocs:cover-date-text>September 2026</xocs:cover-date-text>
+      <xocs:cover-date-start>2026-09-01</xocs:cover-date-start>
+      <xocs:cover-date-end>2026-09-30</xocs:cover-date-end>
+      <xocs:cover-date-year>2026</xocs:cover-date-year>
+      <xocs:hub-sec>
+         <xocs:hub-sec-title>Original Articles</xocs:hub-sec-title>
+      </xocs:hub-sec>
+      <xocs:document-type>article</xocs:document-type>
+      <xocs:document-subtype>fla</xocs:document-subtype>
+      <xocs:copyright-line>© 2026 The Authors. Published by Elsevier Ltd on behalf of European Ceramic Society.</xocs:copyright-line>
+      <xocs:normalized-article-title>COPRECIPITATIONSYNTHESISCARBONFREEBACEO3FORUSEINBULKSUPERCONDUCTORGROWTH</xocs:normalized-article-title>
+      <xocs:normalized-first-auth-surname>SEVCIK</xocs:normalized-first-auth-surname>
+      <xocs:normalized-first-auth-initial>V</xocs:normalized-first-auth-initial>
+      <xocs:item-toc>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-label>1</xocs:item-toc-label>
+            <xocs:item-toc-section-title>Introduction</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-label>2</xocs:item-toc-label>
+            <xocs:item-toc-section-title>Experimental</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-label>3</xocs:item-toc-label>
+            <xocs:item-toc-section-title>Results and discussion</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-label>4</xocs:item-toc-label>
+            <xocs:item-toc-section-title>Conclusion</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:sections">
+            <xocs:item-toc-section-title>CRediT authorship contribution statement</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:acknowledgment">
+            <xocs:item-toc-section-title>Acknowledgements</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+         <xocs:item-toc-entry ref-elem="ce:bibliography">
+            <xocs:item-toc-section-title>References</xocs:item-toc-section-title>
+         </xocs:item-toc-entry>
+      </xocs:item-toc>
+      <xocs:references>
+         <xocs:ref-info refid="sbref0001">
+            <xocs:ref-normalized-surname>MEDVEDEV</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2014</xocs:ref-pub-year>
+            <xocs:ref-first-fp>72</xocs:ref-first-fp>
+            <xocs:ref-last-lp>129</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>D</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0002">
+            <xocs:ref-normalized-surname>SHAO</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2012</xocs:ref-pub-year>
+            <xocs:ref-first-fp>804</xocs:ref-first-fp>
+            <xocs:ref-last-lp>874</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>Z</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0003">
+            <xocs:ref-normalized-surname>ALI</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2024</xocs:ref-pub-year>
+            <xocs:ref-article-number>111973</xocs:ref-article-number>
+            <xocs:ref-normalized-initial>M</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0004">
+            <xocs:ref-normalized-surname>IWAHARA</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2004</xocs:ref-pub-year>
+            <xocs:ref-first-fp>299</xocs:ref-first-fp>
+            <xocs:ref-last-lp>310</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>H</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0005">
+            <xocs:ref-normalized-surname>DIKO</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2021</xocs:ref-pub-year>
+            <xocs:ref-first-fp>740</xocs:ref-first-fp>
+            <xocs:ref-last-lp>752</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>P</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0006">
+            <xocs:ref-normalized-surname>ZMORAYOVA</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2013</xocs:ref-pub-year>
+            <xocs:ref-first-fp>53</xocs:ref-first-fp>
+            <xocs:ref-last-lp>56</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>K</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0007">
+            <xocs:ref-normalized-surname>LOPATIN</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2017</xocs:ref-pub-year>
+            <xocs:ref-first-fp>1028</xocs:ref-first-fp>
+            <xocs:ref-last-lp>1034</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>S</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0008">
+            <xocs:ref-normalized-surname>KNIGHT</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>1994</xocs:ref-pub-year>
+            <xocs:ref-first-fp>109</xocs:ref-first-fp>
+            <xocs:ref-last-lp>117</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>K</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0009">
+            <xocs:ref-normalized-surname>RUBESOVA</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2024</xocs:ref-pub-year>
+            <xocs:ref-normalized-initial>K</xocs:ref-normalized-initial>
+            <xocs:ref-normalized-srctitle>THERMOPHYSICS2024</xocs:ref-normalized-srctitle>
+            <xocs:ref-normalized-article-title>COPRECIPITATIONNANOSCALEDBACEO3APPLICABLEINSUPERCONDUCTINGCERAMICS</xocs:ref-normalized-article-title>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0010">
+            <xocs:ref-normalized-surname>ZHANG</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2017</xocs:ref-pub-year>
+            <xocs:ref-first-fp>76</xocs:ref-first-fp>
+            <xocs:ref-last-lp>81</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>Q</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0011">
+            <xocs:ref-normalized-surname>PASIERB</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2009</xocs:ref-pub-year>
+            <xocs:ref-first-fp>31</xocs:ref-first-fp>
+            <xocs:ref-last-lp>37</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>P</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0012">
+            <xocs:ref-normalized-surname>TOMITA</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2004</xocs:ref-pub-year>
+            <xocs:ref-first-fp>2493</xocs:ref-first-fp>
+            <xocs:ref-last-lp>2497</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>A</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0013">
+            <xocs:ref-normalized-surname>HAVLICEK</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2022</xocs:ref-pub-year>
+            <xocs:ref-article-number>34720-34727</xocs:ref-article-number>
+            <xocs:ref-normalized-initial>J</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0014">
+            <xocs:ref-normalized-surname>THOR</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2021</xocs:ref-pub-year>
+            <xocs:ref-first-fp>741</xocs:ref-first-fp>
+            <xocs:ref-last-lp>751</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>T</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0015">
+            <xocs:ref-normalized-surname>CHEN</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>1997</xocs:ref-pub-year>
+            <xocs:ref-first-fp>63</xocs:ref-first-fp>
+            <xocs:ref-last-lp>72</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>F</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0016">
+            <xocs:ref-normalized-surname>ORLOV</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2005</xocs:ref-pub-year>
+            <xocs:ref-first-fp>1194</xocs:ref-first-fp>
+            <xocs:ref-last-lp>1200</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>A</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0017">
+            <xocs:ref-normalized-surname>ARVANITIDIS</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>1996</xocs:ref-pub-year>
+            <xocs:ref-first-fp>409</xocs:ref-first-fp>
+            <xocs:ref-last-lp>416</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>I</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0018">
+            <xocs:ref-normalized-surname>CLARKE</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>1989</xocs:ref-pub-year>
+            <xocs:ref-first-fp>1103</xocs:ref-first-fp>
+            <xocs:ref-last-lp>1113</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>D</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0019"/>
+         <xocs:ref-info refid="sbref0020">
+            <xocs:ref-normalized-surname>ASWATHAPPA</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2021</xocs:ref-pub-year>
+            <xocs:ref-first-fp>127</xocs:ref-first-fp>
+            <xocs:ref-normalized-initial>S</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0021">
+            <xocs:ref-normalized-surname>SCHERBAN</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>1992</xocs:ref-pub-year>
+            <xocs:ref-first-fp>341</xocs:ref-first-fp>
+            <xocs:ref-last-lp>344</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>T</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0022">
+            <xocs:ref-normalized-surname>SARSFIELD</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2012</xocs:ref-pub-year>
+            <xocs:ref-first-fp>333</xocs:ref-first-fp>
+            <xocs:ref-last-lp>342</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>M</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0023">
+            <xocs:ref-normalized-surname>CHARRIERCOUGOULIC</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>1999</xocs:ref-pub-year>
+            <xocs:ref-first-fp>220</xocs:ref-first-fp>
+            <xocs:ref-last-lp>227</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>I</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0024">
+            <xocs:ref-normalized-surname>KAABAR</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2011</xocs:ref-pub-year>
+            <xocs:ref-first-fp>136</xocs:ref-first-fp>
+            <xocs:ref-last-lp>141</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>W</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+         <xocs:ref-info refid="sbref0025">
+            <xocs:ref-normalized-surname>MIZUGUCHI</xocs:ref-normalized-surname>
+            <xocs:ref-pub-year>2010</xocs:ref-pub-year>
+            <xocs:ref-first-fp>943</xocs:ref-first-fp>
+            <xocs:ref-last-lp>946</xocs:ref-last-lp>
+            <xocs:ref-normalized-initial>T</xocs:ref-normalized-initial>
+         </xocs:ref-info>
+      </xocs:references>
+      <xocs:refkeys>
+         <xocs:refkey3>SEVCIKX2026X100996</xocs:refkey3>
+         <xocs:refkey4ai>SEVCIKX2026X100996XV</xocs:refkey4ai>
+      </xocs:refkeys>
+      <xocs:open-access>
+         <xocs:oa-article-status is-open-access="1" is-open-archive="0">Full</xocs:oa-article-status>
+         <xocs:oa-access-effective-date>2026-05-29T09:20:23Z</xocs:oa-access-effective-date>
+         <xocs:oa-sponsor>
+            <xocs:oa-sponsor-type>Author</xocs:oa-sponsor-type>
+         </xocs:oa-sponsor>
+         <xocs:oa-user-license>http://creativecommons.org/licenses/by/4.0/</xocs:oa-user-license>
+      </xocs:open-access>
+      <xocs:copyright-info>
+         <xocs:cp-license-lines>
+            <xocs:cp-license-line lang="en">This is an open access article under the CC BY license.</xocs:cp-license-line>
+         </xocs:cp-license-lines>
+         <xocs:cp-notices>
+            <xocs:cp-notice lang="en">© 2026 The Authors. Published by Elsevier Ltd on behalf of European Ceramic Society.</xocs:cp-notice>
+         </xocs:cp-notices>
+      </xocs:copyright-info>
+      <xocs:funding-list has-funding-info="1">
+         <xocs:funding-addon-generated-timestamp>2026-06-01T14:18:01.915Z</xocs:funding-addon-generated-timestamp>
+         <xocs:funding-addon-type>http://vtw.elsevier.com/data/voc/AddOnTypes/50.7/eoas</xocs:funding-addon-type>
+         <xocs:funding>
+            <xocs:funding-agency>Czech Science Foundation</xocs:funding-agency>
+            <xocs:funding-agency-id>http://data.elsevier.com/vocabulary/SciValFunders/501100001824</xocs:funding-agency-id>
+            <xocs:funding-agency-country>http://sws.geonames.org/3077311</xocs:funding-agency-country>
+         </xocs:funding>
+      </xocs:funding-list>
+      <xocs:article-sharing-framework/>
+      <xocs:attachment-metadata-doc>
+         <xocs:attachment-set-type>item</xocs:attachment-set-type>
+         <xocs:pii-formatted>S2666-5395(26)00092-1</xocs:pii-formatted>
+         <xocs:pii-unformatted>S2666539526000921</xocs:pii-unformatted>
+         <xocs:eid>1-s2.0-S2666539526000921</xocs:eid>
+         <xocs:doi>10.1016/j.oceram.2026.100996</xocs:doi>
+         <xocs:cid>777359</xocs:cid>
+         <xocs:timestamp>2026-06-02T23:29:09.028365Z</xocs:timestamp>
+         <xocs:cover-date-start>2026-09-01</xocs:cover-date-start>
+         <xocs:cover-date-end>2026-09-30</xocs:cover-date-end>
+         <xocs:sponsored-access-type>UNLIMITED</xocs:sponsored-access-type>
+         <xocs:funding-body-id>NONE</xocs:funding-body-id>
+         <xocs:attachments>
+            <xocs:web-pdf>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-main.pdf</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/MAIN/application/pdf/2adf4f38173e8e1b6d5a7bf5abcd1b4c/main.pdf</xocs:ucs-locator>
+               <xocs:filename>main.pdf</xocs:filename>
+               <xocs:extension>pdf</xocs:extension>
+               <xocs:pdf-optimized>true</xocs:pdf-optimized>
+               <xocs:filesize>6428384</xocs:filesize>
+               <xocs:web-pdf-purpose>MAIN</xocs:web-pdf-purpose>
+               <xocs:web-pdf-page-count>9</xocs:web-pdf-page-count>
+               <xocs:web-pdf-images>
+                  <xocs:web-pdf-image>
+                     <xocs:attachment-eid>1-s2.0-S2666539526000921-main_1.png</xocs:attachment-eid>
+                     <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/PREVIEW/image/png/e138ea8fcb2fca27953e4dd225c28ace/main_1.png</xocs:ucs-locator>
+                     <xocs:filename>main_1.png</xocs:filename>
+                     <xocs:extension>png</xocs:extension>
+                     <xocs:filesize>58391</xocs:filesize>
+                     <xocs:pixel-height>928</xocs:pixel-height>
+                     <xocs:pixel-width>656</xocs:pixel-width>
+                     <xocs:attachment-type>IMAGE-WEB-PDF</xocs:attachment-type>
+                     <xocs:pdf-page-num>1</xocs:pdf-page-num>
+                  </xocs:web-pdf-image>
+               </xocs:web-pdf-images>
+            </xocs:web-pdf>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr12.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr12/DOWNSAMPLED/image/jpeg/db4f5c19f88552cba38984634e54af46/gr12.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr12</xocs:file-basename>
+               <xocs:filename>gr12.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>12621</xocs:filesize>
+               <xocs:pixel-height>189</xocs:pixel-height>
+               <xocs:pixel-width>376</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr8.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr8/DOWNSAMPLED/image/jpeg/3a3cd21c8a5d61a3a82f3356db0a7129/gr8.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr8</xocs:file-basename>
+               <xocs:filename>gr8.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>61352</xocs:filesize>
+               <xocs:pixel-height>255</xocs:pixel-height>
+               <xocs:pixel-width>659</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr11.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr11/DOWNSAMPLED/image/jpeg/f34a3d8b9edddd4a2ad96e60f8f1d1a7/gr11.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr11</xocs:file-basename>
+               <xocs:filename>gr11.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>80963</xocs:filesize>
+               <xocs:pixel-height>534</xocs:pixel-height>
+               <xocs:pixel-width>659</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr9.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr9/DOWNSAMPLED/image/jpeg/701f9fca5c6f9b777c3e68b55c3dfc2b/gr9.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr9</xocs:file-basename>
+               <xocs:filename>gr9.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>103653</xocs:filesize>
+               <xocs:pixel-height>533</xocs:pixel-height>
+               <xocs:pixel-width>659</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-ga1.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/ga1/DOWNSAMPLED/image/jpeg/cd3ddb42d389daa4a08458fcaea06ea2/ga1.jpg</xocs:ucs-locator>
+               <xocs:file-basename>ga1</xocs:file-basename>
+               <xocs:abstract-attachment>true</xocs:abstract-attachment>
+               <xocs:filename>ga1.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>25099</xocs:filesize>
+               <xocs:pixel-height>200</xocs:pixel-height>
+               <xocs:pixel-width>482</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr10.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr10/DOWNSAMPLED/image/jpeg/50087326b824f2559238ab389b049974/gr10.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr10</xocs:file-basename>
+               <xocs:filename>gr10.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>74127</xocs:filesize>
+               <xocs:pixel-height>530</xocs:pixel-height>
+               <xocs:pixel-width>659</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr2.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr2/DOWNSAMPLED/image/jpeg/56563c4d3d79381b6f90af0c03fc7165/gr2.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr2</xocs:file-basename>
+               <xocs:filename>gr2.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>23499</xocs:filesize>
+               <xocs:pixel-height>196</xocs:pixel-height>
+               <xocs:pixel-width>376</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr3.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr3/DOWNSAMPLED/image/jpeg/282ab5b3fd653ffa6b28a69fe340f2a6/gr3.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr3</xocs:file-basename>
+               <xocs:filename>gr3.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>86099</xocs:filesize>
+               <xocs:pixel-height>775</xocs:pixel-height>
+               <xocs:pixel-width>659</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr1.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr1/DOWNSAMPLED/image/jpeg/19969551feb617abd4ee41793f63a543/gr1.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr1</xocs:file-basename>
+               <xocs:filename>gr1.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>12525</xocs:filesize>
+               <xocs:pixel-height>88</xocs:pixel-height>
+               <xocs:pixel-width>376</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr6.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr6/DOWNSAMPLED/image/jpeg/7e94843aded804cd86ed95ccc77781df/gr6.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr6</xocs:file-basename>
+               <xocs:filename>gr6.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>17025</xocs:filesize>
+               <xocs:pixel-height>175</xocs:pixel-height>
+               <xocs:pixel-width>376</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr7.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr7/DOWNSAMPLED/image/jpeg/3b68cbecd41962fbb6bed393aa19999c/gr7.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr7</xocs:file-basename>
+               <xocs:filename>gr7.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>89633</xocs:filesize>
+               <xocs:pixel-height>639</xocs:pixel-height>
+               <xocs:pixel-width>659</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr4.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr4/DOWNSAMPLED/image/jpeg/3504f51354901fdb49925b00eb9dbd0e/gr4.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr4</xocs:file-basename>
+               <xocs:filename>gr4.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>35482</xocs:filesize>
+               <xocs:pixel-height>286</xocs:pixel-height>
+               <xocs:pixel-width>376</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr5.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr5/DOWNSAMPLED/image/jpeg/a8fde0ccc8893d9bac132c7633fcbd85/gr5.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr5</xocs:file-basename>
+               <xocs:filename>gr5.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>30471</xocs:filesize>
+               <xocs:pixel-height>286</xocs:pixel-height>
+               <xocs:pixel-width>376</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-DOWNSAMPLED</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr12.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr12/THUMBNAIL/image/gif/859d7c33c72b5cbafd52152dfce04677/gr12.sml</xocs:ucs-locator>
+               <xocs:file-basename>gr12</xocs:file-basename>
+               <xocs:filename>gr12.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>11259</xocs:filesize>
+               <xocs:pixel-height>110</xocs:pixel-height>
+               <xocs:pixel-width>219</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr8.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr8/THUMBNAIL/image/gif/710dd7ee7731ca439c8b8b76e1be3ec5/gr8.sml</xocs:ucs-locator>
+               <xocs:file-basename>gr8</xocs:file-basename>
+               <xocs:filename>gr8.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>9231</xocs:filesize>
+               <xocs:pixel-height>85</xocs:pixel-height>
+               <xocs:pixel-width>219</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr11.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr11/THUMBNAIL/image/gif/2906d147dd1dc4465be5c6fbf1262e30/gr11.sml</xocs:ucs-locator>
+               <xocs:file-basename>gr11</xocs:file-basename>
+               <xocs:filename>gr11.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>16277</xocs:filesize>
+               <xocs:pixel-height>164</xocs:pixel-height>
+               <xocs:pixel-width>202</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr9.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr9/THUMBNAIL/image/gif/83745d6494997f85a2be5aa5571743e6/gr9.sml</xocs:ucs-locator>
+               <xocs:file-basename>gr9</xocs:file-basename>
+               <xocs:filename>gr9.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>17189</xocs:filesize>
+               <xocs:pixel-height>164</xocs:pixel-height>
+               <xocs:pixel-width>203</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-ga1.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/ga1/THUMBNAIL/image/gif/af8509cb8d904300b140993b5f49f0c3/ga1.sml</xocs:ucs-locator>
+               <xocs:file-basename>ga1</xocs:file-basename>
+               <xocs:abstract-attachment>true</xocs:abstract-attachment>
+               <xocs:filename>ga1.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>9483</xocs:filesize>
+               <xocs:pixel-height>91</xocs:pixel-height>
+               <xocs:pixel-width>219</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr10.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr10/THUMBNAIL/image/gif/98a82d407306af14e33e197178687fde/gr10.sml</xocs:ucs-locator>
+               <xocs:file-basename>gr10</xocs:file-basename>
+               <xocs:filename>gr10.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>12274</xocs:filesize>
+               <xocs:pixel-height>164</xocs:pixel-height>
+               <xocs:pixel-width>204</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr2.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr2/THUMBNAIL/image/gif/c50e37932577a06797043739ddd3d5ed/gr2.sml</xocs:ucs-locator>
+               <xocs:file-basename>gr2</xocs:file-basename>
+               <xocs:filename>gr2.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>7958</xocs:filesize>
+               <xocs:pixel-height>114</xocs:pixel-height>
+               <xocs:pixel-width>219</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr3.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr3/THUMBNAIL/image/gif/f27d1a111f99c5f422449c8a42931735/gr3.sml</xocs:ucs-locator>
+               <xocs:file-basename>gr3</xocs:file-basename>
+               <xocs:filename>gr3.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>8147</xocs:filesize>
+               <xocs:pixel-height>163</xocs:pixel-height>
+               <xocs:pixel-width>139</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr1.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr1/THUMBNAIL/image/gif/70d2955f5daac246cce7a52fec124a6c/gr1.sml</xocs:ucs-locator>
+               <xocs:file-basename>gr1</xocs:file-basename>
+               <xocs:filename>gr1.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>6040</xocs:filesize>
+               <xocs:pixel-height>51</xocs:pixel-height>
+               <xocs:pixel-width>219</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr6.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr6/THUMBNAIL/image/gif/a303065732130b1a019009991741536a/gr6.sml</xocs:ucs-locator>
+               <xocs:file-basename>gr6</xocs:file-basename>
+               <xocs:filename>gr6.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>6319</xocs:filesize>
+               <xocs:pixel-height>102</xocs:pixel-height>
+               <xocs:pixel-width>219</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr7.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0143749626001090/gr7/THUMBNAIL/image/gif/e8151546635195071518e51ea14a4623/gr7.sml</xocs:ucs-locator>
+               <xocs:file-basename>gr7</xocs:file-basename>
+               <xocs:filename>gr7.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>9794</xocs:filesize>
+               <xocs:pixel-height>164</xocs:pixel-height>
+               <xocs:pixel-width>169</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr4.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/gr4/THUMBNAIL/image/gif/6286ef0093416b14303e4cdd7b402672/gr4.sml</xocs:ucs-locator>
+               <xocs:file-basename>gr4</xocs:file-basename>
+               <xocs:filename>gr4.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>10708</xocs:filesize>
+               <xocs:pixel-height>164</xocs:pixel-height>
+               <xocs:pixel-width>215</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr5.sml</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0143749626001090/gr5/THUMBNAIL/image/gif/ef3fce39720074906ea140cccfc90e5c/gr5.sml</xocs:ucs-locator>
+               <xocs:file-basename>gr5</xocs:file-basename>
+               <xocs:filename>gr5.sml</xocs:filename>
+               <xocs:extension>sml</xocs:extension>
+               <xocs:filesize>9479</xocs:filesize>
+               <xocs:pixel-height>164</xocs:pixel-height>
+               <xocs:pixel-width>215</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-THUMBNAIL</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr12_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/HIGHRES/image/jpeg/c8bcc7637be4e5dbd1e9cea6f859b01d/gr12_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr12</xocs:file-basename>
+               <xocs:filename>gr12_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>143229</xocs:filesize>
+               <xocs:pixel-height>839</xocs:pixel-height>
+               <xocs:pixel-width>1667</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr8_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/HIGHRES/image/jpeg/a4e37962bd60a612f2dc2ed8616a3c39/gr8_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr8</xocs:file-basename>
+               <xocs:filename>gr8_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>450347</xocs:filesize>
+               <xocs:pixel-height>1130</xocs:pixel-height>
+               <xocs:pixel-width>2917</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr11_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/HIGHRES/image/jpeg/b55766603cccdcc63b725955e0078e2b/gr11_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr11</xocs:file-basename>
+               <xocs:filename>gr11_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>669323</xocs:filesize>
+               <xocs:pixel-height>2363</xocs:pixel-height>
+               <xocs:pixel-width>2917</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr9_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/HIGHRES/image/jpeg/e0e8e779bfaca7e370d8452d6209513a/gr9_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr9</xocs:file-basename>
+               <xocs:filename>gr9_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>847410</xocs:filesize>
+               <xocs:pixel-height>2358</xocs:pixel-height>
+               <xocs:pixel-width>2917</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-ga1_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/HIGHRES/image/jpeg/0f932971e0ef20210ae27e21c8f57f89/ga1_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>ga1</xocs:file-basename>
+               <xocs:abstract-attachment>true</xocs:abstract-attachment>
+               <xocs:filename>ga1_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>185876</xocs:filesize>
+               <xocs:pixel-height>886</xocs:pixel-height>
+               <xocs:pixel-width>2133</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr10_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/HIGHRES/image/jpeg/2419fd66c13e4b3e49f17694d14323d0/gr10_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr10</xocs:file-basename>
+               <xocs:filename>gr10_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>627290</xocs:filesize>
+               <xocs:pixel-height>2345</xocs:pixel-height>
+               <xocs:pixel-width>2917</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr2_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/HIGHRES/image/jpeg/356dcf62d68fdd75fa166a2625973a5d/gr2_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr2</xocs:file-basename>
+               <xocs:filename>gr2_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>147477</xocs:filesize>
+               <xocs:pixel-height>868</xocs:pixel-height>
+               <xocs:pixel-width>1667</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr3_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/HIGHRES/image/jpeg/9cda55a182696f3cc30fc3feeb4c4ada/gr3_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr3</xocs:file-basename>
+               <xocs:filename>gr3_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>614604</xocs:filesize>
+               <xocs:pixel-height>3429</xocs:pixel-height>
+               <xocs:pixel-width>2917</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr1_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/HIGHRES/image/jpeg/a72542dd07164142da963ef71181c96b/gr1_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr1</xocs:file-basename>
+               <xocs:filename>gr1_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>74476</xocs:filesize>
+               <xocs:pixel-height>392</xocs:pixel-height>
+               <xocs:pixel-width>1667</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr6_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S2666539526000921/HIGHRES/image/jpeg/66011b196c77649591ec075f8bb2e7ce/gr6_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr6</xocs:file-basename>
+               <xocs:filename>gr6_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>93136</xocs:filesize>
+               <xocs:pixel-height>777</xocs:pixel-height>
+               <xocs:pixel-width>1667</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr7_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0143749626001090/HIGHRES/image/jpeg/01a21d0a050810710834af72deb19bcc/gr7_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr7</xocs:file-basename>
+               <xocs:filename>gr7_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>564607</xocs:filesize>
+               <xocs:pixel-height>2829</xocs:pixel-height>
+               <xocs:pixel-width>2917</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr4_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0143749626001090/HIGHRES/image/jpeg/bb26b546e378ad19d328f25e672aa3f2/gr4_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr4</xocs:file-basename>
+               <xocs:filename>gr4_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>266128</xocs:filesize>
+               <xocs:pixel-height>1268</xocs:pixel-height>
+               <xocs:pixel-width>1667</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+            <xocs:attachment>
+               <xocs:attachment-eid>1-s2.0-S2666539526000921-gr5_lrg.jpg</xocs:attachment-eid>
+               <xocs:ucs-locator>https://s3-eu-west-1.amazonaws.com/prod-ucs-content-store-eu-west/content/pii:S0143749626001090/HIGHRES/image/jpeg/52e3c14c3ec093018a0d8c2cfdd3caf5/gr5_lrg.jpg</xocs:ucs-locator>
+               <xocs:file-basename>gr5</xocs:file-basename>
+               <xocs:filename>gr5_lrg.jpg</xocs:filename>
+               <xocs:extension>jpg</xocs:extension>
+               <xocs:filesize>228962</xocs:filesize>
+               <xocs:pixel-height>1269</xocs:pixel-height>
+               <xocs:pixel-width>1667</xocs:pixel-width>
+               <xocs:attachment-type>IMAGE-HIGH-RES</xocs:attachment-type>
+            </xocs:attachment>
+         </xocs:attachments>
+      </xocs:attachment-metadata-doc>
+   </xocs:meta><xocs:serial-item xmlns:xoe="http://www.elsevier.com/xml/xoe/dtd">
+      <article xmlns="http://www.elsevier.com/xml/ja/dtd" docsubtype="fla" xml:lang="en" version="5.7">
+         <item-info>
+            <jid>OCERAM</jid>
+            <aid>100996</aid>
+            <ce:article-number>100996</ce:article-number>
+            <ce:pii>S2666-5395(26)00092-1</ce:pii>
+            <ce:doi>10.1016/j.oceram.2026.100996</ce:doi>
+            <ce:copyright type="other" year="2026">The Authors</ce:copyright>
+         </item-info>
+         <ce:floats>
+            <ce:figure id="fig0001">
+               <ce:label>Fig. 1</ce:label>
+               <ce:caption id="cap0002">
+                  <ce:simple-para id="spara001" view="all">Overview of the precipitation.</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0002" role="short">Fig. 1: dummy alt text</ce:alt-text>
+               <ce:link id="celink0001" locator="gr1" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2666539526000921/gr1"/>
+            </ce:figure>
+            <ce:figure id="fig0002">
+               <ce:label>Fig. 2</ce:label>
+               <ce:caption id="cap0003">
+                  <ce:simple-para id="spara002" view="all">XRD analysis of the annealed samples. Bragg’s positions of CeO<ce:inf loc="post">2</ce:inf>, BaCeO<ce:inf loc="post">3</ce:inf> and BaCO<ce:inf loc="post">3</ce:inf> added for comparison.</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0003" role="short">Fig. 2: dummy alt text</ce:alt-text>
+               <ce:link id="celink0002" locator="gr2" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2666539526000921/gr2"/>
+            </ce:figure>
+            <ce:figure id="fig0003">
+               <ce:label>Fig. 3</ce:label>
+               <ce:caption id="cap0004">
+                  <ce:simple-para id="spara003" view="all">Raman spectroscopy of samples BCO_1 and BCO_2 after annealing at 800 °C and 1000 °C with reference patterns of BaCO<ce:inf loc="post">3</ce:inf> [<ce:cross-ref id="crf0027" refid="bib0020">20</ce:cross-ref>] and BaCeO<ce:inf loc="post">3</ce:inf> [<ce:cross-ref id="crf0028" refid="bib0021">21</ce:cross-ref>]. Sample BCO_1 at 800 °C displayed in full, with areas of interest (50–400 cm<ce:sup loc="post">-1</ce:sup> and 1000–1100 cm<ce:sup loc="post">-1</ce:sup>) displayed in detail for every sample.</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0004" role="short">Fig. 3: dummy alt text</ce:alt-text>
+               <ce:link id="celink0003" locator="gr3" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2666539526000921/gr3"/>
+            </ce:figure>
+            <ce:figure id="fig0004">
+               <ce:label>Fig. 4</ce:label>
+               <ce:caption id="cap0005">
+                  <ce:simple-para id="spara004" view="all">STA/TG/MS analysis of the BCO_3 sample prior to annealing. Red signifies heat flow, black mass loss. Remaining colored lines correspond to escaping gases captured by MS.</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0005" role="short">Fig. 4: dummy alt text</ce:alt-text>
+               <ce:link id="celink0004" locator="gr4" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2666539526000921/gr4"/>
+            </ce:figure>
+            <ce:figure id="fig0005">
+               <ce:label>Fig. 5</ce:label>
+               <ce:caption id="cap0006">
+                  <ce:simple-para id="spara005" view="all">STA/TG/MS analysis of the BCO_4 sample prior to annealing. Red signifies heat flow, black mass loss. Remaining colored lines correspond to escaping gases captured by MS.</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0006" role="short">Fig. 5: dummy alt text</ce:alt-text>
+               <ce:link id="celink0005" locator="gr5" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2666539526000921/gr5"/>
+            </ce:figure>
+            <ce:figure id="fig0006">
+               <ce:label>Fig. 6</ce:label>
+               <ce:caption id="cap0007">
+                  <ce:simple-para id="spara006" view="all">XRD of samples BCO_4, annealed at 800 °C and 1000 °C.</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0007" role="short">Fig. 6: dummy alt text</ce:alt-text>
+               <ce:link id="celink0006" locator="gr6" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2666539526000921/gr6"/>
+            </ce:figure>
+            <ce:figure id="fig0007">
+               <ce:label>Fig. 7</ce:label>
+               <ce:caption id="cap0008">
+                  <ce:simple-para id="spara007" view="all">Raman spectroscopy of sample BCO_4 after annealing at 800 °C and 1000 °C overlaid with reference patterns of BaCeO<ce:inf loc="post">3</ce:inf> [<ce:cross-ref id="crf0039" refid="bib0021">21</ce:cross-ref>] and BaCO<ce:inf loc="post">3</ce:inf> [<ce:cross-ref id="crf0040" refid="bib0020">20</ce:cross-ref>] . Focused on areas of interest (50–400 cm<ce:sup loc="post">-1</ce:sup> and 1000–1100 cm<ce:sup loc="post">-1</ce:sup>).</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0008" role="short">Fig. 7: dummy alt text</ce:alt-text>
+               <ce:link id="celink0007" locator="gr7" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2666539526000921/gr7"/>
+            </ce:figure>
+            <ce:figure id="fig0008">
+               <ce:label>Fig. 8</ce:label>
+               <ce:caption id="cap0009">
+                  <ce:simple-para id="spara008" view="all">Results of LD measurements for samples BCO_3 and BCO_4 at 800 °C and 1000 °C. Particle size distribution on the left, and a comparison of Dx50 median particle size on the right.</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0009" role="short">Fig. 8: dummy alt text</ce:alt-text>
+               <ce:link id="celink0008" locator="gr8" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2666539526000921/gr8"/>
+            </ce:figure>
+            <ce:figure id="fig0009">
+               <ce:label>Fig. 9</ce:label>
+               <ce:caption id="cap0010">
+                  <ce:simple-para id="spara009" view="all">TEM imaging of sample BCO_2 after annealing at 800 °C (left) and 1000 °C (right). Map of cerium and barium layout in samples acquired via EDS included under relevant images.</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0010" role="short">Fig. 9: dummy alt text</ce:alt-text>
+               <ce:link id="celink0009" locator="gr9" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2666539526000921/gr9"/>
+            </ce:figure>
+            <ce:figure id="fig0010">
+               <ce:label>Fig. 10</ce:label>
+               <ce:caption id="cap0011">
+                  <ce:simple-para id="spara010" view="all">TEM imaging of sample BCO_3 after annealing at 800 °C (left) and 1000 °C (right). Map of cerium and barium layout in samples acquired via EDS included under relevant images.</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0011" role="short">Fig. 10: dummy alt text</ce:alt-text>
+               <ce:link id="celink0010" locator="gr10" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2666539526000921/gr10"/>
+            </ce:figure>
+            <ce:figure id="fig0011">
+               <ce:label>Fig. 11</ce:label>
+               <ce:caption id="cap0012">
+                  <ce:simple-para id="spara011" view="all">TEM imaging of sample BCO_4 after annealing at 800 °C (left) and 1000 °C (right). Map of cerium and barium layout in samples acquired via EDS included under relevant images.</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0012" role="short">Fig. 11: dummy alt text</ce:alt-text>
+               <ce:link id="celink0011" locator="gr11" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2666539526000921/gr11"/>
+            </ce:figure>
+            <ce:figure id="fig0012">
+               <ce:label>Fig. 12</ce:label>
+               <ce:caption id="cap0013">
+                  <ce:simple-para id="spara012" view="all">TEM imaging of BaCeO<ce:inf loc="post">3</ce:inf> particles in sample BCO_4 annealed at 1000 °C.</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0013" role="short">Fig. 12: dummy alt text</ce:alt-text>
+               <ce:link id="celink0012" locator="gr12" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2666539526000921/gr12"/>
+            </ce:figure>
+            <ce:table xmlns="http://www.elsevier.com/xml/common/cals/dtd" id="tbl0001" rowsep="0" colsep="0" frame="topbot">
+               <ce:label>Table 1</ce:label>
+               <ce:caption id="cap0001">
+                  <ce:simple-para id="spara013" view="all">Sample overview.</ce:simple-para>
+               </ce:caption>
+               <ce:alt-text id="alt0001" role="short">Table 1: dummy alt text</ce:alt-text>
+               <tgroup cols="4">
+                  <colspec colnum="1" colname="col1" align="left"/>
+                  <colspec colnum="2" colname="col2" align="left"/>
+                  <colspec colnum="3" colname="col3" align="left"/>
+                  <colspec colnum="4" colname="col4" align="left"/>
+                  <thead>
+                     <row rowsep="1">
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0001" colname="col1" valign="top"/>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0002" colname="col2" valign="top">Precipitating agent</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0003" colname="col3" valign="top">Cerium source</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0004" colname="col4" valign="top">Annealing temperature</entry>
+                     </row>
+                  </thead>
+                  <tbody>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0005" colname="col1" valign="top" role="rowhead">BCO_1_800</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0006" colname="col2" valign="top">NH<inf loc="post">3</inf>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0007" colname="col3" valign="top">CeO<inf loc="post">2</inf>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0008" colname="col4" valign="top">800 °C/1h</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0009" colname="col1" valign="top" role="rowhead">BCO_1_1000</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0010" colname="col2" valign="top">NH<inf loc="post">3</inf>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0011" colname="col3" valign="top">CeO<inf loc="post">2</inf>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0012" colname="col4" valign="top">1000 °C/1h</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0013" colname="col1" valign="top" role="rowhead">BCO_2_800</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0014" colname="col2" valign="top">NH<inf loc="post">3</inf>+TMAH</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0015" colname="col3" valign="top">Ce(NO<inf loc="post">3</inf>)<inf loc="post">3</inf>·6H<inf loc="post">2</inf>O</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0016" colname="col4" valign="top">800 °C/1h</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0017" colname="col1" valign="top" role="rowhead">BCO_2_1000</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0018" colname="col2" valign="top">NH<inf loc="post">3</inf>+TMAH</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0019" colname="col3" valign="top">Ce(NO<inf loc="post">3</inf>)<inf loc="post">3</inf>·6H<inf loc="post">2</inf>O</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0020" colname="col4" valign="top">1000 °C/1h</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0021" colname="col1" valign="top" role="rowhead">BCO_3_800</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0022" colname="col2" valign="top">NaOH</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0023" colname="col3" valign="top">Ce(NO<inf loc="post">3</inf>)<inf loc="post">3</inf>·6H<inf loc="post">2</inf>O</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0024" colname="col4" valign="top">800 °C/1h</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0025" colname="col1" valign="top" role="rowhead">BCO_3_1000</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0026" colname="col2" valign="top">NaOH</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0027" colname="col3" valign="top">Ce(NO<inf loc="post">3</inf>)<inf loc="post">3</inf>·6H<inf loc="post">2</inf>O</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0028" colname="col4" valign="top">1000 °C/1h</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0029" colname="col1" valign="top" role="rowhead">BCO_4_800</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0030" colname="col2" valign="top">NaOH</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0031" colname="col3" valign="top">CeO<inf loc="post">2</inf>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0032" colname="col4" valign="top">800 °C/1h</entry>
+                     </row>
+                     <row>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0033" colname="col1" valign="top" role="rowhead">BCO_4_1000</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0034" colname="col2" valign="top">NaOH</entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0035" colname="col3" valign="top">CeO<inf loc="post">2</inf>
+                        </entry>
+                        <entry xmlns="http://www.elsevier.com/xml/common/dtd" id="en0036" colname="col4" valign="top">1000 °C/1h</entry>
+                     </row>
+                  </tbody>
+               </tgroup>
+            </ce:table>
+         </ce:floats>
+         <head>
+            <ce:title id="tte0002">Co-precipitation synthesis of carbon-free BaCeO<ce:inf loc="post">3</ce:inf> for use in bulk superconductor growth</ce:title>
+            <ce:author-group id="aut0001">
+               <ce:author id="au0001" author-id="S2666539526000921-05f86b8c977a6570557f1ed045827653" orcid="0009-0009-9714-8194">
+                  <ce:given-name>Vojtěch</ce:given-name>
+                  <ce:surname>Ševčík</ce:surname>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/writing-original-draft">Writing – original draft</ce:contributor-role>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/visualization">Visualization</ce:contributor-role>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/investigation">Investigation</ce:contributor-role>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/formal-analysis">Formal analysis</ce:contributor-role>
+                  <ce:cross-ref id="crf0001" refid="cor0001">
+                     <ce:sup loc="post">⁎</ce:sup>
+                  </ce:cross-ref>
+                  
+               </ce:author>
+               <ce:author id="au0002" author-id="S2666539526000921-afc28eb269ac8a0f3364020f2f746839">
+                  <ce:given-name>Vít</ce:given-name>
+                  <ce:surname>Jakeš</ce:surname>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/writing-review-editing">Writing – review &amp; editing</ce:contributor-role>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/supervision">Supervision</ce:contributor-role>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/conceptualization">Conceptualization</ce:contributor-role>
+               </ce:author>
+               <ce:author id="au0003" author-id="S2666539526000921-2c12ed577335afa7a19c9a7ec0338061">
+                  <ce:given-name>Kateřina</ce:given-name>
+                  <ce:surname>Rubešová</ce:surname>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/writing-review-editing">Writing – review &amp; editing</ce:contributor-role>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/supervision">Supervision</ce:contributor-role>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/methodology">Methodology</ce:contributor-role>
+               </ce:author>
+               <ce:author id="au0004" author-id="S2666539526000921-6ed37b27a050f971e457082f747f0fb1">
+                  <ce:given-name>Michal</ce:given-name>
+                  <ce:surname>Lojka</ce:surname>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/resources">Resources</ce:contributor-role>
+               </ce:author>
+               <ce:author id="au0005" author-id="S2666539526000921-fcab991bb77557af0cd5f98c65a4d5f3">
+                  <ce:given-name>Ondřej</ce:given-name>
+                  <ce:surname>Jankovský</ce:surname>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/writing-review-editing">Writing – review &amp; editing</ce:contributor-role>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/project-administration">Project administration</ce:contributor-role>
+               </ce:author>
+               <ce:author id="au0006" author-id="S2666539526000921-e63d54b204ab1dfc4051d058632e0e12">
+                  <ce:given-name>David</ce:given-name>
+                  <ce:surname>Sedmidubský</ce:surname>
+                  <ce:contributor-role role="http://credit.niso.org/contributor-roles/funding-acquisition">Funding acquisition</ce:contributor-role>
+               </ce:author>
+               <ce:affiliation id="aff0001" affiliation-id="S2666539526000921-1436b4764f421e6ff45b12cf35ce031b">
+                  <ce:textfn id="cetextfn0001">Department of Inorganic Chemistry, UCT Prague, Technická 5, 160 00, Praha 6, Czech Republic</ce:textfn>
+                  <sa:affiliation>
+                     <sa:organization>Department of Inorganic Chemistry</sa:organization>
+                     <sa:organization>UCT Prague</sa:organization>
+                     <sa:address-line>Technická 5, 160 00, Praha 6</sa:address-line>
+                     <sa:country iso3166-1-alpha-3="CZE">Czech Republic</sa:country>
+                  </sa:affiliation>
+                  <ce:source-text id="staff0001">Department of Inorganic Chemistry, UCT Prague, Technická 5, 160 00, Praha 6, Czech Republic</ce:source-text>
+               </ce:affiliation>
+               <ce:correspondence id="cor0001">
+                  <ce:label>⁎</ce:label>
+                  <ce:text id="cetext0001">Corresponding author.</ce:text>
+               </ce:correspondence>
+            </ce:author-group>
+            <ce:date-received day="15" month="5" year="2026"/>
+            <ce:date-revised day="28" month="5" year="2026"/>
+            <ce:date-accepted day="29" month="5" year="2026"/>
+            
+            <ce:abstract id="abs0002" class="author" view="all"><ce:abstract-sec id="abss0002" view="all">
+                  <ce:simple-para id="spara015" view="all">BaCeO<ce:inf loc="post">3</ce:inf> is a mixed oxide with a wide variety of potential applications, from solid-oxide fuel cells to hydrogen detectors. However, a common issue in its preparation is the preferential formation of carbonates. This poses an issue when the material is intended for use in bulk REBCO growth, a role it otherwise appears suitable for. In this work, we present a synthesis of BaCeO<ce:inf loc="post">3</ce:inf> through the carbonate-free co-precipitation method based on the acid-base and redox behaviors of its constituent cations, with carbon-containing precursors and precipitating agents purposefully omitted. Three pH-adjusting/precipitation agents were compared together with the comparison of cerium(III) nitrate and cerium dioxide as the sources of cerium cations. Through this, the elimination of carbonate content (confirmed by XRD but also with more carbonate-sensitive Raman spectroscopy) as well as significant reduction in average particle size was achieved. The obtained powder is therefore suitable for the growth of bulk REBCO crystals.</ce:simple-para>
+               </ce:abstract-sec></ce:abstract>
+            <ce:abstract id="abs0003" class="graphical" view="all">
+               <ce:section-title id="cesectitle0003">Graphical abstract</ce:section-title>
+               <ce:abstract-sec id="abss0003" view="all">
+                  <ce:simple-para id="spara016" view="all">
+                     <ce:display>
+                        <ce:figure id="fig0013">
+                           <ce:alt-text id="alttx001" role="short">Image, graphical abstract</ce:alt-text>
+                           <ce:link id="celink0013" locator="ga1" xlink:type="simple" xlink:role="http://data.elsevier.com/vocabulary/ElsevierContentTypes/23.4" xlink:href="pii:S2666539526000921/ga1"/>
+                        </ce:figure>
+                     </ce:display>
+                  </ce:simple-para>
+               </ce:abstract-sec>
+            </ce:abstract>
+            <ce:keywords id="keys0001" class="keyword" view="all">
+               <ce:section-title id="cesectitle0004">Keywords</ce:section-title>
+               <ce:keyword id="key0001">
+                  <ce:text id="cetext0002">BaCeO<ce:inf loc="post">3</ce:inf>
+                  </ce:text>
+               </ce:keyword>
+               <ce:keyword id="key0002">
+                  <ce:text id="cetext0003">REBCO</ce:text>
+               </ce:keyword>
+               <ce:keyword id="key0003">
+                  <ce:text id="cetext0004">Carbon-free synthesis</ce:text>
+               </ce:keyword>
+            </ce:keywords>
+         </head>
+         <body view="all">
+            <ce:sections>
+               <ce:section id="sec0001" role="introduction" view="all">
+                  <ce:label>1</ce:label>
+                  <ce:section-title id="cesectitle0005">Introduction</ce:section-title>
+                  <ce:para id="para0006" view="all">Barium cerate (BaCeO<ce:inf loc="post">3</ce:inf>) is a prospective material in the field of electrochemistry, of interest mainly due to its mixed proton and electron conduction properties. This makes it a candidate for the construction of ceramic membranes intended for solid oxide fuel cells (SOFCs) as well as offering potential applications as electrode materials or catalytic membranes [<ce:cross-refs id="crf0002" refid="bib0001 bib0002 bib0003">1–3</ce:cross-refs>]. This property is commonplace among perovskite mixed oxides (oxides with multiple elements as cations) with the general ABO<ce:inf loc="post">3</ce:inf> formula; however, BaCeO<ce:inf loc="post">3</ce:inf>-derived perovskites exhibit the strongest proton conductivity of these materials in combination with improving oxygen ionic conduction as the temperature rises [<ce:cross-ref id="crf0004" refid="bib0004">4</ce:cross-ref>]. However, another, less explored vector for the use of BaCeO<ce:inf loc="post">3</ce:inf> is as an additive to REBCO superconductors (RE-Ba-Cu-O system, RE = Y, Gd, Eu, Sm…), where it can assist in pinning magnetic flux lines and improving the material’s performance [<ce:cross-ref id="crf0005" refid="bib0005">5</ce:cross-ref>]. At the same time, the mixed oxide has demonstrated similar impacts on the growth of non-superconducting Y211 phase as CeO<ce:inf loc="post">2</ce:inf>, controlled growth of which can be used to induce flux pinning as well. Unlike CeO<ce:inf loc="post">2</ce:inf>, however, using BaCeO<ce:inf loc="post">3</ce:inf> for this purpose does not lead to the undesired formation of copper(II) oxide during the growth process [<ce:cross-ref id="crf0006" refid="bib0006">6</ce:cross-ref>].</ce:para>
+                  <ce:para id="para0007" view="all">Despite the relative simplicity of the BaO-CeO<ce:inf loc="post">2</ce:inf> pseudobinary diagram [<ce:cross-ref id="crf0007" refid="bib0007">7</ce:cross-ref>], which only contains one stoichiometric phase – the aforementioned BaCeO<ce:inf loc="post">3</ce:inf> – this phase has a number of crystal modifications depending on the temperature. Two low-temperature orthorhombic <ce:italic>Pmcn</ce:italic> and <ce:italic>Imcn</ce:italic> modifications are stable below approximately 290 °C and 400 °C respectively; at around 400 °C the orthorhombic structure transforms into a rhombohedral one (<ce:italic>R–3c</ce:italic>). Above 900 °C, a cubic modification (<ce:italic>Pm–3</ce:italic> 
+                     <ce:italic>m</ce:italic>) is stabilized [<ce:cross-refs id="crf0008" refid="bib0007 bib0008 bib0009 bib0010">7–10</ce:cross-refs>].</ce:para>
+                  <ce:para id="para0008" view="all">A variety of methods have been explored to prepare BaCeO<ce:inf loc="post">3</ce:inf> powders, which can be broadly classified into two categories. The first is a solid-state reaction, which involves preparing a stoichiometric mixture of precursor oxides or carbonates, most commonly CeO<ce:inf loc="post">2</ce:inf> and either BaCO<ce:inf loc="post">3</ce:inf> or BaO<ce:inf loc="post">2</ce:inf>, that are then calcined [<ce:cross-ref id="crf0010" refid="bib0011">11</ce:cross-ref>,<ce:cross-ref id="crf0011" refid="bib0012">12</ce:cross-ref>]. This process is technologically simple, but presents issues regarding homogeneity, as well as producing relatively large particle size in the resulting powder that can negatively affect the dispersion of the powder when preparing the mix for YBCO growth. The second category – “wet” methods – is based on synthesis from solutions of the required metal cations and therefore achieves a significantly improved homogeneity while offering the potential for much lower overall particle size, depending on synthesis conditions. Widely used among these is co-precipitation, which is based on mixing a precipitating agent with a solution containing cations, resulting in the formation of a fine precipitate which is usually a mixture of hydroxides (or other hydrated forms) containing both cations. This fine powder mixture is highly reactive; on the other hand, the stoichiometry of the precipitate must be controlled [<ce:cross-ref id="crf0012" refid="bib0013">13</ce:cross-ref>]. Nevertheless, when co-precipitation is optimized, the precursor powder forms mixed oxides at a lower temperature than usually required. Moreover, the certainty of high cation homogeneity required for example in optical applications is easier to achieve [<ce:cross-ref id="crf0013" refid="bib0014">14</ce:cross-ref>]. With BaCeO<ce:inf loc="post">3</ce:inf>, this is usually done by using oxalates or carbonates as the precipitating agent [<ce:cross-ref id="crf0014" refid="bib0015">15</ce:cross-ref>,<ce:cross-ref id="crf0015" refid="bib0016">16</ce:cross-ref>].</ce:para>
+                  <ce:para id="para0009" view="all">A common issue in both types of preparation is the formation of BaCO<ce:inf loc="post">3</ce:inf>, caused by a high affinity of <ce:sup loc="post">barium(II)</ce:sup> ions towards CO<ce:inf loc="post">2</ce:inf>, which is further exacerbated by the use of carbon-based precipitating agents. Thermal decomposition of barium carbonate demands longer calcination times and higher temperatures, which runs counter to the particle size requirements [<ce:cross-ref id="crf0016" refid="bib0017">17</ce:cross-ref>]. The presence of carbon in the mixture is detrimental to the formation of the Y123 superconducting phase [<ce:cross-ref id="crf0017" refid="bib0018">18</ce:cross-ref>], however, alternative methods such as combustion synthesis are difficult to control and can produce toxic gases during the reaction [<ce:cross-ref id="crf0018" refid="bib0019">19</ce:cross-ref>]. Typically, ammonium carbonates are used to achieve high pH values, but the easy formation of BaCO<ce:inf loc="post">3</ce:inf> precludes their use, and alternatives must be found. In this work, we present a method for the preparation of carbon-free BaCeO<ce:inf loc="post">3</ce:inf> powders, based on co-precipitation of cerium and barium using a combination of their acid-base and redox properties.</ce:para>
+               </ce:section>
+               <ce:section id="sec0002" view="all">
+                  <ce:label>2</ce:label>
+                  <ce:section-title id="cesectitle0006">Experimental</ce:section-title>
+                  <ce:para id="para0010" view="all">BaCeO<ce:inf loc="post">3</ce:inf> was prepared by co-precipitation of metal cations from an aqueous solution by means of a pH change with simultaneous oxidation of cerium, forming insoluble CeO<ce:inf loc="post">2</ce:inf>. Solutions of the constituent cations were prepared separately; prior to the synthesis, distilled water used for dissolving was boiled to minimize the presence of CO<ce:inf loc="post">2</ce:inf> and thus reduce the potential for the formation of BaCO<ce:inf loc="post">3</ce:inf>. Ba(OH)<ce:inf loc="post">2</ce:inf>·8H<ce:inf loc="post">2</ce:inf>O was used as a barium source, dissolved in diluted nitric acid, with CeO<ce:inf loc="post">2</ce:inf> or Ce(NO<ce:inf loc="post">3</ce:inf>)<ce:inf loc="post">3</ce:inf> used as cerium sources. CeO<ce:inf loc="post">2</ce:inf> was dissolved by similar means as Ba(OH)<ce:inf loc="post">2</ce:inf>·8H<ce:inf loc="post">2</ce:inf>O, with simultaneous reduction by hydrogen peroxide, while dissolution of Ce(NO<ce:inf loc="post">3</ce:inf>)<ce:inf loc="post">3</ce:inf>·6 H<ce:inf loc="post">2</ce:inf>O in water does not require acidification. Ammonia, tetramethylammonium hydroxide (TMAH) or sodium hydroxide were used as precipitating agents. The entire process was further optimized to minimize exposure of the samples to carbon contamination and with the aim to minimize the particle size of the obtained BaCeO<ce:inf loc="post">3</ce:inf>.</ce:para>
+                  <ce:para id="para0011" view="all">For the synthesis, the following chemicals were used: HNO<ce:inf loc="post">3</ce:inf> (65%, Lachner, p.a.), H<ce:inf loc="post">2</ce:inf>O<ce:inf loc="post">2</ce:inf> (30%, Lachner, p.a.), NaOH (Lachner, &gt;99.7%), NH<ce:inf loc="post">3</ce:inf> (25%, Lachner, p.a.) and N(CH<ce:inf loc="post">3</ce:inf>)<ce:inf loc="post">4</ce:inf>OH ·5H<ce:inf loc="post">2</ce:inf>O (Sigma-Aldrich, &gt;97%). Ba(OH)<ce:inf loc="post">2</ce:inf>·8H<ce:inf loc="post">2</ce:inf>O (Fluka Analytical, &gt;98%) was used as the barium source. Two separate sources of cerium were used: CeO<ce:inf loc="post">2</ce:inf> (Sigma-Aldrich, &gt;99%) and Ce(NO<ce:inf loc="post">3</ce:inf>)<ce:inf loc="post">3</ce:inf>·6H<ce:inf loc="post">2</ce:inf>O (Sigma-Aldrich, &gt;99%).</ce:para>
+                  <ce:para id="para0012" view="all">Ba(OH)<ce:inf loc="post">2</ce:inf>·8H<ce:inf loc="post">2</ce:inf>O was dissolved in a minimal amount of distilled water by heating at 80 °C and adding HNO<ce:inf loc="post">3</ce:inf> dropwise under constant stirring until all hydroxide was dissolved. In all preparations, Ba(OH)<ce:inf loc="post">2</ce:inf>·8H<ce:inf loc="post">2</ce:inf>O was always used in a 20 wt.% surplus to the stoichiometric amount necessary for the formation of BaCeO<ce:inf loc="post">3</ce:inf>. This surplus is required due to the difficulty of quantitatively precipitating barium compounds other than carbonates using pH change. The dissolution of barium hydroxide proceeds according to the equation (<ce:cross-ref id="crf0019" refid="eqn0001">Eq. (1)</ce:cross-ref>):<ce:display>
+                        <ce:formula id="eqn0001">
+                           <ce:label>(1)</ce:label>
+                           <ce:chem>Ba(OH)<ce:inf loc="post">2</ce:inf> + 2 HNO<ce:inf loc="post">3</ce:inf>→Ba(NO<ce:inf loc="post">3</ce:inf>)<ce:inf loc="post">2</ce:inf> + H<ce:inf loc="post">2</ce:inf>O</ce:chem>
+                        </ce:formula>
+                     </ce:display>
+                  </ce:para>
+                  <ce:para id="para0013" view="all">Cerium(III) nitrate was directly dissolved in hot (80 °C) water. Dissolving CeO<ce:inf loc="post">2</ce:inf> required adding a surplus of HNO<ce:inf loc="post">3</ce:inf> and H<ce:inf loc="post">2</ce:inf>O<ce:inf loc="post">2</ce:inf> dropwise for the reduction of tetravalent cerium to its soluble trivalent form, in accordance with equation (<ce:cross-ref id="crf0020" refid="eqn0002">Eq. (2)</ce:cross-ref>):<ce:display>
+                        <ce:formula id="eqn0002">
+                           <ce:label>(2)</ce:label>
+                           <ce:chem>2 CeO<ce:inf loc="post">2</ce:inf>+6 HNO<ce:inf loc="post">3</ce:inf> + H<ce:inf loc="post">2</ce:inf>O<ce:inf loc="post">2</ce:inf>→2 Ce(NO<ce:inf loc="post">3</ce:inf>)<ce:inf loc="post">3</ce:inf> + 4 H<ce:inf loc="post">2</ce:inf>O + O<ce:inf loc="post">2</ce:inf>
+                           </ce:chem>
+                        </ce:formula>
+                     </ce:display>
+                  </ce:para>
+                  <ce:para id="para0014" view="all">The resulting solutions of Ba and Ce ions were then mixed and left to cool under stirring. Precipitation of the powder precursor was performed using a mixture of H<ce:inf loc="post">2</ce:inf>O<ce:inf loc="post">2</ce:inf> and a pH-controlling precipitating agent. In the case of samples designated BCO_1 and BCO_2, 15 ml NH<ce:inf loc="post">3</ce:inf> and a combination of 15 ml NH<ce:inf loc="post">3</ce:inf> and 5 ml TMAH were used respectively, with 15 ml NaOH saturated solution being used in samples designated BCO_3 and BCO_4 (as can be seen in <ce:cross-ref id="crf0021" refid="tbl0001">Table 1</ce:cross-ref>
+                     <ce:float-anchor refid="tbl0001"/>). After the initial precipitation, pH was further adjusted with the respective precipitating agent until it reached a maximum of pH = 10 for NH<ce:inf loc="post">3</ce:inf>, pH = 12.5 for TMAH and pH = 13.5 for NaOH. Additional H<ce:inf loc="post">2</ce:inf>O<ce:inf loc="post">2</ce:inf> was dropped at the same time to ensure complete oxidation and precipitation. The resulting suspension was immediately placed under argon atmosphere (to prevent absorption of CO<ce:inf loc="post">2</ce:inf> from the air) and allowed some time to facilitate the decomposition of H<ce:inf loc="post">2</ce:inf>O<ce:inf loc="post">2</ce:inf>. The precipitation proceeds according to the following for NaOH, with analogous equations for other precipitating agents (<ce:cross-refs id="crf0022" refid="eqn0003 eqn0004">Eq. (3) and 4</ce:cross-refs>):<ce:display>
+                        <ce:formula id="eqn0003">
+                           <ce:label>(3)</ce:label>
+                           <ce:chem>2 Ce(NO<ce:inf loc="post">3</ce:inf>)<ce:inf loc="post">3</ce:inf> + 3 NaOH + 2 H<ce:inf loc="post">2</ce:inf>O<ce:inf loc="post">2</ce:inf> → + 2CeO<ce:inf loc="post">2</ce:inf> + 3 NaNO<ce:inf loc="post">3</ce:inf> + 4 H<ce:inf loc="post">2</ce:inf>O</ce:chem>
+                        </ce:formula>
+                     </ce:display>
+                     <ce:display>
+                        <ce:formula id="eqn0004">
+                           <ce:label>(4)</ce:label>
+                           <ce:chem>Ba(NO<ce:inf loc="post">3</ce:inf>)<ce:inf loc="post">2</ce:inf> + 2 NaOH → 2 Na(NO<ce:inf loc="post">3</ce:inf>)<ce:inf loc="post">2</ce:inf> + Ba(OH)<ce:inf loc="post">2</ce:inf> + H<ce:inf loc="post">2</ce:inf>O</ce:chem>
+                        </ce:formula>
+                     </ce:display>
+                  </ce:para>
+                  <ce:para id="para0015" view="all">The suspension was further decanted thrice (five times in samples designated BCO_4) with distilled water and filtered with pressure assistance, with the filtration cake washed through with NH<ce:inf loc="post">3</ce:inf> and water. The acquired solid phase was then dried in vacuum at 115 °C overnight and annealed in air at 800 °C or 1000 °C for one hour depending on the sample (as can be seen in <ce:cross-ref id="crf0024" refid="tbl0001">Table 1</ce:cross-ref>). At the end of the annealing process, the powder was quenched to room temperature in order to minimize time spent above the formation temperature of BaCO<ce:inf loc="post">3</ce:inf> (<ce:cross-ref id="crf0025" refid="fig0001">Fig. 1</ce:cross-ref>
+                     <ce:float-anchor refid="fig0001"/>).</ce:para>
+                  <ce:para id="para0016" view="all">X-ray powder diffraction data was obtained using a Bruker D2 Phaser diffractometer with Bragg-Brentano parafocusing geometry using CoK<ce:inf loc="post">α</ce:inf> radiation (<ce:italic>λ</ce:italic> = 1.79021 Å, <ce:italic>U</ce:italic> = 34 kV, <ce:italic>I</ce:italic> = 20 mA). Data evaluation including Rietveld refinement was performed in the X’Pert HighScore Plus software package using the PDF4+ database.</ce:para>
+                  <ce:para id="para0017" view="all">Raman spectra were measured on a Thermo-Scientific model DXR Microscope Raman dispersion spectrometer equipped with an Olympus confocal microscope. The excitation source used was a Nd:YAG laser at 532 nm wavelength and an input power of 9 mW. A 900 hole/mm lattice was used. Detection was performed using a cooled CCD camera. For all samples, a magnification of 50x was applied, with samples measured through a 50 µm pinhole aperture at ten accumulations per spectrum. Each spectrum was measured thrice and then averaged.</ce:para>
+                  <ce:para id="para0018" view="all">Simultaneous thermal analysis (STA) with attached mass spectrometry (MS) was performed on a Setatram Setsys Evolution TG-DTA machine under air and in the temperature range of 25–1400 °C, measuring both heat flow and mass reduction. Further analysis of the formed gases was performed using a connected Pfeiffer Vacuum OmniStarTM quadrupole mass spectrometer.</ce:para>
+                  <ce:para id="para0019" view="all">Particle size was analyzed using laser diffraction (LD) with an ultrasonic probe applied prior to measurement. The samples were then imaged using an EFTEM Jeol 2200 FS transmission electron microscope capable of accelerating voltage of 200 kV and equipped with an EDS probe. The morphology and size of particles was observed.</ce:para>
+               </ce:section>
+               <ce:section id="sec0003" role="results" view="all">
+                  <ce:label>3</ce:label>
+                  <ce:section-title id="cesectitle0007">Results and discussion</ce:section-title>
+                  <ce:para id="para0020" view="all">The three initial samples (BCO_1, BCO_2 and BCO_3) were compared to understand the effects of using different pH controlling agents – ammonia, TMAH and NaOH – on the precipitation process. For samples designated BCO_2 and BCO_3, the process was modified using Ce(NO<ce:inf loc="post">3</ce:inf>)<ce:inf loc="post">3</ce:inf> as a source of Ce instead of CeO<ce:inf loc="post">2</ce:inf>, the dissolution of which has proven to be highly time consuming.</ce:para>
+                  <ce:para id="para0021" view="all">As can be seen in <ce:cross-ref id="crf0026" refid="fig0002">Fig. 2</ce:cross-ref>
+                     <ce:float-anchor refid="fig0002"/>, the XRD measurements of precipitated mixtures after annealing showed significant difference between the samples. The most intense peaks for both BaCeO<ce:inf loc="post">3</ce:inf> and CeO<ce:inf loc="post">2</ce:inf> lie at a nearly identical position (around 33.5 °2θ and 33.2 °2θ respectively); however, the remaining peaks provide an acceptable substitute for the purposes of determining the presence of other phases. Of further notice are the two peaks characteristic for BaCO<ce:inf loc="post">3</ce:inf> in the 27.5–28.5 °2θ, which can serve as an indicator of its presence.</ce:para>
+                  <ce:para id="para0022" view="all">Of the three above-mentioned samples, all showed significant content of CeO<ce:inf loc="post">2</ce:inf>, with sample BCO_1 containing only CeO<ce:inf loc="post">2</ce:inf>, without any barium-containing phases detected regardless of the annealing temperature. This indicated that the pH was not high enough to precipitate the barium(II) cations in sufficient quantity, and a stronger base must be used. In the sample BCO_2, BaCeO<ce:inf loc="post">3</ce:inf> was clearly formed, although it remained a minority phase. Its content – as calculated by the Rietveld method – was approx. 13.2% and 13.9% after annealing at 800 °C or 1000 °C respectively, with the remainder (86.8% and 86.1% respectively) made up by CeO<ce:inf loc="post">2</ce:inf>. Notably, the amount of BaCeO<ce:inf loc="post">3</ce:inf> was similar in both samples, regardless of the annealing temperature, suggesting that the formation of further oxide remained limited by the lack of Ba precipitation rather than the annealing process. The third sample (BCO_3) showed a steep rise in the intensity of peaks belonging to the BaCeO<ce:inf loc="post">3</ce:inf> phase, thus confirming it as the majority phase. The use of NaOH as precipitating agent therefore led to a significant improvement in terms of the Ba precipitation; however, a degree of contamination can also be observed in the sample. Some weak reflections (most notable between 35 and 45 °2θ) were present at both annealing temperatures and were most likely the result of nitrate formation. Though low in intensity, these peaks block out positions of reflections necessary to perform Rietveld refinement and obtain CeO<ce:inf loc="post">2</ce:inf> content for this sample. However, a weak signal can still be found in the position of the second strongest peak characteristic for CeO<ce:inf loc="post">2</ce:inf> (at 55.5 °2<ce:italic>θ</ce:italic>), suggesting it is indeed present.</ce:para>
+                  <ce:para id="para0023" view="all">To confirm the phase composition of samples BCO_1 and BCO_2, Raman spectroscopy was performed on samples after annealing at both temperatures (<ce:cross-ref id="crf0029" refid="fig0003">Fig. 3</ce:cross-ref>
+                     <ce:float-anchor refid="fig0003"/>). All of the spectra are dominated by the symmetric T<ce:inf loc="post">2g</ce:inf> Ce-O vibration at 465 cm<ce:sup loc="post">-1</ce:sup> [<ce:cross-ref id="crf0030" refid="bib0022">22</ce:cross-ref>]; its high intensity is due to high symmetry in CeO<ce:inf loc="post">2</ce:inf> and is not indicative of high ceria content. Of more interest is the 50–400 cm<ce:sup loc="post">-1</ce:sup> region where signals of BaCeO<ce:inf loc="post">3</ce:inf> are found [<ce:cross-ref id="crf0031" refid="bib0023">23</ce:cross-ref>] and the 1060 cm<ce:sup loc="post">-1</ce:sup> signal which corresponds to the presence of BaCO<ce:inf loc="post">3</ce:inf> [<ce:cross-ref id="crf0032" refid="bib0024">24</ce:cross-ref>]. The Raman spectra for sample BCO_3 has been omitted, as the presence of contaminants (probably nitrates) is already clear from the XRD.</ce:para>
+                  <ce:para id="para0024" view="all">These Raman spectra confirmed the findings from the XRD analysis. In both BCO_1 and BCO_2 samples, the intensive signal at 1060 cm<ce:sup loc="post">-1</ce:sup> characteristic for BaCO<ce:inf loc="post">3</ce:inf> was absent regardless of annealing temperature. Contrary to the XRD detection limit, the Raman spectroscopy could reveal even the traces of BaCO<ce:inf loc="post">3</ce:inf>. In samples BCO_1, the desired BaCeO<ce:inf loc="post">3</ce:inf> phase was absent as was obtained by XRD analysis. The same was not true for the BCO_2 sample, the spectra of which showed the presence of BaCeO<ce:inf loc="post">3</ce:inf> in samples annealed both at 800 and 1000 °C.</ce:para>
+                  <ce:para id="para0025" view="all">To further establish the contamination from the precipitation process, a STA/TG/MS measurement of the precipitated precursor powder after drying but prior to annealing was performed, with its results in <ce:cross-ref id="crf0033" refid="fig0004">Fig. 4</ce:cross-ref>
+                     <ce:float-anchor refid="fig0004"/>. Of special interest was the determination of the temperatures at which gases resulting from decomposition of undesirable nitrates and carbonates escape the sample. When contrasted against net weight loss in the same range, this provides insight into the amount of each contaminant, as well as enabling matching the decomposition temperatures to the presence of various contaminants.</ce:para>
+                  <ce:para id="para0026" view="all">This analysis explained why both carbonate and nitrate contaminants were present in the BCO_3 sample. Below 250 °C, a significant quantity of adsorbed water was evaporated, which does not affect the sample – however, between 700 °C and 1000 °C, a significant amount of NO<ce:inf loc="post">x</ce:inf> gases was released, corresponding with an 8% weight decrease in the sample. This suggests a high level of nitrate contamination. Furthermore, a spike in CO<ce:inf loc="post">2</ce:inf> release can be observed above 1000 °C. This suggests the carbonates in the sample do not begin to decompose before this temperature is reached. The amount of CO<ce:inf loc="post">2</ce:inf> released peaks above 1300 °C, which is consistent with the decomposition of BaCO<ce:inf loc="post">3</ce:inf> [<ce:cross-ref id="crf0034" refid="bib0017">17</ce:cross-ref>]; this process corresponds to a mass loss of nearly 2.5 wt.%. The total content of contaminants (CO<ce:inf loc="post">2</ce:inf> and NO<ce:inf loc="post">x</ce:inf>) was determined to be close to 12 wt.% by the analysis.</ce:para>
+                  <ce:para id="para0027" view="all">Based on these findings, a fourth sample (BCO_4) was prepared. In this sample, an effort was made to minimize the amount of nitrogen content by replacing Ce(NO<ce:inf loc="post">3</ce:inf>)<ce:inf loc="post">3</ce:inf> with CeO<ce:inf loc="post">2</ce:inf> as a source of cerium, as well as increasing the number of purification cycles of decantation and washing of the filtration cake to ensure that all undesirable material is removed from the product. The resulting powder was then analyzed prior to annealing by the STA/TG/MS method to confirm that any contaminants would be eliminated during heat treatment.</ce:para>
+                  <ce:para id="para0028" view="all">As can be seen in <ce:cross-ref id="crf0035" refid="fig0005">Fig. 5</ce:cross-ref>
+                     <ce:float-anchor refid="fig0005"/>, a significantly lower total amount of contaminants was present in the BCO_4 sample compared to BCO_3. After water evaporation observed at lower temperatures, the net mass loss of the sample after reaching 600 °C amounted only to roughly 3 wt.%. While a spike in the amount of released NO and NO<ce:inf loc="post">2</ce:inf> was observed in the temperature range of 600 °C to 900 °C, this did not correspond with a significant decrease in mass (approx. &lt;1%) and the nitrate contamination is therefore likely minimal. Similarly, escaping CO<ce:inf loc="post">2</ce:inf> was observed in the 700 °C to 1000 °C range, but only accounts for about 2% mass loss, indicating the carbonate content was likewise minimal. A much less intensive CO<ce:inf loc="post">2</ce:inf> emission was observed above 1360 °C, which corresponds to the decomposition of BaCO<ce:inf loc="post">3</ce:inf>, however no measurable mass loss was observed in the in the sample above 1100 °C. It is therefore likely that this is not connected to any carbonate content in the sample itself.</ce:para>
+                  <ce:para id="para0029" view="all">Low contamination by CO<ce:inf loc="post">2</ce:inf> was demonstrated by XRD analysis of the annealed samples in <ce:cross-ref id="crf0036" refid="fig0006">Fig. 6</ce:cross-ref>
+                     <ce:float-anchor refid="fig0006"/>: XRD of samples BCO_4, annealed at 800 °C and 1000 °C, showing BaCeO<ce:inf loc="post">3</ce:inf> as the majority phase, with CeO<ce:inf loc="post">2</ce:inf> found in both samples annealed at 800 °C and 1000 °C. The sample annealed at 800 °C additionally showed that a low amount of BaCO<ce:inf loc="post">3</ce:inf> is also present, which is consistent with the decomposition temperatures observed in <ce:cross-ref id="crf0037" refid="fig0005">Fig. 5</ce:cross-ref>. Rietveld analysis of the sample BCO_4_1000, annealed at 1000 °C, provided the CeO<ce:inf loc="post">2</ce:inf> content at 18%. Raman spectroscopy was then performed (<ce:cross-ref id="crf0038" refid="fig0007">Fig. 7</ce:cross-ref>
+                     <ce:float-anchor refid="fig0007"/>), which confirmed the presence of bands characteristic to BaCO<ce:inf loc="post">3</ce:inf> in the sample annealed at 800 °C. These characteristic bands were, however, absent from the sample annealed at 1000 °C, suggesting that BaCO<ce:inf loc="post">3</ce:inf> was eliminated during the annealing.</ce:para>
+                  <ce:para id="para0030" view="all">The lack of detectable BaCO<ce:inf loc="post">3</ce:inf> in the powder annealed at 1000 °C is presumably the result of measures taken to eliminate CO<ce:inf loc="post">2</ce:inf> from the starting solutions through eliminating carbon-containing precursors and boiling the distilled water used in the process, which significantly reduced the amount of carbonate that formed during precipitation. The remaining carbonate is then formed as a considerably more reactive powder, as is typical for coprecipitation. This allows the carbonate to be eliminated during the annealing process without reaching its regular decomposition temperature, as visible in <ce:cross-ref id="crf0041" refid="fig0005">Fig. 5</ce:cross-ref>. Quenching the powder rapidly instead of allowing it to cool slowly then prevents exposition to atmospheric CO<ce:inf loc="post">2</ce:inf> at elevated temperatures, preventing formation of BaCO<ce:inf loc="post">3</ce:inf> at the end of the process.</ce:para>
+                  <ce:para id="para0031" view="all">To attempt to determine the particle size of prepared powders, multiple methods were employed. Laser diffraction measurements were obtained from samples with a greater degree of BaCeO<ce:inf loc="post">3</ce:inf> content (BCO_3 and BCO_4), where the results (<ce:cross-ref id="crf0042" refid="fig0008">Fig. 8</ce:cross-ref>
+                     <ce:float-anchor refid="fig0008"/>) showed a particle size in the ranges of 5–82 µm, with median values for particle size well above 20 µm. These measurements are heavily contradictory to values obtained by Rietveld refinement of XRD spectra, which suggested that peak widening characteristic of nanoparticles was occurring. Similarly, TEM imaging (<ce:cross-refs id="crf0043" refid="fig0009 fig0010 fig0011">Figs. 9–11</ce:cross-refs>
+                     <ce:float-anchor refid="fig0009"/>
+                     <ce:float-anchor refid="fig0010"/>
+                     <ce:float-anchor refid="fig0011"/>) shows a significantly different particle size, with observed particles ranging from tens of nanometers to just over a micrometer in diameter. This large difference in the LD measurement is most likely the result of agglomeration, which is not uncommon for nanoparticles, and can be observed in the TEM imaging (<ce:cross-ref id="crf0046" refid="fig0011">Fig. 11</ce:cross-ref>). This presents a significant difficulty in ascertaining the actual median size of the obtained crystallites.</ce:para>
+                  <ce:para id="para0032" view="all">In samples observed using TEM, a common trend is the increase in overall particle size in samples annealed at 1000 °C compared to samples annealed at 800 °C. The effect of precipitation agents on the particle size is difficult to quantify, although it appears that the lower bound of particle sizes was higher in samples where NaOH was used as the precipitation agent compared to the rest of the series.</ce:para>
+                  <ce:para id="para0033" view="all">Since XRD analysis indicated that the samples with high BaCeO<ce:inf loc="post">3</ce:inf> content were not single-phase, EDS analysis was used to distinguish between CeO<ce:inf loc="post">2</ce:inf> and BaCeO<ce:inf loc="post">3</ce:inf> particles. In all the samples observed, a systematic size disparity was observed, with CeO<ce:inf loc="post">2</ce:inf> particles exhibiting a much lower overall size than BaCeO<ce:inf loc="post">3</ce:inf> particles. This difference is most visible in <ce:cross-ref id="crf0047" refid="fig0011">Fig. 11</ce:cross-ref>, which shows that the smallest particles do not contain barium at either annealing temperature. Particles containing only barium were not observed by this method, confirming the presence of BaCeO<ce:inf loc="post">3</ce:inf> and CeO<ce:inf loc="post">2</ce:inf> only.</ce:para>
+                  <ce:para id="para0034" view="all">Of special note is imaging of BaCeO<ce:inf loc="post">3</ce:inf> particles from sample BAO_4 annealed at 1000 °C. Although the average size of these particles apparently lies well above 500 nm, a degree of peak widening can be observed in the XRD analysis (<ce:cross-ref id="crf0048" refid="fig0006">Fig. 6</ce:cross-ref>). One possible explanation arises from the TEM imaging (<ce:cross-ref id="crf0049" refid="fig0012">Fig. 12</ce:cross-ref>
+                     <ce:float-anchor refid="fig0012"/>), which shows lines of increased material density present in the individual particles. These lines are commonly indicative of residual material stress resulting from rapid cooling [<ce:cross-ref id="crf0050" refid="bib0025">25</ce:cross-ref>]. This demonstrates the necessity of using complementary analysis methods in crystallite size determination.</ce:para>
+               </ce:section>
+               <ce:section id="sec0004" role="conclusion" view="all">
+                  <ce:label>4</ce:label>
+                  <ce:section-title id="cesectitle0008">Conclusion</ce:section-title>
+                  <ce:para id="para0035" view="all">A carbonate-free co-precipitation procedure for the preparation of BaCeO<ce:inf loc="post">3</ce:inf> was developed. The precipitation was achieved by combining acid-base and redox behavior of cerium and barium cations. NH<ce:inf loc="post">3</ce:inf>, TMAH and NaOH were compared as agents setting high pH values. Annealing temperatures of 800 °C and 1000 °C were used to crystallize the powders. Due to the nature of the barium and cerium ions, a dual approach to precipitation was chosen, utilizing simultaneous pH adjustment to precipitate <ce:sup loc="post">barium(II)</ce:sup> ions and H<ce:inf loc="post">2</ce:inf>O<ce:inf loc="post">2</ce:inf> to oxidize cerium into a <ce:sup loc="post">cerium(IV)</ce:sup> state, forming highly insoluble CeO<ce:inf loc="post">2</ce:inf>.</ce:para>
+                  <ce:para id="para0036" view="all">In general, several mixtures of BaCeO<ce:inf loc="post">3</ce:inf> and CeO<ce:inf loc="post">2</ce:inf> with minimal carbonate contamination were obtained. BaCeO<ce:inf loc="post">3</ce:inf> with minor CeO<ce:inf loc="post">2</ce:inf> presence was prepared when NaOH was used for the pH adjustment of the solution containing barium hydroxide and cerium(III) nitrate, while the usage of TMAH provided only minor BaCeO<ce:inf loc="post">3</ce:inf> content. However, the samples precipitated by NaOH were contaminated by nitrates, which were difficult to eliminate by decantation. This was solved by replacement of the cerium source (CeO<ce:inf loc="post">2</ce:inf> instead of Ce(NO<ce:inf loc="post">3</ce:inf>)<ce:inf loc="post">3</ce:inf>), with the resulting mixture made up of majority BaCeO<ce:inf loc="post">3</ce:inf> phase and minority CeO<ce:inf loc="post">2</ce:inf>. While in some samples, BaCO<ce:inf loc="post">3</ce:inf> presence was detected, this was not the case for the optimized sample annealed at 1000 °C, which was carbonate-free.</ce:para>
+                  <ce:para id="para0037" view="all">Crystallite size as observed by TEM was in the order of magnitude of hundreds of nanometers for BaCeO<ce:inf loc="post">3</ce:inf> particles. When CeO<ce:inf loc="post">2</ce:inf> was present as a secondary phase, its particle size was systematically smaller than that of BaCeO<ce:inf loc="post">3</ce:inf>.</ce:para>
+                  <ce:para id="para0038" view="all">As CeO<ce:inf loc="post">2</ce:inf> is a commonly used additive for the successful growth of YBCO single-domain crystals using the top-seeded melt-growth method, its presence in the prepared carbonate-free samples does not pose an obstacle for use in such a growth.</ce:para>
+               </ce:section>
+               <ce:section id="sec0004a" view="all">
+                  <ce:section-title id="cesectitle0008a">CRediT authorship contribution statement</ce:section-title>
+                  <ce:para id="para0038a" view="all">
+                     <ce:bold>Vojtěch Ševčík:</ce:bold> Writing – original draft, Visualization, Investigation, Formal analysis. <ce:bold>Vít Jakeš:</ce:bold> Writing – review &amp; editing, Supervision, Conceptualization. <ce:bold>Kateřina Rubešová:</ce:bold> Writing – review &amp; editing, Supervision, Methodology. <ce:bold>Michal Lojka:</ce:bold> Resources. <ce:bold>Ondřej Jankovský:</ce:bold> Writing – review &amp; editing, Project administration. <ce:bold>David Sedmidubský:</ce:bold> Funding acquisition.</ce:para>
+               </ce:section>
+            </ce:sections>
+            <ce:conflict-of-interest id="coi0001" view="all">
+               <ce:section-title id="cesectitle0010">Declaration of competing interest</ce:section-title>
+               <ce:para id="para0040" view="all">The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper</ce:para>
+            </ce:conflict-of-interest>
+            <ce:acknowledgment id="ack0001" view="all">
+               <ce:section-title id="cesectitle0009">Acknowledgements</ce:section-title>
+               <ce:para id="para0039" view="all">This work was supported by the Grant <ce:grant-sponsor id="gs0001" xlink:type="simple" xlink:role="http://www.elsevier.com/xml/linking-roles/grant-sponsor">Agency of the Czech Republic</ce:grant-sponsor> (Grant No. <ce:grant-number refid="gs0001" id="gn0001">24-10171S</ce:grant-number>).</ce:para>
+            </ce:acknowledgment>
+         </body>
+         <tail view="all">
+            <ce:bibliography id="cebibl1" view="all">
+               <ce:section-title id="cesectitle0011">References</ce:section-title>
+               <ce:bibliography-sec id="cebibsec1" view="all">
+                  <ce:bib-reference id="bib0001">
+                     <ce:label>[1]</ce:label>
+                     <sb:reference id="sbref0001">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>D.</ce:given-name>
+                                 <ce:surname>Medvedev</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>A.</ce:given-name>
+                                 <ce:surname>Murashkina</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>E.</ce:given-name>
+                                 <ce:surname>Pikalova</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>A.</ce:given-name>
+                                 <ce:surname>Demin</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>A.</ce:given-name>
+                                 <ce:surname>Podias</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>P.</ce:given-name>
+                                 <ce:surname>Tsiakaras</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>BaCeO<ce:inf loc="post">3</ce:inf>: materials development, properties and application</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Prog. Mater. Sci.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>60</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2014</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>72</sb:first-page>
+                              <sb:last-page>129</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1016/j.pmatsci.2013.08.001</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0001">Medvedev, D.; Murashkina, A.; Pikalova, E.; Demin, A.; Podias, A.; Tsiakaras, P. BaCeO3: materials development, properties and application. Prog. Mater. Sci. 2014, 60, 72–129. DOI: https://doi.org/10.1016/j.pmatsci.2013.08.001.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0002">
+                     <ce:label>[2]</ce:label>
+                     <sb:reference id="sbref0002">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>Z.</ce:given-name>
+                                 <ce:surname>Shao</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>W.</ce:given-name>
+                                 <ce:surname>Zhou</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>Z.</ce:given-name>
+                                 <ce:surname>Zhu</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Advanced synthesis of materials for intermediate-temperature solid oxide fuel cells</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Prog. Mater. Sci.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>57</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2012</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>804</sb:first-page>
+                              <sb:last-page>874</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1016/j.pmatsci.2011.08.002</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0002">Shao, Z.; Zhou, W.; Zhu, Z. Advanced synthesis of materials for intermediate-temperature solid oxide fuel cells. Prog. Mater. Sci. 2012, 57, 804–874. DOI: 10.1016/j.pmatsci.2011.08.002.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0003">
+                     <ce:label>[3]</ce:label>
+                     <sb:reference id="sbref0003">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Ali</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>A.W.</ce:given-name>
+                                 <ce:surname>Alrowaily</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>N.</ce:given-name>
+                                 <ce:surname>Drissi</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>B.M.</ce:given-name>
+                                 <ce:surname>Alotaibi</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>H.A.</ce:given-name>
+                                 <ce:surname>Alyousef</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>A.M.A.</ce:given-name>
+                                 <ce:surname>Henaish</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Hydrothermal synthesis of BaCeO<ce:inf loc="post">3</ce:inf>@rGO nanohybrid as electrode material for supercapacitor devices</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>J. Phys. Chem. Solids</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>190</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2024</sb:date>
+                           </sb:issue>
+                           <sb:article-number>111973</sb:article-number>
+                           <ce:doi>10.1016/j.jpcs.2024.111973</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0003">Ali, M.; Alrowaily, A.W.; Drissi, N.; Alotaibi, B.M.; Alyousef, H.A.; Henaish, A.M.A. Hydrothermal synthesis of BaCeO3@rGO nanohybrid as electrode material for supercapacitor devices. J. Phys. Chem. Solids 111973, 2024, 190, 111973. DOI: https://doi.org/10.1016/j.jpcs.2024.111973.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0004">
+                     <ce:label>[4]</ce:label>
+                     <sb:reference id="sbref0004">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>H.</ce:given-name>
+                                 <ce:surname>Iwahara</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>Y.</ce:given-name>
+                                 <ce:surname>Asakura</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>K.</ce:given-name>
+                                 <ce:surname>Katahira</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Tanaka</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Prospect of hydrogen technology using proton-conducting ceramics</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Solid. State Ion..</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>168</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2004</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>299</sb:first-page>
+                              <sb:last-page>310</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1016/j.ssi.2003.03.001</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0004">Iwahara, H.; Asakura, Y.; Katahira, K.; Tanaka, M. Prospect of hydrogen technology using proton-conducting ceramics. Solid. State Ion.. 2004, 168, 299–310. DOI: 10.1016/j.ssi.2003.03.001.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0005">
+                     <ce:label>[5]</ce:label>
+                     <sb:reference id="sbref0005">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>P.</ce:given-name>
+                                 <ce:surname>Diko</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>R.</ce:given-name>
+                                 <ce:surname>Pagáčová</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>K.</ce:given-name>
+                                 <ce:surname>Zmorayová</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>V.</ce:given-name>
+                                 <ce:surname>Kuchárová</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>L.</ce:given-name>
+                                 <ce:surname>Vojtková</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>V.</ce:given-name>
+                                 <ce:surname>Antal</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>V.</ce:given-name>
+                                 <ce:surname>Kavečanský</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Influence of addition of nanosize barium cerate on the microstructure and properties of top-seeded melt growth YBCO bulk superconductors</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>J. Am. Ceram. Soc.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>104</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>2</sb:issue-nr>
+                              <sb:date>2021</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>740</sb:first-page>
+                              <sb:last-page>752</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1111/jace.17496</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0005">Diko, P.; Pagáčová, R.; Zmorayová, K.; Kuchárová, V.; Vojtková, L.; Antal, V.; Kavečanský, V. Influence of addition of nanosize barium cerate on the microstructure and properties of top-seeded melt growth YBCO bulk superconductors. J. Am. Ceram. Soc. 2021, 104 (2), 740–752. DOI: https://doi.org/10.1111/jace.17496.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0006">
+                     <ce:label>[6]</ce:label>
+                     <sb:reference id="sbref0006">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>K.</ce:given-name>
+                                 <ce:surname>Zmorayova</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Sefcikova</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>D.</ce:given-name>
+                                 <ce:surname>Volochová</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Radušovská</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>V.</ce:given-name>
+                                 <ce:surname>Antal</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>S.</ce:given-name>
+                                 <ce:surname>Piovarci</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>P.</ce:given-name>
+                                 <ce:surname>Diko</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>The influence of BaCeO<ce:inf loc="post">3</ce:inf> addition on Y-211 particle size of YBCO bulk superconductors</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Phys. Procedia</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>45</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2013</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>53</sb:first-page>
+                              <sb:last-page>56</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1016/j.phpro.2013.04.050</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0006">Zmorayova, K.; Sefcikova, M.; Volochová, D.; Radušovská, M.; Antal, V.; Piovarci, S.; Diko, P. The influence of BaCeO3 addition on Y-211 particle size of YBCO bulk superconductors. Phys. Procedia 2013, 45, 53–56. DOI: 10.1016/j.phpro.2013.04.050.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0007">
+                     <ce:label>[7]</ce:label>
+                     <sb:reference id="sbref0007">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>S.I.</ce:given-name>
+                                 <ce:surname>Lopatin</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>S.M.</ce:given-name>
+                                 <ce:surname>Shugurov</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>A.V.</ce:given-name>
+                                 <ce:surname>Fedorova</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>A.V.</ce:given-name>
+                                 <ce:surname>Utina</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>A.I.</ce:given-name>
+                                 <ce:surname>Panin</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Mass spectrometric study of thermodynamic properties of BaO-CeO<ce:inf loc="post">2</ce:inf>. The formation enthalpy of BaCeO<ce:inf loc="post">3</ce:inf> (solid)</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>J. Alloys Compd.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>693</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2017</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>1028</sb:first-page>
+                              <sb:last-page>1034</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1016/j.jallcom.2016.09.211</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0007">Lopatin, S.I.; Shugurov, S.M.; Fedorova, A.V.; Utina, A.V.; Panin, A.I. Mass spectrometric study of thermodynamic properties of BaO-CeO2. The formation enthalpy of BaCeO3 (solid). J. Alloys Compd. 2017, 693, 1028–1034. DOI: https://doi.org/10.1016/j.jallcom.2016.09.211.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0008">
+                     <ce:label>[8]</ce:label>
+                     <sb:reference id="sbref0008">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>K.S.</ce:given-name>
+                                 <ce:surname>Knight</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Structural phase transitions in BaCeO<ce:inf loc="post">3</ce:inf>
+                              </sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Solid. State Ion.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>74</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>3</sb:issue-nr>
+                              <sb:date>1994</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>109</sb:first-page>
+                              <sb:last-page>117</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1016/0167-2738(94)90199-6</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0008">Knight, K.S. Structural phase transitions in BaCeO3. Solid. State Ion. 1994, 74 (3), 109–117. DOI: https://doi.org/10.1016/0167-2738(94)90199-6.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0009">
+                     <ce:label>[9]</ce:label>
+                     <sb:reference id="sbref0009">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>K.</ce:given-name>
+                                 <ce:surname>Rubešová</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>V.</ce:given-name>
+                                 <ce:surname>Jakeš</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>T.</ce:given-name>
+                                 <ce:surname>Ngadande</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Lojka</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>O.</ce:given-name>
+                                 <ce:surname>Jankovský</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>D.</ce:given-name>
+                                 <ce:surname>Sedmidubský</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Co-precipitation of nano-scaled BaCeO<ce:inf loc="post">3</ce:inf> applicable in superconducting ceramics</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:book>
+                              <sb:title>
+                                 <sb:maintitle>Thermophysics 2024</sb:maintitle>
+                              </sb:title>
+                              <sb:date>2024</sb:date>
+                              <sb:publisher>
+                                 <sb:name>Dalešice</sb:name>
+                              </sb:publisher>
+                           </sb:book>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0009">Rubešová, K.; Jakeš, V.; Ngadande, T.; Lojka, M.; Jankovský, O.; Sedmidubský, D. Co-precipitation of nano-scaled BaCeO3 applicable in superconducting ceramics. In Thermophysics 2024, Dalešice; 2024.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0010">
+                     <ce:label>[10]</ce:label>
+                     <sb:reference id="sbref0010">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>Q.</ce:given-name>
+                                 <ce:surname>Zhang</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>J.</ce:given-name>
+                                 <ce:surname>Ding</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>He</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>First principles study on structural, lattice dynamical and thermal properties of BaCeO<ce:inf loc="post">3</ce:inf>
+                              </sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>J. Phys. Chem. Solids.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>108</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2017</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>76</sb:first-page>
+                              <sb:last-page>81</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1016/j.jpcs.2017.04.019</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0010">Zhang, Q.; Ding, J.; He, M. First principles study on structural, lattice dynamical and thermal properties of BaCeO3. J. Phys. Chem. Solids. 2017, 108, 76–81. DOI: 10.1016/j.jpcs.2017.04.019.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0011">
+                     <ce:label>[11]</ce:label>
+                     <sb:reference id="sbref0011">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>P.</ce:given-name>
+                                 <ce:surname>Pasierb</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Wierzbicka</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>S.</ce:given-name>
+                                 <ce:surname>Komornicki</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Rekas</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Electrochemical impedance spectroscopy of BaCeO<ce:inf loc="post">3</ce:inf> modified by Ti and Y</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>J. Power. Sources.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>194</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>1</sb:issue-nr>
+                              <sb:date>2009</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>31</sb:first-page>
+                              <sb:last-page>37</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1016/j.jpowsour.2009.01.098</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0011">Pasierb, P.; Wierzbicka, M.; Komornicki, S.; Rekas, M. Electrochemical impedance spectroscopy of BaCeO3 modified by Ti and Y. J. Power. Sources. 2009, 194 (1), 31–37. DOI: https://doi.org/10.1016/j.jpowsour.2009.01.098.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0012">
+                     <ce:label>[12]</ce:label>
+                     <sb:reference id="sbref0012">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>A.</ce:given-name>
+                                 <ce:surname>Tomita</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>T.</ce:given-name>
+                                 <ce:surname>Hibino</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Suzuki</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Sano</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Proton conduction at the surface of Y-doped BaCeO<ce:inf loc="post">3</ce:inf> and its application to an air/fuel sensor</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>J. Mater. Sci.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>39</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>7</sb:issue-nr>
+                              <sb:date>2004</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>2493</sb:first-page>
+                              <sb:last-page>2497</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1023/B:JMSC.0000020015.80430.d8</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0012">Tomita, A.; Hibino, T.; Suzuki, M.; Sano, M. Proton conduction at the surface of Y-doped BaCeO3 and its application to an air/fuel sensor. J. Mater. Sci. 2004, 39 (7), 2493–2497. DOI: 10.1023/B:JMSC.0000020015.80430.d8.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0013">
+                     <ce:label>[13]</ce:label>
+                     <sb:reference id="sbref0013">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>J.</ce:given-name>
+                                 <ce:surname>Havlíček</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>V.</ce:given-name>
+                                 <ce:surname>Jakeš</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>K.</ce:given-name>
+                                 <ce:surname>Rubešová</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>R.</ce:given-name>
+                                 <ce:surname>Kučerková</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>A.</ce:given-name>
+                                 <ce:surname>Beitlerová</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Nikl</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Heavily cerium-doped (Gd,La)AlO<ce:inf loc="post">3</ce:inf> ceramic scintillators: material optimization study</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Ceram. Int</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>48</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>23</sb:issue-nr>
+                              <sb:date>2022</sb:date>
+                           </sb:issue>
+                           <sb:article-number>34720-34727</sb:article-number>
+                           <ce:doi>10.1016/j.ceramint.2022.08.061</ce:doi>
+                        </sb:host>
+                        <sb:comment>Part A</sb:comment>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0013">Havlíček, J.; Jakeš, V.; Rubešová, K.; Kučerková, R.; Beitlerová, A.; Nikl, M. Heavily cerium-doped (Gd,La)AlO3 ceramic scintillators: material optimization study. Ceram. Int 34720–34727, 2022, 48 (23, Part A), 34720-34727. DOI: https://doi.org/10.1016/j.ceramint.2022.08.061.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0014">
+                     <ce:label>[14]</ce:label>
+                     <sb:reference id="sbref0014">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>T.</ce:given-name>
+                                 <ce:surname>Thoř</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>K.</ce:given-name>
+                                 <ce:surname>Rubešová</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>V.</ce:given-name>
+                                 <ce:surname>Jakeš</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>D.</ce:given-name>
+                                 <ce:surname>Mikolášová</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>J.</ce:given-name>
+                                 <ce:surname>Cajzl</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>J.</ce:given-name>
+                                 <ce:surname>Havlíček</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>L.</ce:given-name>
+                                 <ce:surname>Nádherný</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>F.</ce:given-name>
+                                 <ce:surname>Průša</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>R.</ce:given-name>
+                                 <ce:surname>Kučerková</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Nikl</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Dense ceramics of lanthanide-doped Lu2O<ce:inf loc="post">3</ce:inf> prepared by spark plasma sintering</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>J. Eur. Ceram. Soc.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>41</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>1</sb:issue-nr>
+                              <sb:date>2021</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>741</sb:first-page>
+                              <sb:last-page>751</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1016/j.jeurceramsoc.2020.08.028</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0014">Thoř, T.; Rubešová, K.; Jakeš, V.; Mikolášová, D.; Cajzl, J.; Havlíček, J.; Nádherný, L.; Průša, F.; Kučerková, R.; Nikl, M. Dense ceramics of lanthanide-doped Lu2O3 prepared by spark plasma sintering. J. Eur. Ceram. Soc. 2021, 41 (1), 741–751. DOI: https://doi.org/10.1016/j.jeurceramsoc.2020.08.028.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0015">
+                     <ce:label>[15]</ce:label>
+                     <sb:reference id="sbref0015">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>F.</ce:given-name>
+                                 <ce:surname>Chen</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>O.T.</ce:given-name>
+                                 <ce:surname>Sørensen</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>G.</ce:given-name>
+                                 <ce:surname>Meng</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>D.</ce:given-name>
+                                 <ce:surname>Peng</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Preparation of Nd-doped barium cerate through different routes</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Solid. State Ion.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>100</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>1</sb:issue-nr>
+                              <sb:date>1997</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>63</sb:first-page>
+                              <sb:last-page>72</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1016/S0167-2738(97)00265-8</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0015">Chen, F.; Sørensen, O.T.; Meng, G.; Peng, D. Preparation of Nd-doped barium cerate through different routes. Solid. State Ion. 1997, 100 (1), 63–72. DOI: https://doi.org/10.1016/S0167-2738(97)00265-8.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0016">
+                     <ce:label>[16]</ce:label>
+                     <sb:reference id="sbref0016">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>A.V.</ce:given-name>
+                                 <ce:surname>Orlov</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>O.A.</ce:given-name>
+                                 <ce:surname>Shlyakhtin</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>A.L.</ce:given-name>
+                                 <ce:surname>Vinokurov</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>A.V.</ce:given-name>
+                                 <ce:surname>Knotko</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>Y.D.</ce:given-name>
+                                 <ce:surname>Tret’yakov</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Preparation and properties of fine BaCeO<ce:inf loc="post">3</ce:inf> powders for low-temperature sintering</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Inorg. Mater.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>41</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>11</sb:issue-nr>
+                              <sb:date>2005</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>1194</sb:first-page>
+                              <sb:last-page>1200</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1007/s10789-005-0286-7</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0016">Orlov, A.V.; Shlyakhtin, O.A.; Vinokurov, A.L.; Knotko, A.V.; Tret'yakov, Y.D. Preparation and properties of fine BaCeO3 powders for low-temperature sintering. Inorg. Mater. 2005, 41 (11), 1194–1200. DOI: 10.1007/s10789-005-0286-7.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0017">
+                     <ce:label>[17]</ce:label>
+                     <sb:reference id="sbref0017">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>I.</ce:given-name>
+                                 <ce:surname>Arvanitidis</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>D.</ce:given-name>
+                                 <ce:surname>Siche</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>S.</ce:given-name>
+                                 <ce:surname>Seetharaman</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>A study of the thermal decomposition of BaCO<ce:inf loc="post">3</ce:inf>
+                              </sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Metall. Mater. Trans. B</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>27</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>3</sb:issue-nr>
+                              <sb:date>1996</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>409</sb:first-page>
+                              <sb:last-page>416</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1007/BF02914905</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0017">Arvanitidis, I.; Siche, D.; Seetharaman, S. A study of the thermal decomposition of BaCO3. Metall. Mater. Trans. B 1996, 27 (3), 409–416. DOI: 10.1007/BF02914905.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0018">
+                     <ce:label>[18]</ce:label>
+                     <sb:reference id="sbref0018">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>D.R.</ce:given-name>
+                                 <ce:surname>Clarke</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>T.M.</ce:given-name>
+                                 <ce:surname>Shaw</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>D.</ce:given-name>
+                                 <ce:surname>Dimos</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Issues in the processing of cuprate ceramic superconductors</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>J. Am. Ceram. Soc.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>72</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>7</sb:issue-nr>
+                              <sb:date>1989</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>1103</sb:first-page>
+                              <sb:last-page>1113</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1111/j.1151-2916.1989.tb09691.x</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0018">Clarke, D.R.; Shaw, T.M.; Dimos, D. Issues in the processing of cuprate ceramic superconductors. J. Am. Ceram. Soc. 1989, 72 (7), 1103–1113. DOI: https://doi.org/10.1111/j.1151-2916.1989.tb09691.x.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0019">
+                     <ce:label>[19]</ce:label>
+                     <ce:other-ref id="sbref0019">
+                        <ce:textref>Patil, K.; Hegde, M.S.; Rattan, T.; Aruna, S.T. Chemistry of nanocrystalline oxide materials: combustion synthesis, properties and applications. 2008. DOI: <ce:inter-ref id="interref0001" xlink:href="https://doi.org/10.1142/9789812793157" xlink:type="simple">10.1142/9789812793157</ce:inter-ref>.</ce:textref>
+                     </ce:other-ref>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0020">
+                     <ce:label>[20]</ce:label>
+                     <sb:reference id="sbref0020">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>S.</ce:given-name>
+                                 <ce:surname>Aswathappa</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>S.S.</ce:given-name>
+                                 <ce:surname>Dhas</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>A.</ce:given-name>
+                                 <ce:surname>Almansour</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>S.K.</ce:given-name>
+                                 <ce:surname>Raju</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>A.</ce:given-name>
+                                 <ce:surname>Natarajan</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>K.</ce:given-name>
+                                 <ce:surname>Perumal</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>M.</ce:given-name>
+                                 <ce:surname>Dhas</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Sustainability of the crystallographic phase stability of the barium carbonate nanoparticles at dynamic shocked conditions</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Appl. Phys. A</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>127</sb:volume-nr>
+                              </sb:series>
+                              <sb:date>2021</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>127</sb:first-page>
+                           </sb:pages>
+                           <ce:doi>10.1007/s00339-021-05059-7</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0020">Aswathappa, S.; Dhas, S.S.; Almansour, A.; Raju, S.K.; Natarajan, A.; Perumal, K.; Dhas, M. Sustainability of the crystallographic phase stability of the barium carbonate nanoparticles at dynamic shocked conditions. Appl. Phys. A 127, 2021, 127. DOI: 10.1007/s00339-021-05059-7.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0021">
+                     <ce:label>[21]</ce:label>
+                     <sb:reference id="sbref0021">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>T.</ce:given-name>
+                                 <ce:surname>Scherban</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>R.</ce:given-name>
+                                 <ce:surname>Villeneuve</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>L.</ce:given-name>
+                                 <ce:surname>Abello</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>G.</ce:given-name>
+                                 <ce:surname>Lucazeau</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Raman scattering study of BaCeO<ce:inf loc="post">3</ce:inf> and SrCeO<ce:inf loc="post">3</ce:inf>
+                              </sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Solid. State Commun.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>84</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>3</sb:issue-nr>
+                              <sb:date>1992</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>341</sb:first-page>
+                              <sb:last-page>344</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1016/0038-1098(92)90133-T</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0021">Scherban, T.; Villeneuve, R.; Abello, L.; Lucazeau, G. Raman scattering study of BaCeO3 and SrCeO3. Solid. State Commun.. 1992, 84 (3), 341–344. DOI: https://doi.org/10.1016/0038-1098(92)90133-T.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0022">
+                     <ce:label>[22]</ce:label>
+                     <sb:reference id="sbref0022">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>M.J.</ce:given-name>
+                                 <ce:surname>Sarsfield</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>R.J.</ce:given-name>
+                                 <ce:surname>Taylor</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>C.</ce:given-name>
+                                 <ce:surname>Puxley</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>H.M.</ce:given-name>
+                                 <ce:surname>Steele</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Raman spectroscopy of plutonium dioxide and related materials</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>J. Nucl. Mater.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>427</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>1</sb:issue-nr>
+                              <sb:date>2012</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>333</sb:first-page>
+                              <sb:last-page>342</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1016/j.jnucmat.2012.04.034</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0022">Sarsfield, M.J.; Taylor, R.J.; Puxley, C.; Steele, H.M. Raman spectroscopy of plutonium dioxide and related materials. J. Nucl. Mater. 2012, 427 (1), 333–342. DOI: https://doi.org/10.1016/j.jnucmat.2012.04.034.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0023">
+                     <ce:label>[23]</ce:label>
+                     <sb:reference id="sbref0023">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>I.</ce:given-name>
+                                 <ce:surname>Charrier-Cougoulic</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>T.</ce:given-name>
+                                 <ce:surname>Pagnier</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>G.</ce:given-name>
+                                 <ce:surname>Lucazeau</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Raman spectroscopy of perovskite-type BaCexZr<ce:inf loc="post">1−x</ce:inf>O<ce:inf loc="post">3</ce:inf>(0≤x≤1)</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>J. Solid. State Chem.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>142</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>1</sb:issue-nr>
+                              <sb:date>1999</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>220</sb:first-page>
+                              <sb:last-page>227</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1006/jssc.1998.8038</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0023">Charrier-Cougoulic, I.; Pagnier, T.; Lucazeau, G. Raman spectroscopy of perovskite-type BaCexZr1−xO3(0≤x≤1). J. Solid. State Chem. 1999, 142 (1), 220–227. DOI: https://doi.org/10.1006/jssc.1998.8038.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0024">
+                     <ce:label>[24]</ce:label>
+                     <sb:reference id="sbref0024">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>W.</ce:given-name>
+                                 <ce:surname>Kaabar</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>S.</ce:given-name>
+                                 <ce:surname>Bott</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>R.</ce:given-name>
+                                 <ce:surname>Devonshire</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Raman spectroscopic study of mixed carbonate materials</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Spectrochim. Acta A: Mol. Biomol. Spectrosc.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>78</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>1</sb:issue-nr>
+                              <sb:date>2011</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>136</sb:first-page>
+                              <sb:last-page>141</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1016/j.saa.2010.09.011</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0024">Kaabar, W.; Bott, S.; Devonshire, R. Raman spectroscopic study of mixed carbonate materials. Spectrochim. Acta A: Mol. Biomol. Spectrosc. 2011, 78 (1), 136–141. DOI: https://doi.org/10.1016/j.saa.2010.09.011.</ce:source-text>
+                  </ce:bib-reference>
+                  <ce:bib-reference id="bib0025">
+                     <ce:label>[25]</ce:label>
+                     <sb:reference id="sbref0025">
+                        <sb:contribution langtype="en">
+                           <sb:authors>
+                              <sb:author>
+                                 <ce:given-name>T.</ce:given-name>
+                                 <ce:surname>Mizuguchi</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>S.</ce:given-name>
+                                 <ce:surname>Guo</ce:surname>
+                              </sb:author>
+                              <sb:author>
+                                 <ce:given-name>Y.</ce:given-name>
+                                 <ce:surname>Kagawa</ce:surname>
+                              </sb:author>
+                           </sb:authors>
+                           <sb:title>
+                              <sb:maintitle>Transmission electron microscopy characterization of spark plasma sintered ZrB<ce:inf loc="post">2</ce:inf> ceramic</sb:maintitle>
+                           </sb:title>
+                        </sb:contribution>
+                        <sb:host>
+                           <sb:issue>
+                              <sb:series>
+                                 <sb:title>
+                                    <sb:maintitle>Ceram. Int.</sb:maintitle>
+                                 </sb:title>
+                                 <sb:volume-nr>36</sb:volume-nr>
+                              </sb:series>
+                              <sb:issue-nr>3</sb:issue-nr>
+                              <sb:date>2010</sb:date>
+                           </sb:issue>
+                           <sb:pages>
+                              <sb:first-page>943</sb:first-page>
+                              <sb:last-page>946</sb:last-page>
+                           </sb:pages>
+                           <ce:doi>10.1016/j.ceramint.2009.10.025</ce:doi>
+                        </sb:host>
+                     </sb:reference>
+                     <ce:source-text id="srctxt0025">Mizuguchi, T.; Guo, S.; Kagawa, Y. Transmission electron microscopy characterization of spark plasma sintered ZrB2 ceramic. Ceram. Int. 2010, 36 (3), 943–946. DOI: https://doi.org/10.1016/j.ceramint.2009.10.025.</ce:source-text>
+                  </ce:bib-reference>
+               </ce:bibliography-sec>
+            </ce:bibliography>
+         </tail>
+      </article>
+   </xocs:serial-item></xocs:doc></originalText></full-text-retrieval-response>
