@@ -28,18 +28,13 @@ Implementation notes:
   discussion.
 """
 
+from __future__ import annotations
+
 import re
 import xml.etree.ElementTree as ET
 from typing import ClassVar
 
-from litdown.common import (
-    get_tag,
-    inline_wrap,
-    md_escape_cell,
-    render_grid,
-    xlink_href,
-)
-from litdown.mathml import render_mathml
+from litdown import common, mathml
 
 # Elsevier <inf> is JATS <sub>; map onto the shared canonical name.
 _INLINE_CANONICAL = {
@@ -62,10 +57,10 @@ _ENTRY_TAGS = ('bib-reference', 'other-ref')
 
 def _find(elem: ET.Element, name: str) -> ET.Element | None:
     """First descendant (or self) with the given local tag name."""
-    if get_tag(elem) == name:
+    if common.get_tag(elem) == name:
         return elem
     for x in elem.iter():
-        if get_tag(x) == name:
+        if common.get_tag(x) == name:
             return x
     return None
 
@@ -75,14 +70,14 @@ def _child(elem: ET.Element | None, name: str) -> ET.Element | None:
     if elem is None:
         return None
     for c in elem:
-        if get_tag(c) == name:
+        if common.get_tag(c) == name:
             return c
     return None
 
 
 def _children(elem: ET.Element, name: str) -> list[ET.Element]:
     """All direct children with the given local tag name."""
-    return [c for c in elem if get_tag(c) == name]
+    return [c for c in elem if common.get_tag(c) == name]
 
 
 def _text(elem: ET.Element | None) -> str:
@@ -90,8 +85,11 @@ def _text(elem: ET.Element | None) -> str:
 
 
 def _coalesce(*els: ET.Element | None) -> ET.Element | None:
-    """First non-None element. (``a or b`` is unsafe: an Element with no
-    children is falsy, which ElementTree deprecates for truth tests.)"""
+    """Return the first non-None element.
+
+    ``a or b`` is unsafe here: an Element with no children is falsy, which
+    ElementTree deprecates for truth tests.
+    """
     for e in els:
         if e is not None:
             return e
@@ -137,7 +135,7 @@ class _Renderer:
     that :meth:`inline` populates when it crosses a ``float-anchor``.
     """
 
-    def __init__(self, article: ET.Element, coredata: ET.Element | None):
+    def __init__(self, article: ET.Element, coredata: ET.Element | None) -> None:
         self.article = article
         self.coredata = coredata
         # Float registry: id → element, in document order.
@@ -145,7 +143,7 @@ class _Renderer:
         self.floats: dict[str, ET.Element] = {}
         if floats is not None:
             for f in floats:
-                if get_tag(f) in ('figure', 'table', 'textbox') and f.get('id'):
+                if common.get_tag(f) in ('figure', 'table', 'textbox') and f.get('id'):
                     self.floats[f.get('id') or ''] = f
         self.rendered_floats: set[str] = set()
         # Float ids referenced by the paragraph currently being rendered.
@@ -166,7 +164,7 @@ class _Renderer:
             buf.append(elem.text)
 
         for child in elem:
-            tag = get_tag(child)
+            tag = common.get_tag(child)
 
             if tag == 'math':
                 # Bare inline MathML (Elsevier embeds <math> directly in
@@ -177,7 +175,7 @@ class _Renderer:
                 continue
 
             canonical = _INLINE_CANONICAL.get(tag)
-            wrapped = inline_wrap(canonical, self.inline(child)) if canonical else None
+            wrapped = common.inline_wrap(canonical, self.inline(child)) if canonical else None
             if wrapped is not None:
                 buf.append(wrapped)
             elif tag in ('cross-ref', 'cross-refs'):
@@ -190,7 +188,7 @@ class _Renderer:
                 inner = _norm(self.inline(child))
                 buf.append(f'[{inner}](#{refid})' if refid else inner)
             elif tag == 'inter-ref':
-                href = xlink_href(child)
+                href = common.xlink_href(child)
                 inner = self.inline(child)
                 if href.startswith(('http://', 'https://', 'ftp://')):
                     buf.append(f'[{inner or href}]({href})')
@@ -224,13 +222,18 @@ class _Renderer:
         return ''
 
     def _footnote_inline(self, fn: ET.Element) -> str:
-        """Emit a footnote marker inline; collect the note for a trailing
-        Notes section (which carries the anchor the cross-ref resolves to)."""
+        """Emit a footnote marker inline and collect the note.
+
+        The note goes to a trailing Notes section, which carries the anchor the
+        cross-ref resolves to.
+        """
         fid = fn.get('id', '')
         label = _text(_child(fn, 'label'))
         if fid and fid not in self._footnote_ids:
             self._footnote_ids.add(fid)
-            body_parts = [_norm(self.inline(p)) for p in fn if get_tag(p) in ('note-para', 'para', 'simple-para')]
+            body_parts = [
+                _norm(self.inline(p)) for p in fn if common.get_tag(p) in ('note-para', 'para', 'simple-para')
+            ]
             body = ' '.join(b for b in body_parts if b)
             self.footnotes.append((fid, label, body))
         return f'<sup>{label}</sup>' if label else ''
@@ -248,9 +251,9 @@ class _Renderer:
         return '\n'.join(lines)
 
     def _math_inline(self, elem: ET.Element) -> str:
-        math = elem if get_tag(elem) == 'math' else _find(elem, 'math')
+        math = elem if common.get_tag(elem) == 'math' else _find(elem, 'math')
         if math is not None:
-            out = render_mathml(math, display=False)
+            out = mathml.render_mathml(math, display=False)
             if out:
                 return out
         # No MathML present — fall back to the altimg graphic as an image.
@@ -259,8 +262,8 @@ class _Renderer:
             return f'![eq]({href})'
         # A non-MathML (inline-)formula, e.g. a <chem> expression: render its
         # inline content rather than dropping it.
-        if get_tag(elem) in ('formula', 'inline-formula'):
-            return ''.join(self.inline(c) for c in elem if get_tag(c) != 'label')
+        if common.get_tag(elem) in ('formula', 'inline-formula'):
+            return ''.join(self.inline(c) for c in elem if common.get_tag(c) != 'label')
         return ''
 
     # -- sections ---------------------------------------------------------
@@ -303,7 +306,7 @@ class _Renderer:
         (placed after the paragraph, next to its discussion).
         """
         self._pending = []
-        block_kids = [c for c in p if get_tag(c) in self._BLOCK_IN_PARA]
+        block_kids = [c for c in p if common.get_tag(c) in self._BLOCK_IN_PARA]
         fragments: list[str] = []
 
         if not block_kids:
@@ -325,7 +328,7 @@ class _Renderer:
                     fragments.append(text)
 
             for child in p:
-                if get_tag(child) in self._BLOCK_IN_PARA:
+                if common.get_tag(child) in self._BLOCK_IN_PARA:
                     flush()
                     inline_kids = []
                     block_md = self._render_block(child)
@@ -350,7 +353,7 @@ class _Renderer:
 
     def _render_block(self, child: ET.Element) -> str:
         """Render a block-level element (equation/float/list/display/theorem)."""
-        tag = get_tag(child)
+        tag = common.get_tag(child)
         if tag == 'formula':
             return self._render_block_formula(child)
         if tag == 'list':
@@ -373,7 +376,7 @@ class _Renderer:
         """Render <displayed-quote> (a block quote / callout) as a blockquote."""
         body_parts: list[str] = []
         for c in quote:
-            ct = get_tag(c)
+            ct = common.get_tag(c)
             if ct in ('para', 'simple-para'):
                 body_parts.extend(self._para(c))
             elif ct == 'attribution':
@@ -392,7 +395,7 @@ class _Renderer:
         """
         out = []
         for c in display:
-            tag = get_tag(c)
+            tag = common.get_tag(c)
             if tag in ('formula', 'list', 'figure', 'table', 'textbox', 'enunciation'):
                 out.append(self._render_block(c))
             elif tag in ('para', 'simple-para'):
@@ -438,7 +441,7 @@ class _Renderer:
         label = _text(_child(enun, 'label'))
         body_parts: list[str] = []
         for p in enun:
-            if get_tag(p) in ('para', 'simple-para'):
+            if common.get_tag(p) in ('para', 'simple-para'):
                 body_parts.extend(self._para(p))
         body = '\n\n'.join(b for b in body_parts if b) or _norm(self.inline(enun))
         head = f'**{label}**' if label else ''
@@ -455,7 +458,7 @@ class _Renderer:
         pairs: list[str] = []
         pending_term = ''
         for child in dl:
-            ct = get_tag(child)
+            ct = common.get_tag(child)
             if ct == 'def-term':
                 if pending_term:
                     pairs.append(f'- **{pending_term}**')
@@ -502,15 +505,15 @@ class _Renderer:
         if title_el is not None:
             heading = ' '.join(b for b in (label, _norm(self.inline(title_el))) if b)
             parts.append(f'{anchor}{hashes} {heading}')
-        elif get_tag(sec) in self._DEFAULT_HEADINGS:
+        elif common.get_tag(sec) in self._DEFAULT_HEADINGS:
             # A titled back-matter block (Nomenclature, Acknowledgements, …)
             # shipped without its own <section-title>.
-            parts.append(f'{anchor}{hashes} {self._DEFAULT_HEADINGS[get_tag(sec)]}')
+            parts.append(f'{anchor}{hashes} {self._DEFAULT_HEADINGS[common.get_tag(sec)]}')
         elif sec_id:
             parts.append(anchor.rstrip())
 
         for child in sec:
-            tag = get_tag(child)
+            tag = common.get_tag(child)
             if tag in ('label', 'section-label', 'section-title'):
                 continue
             if tag == 'section':
@@ -551,7 +554,7 @@ class _Renderer:
 
         math = _find(formula, 'math')
         if math is not None:
-            body = render_mathml(math, display=True)
+            body = mathml.render_mathml(math, display=True)
             if body:
                 return f'{anchor}{body}{label_suffix}'
         href = formula.get('altimg', '') or (math.get('altimg', '') if math is not None else '')
@@ -560,7 +563,7 @@ class _Renderer:
 
         # No MathML: a <chem> reaction equation or plain-text formula. Render
         # its inline content (minus the label) so the equation isn't lost.
-        inner = _norm(''.join(self.inline(c) for c in formula if get_tag(c) != 'label'))
+        inner = _norm(''.join(self.inline(c) for c in formula if common.get_tag(c) != 'label'))
         if inner:
             return f'{anchor}{inner}{label_suffix}'
         # Nothing renderable, but still emit the anchor (+label) so a cross-ref
@@ -577,7 +580,7 @@ class _Renderer:
             return ''
         parts = []
         for c in cap:
-            if get_tag(c) in ('simple-para', 'para'):
+            if common.get_tag(c) in ('simple-para', 'para'):
                 t = _norm(self.inline(c))
                 if t:
                     parts.append(t)
@@ -585,8 +588,8 @@ class _Renderer:
             return _norm(self.inline(cap))
         return ' '.join(parts)
 
-    def _render_float(self, flt: ET.Element) -> str:
-        tag = get_tag(flt)
+    def _render_float(self, flt: ET.Element) -> str:  # noqa: C901
+        tag = common.get_tag(flt)
         fid = flt.get('id', '')
         label = _text(_child(flt, 'label'))
         caption = self._caption(flt)
@@ -632,7 +635,7 @@ class _Renderer:
 
             def collect(container: ET.Element) -> None:
                 for c in container:
-                    ct = get_tag(c)
+                    ct = common.get_tag(c)
                     if ct in ('sections',):
                         collect(c)
                     elif ct == 'section':
@@ -667,14 +670,16 @@ class _Renderer:
         parts: list[str] = []
         for legend in _children(flt, 'legend'):
             for p in legend:
-                if get_tag(p) in ('simple-para', 'para'):
+                if common.get_tag(p) in ('simple-para', 'para'):
                     t = _norm(self.inline(p))
                     if t:
                         parts.append(t)
         for fn in _children(flt, 'table-footnote'):
             fn_id = fn.get('id', '')
             label = _text(_child(fn, 'label'))
-            body_parts = [_norm(self.inline(p)) for p in fn if get_tag(p) in ('note-para', 'simple-para', 'para')]
+            body_parts = [
+                _norm(self.inline(p)) for p in fn if common.get_tag(p) in ('note-para', 'simple-para', 'para')
+            ]
             body = ' '.join(b for b in body_parts if b) or _norm(self.inline(fn))
             anchor = f'<a id="{fn_id}"></a>' if fn_id else ''
             marker = f'<sup>{label}</sup> ' if label else ''
@@ -696,7 +701,7 @@ class _Renderer:
         def cells(row: ET.Element) -> list[tuple[str, int, int]]:
             out = []
             for entry in _children(row, 'entry'):
-                content = md_escape_cell(_norm(self.inline(entry)))
+                content = common.md_escape_cell(_norm(self.inline(entry)))
                 namest = entry.get('namest')
                 nameend = entry.get('nameend')
                 colspan = 1
@@ -716,7 +721,7 @@ class _Renderer:
         tbody = _child(tgroup, 'tbody')
         if tbody is not None:
             body_rows_raw = [cells(r) for r in _children(tbody, 'row')]
-        return render_grid(header_rows_raw, body_rows_raw)
+        return common.render_grid(header_rows_raw, body_rows_raw)
 
     # -- references -------------------------------------------------------
 
@@ -745,7 +750,7 @@ class _Renderer:
         else:
             inter = _find(bib_ref, 'inter-ref')
             if inter is not None:
-                href = xlink_href(inter)
+                href = common.xlink_href(inter)
                 if href.startswith(('http://', 'https://', 'ftp://')) and href not in body:
                     doi_link = f'[{href}]({href})'
         if doi_link and doi_link not in body:
@@ -753,7 +758,7 @@ class _Renderer:
 
         # A <note> in the reference may carry a trailing DOI/identifier not in
         # the structured fields; append it if it adds something.
-        for note in (n for n in bib_ref.iter() if get_tag(n) == 'note'):
+        for note in (n for n in bib_ref.iter() if common.get_tag(n) == 'note'):
             nt = _norm(self.inline(note))
             if nt and nt not in body:
                 body = (body + ' ' + nt).strip()
@@ -767,8 +772,11 @@ class _Renderer:
         return '\n'.join(lines)
 
     def _other_ref(self, ref: ET.Element) -> str:
-        """Render an <other-ref> (a free-text <textref> citation, sibling of
-        <bib-reference> in the bibliography) with its anchor."""
+        """Render an <other-ref> with its anchor.
+
+        An <other-ref> is a free-text <textref> citation, sibling of
+        <bib-reference> in the bibliography.
+        """
         ref_id = ref.get('id', '')
         label = _text(_child(ref, 'label'))
         textref = _find(ref, 'textref')
@@ -784,7 +792,7 @@ class _Renderer:
         lines.append('')
         return '\n'.join(lines)
 
-    def _sb_reference(self, reference: ET.Element) -> str:
+    def _sb_reference(self, reference: ET.Element) -> str:  # noqa: C901, PLR0912
         contribution = _find(reference, 'contribution')
         authors: list[str] = []
         art_title = ''
@@ -792,7 +800,7 @@ class _Renderer:
             auth_block = _child(contribution, 'authors')
             if auth_block is not None:
                 for a in auth_block:
-                    atag = get_tag(a)
+                    atag = common.get_tag(a)
                     if atag == 'author':
                         sn = _text(_child(a, 'surname'))
                         gn = _text(_child(a, 'given-name'))
@@ -868,7 +876,7 @@ class _Renderer:
 # ---------------------------------------------------------------------------
 
 
-def _render_front(renderer: _Renderer, head: ET.Element | None, coredata: ET.Element | None) -> str:
+def _render_front(renderer: _Renderer, head: ET.Element | None, coredata: ET.Element | None) -> str:  # noqa: C901, PLR0912
     parts: list[str] = []
 
     def cd(name: str) -> str:
@@ -931,7 +939,9 @@ def _render_front(renderer: _Renderer, head: ET.Element | None, coredata: ET.Ele
     if head is not None:
         for afn in _children(head, 'article-footnote'):
             afn_id = afn.get('id', '')
-            note_parts = [_norm(renderer.inline(p)) for p in afn if get_tag(p) in ('note-para', 'para', 'simple-para')]
+            note_parts = [
+                _norm(renderer.inline(p)) for p in afn if common.get_tag(p) in ('note-para', 'para', 'simple-para')
+            ]
             note = ' '.join(p for p in note_parts if p) or _norm(renderer.inline(afn))
             if note:
                 anchor = f'<a id="{afn_id}"></a>' if afn_id else ''
@@ -1000,7 +1010,7 @@ def _render_authors(author_group: ET.Element) -> list[str]:
         if not textfn:
             # No rendered textfn — assemble from the structured organization
             # names if present.
-            org = [_text(o) for o in aff.iter() if get_tag(o) == 'organization']
+            org = [_text(o) for o in aff.iter() if common.get_tag(o) == 'organization']
             textfn = ', '.join(o for o in org if o)
         if textfn:
             anchor = f'<a id="{aff_id}"></a>' if aff_id else ''
@@ -1026,7 +1036,7 @@ def _render_authors(author_group: ET.Element) -> list[str]:
     for fn in _children(author_group, 'footnote'):
         fn_id = fn.get('id', '')
         label = _text(_child(fn, 'label'))
-        body_parts = [_norm(_text(p)) for p in fn if get_tag(p) in ('note-para', 'para', 'simple-para')]
+        body_parts = [_norm(_text(p)) for p in fn if common.get_tag(p) in ('note-para', 'para', 'simple-para')]
         body = ' '.join(b for b in body_parts if b)
         anchor = f'<a id="{fn_id}"></a>' if fn_id else ''
         marker = f'<sup>{label}</sup> ' if label else ''
@@ -1049,7 +1059,7 @@ def _render_abstract(renderer: _Renderer, abstract: ET.Element) -> str:
         )
     lines = [f'## {heading}']
     for child in abstract:
-        tag = get_tag(child)
+        tag = common.get_tag(child)
         if tag == 'section-title':
             continue
         if tag == 'abstract-sec':
@@ -1073,13 +1083,13 @@ def _render_abstract(renderer: _Renderer, abstract: ET.Element) -> str:
 def _render_body(renderer: _Renderer, body: ET.Element, head: ET.Element | None) -> str:
     parts: list[str] = []
     for child in body:
-        tag = get_tag(child)
+        tag = common.get_tag(child)
         if tag == 'sections':
             # <sections> usually holds <section>s, but a <para>/<display> can
             # sit directly under it (e.g. an unnumbered table between
             # sections); render those too rather than dropping them.
             for sub in child:
-                stag = get_tag(sub)
+                stag = common.get_tag(sub)
                 if stag == 'section':
                     if _is_compact_view(sub):
                         parts.append(_anchor_only(sub))
@@ -1107,7 +1117,7 @@ def _render_body(renderer: _Renderer, body: ET.Element, head: ET.Element | None)
     # Trailing body blocks (acknowledgment, conflict-of-interest, etc.) in
     # document order, rendered through the normal section machinery.
     for child in body:
-        tag = get_tag(child)
+        tag = common.get_tag(child)
         if tag in ('sections', 'appendices', 'para', 'simple-para'):
             continue
         parts.append(renderer._section(child, level=2))
@@ -1116,15 +1126,17 @@ def _render_body(renderer: _Renderer, body: ET.Element, head: ET.Element | None)
 
 
 def _render_biographies(renderer: _Renderer, tail: ET.Element) -> str:
-    """Render author <biography> blocks (their portrait figures get anchored
-    via _para's block-lifting)."""
-    bios = [x for x in tail.iter() if get_tag(x) == 'biography']
+    """Render author <biography> blocks.
+
+    Their portrait figures get anchored via _para's block-lifting.
+    """
+    bios = [x for x in tail.iter() if common.get_tag(x) == 'biography']
     if not bios:
         return ''
     blocks: list[str] = ['## Author biographies']
     for bio in bios:
         for p in bio:
-            if get_tag(p) in ('para', 'simple-para'):
+            if common.get_tag(p) in ('para', 'simple-para'):
                 blocks.extend(renderer._para(p))
     return '\n\n'.join(b for b in blocks if b) if len(blocks) > 1 else ''
 
@@ -1141,7 +1153,7 @@ def _render_glossary(renderer: _Renderer, scope: ET.Element) -> str:
     # glossary isn't rendered twice.
     entries: list[ET.Element] = []
     seen: set[int] = set()
-    for ge in (e for e in scope.iter() if get_tag(e) == 'glossary-entry'):
+    for ge in (e for e in scope.iter() if common.get_tag(e) == 'glossary-entry'):
         if id(ge) in seen:
             continue
         seen.add(id(ge))
@@ -1168,7 +1180,7 @@ def _render_bibliography(renderer: _Renderer, tail: ET.Element) -> str:
     """
     blocks: list[str] = []
     for container_tag, default_title in (('bibliography', 'References'), ('further-reading', 'Further reading')):
-        for container in (x for x in tail.iter() if get_tag(x) == container_tag):
+        for container in (x for x in tail.iter() if common.get_tag(x) == container_tag):
             # A reference entry is a *top-level* <bib-reference> or <other-ref>
             # — one not nested inside another entry. A nested <other-ref> is
             # the free-text body of its parent <bib-reference> (rendered by
@@ -1184,18 +1196,18 @@ def _render_bibliography(renderer: _Renderer, tail: ET.Element) -> str:
             def _nested_in_entry(e: ET.Element, _parent: dict[int, ET.Element] = parent) -> bool:
                 cur = _parent.get(id(e))
                 while cur is not None:
-                    if get_tag(cur) in _ENTRY_TAGS:
+                    if common.get_tag(cur) in _ENTRY_TAGS:
                         return True
                     cur = _parent.get(id(cur))
                 return False
 
-            refs = [x for x in container.iter() if get_tag(x) in _ENTRY_TAGS and not _nested_in_entry(x)]
+            refs = [x for x in container.iter() if common.get_tag(x) in _ENTRY_TAGS and not _nested_in_entry(x)]
             if not refs:
                 continue
             title = _text(_child(container, 'section-title')) or default_title
             lines = [f'## {title}', '']
             for ref in refs:
-                if get_tag(ref) == 'bib-reference':
+                if common.get_tag(ref) == 'bib-reference':
                     lines.append(renderer._reference(ref))
                 else:
                     lines.append(renderer._other_ref(ref))

@@ -5,6 +5,8 @@ Public API:
     render_mathml(elem, ...) — wrap in $…$ or $$…$$
 """
 
+from __future__ import annotations
+
 import re as _re
 import xml.etree.ElementTree as ET
 from collections.abc import Iterable
@@ -259,7 +261,7 @@ _LETTERS = {
 
 # Extend _LETTERS with Mathematical Alphanumeric Symbols (U+1D400 block).
 # Generated programmatically to avoid non-ASCII source characters.
-def _add_math_alphanumeric() -> None:
+def _add_math_alphanumeric() -> None:  # noqa: C901
     up = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     lo = 'abcdefghijklmnopqrstuvwxyz'
     # Mathematical bold:  capital U+1D400, small U+1D41A
@@ -432,7 +434,7 @@ _MATHVARIANT = {
 
 
 def _retarget_array(inner: str, env: str) -> str:
-    """Rewrite ``\\begin{array}{…}…\\end{array}`` blocks to use ``env`` instead."""
+    r"""Rewrite ``\begin{array}{…}…\end{array}`` blocks to use ``env`` instead."""
     return _re.sub(
         r'\\begin\{array\}\{[^}]*\}(.*?)\\end\{array\}',
         lambda m: r'\begin{' + env + r'}' + m.group(1) + r'\end{' + env + r'}',
@@ -450,9 +452,10 @@ _CTRL_WORD_END = _re.compile(r'\\[A-Za-z]+$')
 
 
 def _join(parts: Iterable[str]) -> str:
-    """Concatenate LaTeX fragments, inserting '{}' to prevent a control word
-    from absorbing the first letter of the next fragment.
-    E.g. ['\\in', 'S'] → '\\in{}S', not '\\inS'.
+    r"""Concatenate LaTeX fragments, inserting '{}' between control words.
+
+    Prevents a control word from absorbing the first letter of the next
+    fragment. E.g. ['\in', 'S'] → '\in{}S', not '\inS'.
     """
     result = ''
     for part in parts:
@@ -463,10 +466,10 @@ def _join(parts: Iterable[str]) -> str:
 
 
 def _is_single_brace_group(s: str) -> bool:
-    """Return True if s is exactly one {…} group whose braces balance at the end.
+    r"""Return True if s is exactly one {…} group whose braces balance at the end.
 
     Needed because a string like '{}_{T}^{H}Y' starts with '{' and ends with '}'
-    (from \\mathrm{Y}) but is NOT a single group — misidentifying it causes
+    (from \mathrm{Y}) but is NOT a single group — misidentifying it causes
     double-script errors in nested mmultiscripts.
     """
     if not (s.startswith('{') and s.endswith('}')):
@@ -500,7 +503,7 @@ def _brace(s: str) -> str:
 
 
 def _brace_arg(s: str) -> str:
-    """Always wrap in braces — for \\frac, \\sqrt, \\binom, etc. arguments."""
+    r"""Always wrap in braces — for \frac, \sqrt, \binom, etc. arguments."""
     if not s:
         return '{}'
     if _is_single_brace_group(s):
@@ -522,8 +525,11 @@ def _has_bare(s: str, char: str) -> bool:
 
 
 def _script_base(s: str, script_char: str) -> str:
-    """Wrap base in braces only when adding `script_char` would create a
-    double-script error (e.g. x_i + _j → {x_i}_j, but x_i + ^2 is fine)."""
+    """Wrap base in braces to avoid a double-script error.
+
+    Only when adding `script_char` would create one (e.g. x_i + _j →
+    {x_i}_j, but x_i + ^2 is fine).
+    """
     if _has_bare(s, script_char):
         return '{' + s + '}'
     return s
@@ -573,17 +579,17 @@ _TEXT_ESCAPES_MATH = {
 
 
 def _build_text(raw: str) -> str:
-    """Convert a raw string into safe LaTeX for use inside a math expression.
+    r"""Convert a raw string into safe LaTeX for use inside a math expression.
 
     ASCII 'special' chars (_, ^, {, }) are escaped for text mode.
     Non-ASCII chars that have known LaTeX equivalents are emitted as math-mode
     fragments; Greek / other mapped chars are likewise substituted.
-    Everything else is enclosed in \\text{…}.
+    Everything else is enclosed in \text{…}.
     """
     parts: list[str] = []
     buf: list[str] = []
 
-    def flush():
+    def flush() -> None:
         if buf:
             # Escape LaTeX text-mode specials before wrapping in \text{}
             s = ''.join(buf)
@@ -619,11 +625,13 @@ def _build_text(raw: str) -> str:
 
 
 def _join_kids(kids: list) -> str:
-    """Convert and join child elements, with one special case:
-    when a FUNCTION APPLICATION operator (U+2061) follows a sibling whose
+    r"""Convert and join child elements, with one special case.
+
+    When a FUNCTION APPLICATION operator (U+2061) follows a sibling whose
     LaTeX is plain undecorated ASCII text, promote that text to
-    \\operatorname{} so it renders upright with correct operator spacing.
-    Known function names (already mapped to \\ln etc.) are left alone."""
+    \operatorname{} so it renders upright with correct operator spacing.
+    Known function names (already mapped to \ln etc.) are left alone.
+    """
     parts: list[str] = []
     for child in kids:
         tex = mml_to_tex(child)
@@ -648,7 +656,7 @@ def _join_kids(kids: list) -> str:
 # ---------------------------------------------------------------------------
 
 
-def mml_to_tex(elem: ET.Element) -> str:
+def mml_to_tex(elem: ET.Element) -> str:  # noqa: C901, PLR0911, PLR0912, PLR0915
     """Recursively convert a MathML element to a LaTeX string."""
     tag = _mml_tag(elem)
     kids = _children(elem)

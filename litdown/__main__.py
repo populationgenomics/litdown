@@ -1,8 +1,10 @@
 """CLI: ``python -m litdown article.xml [output.md]``."""
 
+from __future__ import annotations
+
 import sys
 
-from litdown import convert
+import litdown
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -11,7 +13,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f'Usage: {args[0]} <article.xml> [output.md]', file=sys.stderr)
         return 1
 
-    md = convert(args[1])
+    md = litdown.convert(args[1])
 
     if len(args) >= 3:
         with open(args[2], 'w') as f:

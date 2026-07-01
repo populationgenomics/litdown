@@ -13,6 +13,8 @@ function would be more tangled than two small ones. Each dialect keeps its
 own dispatcher and calls :func:`inline_wrap` for the shared leaf wrappings.
 """
 
+from __future__ import annotations
+
 import xml.etree.ElementTree as ET
 
 XLINK_NS = 'http://www.w3.org/1999/xlink'

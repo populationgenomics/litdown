@@ -25,10 +25,23 @@ Issues = "https://github.com/populationgenomics/litdown/issues"
 [project.scripts]
 litdown = "litdown.__main__:main"
 
-[project.optional-dependencies]
-# Used only by tools/grade_mml.py (Gemini-based MathML grading harness).
+# Supply-chain age gate: never resolve a release younger than 7 days. Declared
+# in-repo (not only in global uv config) so CI and contributors inherit the same
+# resolution. Relative, not a fixed date: an ongoing "nothing younger than 7
+# days", not a frozen cutoff.
+[tool.uv]
+exclude-newer = "7 days"
+
+# Dev tooling (PEP 735 groups): not shipped, so it lives here rather than in
+# project.optional-dependencies. pyright checks litdown/ + tests/, so the lint
+# group carries pytest for the test imports to resolve. pre-commit is in the
+# lint group because CI runs the whole static-check gate via `uv run
+# pre-commit run --all-files`. grading: only tools/grade_mml.py (Gemini-based
+# MathML grading harness) needs google-genai.
+[dependency-groups]
+test = ["pytest"]
+lint = ["ruff", "pyright", "pytest", "pre-commit"]
 grading = ["google-genai"]
-dev = ["pytest"]
 
 [tool.setuptools.packages.find]
 include = ["litdown*"]
@@ -39,62 +52,100 @@ litdown = ["py.typed"]
 
 [tool.ruff]
 line-length = 120
+target-version = "py310"
 
 [tool.ruff.format]
 quote-style = "single"
 
 [tool.ruff.lint]
 select = [
-    "A",    # flake8-builtins
-    "ARG",  # unused arguments
-    "B",    # flake8-bugbear
-    "C4",   # flake8-comprehensions
-    "COM",  # trailing commas
-    "DTZ",  # datetime
-    "E",    # pycodestyle errors
-    "ERA",  # commented-out code
-    "EXE",  # executable shebangs
-    "F",    # pyflakes
-    "G",    # logging-format
-    "I",    # isort
-    "ICN",  # import conventions
-    "ISC",  # implicit string concat
-    "N",    # naming
-    "PGH",  # pygrep
-    "PIE",  # misc
-    "PT",   # pytest
-    "Q",    # quotes
-    "RET",  # returns
-    "RSE",  # raise
-    "RUF",  # ruff-specific
-    "SIM",  # simplify
-    "TID",  # tidy imports
-    "UP",   # pyupgrade
-    "W",    # pycodestyle warnings
-    "YTT",  # year 2k+
+    "A", "B", "C", "D", "E", "F", "G", "I", "N", "Q", "S", "W",
+    "ANN", "ARG", "BLE", "COM", "DTZ", "ERA", "EXE", "ICN", "ISC",
+    "PGH", "PIE", "PL", "PT", "PYI", "RET", "RSE", "RUF",
+    "SIM", "SLF", "T10", "TID", "UP", "YTT",
 ]
+
+fixable = ["ALL"]
 
 ignore = [
-    "COM812", # trailing-comma conflicts with the formatter
-    "ERA001", # commented-out code — false-positives on dict-section headers
-    "ISC001", # implicit-string-concat conflicts with the formatter
-    "G004",   # logging statement uses f-string
-    "PT018",  # multi-part assert
-    "PT009",  # use of TestCase.assertEqual — test_mml_unit.py uses unittest legitimately
-    "Q000",   # single quotes found but double quotes preferred
-    "RUF001", # ambiguous-unicode (Greek letters & operators in MathML lookup tables)
-    "RUF002", # ambiguous-unicode in docstrings
-    "RUF003", # ambiguous-unicode in comments
-    "S101",   # use of assert
+    "COM812",  # trailing comma conflicts with the formatter
+    # D1xx — docstring *presence*. Format (D2/D3/D4) is enforced when a
+    # docstring exists, but one isn't required on every public symbol.
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D106",
+    "D107",
+    "ERA001",  # false-positives on the dict-section-header comments in the MathML tables
+    "ISC001",  # implicit-string-concat conflicts with the formatter
+    "PLR0913", # too many arguments in function definition
+    "PLR2004", # magic value used in comparison
+    "Q000",    # single quotes found but double quotes preferred
+    "Q003",    # change outer quotes (conflicts with single-quote formatter)
+    # Ambiguous-unicode: the MathML lookup tables carry Greek letters and math
+    # operators by design; these fire on every entry.
+    "RUF001",
+    "RUF002",
+    "RUF003",
 ]
 
-[tool.mypy]
-files = ["litdown", "tests"]
-strict_optional = true
-check_untyped_defs = true
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = [
+    "S101",   # asserts are the standard pytest idiom
+    "SLF001", # tests legitimately reach into module privates
+    "PT009",  # test_mml_unit.py uses unittest.TestCase asserts by design
+    "PT018",  # multi-part asserts are fine in tests
+    "ANN",    # type annotations not required on tests
+    "S603",   # tests shell out to the reference converters by design
+    "S607",   # ...invoking them by name (node/npx) rather than absolute path
+    "BLE001", # golden-regeneration helpers are best-effort: log and continue
+]
+"tools/**" = [
+    # tools/ holds ad-hoc dev scripts, excluded from the wheel and the type
+    # gate; hold them to correctness rules but not library-grade rigor.
+    "S101",
+    "S310",   # urlopen: fetch scripts pull PMC/W3C fixtures over https
+    "S311",   # non-crypto rng: sampling in the grading/compare harnesses
+    "S603",
+    "S607",
+    "BLE001", # best-effort batch scripts: one bad input shouldn't abort the run
+    "PLW1510", # subprocess.run without check= is intentional in the render probes
+    "ANN",
+    "D",
+    "C901",
+    "PLR0911",
+    "PLR0912",
+    "PLR0915",
+    "T201",   # print is the script UI
+]
+"litdown/elsevier.py" = [
+    # Module-private free helpers cooperate with the module-private _Renderer,
+    # accessing its _-prefixed methods; not external private access.
+    "SLF001",
+]
 
-[tool.ruff.lint.flake8-quotes]
-inline-quotes = "single"
+[tool.ruff.lint.pydocstyle]
+convention = "google"
 
 [tool.ruff.lint.isort]
 section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
+
+# Complexity thresholds: roughly double the ruff defaults so the checks fire on
+# genuinely sprawling code but not on everyday parsers and dispatchers.
+[tool.ruff.lint.mccabe]
+max-complexity = 20
+
+[tool.ruff.lint.pylint]
+max-args = 10
+max-branches = 20
+max-returns = 10
+max-statements = 80
+max-locals = 25
+
+[tool.pyright]
+pythonVersion = "3.10"
+include = ["litdown", "tests"]
+typeCheckingMode = "standard"

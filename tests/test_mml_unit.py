@@ -560,8 +560,11 @@ def _build_regression_test(test_id: str, expected_latex: str):
 
 
 class RegressionW3C(unittest.TestCase):
-    """Regression tests: re-run converter on cached W3C MML files and compare
-    against the latex output that was judged correct in human grading."""
+    """Re-run the converter on cached W3C MML files and check the output.
+
+    Compares against the latex output that was judged correct in human
+    grading.
+    """
 
 
 # Dynamically attach one test method per graded case.
