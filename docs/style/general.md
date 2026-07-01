@@ -19,7 +19,7 @@ not inline — and never duplicate what a doc already states. No history
 narration ("removed X", "switched from Y"), commented-out code, or
 persuasion: write as if the current shape always existed.
 
-```
+```python
 # Bad — rationale, persuasion, and the design doc already states this
 conn = connect(dsn)  # one connection not a pool: pooling adds reconnect
 # complexity we don't need yet, only pays off above N writers — the

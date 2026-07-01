@@ -1,5 +1,6 @@
-# Type checking runs in CI (pyright). Skipped from pre-commit because
-# pyright is slower than is comfortable for a per-commit hook.
+# lint.yml runs `pre-commit run --all-files`, so this config is the CI gate too:
+# a hook added here is gated in CI with no workflow edit. pytest (tests.yml) stays
+# a separate CI job — too slow for the per-commit path.
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
@@ -32,6 +33,18 @@ repos:
     hooks:
       - id: ruff
       - id: ruff-format
+
+  # pyright needs the project deps (defusedxml) to resolve imports, so it runs in
+  # the lint env via `uv run`; `--group lint` provisions it on demand. Whole-project
+  # (include set in pyproject), so pass_filenames: false; fires on any staged .py.
+  - repo: local
+    hooks:
+      - id: pyright
+        name: pyright
+        entry: uv run --group lint pyright
+        language: system
+        files: \.py$
+        pass_filenames: false
 
   # YAML formatter (ruff can't format YAML).
   - repo: https://github.com/google/yamlfmt

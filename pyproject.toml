@@ -34,11 +34,13 @@ exclude-newer = "7 days"
 
 # Dev tooling (PEP 735 groups): not shipped, so it lives here rather than in
 # project.optional-dependencies. pyright checks litdown/ + tests/, so the lint
-# group carries pytest for the test imports to resolve. grading: only
-# tools/grade_mml.py (Gemini-based MathML grading harness) needs google-genai.
+# group carries pytest for the test imports to resolve. pre-commit is in the
+# lint group because CI runs the whole static-check gate via `uv run
+# pre-commit run --all-files`. grading: only tools/grade_mml.py (Gemini-based
+# MathML grading harness) needs google-genai.
 [dependency-groups]
 test = ["pytest"]
-lint = ["ruff", "pyright", "pytest"]
+lint = ["ruff", "pyright", "pytest", "pre-commit"]
 grading = ["google-genai"]
 
 [tool.setuptools.packages.find]
