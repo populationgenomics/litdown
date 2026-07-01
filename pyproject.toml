@@ -143,7 +143,7 @@ max-returns = 10
 max-statements = 80
 max-locals = 25
 
-[tool.mypy]
-files = ["litdown", "tests"]
-strict_optional = true
-check_untyped_defs = true
+[tool.pyright]
+pythonVersion = "3.10"
+include = ["litdown", "tests"]
+typeCheckingMode = "standard"
