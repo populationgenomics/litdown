@@ -5,6 +5,8 @@ Public API:
     render_mathml(elem, ...) — wrap in $…$ or $$…$$
 """
 
+from __future__ import annotations
+
 import re as _re
 import xml.etree.ElementTree as ET
 from collections.abc import Iterable

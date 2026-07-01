@@ -3,29 +3,15 @@
 Public entry point: :func:`convert`.
 """
 
+from __future__ import annotations
+
 import copy
 import re
 import xml.etree.ElementTree as ET
 
-from litdown.common import (
-    MML_NS,
-    XLINK_NS,
-    get_tag,
-    inline_wrap,
-    md_escape_cell,
-    render_grid,
-    xlink_href,
-)
-from litdown.mathml import mml_to_tex, render_mathml  # noqa: F401
+from litdown import common, mathml
 
-__all__ = [
-    'MML_NS',
-    'XLINK_NS',
-    'get_tag',
-    'md_escape_cell',
-    'render',
-    'xlink_href',
-]
+__all__ = ['render']
 
 
 # Mapping from common <ext-link ext-link-type="..."> values to a URL
@@ -77,7 +63,7 @@ def _caption_text(caption: ET.Element | None) -> str:
         return ''
     parts = []
     for child in caption:
-        tag = get_tag(child)
+        tag = common.get_tag(child)
         if tag in ('title', 'p'):
             text = inline_to_md(child).strip()
             if text:
@@ -129,14 +115,14 @@ def inline_to_md(elem: ET.Element | None) -> str:
         buf.append(elem.text)
 
     for child in elem:
-        tag = get_tag(child)
+        tag = common.get_tag(child)
         inner = inline_to_md(child)
 
         # Shared inline typographic leaves (italic/bold/sup/sub/underline/
         # monospace/strike). JATS tag names line up 1:1 with the canonical
         # keys, so no remapping is needed. monospace → backtick code span
         # doubles as the markdown convention for variable names, paths, etc.
-        wrapped = inline_wrap(tag, inner)
+        wrapped = common.inline_wrap(tag, inner)
         if wrapped is not None:
             buf.append(wrapped)
         elif tag == 'break':
@@ -158,7 +144,7 @@ def inline_to_md(elem: ET.Element | None) -> str:
             else:
                 buf.append(inner)
         elif tag == 'ext-link':
-            href = xlink_href(child)
+            href = common.xlink_href(child)
             link_type = child.get('ext-link-type', '')
             if href.startswith(('http://', 'https://', 'ftp://')):
                 buf.append(f'[{inner or href}]({href})')
@@ -219,7 +205,7 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
     # from anywhere beneath article-meta so all three encodings work.
     # aff_map is in document order (dict preserves insertion order).
     aff_map: dict[str, ET.Element] = {
-        aff.get('id') or '': aff for aff in ameta.iter() if get_tag(aff) == 'aff' and aff.get('id')
+        aff.get('id') or '': aff for aff in ameta.iter() if common.get_tag(aff) == 'aff' and aff.get('id')
     }
 
     # Build referenced-aff order + ordinal map. Some publishers (BMC
@@ -339,7 +325,7 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
         if aff.text:
             text_parts.append(aff.text.strip())
         for child in aff:
-            ctag = get_tag(child)
+            ctag = common.get_tag(child)
             if ctag in {'label', 'sup'}:
                 # Skip label/sup-as-label markers — already extracted above.
                 pass
@@ -352,7 +338,7 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
                 if child.text:
                     text_parts.append(child.text.strip())
                 for sub in child:
-                    if get_tag(sub) == 'institution':
+                    if common.get_tag(sub) == 'institution':
                         text_parts.append(inline_to_md(sub).strip())
                     if sub.tail:
                         text_parts.append(sub.tail.strip())
@@ -400,7 +386,7 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
     if notes is not None:
         notes_lines = []
         for child in notes:
-            tag = get_tag(child)
+            tag = common.get_tag(child)
             if tag == 'corresp':
                 # The corresp body is mixed content with <email> children.
                 # Render inline so emails appear as text and any prose
@@ -472,7 +458,7 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
     if cats is not None:
         for sg in cats.findall('subj-group'):
             cat_subjects.extend(
-                (s.text or '').strip() for s in sg.iter() if get_tag(s) == 'subject' and (s.text or '').strip()
+                (s.text or '').strip() for s in sg.iter() if common.get_tag(s) == 'subject' and (s.text or '').strip()
             )
 
     meta_lines = []
@@ -515,7 +501,7 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
     # those separately so CC clauses don't get truncated to the bare
     # copyright statement.
     for license_el in ameta.findall('.//license'):
-        href = license_el.get(f'{{{XLINK_NS}}}href') or license_el.get('href') or ''
+        href = license_el.get(f'{{{common.XLINK_NS}}}href') or license_el.get('href') or ''
         for lp in license_el.findall('license-p'):
             txt = inline_to_md(lp).strip()
             if txt:
@@ -580,7 +566,7 @@ def render_funding_group(fg: ET.Element) -> str:
                 funder = ''.join(inst.itertext()).strip()
             if not funder:
                 funder = (src.text or '').strip() or ''.join(
-                    t for sub in src for t in sub.itertext() if get_tag(sub) != 'institution-id'
+                    t for sub in src for t in sub.itertext() if common.get_tag(sub) != 'institution-id'
                 ).strip()
 
         # Award IDs (typically grant numbers).
@@ -644,7 +630,7 @@ def render_abstract(abstract: ET.Element) -> str:
         'supplementary material',
     }
     for child in abstract:
-        tag = get_tag(child)
+        tag = common.get_tag(child)
         if tag == 'title':
             continue
         if tag == 'p':
@@ -673,7 +659,7 @@ def render_abstract(abstract: ET.Element) -> str:
 def render_body(body: ET.Element) -> str:
     parts = []
     for child in body:
-        tag = get_tag(child)
+        tag = common.get_tag(child)
         if tag == 'sec':
             parts.append(render_sec(child, level=2))
         elif tag == 'p':
@@ -696,7 +682,7 @@ def render_sec(sec: ET.Element, level: int = 2) -> str:
         parts.append(f'<a id="{sec_id}"></a>')
 
     for child in sec:
-        tag = get_tag(child)
+        tag = common.get_tag(child)
         if tag == 'title':
             continue
         if tag == 'sec':
@@ -736,7 +722,7 @@ def render_boxed_text(box: ET.Element) -> str:
     title = inline_to_md(title_el).strip() if title_el is not None else ''
     body_parts: list[str] = []
     for child in box:
-        tag = get_tag(child)
+        tag = common.get_tag(child)
         if tag in ('label', 'caption'):
             continue
         if tag == 'p':
@@ -759,7 +745,7 @@ def render_disp_quote(q: ET.Element) -> str:
     """Render <disp-quote> as a markdown blockquote."""
     body_parts: list[str] = []
     for child in q:
-        tag = get_tag(child)
+        tag = common.get_tag(child)
         if tag == 'p':
             body_parts.extend(render_p(child))
         elif tag == 'attrib':
@@ -783,7 +769,7 @@ def render_statement(s: ET.Element) -> str:
     title = inline_to_md(title_el).strip() if title_el is not None else ''
     body_parts: list[str] = []
     for child in s:
-        tag = get_tag(child)
+        tag = common.get_tag(child)
         if tag in ('label', 'title'):
             continue
         if tag == 'p':
@@ -822,7 +808,7 @@ def render_supplementary(sm: ET.Element) -> str:
     media = sm.find('media')
     if media is None:
         media = sm.find('.//graphic')
-    href = xlink_href(media) if media is not None else ''
+    href = common.xlink_href(media) if media is not None else ''
 
     lines = []
     if sm_id:
@@ -861,7 +847,7 @@ def render_p(p: ET.Element) -> list[str]:
     render_sec join them at paragraph granularity instead of inlining
     the float's caption text into the surrounding paragraph.
     """
-    block_children = [c for c in p if get_tag(c) in _BLOCK_IN_P]
+    block_children = [c for c in p if common.get_tag(c) in _BLOCK_IN_P]
     if not block_children:
         text = inline_to_md(p)
         return [text] if text.strip() else []
@@ -882,10 +868,10 @@ def render_p(p: ET.Element) -> list[str]:
             fragments.append(text)
 
     for child in p:
-        if get_tag(child) in _BLOCK_IN_P:
+        if common.get_tag(child) in _BLOCK_IN_P:
             flush_inline()
             inline_kids = []
-            tag = get_tag(child)
+            tag = common.get_tag(child)
             if tag == 'fig':
                 fragments.append(render_fig(child))
             elif tag == 'table-wrap':
@@ -943,7 +929,7 @@ def render_fig(fig: ET.Element) -> str:
         # Inlining the caption here means it shows up twice: once as
         # truncated alt-text and once as the visible caption line below.
         for i, g in enumerate(graphics, 1):
-            href = xlink_href(g)
+            href = common.xlink_href(g)
             if not href:
                 continue
             alt = label or 'fig'
@@ -987,7 +973,7 @@ def render_table_wrap(tw: ET.Element) -> str:
         if graphic is None:
             graphic = tw.find('.//graphic')
         if graphic is not None:
-            href = xlink_href(graphic)
+            href = common.xlink_href(graphic)
             if href:
                 alt = f'{label}: {caption_md}'[:120] if caption_md else label
                 image_md = f'![{alt}]({href})'
@@ -1027,7 +1013,7 @@ def render_table(table: ET.Element) -> str:
         """Return list of (content, colspan, rowspan) for each cell in a row."""
         cells = []
         for cell in tr.findall('td') + tr.findall('th'):
-            content = md_escape_cell(inline_to_md(cell))
+            content = common.md_escape_cell(inline_to_md(cell))
             colspan = max(1, int(cell.get('colspan', 1)))
             rowspan = max(1, int(cell.get('rowspan', 1)))
             cells.append((content, colspan, rowspan))
@@ -1045,7 +1031,7 @@ def render_table(table: ET.Element) -> str:
         for tr in tbody.findall('tr'):
             body_rows_raw.append(get_cells_raw(tr))
 
-    return render_grid(header_rows_raw, body_rows_raw)
+    return common.render_grid(header_rows_raw, body_rows_raw)
 
 
 def render_list(lst: ET.Element) -> str:
@@ -1077,13 +1063,13 @@ def _formula_body(formula: ET.Element, display: bool) -> str:
         tex = _extract_tex(tm)
         if tex:
             return f'$${tex}$$' if display else f'${tex}$'
-    math = formula.find(f'.//{{{MML_NS}}}math')
+    math = formula.find(f'.//{{{common.MML_NS}}}math')
     if math is not None:
-        return render_mathml(math, display=display)
+        return mathml.render_mathml(math, display=display)
     g = formula.find('.//graphic')
     if g is None:
         g = formula.find('.//inline-graphic')
-    href = xlink_href(g) if g is not None else ''
+    href = common.xlink_href(g) if g is not None else ''
     if href:
         fid = formula.get('id', '')
         alt = f'eq {fid}' if fid else 'eq'
@@ -1119,7 +1105,7 @@ def render_floats_group(floats: ET.Element) -> str:
     """Render a <floats-group> (figs/tables placed by publisher at article end)."""
     parts = []
     for child in floats:
-        tag = get_tag(child)
+        tag = common.get_tag(child)
         if tag == 'fig':
             parts.append(render_fig(child))
         elif tag == 'table-wrap':
@@ -1140,7 +1126,7 @@ def render_back(back: ET.Element) -> str:
     # here), bare <sec>s (extended methods), <ref-list>, <notes>, <fn-group>,
     # <bio>, <glossary>. Walk children once so order is preserved.
     for child in back:
-        tag = get_tag(child)
+        tag = common.get_tag(child)
         if tag == 'ack':
             # JATS convention: <ack> implies "Acknowledgments" even
             # without a <title>. Render the heading explicitly so it
@@ -1296,7 +1282,7 @@ def _render_mixed_citation(ec: ET.Element) -> str:  # noqa: PLR0912
     # Strip <pub-id> descendants (rendered separately at the end).
     for parent in list(pruned.iter()):
         for child in list(parent):
-            if get_tag(child) == 'pub-id':
+            if common.get_tag(child) == 'pub-id':
                 if child.tail:
                     idx = list(parent).index(child)
                     if idx == 0:
@@ -1309,11 +1295,11 @@ def _render_mixed_citation(ec: ET.Element) -> str:  # noqa: PLR0912
     # Replace <person-group> with a flattened "Author1, Author2, ..." text.
     for parent in list(pruned.iter()):
         for child in list(parent):
-            if get_tag(child) != 'person-group':
+            if common.get_tag(child) != 'person-group':
                 continue
             authors = []
             for sub in child:
-                tag = get_tag(sub)
+                tag = common.get_tag(sub)
                 if tag == 'name':
                     sn = (sub.findtext('surname') or '').strip()
                     gn = (sub.findtext('given-names') or '').strip()

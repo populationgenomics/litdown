@@ -12,18 +12,22 @@ The :mod:`litdown.mathml` MathML→LaTeX converter and the dialect-neutral
 leaves in :mod:`litdown.common` are shared across both dialects.
 """
 
-from importlib.metadata import PackageNotFoundError, version
-from pathlib import Path
+from __future__ import annotations
 
-from defusedxml.ElementTree import parse as defused_parse
+import importlib.metadata
+import pathlib
 
-from litdown import elsevier, jats
-from litdown.common import get_tag
+import defusedxml.ElementTree
+
+from litdown import common, elsevier, jats
+
+# Re-exported as the package's public API (see __all__): callers use
+# `from litdown import mml_to_tex, render_mathml`.
 from litdown.mathml import mml_to_tex, render_mathml
 
 try:
-    __version__ = version('litdown')
-except PackageNotFoundError:
+    __version__ = importlib.metadata.version('litdown')
+except importlib.metadata.PackageNotFoundError:
     # Package metadata not available — e.g. running directly from the
     # source tree without an editable install.
     __version__ = '0.0.0+unknown'
@@ -31,7 +35,7 @@ except PackageNotFoundError:
 __all__ = ['__version__', 'convert', 'mml_to_tex', 'render_mathml']
 
 
-def convert(xml_path: str | Path) -> str:
+def convert(xml_path: str | pathlib.Path) -> str:
     """Convert a scholarly full-text XML file to Markdown.
 
     Sniffs the root element's local name (a single cheap parse) and
@@ -40,12 +44,12 @@ def convert(xml_path: str | Path) -> str:
     "wrong bytes" bugs in the caller, the exact failure mode the Elsevier
     dialect was added to fix.
     """
-    tree = defused_parse(xml_path)
+    tree = defusedxml.ElementTree.parse(xml_path)
     root = tree.getroot()
     if root is None:
         return ''
 
-    name = get_tag(root)
+    name = common.get_tag(root)
     if name == 'article':
         return jats.render(root)
     if name == 'full-text-retrieval-response':
