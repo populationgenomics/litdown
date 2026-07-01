@@ -25,10 +25,21 @@ Issues = "https://github.com/populationgenomics/litdown/issues"
 [project.scripts]
 litdown = "litdown.__main__:main"
 
-[project.optional-dependencies]
-# Used only by tools/grade_mml.py (Gemini-based MathML grading harness).
+# Supply-chain age gate: never resolve a release younger than 7 days. Declared
+# in-repo (not only in global uv config) so CI and contributors inherit the same
+# resolution. Relative, not a fixed date: an ongoing "nothing younger than 7
+# days", not a frozen cutoff.
+[tool.uv]
+exclude-newer = "7 days"
+
+# Dev tooling (PEP 735 groups): not shipped, so it lives here rather than in
+# project.optional-dependencies. pyright checks litdown/ + tests/, so the lint
+# group carries pytest for the test imports to resolve. grading: only
+# tools/grade_mml.py (Gemini-based MathML grading harness) needs google-genai.
+[dependency-groups]
+test = ["pytest"]
+lint = ["ruff", "pyright", "pytest"]
 grading = ["google-genai"]
-dev = ["pytest"]
 
 [tool.setuptools.packages.find]
 include = ["litdown*"]
