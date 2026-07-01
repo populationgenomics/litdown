@@ -26,8 +26,8 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
-import google.genai as genai
 import google.genai.types as gtypes
+from google import genai
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 sys.path.insert(0, str(Path(__file__).parent))
@@ -256,7 +256,7 @@ def main():
             futures[pool.submit(grade_one, item)] = item[0]
 
         for fut in as_completed(futures):
-            rel, outcome, record, our_matches, npm_matches, npm_render_failed, reasoning = fut.result()
+            rel, outcome, record, _our_matches, _npm_matches, npm_render_failed, reasoning = fut.result()
             with lock:
                 done[0] += 1
                 n = done[0]

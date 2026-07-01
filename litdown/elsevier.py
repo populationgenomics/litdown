@@ -90,8 +90,11 @@ def _text(elem: ET.Element | None) -> str:
 
 
 def _coalesce(*els: ET.Element | None) -> ET.Element | None:
-    """First non-None element. (``a or b`` is unsafe: an Element with no
-    children is falsy, which ElementTree deprecates for truth tests.)"""
+    """Return the first non-None element.
+
+    ``a or b`` is unsafe here: an Element with no children is falsy, which
+    ElementTree deprecates for truth tests.
+    """
     for e in els:
         if e is not None:
             return e
@@ -137,7 +140,7 @@ class _Renderer:
     that :meth:`inline` populates when it crosses a ``float-anchor``.
     """
 
-    def __init__(self, article: ET.Element, coredata: ET.Element | None):
+    def __init__(self, article: ET.Element, coredata: ET.Element | None) -> None:
         self.article = article
         self.coredata = coredata
         # Float registry: id → element, in document order.
@@ -224,8 +227,11 @@ class _Renderer:
         return ''
 
     def _footnote_inline(self, fn: ET.Element) -> str:
-        """Emit a footnote marker inline; collect the note for a trailing
-        Notes section (which carries the anchor the cross-ref resolves to)."""
+        """Emit a footnote marker inline and collect the note.
+
+        The note goes to a trailing Notes section, which carries the anchor the
+        cross-ref resolves to.
+        """
         fid = fn.get('id', '')
         label = _text(_child(fn, 'label'))
         if fid and fid not in self._footnote_ids:
@@ -585,7 +591,7 @@ class _Renderer:
             return _norm(self.inline(cap))
         return ' '.join(parts)
 
-    def _render_float(self, flt: ET.Element) -> str:
+    def _render_float(self, flt: ET.Element) -> str:  # noqa: C901
         tag = get_tag(flt)
         fid = flt.get('id', '')
         label = _text(_child(flt, 'label'))
@@ -767,8 +773,11 @@ class _Renderer:
         return '\n'.join(lines)
 
     def _other_ref(self, ref: ET.Element) -> str:
-        """Render an <other-ref> (a free-text <textref> citation, sibling of
-        <bib-reference> in the bibliography) with its anchor."""
+        """Render an <other-ref> with its anchor.
+
+        An <other-ref> is a free-text <textref> citation, sibling of
+        <bib-reference> in the bibliography.
+        """
         ref_id = ref.get('id', '')
         label = _text(_child(ref, 'label'))
         textref = _find(ref, 'textref')
@@ -784,7 +793,7 @@ class _Renderer:
         lines.append('')
         return '\n'.join(lines)
 
-    def _sb_reference(self, reference: ET.Element) -> str:
+    def _sb_reference(self, reference: ET.Element) -> str:  # noqa: C901, PLR0912
         contribution = _find(reference, 'contribution')
         authors: list[str] = []
         art_title = ''
@@ -868,7 +877,7 @@ class _Renderer:
 # ---------------------------------------------------------------------------
 
 
-def _render_front(renderer: _Renderer, head: ET.Element | None, coredata: ET.Element | None) -> str:
+def _render_front(renderer: _Renderer, head: ET.Element | None, coredata: ET.Element | None) -> str:  # noqa: C901, PLR0912
     parts: list[str] = []
 
     def cd(name: str) -> str:
@@ -1116,8 +1125,10 @@ def _render_body(renderer: _Renderer, body: ET.Element, head: ET.Element | None)
 
 
 def _render_biographies(renderer: _Renderer, tail: ET.Element) -> str:
-    """Render author <biography> blocks (their portrait figures get anchored
-    via _para's block-lifting)."""
+    """Render author <biography> blocks.
+
+    Their portrait figures get anchored via _para's block-lifting.
+    """
     bios = [x for x in tail.iter() if get_tag(x) == 'biography']
     if not bios:
         return ''

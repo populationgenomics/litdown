@@ -158,9 +158,9 @@ def fetch_pmc(
 def _read_manifest(path: Path) -> list[str]:
     pmcids: list[str] = []
     for line in path.read_text().splitlines():
-        line = line.split('#', 1)[0].strip()
-        if line:
-            pmcids.append(line)
+        entry = line.split('#', 1)[0].strip()
+        if entry:
+            pmcids.append(entry)
     return pmcids
 
 

@@ -38,8 +38,8 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-import google.genai as genai
 import google.genai.types as gtypes
+from google import genai
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from litdown import convert

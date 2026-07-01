@@ -146,13 +146,15 @@ def test_no_empty_sup_tags(article: Article) -> None:
 
 
 def test_no_adjacent_sup_tags(article: Article) -> None:
-    """<sup>1</sup><sup>2</sup> reads as "12" — inline-adjacent markers
-    must collapse into one <sup>. Paragraph-break separation is fine.
+    """Inline-adjacent <sup> markers must collapse into one <sup>.
+
+    <sup>1</sup><sup>2</sup> reads as "12", so adjacent markers must merge.
+    Paragraph-break separation is fine.
     """
     matches = re.findall(r'</sup>[ \t]*<sup>', article.md)
-    assert (
-        not matches
-    ), f'{len(matches)} adjacent <sup> pairs (would read as concatenated numbers); use a single <sup>1,2</sup>'
+    assert not matches, (
+        f'{len(matches)} adjacent <sup> pairs (would read as concatenated numbers); use a single <sup>1,2</sup>'
+    )
 
 
 def test_every_fig_has_anchor(article: Article) -> None:

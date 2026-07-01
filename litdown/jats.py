@@ -3,6 +3,7 @@
 Public entry point: :func:`convert`.
 """
 
+import copy
 import re
 import xml.etree.ElementTree as ET
 
@@ -51,9 +52,10 @@ _EXT_LINK_RESOLVERS = {
 
 
 def _object_id_doi_link(elem: ET.Element) -> str:
-    """Return a markdown DOI link for an <object-id pub-id-type='doi'>
-    child of elem, or empty string if absent. PLOS uses these to
-    attach a per-figure / per-table DOI distinct from the article DOI.
+    """Return a markdown DOI link for a child <object-id pub-id-type='doi'>.
+
+    Returns empty string if absent. PLOS uses these to attach a per-figure /
+    per-table DOI distinct from the article DOI.
     """
     for oid in elem.findall('object-id'):
         if oid.get('pub-id-type') == 'doi':
@@ -84,7 +86,7 @@ def _caption_text(caption: ET.Element | None) -> str:
 
 
 def _extract_tex(tex_math_el: ET.Element) -> str:
-    """Pull the actual math expression out of a <tex-math> element.
+    r"""Pull the actual math expression out of a <tex-math> element.
 
     Springer/Nature publishing toolchains often wrap the expression in a
     full minimal documentclass so the equation can be compiled as a
@@ -186,7 +188,7 @@ def inline_to_md(elem: ET.Element | None) -> str:
 # ---------------------------------------------------------------------------
 
 
-def render_front(front: ET.Element) -> str:
+def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
     jmeta = front.find('journal-meta')
     ameta = front.find('article-meta')
     if ameta is None:
@@ -338,7 +340,7 @@ def render_front(front: ET.Element) -> str:
             text_parts.append(aff.text.strip())
         for child in aff:
             ctag = get_tag(child)
-            if ctag == 'label' or ctag == 'sup':
+            if ctag in {'label', 'sup'}:
                 # Skip label/sup-as-label markers — already extracted above.
                 pass
             elif ctag == 'institution-wrap':
@@ -868,7 +870,7 @@ def render_p(p: ET.Element) -> list[str]:
     inline_kids: list = []
     inline_lead = p.text or ''
 
-    def flush_inline():
+    def flush_inline() -> None:
         if not inline_kids and not inline_lead.strip():
             return
         synth = ET.Element('p')
@@ -1158,7 +1160,7 @@ def render_back(back: ET.Element) -> str:
         elif tag == 'app-group':
             for app in child.findall('app'):
                 parts.append(render_sec(app, level=2))
-        elif tag == 'app' or tag == 'sec':
+        elif tag in {'app', 'sec'}:
             parts.append(render_sec(child, level=2))
         elif tag == 'ref-list':
             parts.append(render_ref_list(child))
@@ -1273,7 +1275,7 @@ def render_fn_group(fn_group: ET.Element) -> str:
     return '\n\n'.join(blocks)
 
 
-def _render_mixed_citation(ec: ET.Element) -> str:
+def _render_mixed_citation(ec: ET.Element) -> str:  # noqa: PLR0912
     """Render a <mixed-citation> as a single inline string.
 
     JATS <mixed-citation> is a free-form text container with optional
@@ -1289,8 +1291,6 @@ def _render_mixed_citation(ec: ET.Element) -> str:
       ("AdamZ.AdamskaI."), so we replace the element with a
       pre-formatted "Surname Initials, ..." string.
     """
-    import copy
-
     pruned = copy.deepcopy(ec)
 
     # Strip <pub-id> descendants (rendered separately at the end).
@@ -1318,7 +1318,7 @@ def _render_mixed_citation(ec: ET.Element) -> str:
                     sn = (sub.findtext('surname') or '').strip()
                     gn = (sub.findtext('given-names') or '').strip()
                     authors.append(f'{sn} {gn}'.strip())
-                elif tag == 'string-name' or tag == 'collab':
+                elif tag in {'string-name', 'collab'}:
                     authors.append(''.join(sub.itertext()).strip())
                 elif tag == 'etal':
                     authors.append('et al.')
@@ -1354,7 +1354,7 @@ def _render_mixed_citation(ec: ET.Element) -> str:
     return body
 
 
-def render_ref_list(ref_list: ET.Element) -> str:
+def render_ref_list(ref_list: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
     title = ref_list.findtext('title') or 'References'
     lines = [f'## {title}', '']
 

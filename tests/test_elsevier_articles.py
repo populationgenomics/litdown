@@ -104,7 +104,7 @@ def test_every_float_anchored(article: Article) -> None:
 
 
 def test_math_not_dropped(article: Article) -> None:
-    """Every source <math> with a non-empty rendering appears in the output.
+    r"""Every source <math> with a non-empty rendering appears in the output.
 
     This is the litmus for the render_mathml wiring: a dialect that
     silently drops formulas (as the throwaway prototype did) fails here.
@@ -112,7 +112,7 @@ def test_math_not_dropped(article: Article) -> None:
     against dozens of equations — display, multi-line, and table-cell math.
 
     Comparison normalises whitespace (prose flattens interior whitespace)
-    and tolerates the ``|`` -> ``\\|`` escaping applied to math inside table
+    and tolerates the ``|`` -> ``\|`` escaping applied to math inside table
     cells, so only a genuine drop fails.
     """
     md_norm = re.sub(r'\s+', ' ', article.md)

@@ -64,7 +64,7 @@ def load_all_math_elems(test_id: str) -> list[tuple[ET.Element, bool]]:
                 except ET.ParseError:
                     continue
                 display = elem.get('display', elem.get('mode', 'inline'))
-                elems.append((elem, display == 'block' or display == 'display'))
+                elems.append((elem, display in {'block', 'display'}))
             if elems:
                 return elems
 
@@ -75,7 +75,7 @@ def load_all_math_elems(test_id: str) -> list[tuple[ET.Element, bool]]:
     if elem is None:
         return []
     display = elem.get('display', elem.get('mode', 'inline'))
-    return [(elem, display == 'block' or display == 'display')]
+    return [(elem, display in {'block', 'display'})]
 
 
 def load_records_from_cache() -> list[dict]:
