@@ -15,7 +15,9 @@ leaves in :mod:`litdown.common` are shared across both dialects.
 from __future__ import annotations
 
 import importlib.metadata
+import io
 import pathlib
+from typing import IO
 
 import defusedxml.ElementTree
 
@@ -35,8 +37,12 @@ except importlib.metadata.PackageNotFoundError:
 __all__ = ['__version__', 'convert', 'mml_to_tex', 'render_mathml']
 
 
-def convert(xml_path: str | pathlib.Path) -> str:
-    """Convert a scholarly full-text XML file to Markdown.
+def convert(source: str | pathlib.Path | bytes | IO[bytes]) -> str:
+    """Convert scholarly full-text XML to Markdown.
+
+    ``source`` is a filesystem path (``str`` / ``pathlib.Path``), the XML
+    ``bytes`` already in hand, or an open binary stream — a caller that has
+    fetched the document need not spill it to a temp file first.
 
     Sniffs the root element's local name (a single cheap parse) and
     dispatches to the matching dialect. An unrecognised root raises
@@ -44,7 +50,8 @@ def convert(xml_path: str | pathlib.Path) -> str:
     "wrong bytes" bugs in the caller, the exact failure mode the Elsevier
     dialect was added to fix.
     """
-    tree = defusedxml.ElementTree.parse(xml_path)
+    parseable = io.BytesIO(source) if isinstance(source, bytes) else source
+    tree = defusedxml.ElementTree.parse(parseable)
     root = tree.getroot()
     if root is None:
         return ''

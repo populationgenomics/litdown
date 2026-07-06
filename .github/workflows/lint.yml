@@ -20,7 +20,7 @@ jobs:
         with:
           enable-cache: true
       # Pre-sync the lint env so the pyright hook's `uv run` is a no-op.
-      - run: uv sync --locked --group lint --python 3.12
+      - run: uv sync --locked --group lint --python 3.13
       - uses: actions/cache@v6
         with:
           path: ~/.cache/pre-commit
