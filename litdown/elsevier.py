@@ -80,10 +80,6 @@ def _children(elem: ET.Element, name: str) -> list[ET.Element]:
     return [c for c in elem if common.get_tag(c) == name]
 
 
-def _text(elem: ET.Element | None) -> str:
-    return ''.join(elem.itertext()).strip() if elem is not None else ''
-
-
 def _coalesce(*els: ET.Element | None) -> ET.Element | None:
     """Return the first non-None element.
 
@@ -96,15 +92,9 @@ def _coalesce(*els: ET.Element | None) -> ET.Element | None:
     return None
 
 
-def _norm(s: str) -> str:
-    """Collapse whitespace runs to single spaces and strip.
-
-    Elsevier XML is pretty-printed, so an element that opens with a child
-    (e.g. a <para> leading with a <float-anchor>) carries the indentation
-    newline as its ``.text``. Prose is single-line in Markdown, so
-    flattening interior whitespace is both safe and necessary.
-    """
-    return re.sub(r'\s+', ' ', s).strip()
+# Local spellings of the shared whitespace-flattening helpers.
+_norm = common.flat
+_text = common.flat_text
 
 
 def _is_compact_view(el: ET.Element) -> bool:
@@ -156,7 +146,12 @@ class _Renderer:
     # -- inline -----------------------------------------------------------
 
     def inline(self, elem: ET.Element | None) -> str:
-        """Render an element's mixed content as inline Markdown."""
+        """Render an element's mixed content as inline Markdown.
+
+        Output is always a single line — see :func:`common.norm_ws`. The
+        remaining :func:`_norm` calls at block boundaries are for edge
+        trimming, not flattening.
+        """
         if elem is None:
             return ''
         buf: list[str] = []
@@ -206,7 +201,7 @@ class _Renderer:
             if child.tail:
                 buf.append(child.tail)
 
-        return ''.join(buf)
+        return common.norm_ws(''.join(buf))
 
     def _float_anchor_inline(self, anchor: ET.Element) -> str:
         """Queue a float for placement; emit nothing inline.
@@ -701,7 +696,7 @@ class _Renderer:
         def cells(row: ET.Element) -> list[tuple[str, int, int]]:
             out = []
             for entry in _children(row, 'entry'):
-                content = common.md_escape_cell(_norm(self.inline(entry)))
+                content = common.md_escape_cell(self.inline(entry))
                 namest = entry.get('namest')
                 nameend = entry.get('nameend')
                 colspan = 1

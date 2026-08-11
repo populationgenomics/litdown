@@ -3,9 +3,9 @@
 These helpers carry no JATS- or Elsevier-specific knowledge; they're the
 bits both :mod:`litdown.jats` and :mod:`litdown.elsevier` would otherwise
 duplicate verbatim: namespace-stripping tag helpers, the xlink href
-accessor, table-cell escaping, the inline typographic leaf formatters, and
-the markdown-table grid builder (colspan/rowspan expansion + multi-row
-header collapse).
+accessor, source-whitespace normalization, table-cell escaping, the inline
+typographic leaf formatters, and the markdown-table grid builder
+(colspan/rowspan expansion + multi-row header collapse).
 
 The inline *dispatchers* are deliberately NOT shared — JATS and Elsevier
 diverge on cross-ref/link attribute handling enough that one config-driven
@@ -15,10 +15,16 @@ own dispatcher and calls :func:`inline_wrap` for the shared leaf wrappings.
 
 from __future__ import annotations
 
+import re
 import xml.etree.ElementTree as ET
 
 XLINK_NS = 'http://www.w3.org/1999/xlink'
 MML_NS = 'http://www.w3.org/1998/Math/MathML'
+
+# ASCII whitespace only: the Unicode spaces publishers use (NBSP, thin space,
+# the em-space runs that indent pseudocode listings) are content, not layout.
+_ASCII_WS = ' \t\n\r\f\v'
+_WS_RUN_RE = re.compile(f'[{_ASCII_WS}]+')
 
 
 def get_tag(elem: ET.Element) -> str:
@@ -36,9 +42,35 @@ def xlink_href(elem: ET.Element) -> str:
     return elem.get(f'{{{XLINK_NS}}}href') or elem.get('href') or ''
 
 
+def norm_ws(text: str) -> str:
+    """Collapse ASCII whitespace runs — newlines included — to single spaces.
+
+    Publisher XML (PMC OA JATS and Elsevier alike) is pretty-printed, so an
+    element whose content opens with a child carries the indentation newline
+    as its ``.text``. Markdown inline constructs are single-line: a newline
+    inside a heading, a list item or a table row terminates it. Edges are
+    left alone; callers that need them trimmed use :func:`flat`.
+    """
+    return _WS_RUN_RE.sub(' ', text)
+
+
+def flat(text: str | None) -> str:
+    """:func:`norm_ws` plus edge trimming; ``None`` → ``''``.
+
+    The default for a raw source string that becomes part of a markdown
+    line (a label, a name, a metadata value).
+    """
+    return norm_ws(text).strip(_ASCII_WS) if text else ''
+
+
+def flat_text(elem: ET.Element | None) -> str:
+    """Flattened text content of an element and its descendants ('' if None)."""
+    return flat(''.join(elem.itertext())) if elem is not None else ''
+
+
 def md_escape_cell(text: str) -> str:
-    """Escape pipe characters inside a markdown table cell."""
-    return text.replace('|', '\\|')
+    """Escape pipes and flatten to one line — a GFM row cannot span lines."""
+    return flat(text).replace('|', '\\|')
 
 
 # ---------------------------------------------------------------------------
