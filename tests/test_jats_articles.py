@@ -134,6 +134,17 @@ def test_every_table_wrap_renders_content(article: Article) -> None:
         assert has_table_syntax or has_image, f'table-wrap id={tw_id} produced no table or image: {block[:200]!r}'
 
 
+def test_table_rows_are_single_lines(article: Article) -> None:
+    """A GFM row lives on one line: an opened row must close on the same line.
+
+    A cell whose content is an element rather than bare text carries the
+    source's pretty-printing newlines, which terminate the row early and
+    spill the rest of the table into loose prose.
+    """
+    broken = [line for line in article.md.splitlines() if line.startswith('|') and not line.rstrip().endswith('|')]
+    assert not broken, f'{len(broken)} table rows span lines, e.g. {broken[0][:120]!r}'
+
+
 # ---------------------------------------------------------------------------
 # Invariants with known per-fixture failures
 # ---------------------------------------------------------------------------
@@ -146,12 +157,13 @@ def test_no_empty_sup_tags(article: Article) -> None:
 
 
 def test_no_adjacent_sup_tags(article: Article) -> None:
-    """Inline-adjacent <sup> markers must collapse into one <sup>.
+    """Directly adjacent <sup> markers must collapse into one <sup>.
 
-    <sup>1</sup><sup>2</sup> reads as "12", so adjacent markers must merge.
-    Paragraph-break separation is fine.
+    <sup>1</sup><sup>2</sup> reads as "12", so touching markers must merge.
+    Any separator means two distinct superscripts (e.g. a unit exponent
+    then a citation marker) and must be left alone.
     """
-    matches = re.findall(r'</sup>[ \t]*<sup>', article.md)
+    matches = re.findall(r'</sup><sup>', article.md)
     assert not matches, (
         f'{len(matches)} adjacent <sup> pairs (would read as concatenated numbers); use a single <sup>1,2</sup>'
     )

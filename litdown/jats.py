@@ -45,7 +45,7 @@ def _object_id_doi_link(elem: ET.Element) -> str:
     """
     for oid in elem.findall('object-id'):
         if oid.get('pub-id-type') == 'doi':
-            val = (oid.text or '').strip()
+            val = common.flat(oid.text)
             if val:
                 return f'[doi:{val}](https://doi.org/{val})'
     return ''
@@ -106,7 +106,12 @@ def _extract_tex(tex_math_el: ET.Element) -> str:
 
 
 def inline_to_md(elem: ET.Element | None) -> str:
-    """Render an element's mixed content as inline Markdown."""
+    """Render an element's mixed content as inline Markdown.
+
+    Output is always a single line: PMC OA JATS is pretty-printed, and
+    every markdown construct this feeds (heading, list item, table row,
+    caption line) is line-terminated. See :func:`common.norm_ws`.
+    """
     if elem is None:
         return ''
 
@@ -166,7 +171,7 @@ def inline_to_md(elem: ET.Element | None) -> str:
         if child.tail:
             buf.append(child.tail)
 
-    return ''.join(buf)
+    return common.norm_ws(''.join(buf))
 
 
 # ---------------------------------------------------------------------------
@@ -185,7 +190,7 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
 
     # --- Title ---
     title_elem = ameta.find('.//article-title')
-    title = inline_to_md(title_elem)
+    title = inline_to_md(title_elem).strip()
     parts.append(f'# {title}')
 
     # --- Authors ---
@@ -232,17 +237,17 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
         name = c.find('name')
         collab = c.find('collab')
         if name is not None:
-            sn = name.findtext('surname') or ''
-            gn = name.findtext('given-names') or ''
+            sn = common.flat(name.findtext('surname'))
+            gn = common.flat(name.findtext('given-names'))
             full = f'{gn} {sn}'.strip()
         elif collab is not None:
             # The collab's lead text is the consortium name; nested
             # <contrib-group> holds individual members which we drop here.
-            full = (collab.text or '').strip()
+            full = common.flat(collab.text)
             if not full:
-                full = ''.join(collab.itertext()).strip()
+                full = common.flat_text(collab)
         else:
-            full = ''.join(c.itertext()).strip()
+            full = common.flat_text(c)
 
         # Affiliation markers: prefer the xref's own text (the rendered
         # marker in PLOS-style JATS); fall back to the linked <aff>'s
@@ -259,19 +264,19 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
                 continue
             # The marker can be in xref.text directly OR wrapped in a
             # <sup> child (some Oxford journals use <xref><sup>2</sup></xref>).
-            marker = ''.join(x.itertext()).strip()
+            marker = common.flat_text(x)
             if not marker and rt == 'aff':
                 rid = x.get('rid', '')
                 aff = aff_map.get(rid)
                 if aff is not None:
-                    marker = (aff.findtext('label') or '').strip()
+                    marker = common.flat(aff.findtext('label'))
                     if not marker:
                         # JATS Archiving permits <sup> as an aff-level
                         # marker alongside <label>. Frontiers uses <sup>;
                         # PLOS uses <label>. Both are spec-valid.
                         sup = aff.find('sup')
                         if sup is not None:
-                            marker = (sup.text or '').strip()
+                            marker = common.flat(sup.text)
                     if not marker:
                         # Final fallback: doc-order ordinal. Used when
                         # neither <label> nor <sup> is present and the
@@ -284,7 +289,7 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
         # as a direct child and inside <address>. Descendant search
         # picks up both encodings.
         email_el = c.find('.//email')
-        email = (email_el.text or '').strip() if email_el is not None else ''
+        email = common.flat(email_el.text) if email_el is not None else ''
         # Two ways to mark corresponding authors per the spec: a
         # corresp="yes" attribute on the <contrib>, or an
         # <xref ref-type="corresp"> pointing to <author-notes>/<corresp>.
@@ -314,16 +319,14 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
     for aff_id, aff in aff_map.items():
         if referenced_set and aff_id not in referenced_set:
             continue
-        label = (aff.findtext('label') or '').strip()
+        label = common.flat(aff.findtext('label'))
         if not label:
             sup = aff.find('sup')
             if sup is not None:
-                label = (sup.text or '').strip()
+                label = common.flat(sup.text)
         if not label:
             label = aff_ordinal.get(aff_id, '')
-        text_parts = []
-        if aff.text:
-            text_parts.append(aff.text.strip())
+        text_parts = [common.flat(aff.text)]
         for child in aff:
             ctag = common.get_tag(child)
             if ctag in {'label', 'sup'}:
@@ -335,19 +338,16 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
                 # carrying ROR / GRID / ISNI / FundRef identifiers.
                 # Render only the <institution> text — the URI-shaped
                 # identifiers don't help a markdown reader.
-                if child.text:
-                    text_parts.append(child.text.strip())
+                text_parts.append(common.flat(child.text))
                 for sub in child:
                     if common.get_tag(sub) == 'institution':
                         text_parts.append(inline_to_md(sub).strip())
-                    if sub.tail:
-                        text_parts.append(sub.tail.strip())
+                    text_parts.append(common.flat(sub.tail))
             elif ctag == 'institution-id':
                 pass
             else:
-                text_parts.append(inline_to_md(child))
-            if child.tail:
-                text_parts.append(child.tail.strip())
+                text_parts.append(inline_to_md(child).strip())
+            text_parts.append(common.flat(child.tail))
         aff_text = ' '.join(t for t in text_parts if t)
         aff_parts.append(f'<sup>{label}</sup> {aff_text}' if label else aff_text)
 
@@ -362,19 +362,19 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
         for c in editors:
             name = c.find('name')
             if name is not None:
-                sn = name.findtext('surname') or ''
-                gn = name.findtext('given-names') or ''
+                sn = common.flat(name.findtext('surname'))
+                gn = common.flat(name.findtext('given-names'))
                 full = f'{gn} {sn}'.strip()
             else:
-                full = ''.join(c.itertext()).strip()
-            role = c.findtext('role') or 'Editor'
+                full = common.flat_text(c)
+            role = common.flat(c.findtext('role')) or 'Editor'
             # Editor's affiliation lookup
             aff_text = ''
             for x in c.findall("xref[@ref-type='aff']"):
                 rid = x.get('rid', '')
                 aff = aff_map.get(rid)
                 if aff is not None:
-                    aff_text = ' '.join(t for t in aff.itertext()).strip()
+                    aff_text = common.flat_text(aff)
             line = f'**{role}:** {full}'
             if aff_text:
                 line += f', {aff_text}'
@@ -428,26 +428,25 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
             parts.append('\n'.join(notes_lines))
 
     # --- Journal & article IDs ---
-    jname = jmeta.findtext('.//journal-title') if jmeta is not None else ''
-    jname = jname or ''
-    issn = (jmeta.findtext('issn') if jmeta is not None else '') or ''
-    pmcid = ameta.findtext("article-id[@pub-id-type='pmcid']") or ''
-    pmid = ameta.findtext("article-id[@pub-id-type='pmid']") or ''
-    doi = ameta.findtext("article-id[@pub-id-type='doi']") or ''
+    jname = common.flat(jmeta.findtext('.//journal-title')) if jmeta is not None else ''
+    issn = common.flat(jmeta.findtext('issn')) if jmeta is not None else ''
+    pmcid = common.flat(ameta.findtext("article-id[@pub-id-type='pmcid']"))
+    pmid = common.flat(ameta.findtext("article-id[@pub-id-type='pmid']"))
+    doi = common.flat(ameta.findtext("article-id[@pub-id-type='doi']"))
 
     # Publication dates
     epub = ameta.find("pub-date[@pub-type='epub']")
     date_parts = []
     if epub is not None:
-        y = epub.findtext('year') or ''
-        m = epub.findtext('month') or ''
-        d = epub.findtext('day') or ''
+        y = common.flat(epub.findtext('year'))
+        m = common.flat(epub.findtext('month'))
+        d = common.flat(epub.findtext('day'))
         date_parts = [x for x in [y, m.zfill(2) if m else '', d.zfill(2) if d else ''] if x]
 
-    vol = ameta.findtext('volume') or ''
-    issue = ameta.findtext('issue') or ''
-    fpage = ameta.findtext('fpage') or ''
-    lpage = ameta.findtext('lpage') or ''
+    vol = common.flat(ameta.findtext('volume'))
+    issue = common.flat(ameta.findtext('issue'))
+    fpage = common.flat(ameta.findtext('fpage'))
+    lpage = common.flat(ameta.findtext('lpage'))
     pages = f'{fpage}–{lpage}' if fpage and lpage else fpage
 
     # Article subject / category (e.g. "Research Article", "Plant Science /
@@ -458,7 +457,7 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
     if cats is not None:
         for sg in cats.findall('subj-group'):
             cat_subjects.extend(
-                (s.text or '').strip() for s in sg.iter() if common.get_tag(s) == 'subject' and (s.text or '').strip()
+                subject for s in sg.iter() if common.get_tag(s) == 'subject' and (subject := common.flat(s.text))
             )
 
     meta_lines = []
@@ -486,15 +485,15 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
     if history is not None:
         for date in history.findall('date'):
             dtype = date.get('date-type', '')
-            y = date.findtext('year') or ''
-            m = date.findtext('month') or ''
-            d = date.findtext('day') or ''
+            y = common.flat(date.findtext('year'))
+            m = common.flat(date.findtext('month'))
+            d = common.flat(date.findtext('day'))
             dparts = [x for x in [y, m.zfill(2) if m else '', d.zfill(2) if d else ''] if x]
             if dparts:
                 meta_lines.append(f'**{dtype.capitalize()}:** {"-".join(dparts)}')
 
     # Copyright + license
-    copyright_stmt = (ameta.findtext('.//copyright-statement') or '').strip()
+    copyright_stmt = common.flat(ameta.findtext('.//copyright-statement'))
     if copyright_stmt:
         meta_lines.append(f'**License:** {copyright_stmt}')
     # The full license text usually lives in <license>/<license-p>; render
@@ -524,10 +523,10 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
     # may exist for different languages — keep them all.
     kw_lines = []
     for kg in ameta.findall('kwd-group'):
-        kwds = [(k.text or '').strip() for k in kg.findall('kwd') if (k.text or '').strip()]
+        kwds = [kwd for k in kg.findall('kwd') if (kwd := common.flat(k.text))]
         if not kwds:
             continue
-        gtitle = (kg.findtext('title') or 'Keywords').strip()
+        gtitle = common.flat(kg.findtext('title')) or 'Keywords'
         kw_lines.append(f'**{gtitle}:** {", ".join(kwds)}')
     if kw_lines:
         parts.append('\n'.join(kw_lines))
@@ -563,26 +562,26 @@ def render_funding_group(fg: ET.Element) -> str:
         if src is not None:
             inst = src.find('.//institution')
             if inst is not None:
-                funder = ''.join(inst.itertext()).strip()
+                funder = common.flat_text(inst)
             if not funder:
-                funder = (src.text or '').strip() or ''.join(
-                    t for sub in src for t in sub.itertext() if common.get_tag(sub) != 'institution-id'
-                ).strip()
+                funder = common.flat(src.text) or common.flat(
+                    ''.join(t for sub in src for t in sub.itertext() if common.get_tag(sub) != 'institution-id')
+                )
 
         # Award IDs (typically grant numbers).
-        ids = [(a.text or '').strip() for a in ag.findall('award-id') if (a.text or '').strip()]
+        ids = [award_id for a in ag.findall('award-id') if (award_id := common.flat(a.text))]
 
         # Recipients.
         recipients = []
         for prr in ag.findall('principal-award-recipient'):
             for n in prr.findall('name'):
-                sn = (n.findtext('surname') or '').strip()
-                gn = (n.findtext('given-names') or '').strip()
+                sn = common.flat(n.findtext('surname'))
+                gn = common.flat(n.findtext('given-names'))
                 full = f'{gn} {sn}'.strip()
                 if full:
                     recipients.append(full)
             if not prr.findall('name'):
-                txt = ''.join(prr.itertext()).strip()
+                txt = common.flat_text(prr)
                 if txt:
                     recipients.append(txt)
 
@@ -634,7 +633,7 @@ def render_abstract(abstract: ET.Element) -> str:
         if tag == 'title':
             continue
         if tag == 'p':
-            lines.append(inline_to_md(child))
+            lines.append(inline_to_md(child).strip())
         elif tag == 'sec':
             title = child.find('title')
             title_text = inline_to_md(title).strip().lower() if title is not None else ''
@@ -643,11 +642,11 @@ def render_abstract(abstract: ET.Element) -> str:
             sec_id = child.get('id', '')
             anchor = f'<a id="{sec_id}"></a>\n' if sec_id else ''
             if title is not None:
-                lines.append(f'{anchor}**{inline_to_md(title)}**')
+                lines.append(f'{anchor}**{inline_to_md(title).strip()}**')
             elif sec_id:
                 lines.append(anchor.rstrip())
             for p in child.findall('p'):
-                lines.append(inline_to_md(p))
+                lines.append(inline_to_md(p).strip())
     return '\n\n'.join(lines)
 
 
@@ -663,7 +662,7 @@ def render_body(body: ET.Element) -> str:
         if tag == 'sec':
             parts.append(render_sec(child, level=2))
         elif tag == 'p':
-            parts.append(inline_to_md(child))
+            parts.append(inline_to_md(child).strip())
     return '\n\n'.join(parts)
 
 
@@ -675,7 +674,7 @@ def render_sec(sec: ET.Element, level: int = 2) -> str:
     sec_id = sec.get('id', '')
     if title is not None:
         anchor = f'<a id="{sec_id}"></a>\n' if sec_id else ''
-        parts.append(f'{anchor}{hashes} {inline_to_md(title)}')
+        parts.append(f'{anchor}{hashes} {inline_to_md(title).strip()}')
     elif sec_id:
         # Untitled section with an id (e.g. a wrapper around supplementary
         # materials). Emit just the anchor so cross-references resolve.
@@ -764,7 +763,7 @@ def render_code_block(el: ET.Element) -> str:
 
 def render_statement(s: ET.Element) -> str:
     """Render <statement> (theorem, axiom, definition...) as a labelled block."""
-    label = (s.findtext('label') or '').strip()
+    label = common.flat(s.findtext('label'))
     title_el = s.find('title')
     title = inline_to_md(title_el).strip() if title_el is not None else ''
     body_parts: list[str] = []
@@ -783,7 +782,7 @@ def render_def_list(dl: ET.Element) -> str:
     """Render <def-list> outside <glossary> as a markdown bullet list."""
     lines = []
     for di in dl.findall('def-item'):
-        term = (di.findtext('term') or '').strip()
+        term = common.flat(di.findtext('term'))
         defn_el = di.find('def')
         defn = ''
         if defn_el is not None:
@@ -798,7 +797,7 @@ def render_def_list(dl: ET.Element) -> str:
 def render_supplementary(sm: ET.Element) -> str:
     """Render a <supplementary-material> entry: anchor + label + caption + link."""
     sm_id = sm.get('id', '')
-    label = (sm.findtext('label') or '').strip()
+    label = common.flat(sm.findtext('label'))
 
     caption_md = _caption_text(sm.find('caption'))
 
@@ -849,8 +848,8 @@ def render_p(p: ET.Element) -> list[str]:
     """
     block_children = [c for c in p if common.get_tag(c) in _BLOCK_IN_P]
     if not block_children:
-        text = inline_to_md(p)
-        return [text] if text.strip() else []
+        text = inline_to_md(p).strip()
+        return [text] if text else []
 
     fragments: list[str] = []
     inline_kids: list = []
@@ -863,8 +862,8 @@ def render_p(p: ET.Element) -> list[str]:
         synth.text = inline_lead
         for c in inline_kids:
             synth.append(c)
-        text = inline_to_md(synth)
-        if text.strip():
+        text = inline_to_md(synth).strip()
+        if text:
             fragments.append(text)
 
     for child in p:
@@ -901,7 +900,7 @@ def render_p(p: ET.Element) -> list[str]:
 
 def render_fig(fig: ET.Element) -> str:
     fig_id = fig.get('id', '')
-    label = fig.findtext('label') or ''
+    label = common.flat(fig.findtext('label'))
 
     # JATS <fig> permits multiple <graphic> children, one per panel
     # (a, b, c, ...). Emit one image link per panel. Some publishers
@@ -951,7 +950,7 @@ def render_fig(fig: ET.Element) -> str:
 
 def render_table_wrap(tw: ET.Element) -> str:
     tw_id = tw.get('id', '')
-    label = tw.findtext('label') or ''
+    label = common.flat(tw.findtext('label'))
 
     caption_md = _caption_text(tw.find('caption'))
     doi_link = _object_id_doi_link(tw)
@@ -986,7 +985,7 @@ def render_table_wrap(tw: ET.Element) -> str:
         foot_parts.extend(inline_to_md(p).strip() for p in foot.findall('p'))
         # <fn> children wrapping paragraphs — PLOS Comp Biol style.
         for fn in foot.findall('fn'):
-            fn_label = (fn.findtext('label') or '').strip()
+            fn_label = common.flat(fn.findtext('label'))
             for p in fn.findall('p'):
                 t = inline_to_md(p).strip()
                 if t:
@@ -1038,7 +1037,7 @@ def render_list(lst: ET.Element) -> str:
     list_type = lst.get('list-type', 'bullet')
     items = []
     for i, item in enumerate(lst.findall('list-item'), 1):
-        text = ' '.join(inline_to_md(p) for p in item.findall('p'))
+        text = ' '.join(inline_to_md(p).strip() for p in item.findall('p'))
         prefix = f'{i}.' if list_type == 'order' else '-'
         items.append(f'{prefix} {text}')
     return '\n'.join(items)
@@ -1084,7 +1083,7 @@ def _render_inline_formula(elem: ET.Element) -> str:
 def render_formula(formula: ET.Element) -> str:
     fid = formula.get('id', '')
     anchor = f'<a id="{fid}"></a>\n' if fid else ''
-    label = (formula.findtext('label') or '').strip()
+    label = common.flat(formula.findtext('label'))
     label_suffix = f'  {label}' if label else ''
     body = _formula_body(formula, display=True)
     if body:
@@ -1092,7 +1091,7 @@ def render_formula(formula: ET.Element) -> str:
     # Last resort: any text directly inside the disp-formula. Avoid
     # itertext() so we don't pick up tex-math preamble or MathML
     # element names from earlier-attempted siblings.
-    text = (formula.text or '').strip()
+    text = common.flat(formula.text)
     return f'{anchor}$${text}$${label_suffix}' if text else ''
 
 
@@ -1170,7 +1169,7 @@ def render_glossary(gloss: ET.Element) -> str:
     lines = [f'## {heading}']
     for dl in gloss.findall('def-list'):
         for di in dl.findall('def-item'):
-            term = di.findtext('term') or ''
+            term = common.flat(di.findtext('term'))
             defn_el = di.find('def')
             defn = ''
             if defn_el is not None:
@@ -1223,7 +1222,7 @@ def render_fn_group(fn_group: ET.Element) -> str:
 
     for fn in fns:
         fn_type = fn.get('fn-type', '')
-        label = fn.findtext('label') or ''
+        label = common.flat(fn.findtext('label'))
         body = ' '.join(inline_to_md(p).strip() for p in fn.findall('p')).strip()
         if not body:
             body = inline_to_md(fn).strip()
@@ -1301,11 +1300,11 @@ def _render_mixed_citation(ec: ET.Element) -> str:  # noqa: PLR0912
             for sub in child:
                 tag = common.get_tag(sub)
                 if tag == 'name':
-                    sn = (sub.findtext('surname') or '').strip()
-                    gn = (sub.findtext('given-names') or '').strip()
+                    sn = common.flat(sub.findtext('surname'))
+                    gn = common.flat(sub.findtext('given-names'))
                     authors.append(f'{sn} {gn}'.strip())
                 elif tag in {'string-name', 'collab'}:
-                    authors.append(''.join(sub.itertext()).strip())
+                    authors.append(common.flat_text(sub))
                 elif tag == 'etal':
                     authors.append('et al.')
             joined = ', '.join(a for a in authors if a)
@@ -1326,7 +1325,7 @@ def _render_mixed_citation(ec: ET.Element) -> str:  # noqa: PLR0912
     id_parts = []
     for pid in ec.findall('.//pub-id'):
         pid_type = pid.get('pub-id-type', '')
-        val = (pid.text or '').strip()
+        val = common.flat(pid.text)
         if not val:
             continue
         if pid_type == 'doi' and val not in body:
@@ -1341,7 +1340,7 @@ def _render_mixed_citation(ec: ET.Element) -> str:  # noqa: PLR0912
 
 
 def render_ref_list(ref_list: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
-    title = ref_list.findtext('title') or 'References'
+    title = common.flat(ref_list.findtext('title')) or 'References'
     lines = [f'## {title}', '']
 
     for ref in ref_list.findall('ref'):
@@ -1363,7 +1362,7 @@ def render_ref_list(ref_list: ET.Element) -> str:  # noqa: C901, PLR0912, PLR091
             continue
 
         # Reference number label
-        label_text = ref.findtext('label') or ref_id.lstrip('B')
+        label_text = common.flat(ref.findtext('label')) or ref_id.lstrip('B')
         # The label often already ends with "." (e.g. "11."); avoid the
         # double-period when we add our own separator.
         label_sep = '' if label_text.rstrip().endswith('.') else '.'
@@ -1384,34 +1383,34 @@ def render_ref_list(ref_list: ET.Element) -> str:  # noqa: C901, PLR0912, PLR091
         authors = []
         if pg is not None:
             for name in pg.findall('name'):
-                sn = name.findtext('surname') or ''
-                gn = name.findtext('given-names') or ''
+                sn = common.flat(name.findtext('surname'))
+                gn = common.flat(name.findtext('given-names'))
                 authors.append(f'{sn} {gn}'.strip())
             for sname in pg.findall('string-name'):
                 # Nature uses <string-name> instead of <name> for free-form
                 # author strings.
-                authors.append(''.join(sname.itertext()).strip())
+                authors.append(common.flat_text(sname))
             for collab in pg.findall('collab'):
-                authors.append(''.join(collab.itertext()))
+                authors.append(common.flat_text(collab))
             if pg.find('etal') is not None:
                 authors.append('et al.')
         authors_str = ', '.join(a for a in authors if a)
 
         # Title
         title_elem = ec.find('article-title')
-        art_title = inline_to_md(title_elem) if title_elem is not None else ''
+        art_title = inline_to_md(title_elem).strip() if title_elem is not None else ''
 
-        source = ec.findtext('source') or ''  # journal / book
+        source = common.flat(ec.findtext('source'))  # journal / book
 
         # Numeric fields
-        year = ec.findtext('year') or ''
-        volume = ec.findtext('volume') or ''
-        issue = ec.findtext('issue') or ''
-        fpage = ec.findtext('fpage') or ''
-        lpage = ec.findtext('lpage') or ''
+        year = common.flat(ec.findtext('year'))
+        volume = common.flat(ec.findtext('volume'))
+        issue = common.flat(ec.findtext('issue'))
+        fpage = common.flat(ec.findtext('fpage'))
+        lpage = common.flat(ec.findtext('lpage'))
         pages = f'{fpage}–{lpage}' if fpage and lpage else fpage
-        publisher_loc = ec.findtext('publisher-loc') or ''
-        publisher_name = ec.findtext('publisher-name') or ''
+        publisher_loc = common.flat(ec.findtext('publisher-loc'))
+        publisher_name = common.flat(ec.findtext('publisher-name'))
 
         # Build citation string
         seg = []
@@ -1443,7 +1442,7 @@ def render_ref_list(ref_list: ET.Element) -> str:  # noqa: C901, PLR0912, PLR091
         id_parts = []
         for pid in ec.findall('pub-id'):
             pid_type = pid.get('pub-id-type', '')
-            val = pid.text or ''
+            val = common.flat(pid.text)
             if not val:
                 continue
             if pid_type == 'doi':
@@ -1473,7 +1472,7 @@ def render_ref_list(ref_list: ET.Element) -> str:  # noqa: C901, PLR0912, PLR091
 # Entry point
 # ---------------------------------------------------------------------------
 
-_ADJACENT_SUP_RE = re.compile(r'</sup>[ \t]*<sup>')
+_ADJACENT_SUP_RE = re.compile(r'</sup><sup>')
 
 
 def render(root: ET.Element) -> str:
@@ -1508,5 +1507,7 @@ def render(root: ET.Element) -> str:
     # numeric exponents across two adjacent <sup> tags
     # (e.g. 10<sup>-</sup><sup>4</sup>). The spec doesn't endorse this
     # — it would render as "-4" in any consumer anyway, so collapse the
-    # pair. Use [ \t]* (not \s*) so paragraph breaks aren't bridged.
+    # pair. Strict adjacency only: any separator, now that inline output is
+    # whitespace-flattened, means two distinct superscripts (a unit exponent
+    # followed by a citation marker), and fusing those corrupts both.
     return _ADJACENT_SUP_RE.sub('', md)
