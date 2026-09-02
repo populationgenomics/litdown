@@ -3,7 +3,9 @@
 Ships two dialects behind a single :func:`convert` entry point, which
 sniffs the document root and dispatches:
 
-* **JATS** (``<article>``) — PMC / NLM full text, via :mod:`litdown.jats`.
+* **JATS** — a journal ``<article>`` (PMC / NLM full text) or a BITS
+  ``<book-part-wrapper>`` (one NCBI Bookshelf chapter, as Europe PMC serves
+  it), via :mod:`litdown.jats`.
 * **Elsevier** (``<full-text-retrieval-response>``) — the ScienceDirect
   Article Retrieval API's ``xocs``/``ja``/``ce`` schema, via
   :mod:`litdown.elsevier`.
@@ -59,6 +61,8 @@ def convert(source: str | pathlib.Path | bytes | IO[bytes]) -> str:
     name = common.get_tag(root)
     if name == 'article':
         return jats.render(root)
+    if name == 'book-part-wrapper':
+        return jats.render_book_part_wrapper(root)
     if name == 'full-text-retrieval-response':
         return elsevier.render(root)
     raise ValueError(f'unrecognized root element: {root.tag}')

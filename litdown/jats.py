@@ -1,6 +1,7 @@
-"""Convert a JATS XML article to semantically-richer Markdown.
+"""Convert JATS XML — an article, or a BITS book part — to semantically-richer Markdown.
 
-Public entry point: :func:`convert`.
+Public entry points: :func:`render` for an ``<article>`` root and
+:func:`render_book_part_wrapper` for a ``<book-part-wrapper>`` root.
 """
 
 from __future__ import annotations
@@ -11,7 +12,7 @@ import xml.etree.ElementTree as ET
 
 from litdown import common, mathml
 
-__all__ = ['render']
+__all__ = ['render', 'render_book_part_wrapper']
 
 
 # Mapping from common <ext-link ext-link-type="..."> values to a URL
@@ -100,6 +101,11 @@ def _extract_tex(tex_math_el: ET.Element) -> str:
     return text
 
 
+def _heading(level: int, text: str) -> str:
+    """An ATX heading at ``level``, clamped to the six Markdown has."""
+    return f'{"#" * min(level, 6)} {text}'
+
+
 # ---------------------------------------------------------------------------
 # Inline renderer  (elem → markdown string, no trailing newline)
 # ---------------------------------------------------------------------------
@@ -179,6 +185,28 @@ def inline_to_md(elem: ET.Element | None) -> str:
 # ---------------------------------------------------------------------------
 
 
+def _title_group_heading(title_group: ET.Element, title_tag: str) -> str:
+    """Compose heading text from a <title-group>: its label, the title, then each <subtitle>.
+
+    ``title_tag`` names the group's main title — ``article-title`` in JATS,
+    ``title`` in BITS. A subtitle follows the preceding text after a colon
+    unless that text already ends in one of ``.?!:`` (judged on the source
+    text, so inline markup does not hide the punctuation).
+    """
+    title_el = title_group.find(title_tag)
+    text = inline_to_md(title_el).strip()
+    tail = common.flat_text(title_el)
+    for subtitle_el in title_group.findall('subtitle'):
+        subtitle = inline_to_md(subtitle_el).strip()
+        if not subtitle:
+            continue
+        sep = '' if tail.endswith(('.', '?', '!', ':')) else ':'
+        text = f'{text}{sep} {subtitle}' if text else subtitle
+        tail = common.flat_text(subtitle_el)
+    label = common.flat(title_group.findtext('label'))
+    return f'{label} {text}'.strip()
+
+
 def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
     jmeta = front.find('journal-meta')
     ameta = front.find('article-meta')
@@ -189,9 +217,8 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
     parts: list[str] = []
 
     # --- Title ---
-    title_elem = ameta.find('.//article-title')
-    title = inline_to_md(title_elem).strip()
-    parts.append(f'# {title}')
+    title_group = ameta.find('title-group')
+    parts.append(_heading(1, _title_group_heading(title_group, 'article-title') if title_group is not None else ''))
 
     # --- Authors ---
     # Only look at top-level author contribs: direct children of any
@@ -553,7 +580,7 @@ def render_funding_group(fg: ET.Element) -> str:
     if not awards:
         return ''
 
-    lines = ['## Funding']
+    lines = [_heading(2, 'Funding')]
     for ag in awards:
         # Funding source: prefer plain text, then <institution>, then any
         # nested text (skipping institution-id URIs).
@@ -600,7 +627,7 @@ def render_funding_group(fg: ET.Element) -> str:
     return '\n'.join(lines)
 
 
-def render_abstract(abstract: ET.Element) -> str:
+def render_abstract(abstract: ET.Element, level: int = 2) -> str:
     # Heading: prefer the abstract's own <title>; fall back to a label
     # derived from abstract-type (e.g. "Author Summary"); else "Abstract".
     title_el = abstract.find('title')
@@ -617,7 +644,7 @@ def render_abstract(abstract: ET.Element) -> str:
             'executive-summary': 'Executive Summary',
             'precis': 'Précis',
         }.get(atype, 'Abstract')
-    lines = [f'## {heading}']
+    lines = [_heading(level, heading)]
     # Walk the abstract's children in document order. Some publishers
     # (Springer/BMC) append an auto-generated <sec
     # title="Electronic supplementary material"> footer with template
@@ -655,26 +682,29 @@ def render_abstract(abstract: ET.Element) -> str:
 # ---------------------------------------------------------------------------
 
 
-def render_body(body: ET.Element) -> str:
+def render_body(body: ET.Element, level: int = 2) -> str:
+    """Render <body>: its paragraphs, sections and (BITS) nested <book-part>s, headed at ``level``."""
     parts = []
     for child in body:
         tag = common.get_tag(child)
         if tag == 'sec':
-            parts.append(render_sec(child, level=2))
+            parts.append(render_sec(child, level))
         elif tag == 'p':
             parts.append(inline_to_md(child).strip())
-    return '\n\n'.join(parts)
+        elif tag == 'book-part':
+            parts.append(render_book_part(child, level))
+    return '\n\n'.join(part for part in parts if part)
 
 
 def render_sec(sec: ET.Element, level: int = 2) -> str:
     parts = []
-    hashes = '#' * level
 
     title = sec.find('title')
+    title_md = inline_to_md(title).strip() if title is not None else ''
     sec_id = sec.get('id', '')
     if title is not None:
         anchor = f'<a id="{sec_id}"></a>\n' if sec_id else ''
-        parts.append(f'{anchor}{hashes} {inline_to_md(title).strip()}')
+        parts.append(f'{anchor}{_heading(level, title_md)}')
     elif sec_id:
         # Untitled section with an id (e.g. a wrapper around supplementary
         # materials). Emit just the anchor so cross-references resolve.
@@ -687,7 +717,7 @@ def render_sec(sec: ET.Element, level: int = 2) -> str:
         if tag == 'sec':
             parts.append(render_sec(child, level + 1))
         elif tag == 'p':
-            parts.extend(render_p(child))
+            parts.extend(render_p(child, level))
         elif tag == 'fig':
             parts.append(render_fig(child))
         elif tag == 'table-wrap':
@@ -701,19 +731,25 @@ def render_sec(sec: ET.Element, level: int = 2) -> str:
         elif tag == 'supplementary-material':
             parts.append(render_supplementary(child))
         elif tag == 'boxed-text':
-            parts.append(render_boxed_text(child))
+            parts.append(render_boxed_text(child, level))
         elif tag == 'disp-quote':
             parts.append(render_disp_quote(child))
         elif tag in ('code', 'preformat'):
             parts.append(render_code_block(child))
         elif tag == 'statement':
             parts.append(render_statement(child))
+        elif tag == 'ref-list':
+            parts.append(_render_ref_list_in_sec(child, level, title_md))
 
-    return '\n\n'.join(parts)
+    return '\n\n'.join(part for part in parts if part)
 
 
-def render_boxed_text(box: ET.Element) -> str:
-    """Render <boxed-text> as a fenced quote block (sidebar / callout)."""
+def render_boxed_text(box: ET.Element, level: int = 2) -> str:
+    """Render <boxed-text> as a fenced quote block (sidebar / callout).
+
+    ``level`` is the enclosing section's heading level; the box's own
+    sections head one level below it.
+    """
     box_id = box.get('id', '')
     title_el = box.find('label')
     if title_el is None:
@@ -725,9 +761,9 @@ def render_boxed_text(box: ET.Element) -> str:
         if tag in ('label', 'caption'):
             continue
         if tag == 'p':
-            body_parts.extend(render_p(child))
+            body_parts.extend(render_p(child, level))
         elif tag == 'sec':
-            body_parts.append(render_sec(child, level=3))
+            body_parts.append(render_sec(child, level + 1))
         elif tag == 'list':
             body_parts.append(render_list(child))
     body = '\n\n'.join(body_parts)
@@ -836,7 +872,7 @@ _BLOCK_IN_P = {
 }
 
 
-def render_p(p: ET.Element) -> list[str]:
+def render_p(p: ET.Element, level: int = 2) -> list[str]:
     """Render a <p>, lifting block-level children to standalone fragments.
 
     JATS Archiving's <p> content model permits <fig>, <table-wrap>,
@@ -844,7 +880,9 @@ def render_p(p: ET.Element) -> list[str]:
     children — common when a publisher wants the float to anchor at
     its first textual reference. Returning a list of fragments lets
     render_sec join them at paragraph granularity instead of inlining
-    the float's caption text into the surrounding paragraph.
+    the float's caption text into the surrounding paragraph. ``level``
+    is the enclosing section's heading level, which a lifted
+    <boxed-text> nests its sections below.
     """
     block_children = [c for c in p if common.get_tag(c) in _BLOCK_IN_P]
     if not block_children:
@@ -882,7 +920,7 @@ def render_p(p: ET.Element) -> list[str]:
             elif tag == 'def-list':
                 fragments.append(render_def_list(child))
             elif tag == 'boxed-text':
-                fragments.append(render_boxed_text(child))
+                fragments.append(render_boxed_text(child, level))
             elif tag == 'disp-quote':
                 fragments.append(render_disp_quote(child))
             elif tag in ('code', 'preformat'):
@@ -1117,7 +1155,8 @@ def render_floats_group(floats: ET.Element) -> str:
     return '\n\n'.join(parts)
 
 
-def render_back(back: ET.Element) -> str:
+def render_back(back: ET.Element, level: int = 2) -> str:
+    """Render <back>, each of its sections headed at ``level``."""
     parts = []
 
     # JATS allows <back> to mix several block-level child types in any order:
@@ -1135,38 +1174,38 @@ def render_back(back: ET.Element) -> str:
                 # If the inner <sec>s carry their own titles, let them
                 # provide the heading. If not, prepend a default first.
                 if not any(s.find('title') is not None for s in sub_secs):
-                    parts.append('## Acknowledgments')
+                    parts.append(_heading(level, 'Acknowledgments'))
                 for sec in sub_secs:
-                    parts.append(render_sec(sec, level=2))
+                    parts.append(render_sec(sec, level))
             else:
                 if child.find('title') is None:
-                    parts.append('## Acknowledgments')
-                parts.append(render_sec(child, level=2))
+                    parts.append(_heading(level, 'Acknowledgments'))
+                parts.append(render_sec(child, level))
         elif tag == 'app-group':
             for app in child.findall('app'):
-                parts.append(render_sec(app, level=2))
+                parts.append(render_sec(app, level))
         elif tag in {'app', 'sec'}:
-            parts.append(render_sec(child, level=2))
+            parts.append(render_sec(child, level))
         elif tag == 'ref-list':
-            parts.append(render_ref_list(child))
+            parts.append(render_ref_list(child, level))
         elif tag == 'notes':
             # <notes> typically holds Author contributions, Competing
             # interests, Data/Code availability, etc. Has a <title>
             # and one or more <p>/<sec> children — render as a section.
-            parts.append(render_sec(child, level=2))
+            parts.append(render_sec(child, level))
         elif tag == 'fn-group':
-            parts.append(render_fn_group(child))
+            parts.append(render_fn_group(child, level))
         elif tag == 'glossary':
-            parts.append(render_glossary(child))
+            parts.append(render_glossary(child, level))
 
-    return '\n\n'.join(parts)
+    return '\n\n'.join(part for part in parts if part)
 
 
-def render_glossary(gloss: ET.Element) -> str:
-    """Render <glossary> as a heading + def-list."""
+def render_glossary(gloss: ET.Element, level: int = 2) -> str:
+    """Render <glossary> as a heading at ``level`` + def-list."""
     title_el = gloss.find('title')
     heading = inline_to_md(title_el).strip() if title_el is not None else 'Glossary'
-    lines = [f'## {heading}']
+    lines = [_heading(level, heading)]
     for dl in gloss.findall('def-list'):
         for di in dl.findall('def-item'):
             term = common.flat(di.findtext('term'))
@@ -1199,16 +1238,16 @@ _FN_TYPE_LABELS = {
 }
 
 
-def render_fn_group(fn_group: ET.Element) -> str:
-    """Render <fn-group> with each <fn>'s typed entry as its own H2.
+def render_fn_group(fn_group: ET.Element, level: int = 2) -> str:
+    """Render <fn-group> with each <fn>'s typed entry as its own heading at ``level``.
 
     Footnotes carrying an fn-type whose label is well-known (Author
     contributions, Competing interests, Funding, ...) become standalone
-    "## Heading" sections — one per fn — instead of being lumped under a
+    headed sections — one per fn — instead of being lumped under a
     single generic "Notes" heading.
 
     A fn-group's own <title> (if present) overrides any per-fn heading.
-    Footnotes with no fn-type fall back to a shared "## Notes" section.
+    Footnotes with no fn-type fall back to a shared "Notes" section.
     """
     explicit_title_el = fn_group.find('title')
     explicit_title = inline_to_md(explicit_title_el).strip() if explicit_title_el is not None else ''
@@ -1239,23 +1278,20 @@ def render_fn_group(fn_group: ET.Element) -> str:
             inline_heading = body[2:close].rstrip(':.').strip()
             after = body[close + 2 :].lstrip(' .')
             if inline_heading and after:
-                heading = inline_heading
-                blocks.append(f'## {heading}\n\n{after}')
+                blocks.append(f'{_heading(level, inline_heading)}\n\n{after}')
                 continue
 
         if explicit_title:
             untyped_lines.append(body)
         elif fn_type and fn_type in _FN_TYPE_LABELS:
-            heading = _FN_TYPE_LABELS[fn_type]
-            blocks.append(f'## {heading}\n\n{body}')
+            blocks.append(f'{_heading(level, _FN_TYPE_LABELS[fn_type])}\n\n{body}')
         elif label:
             untyped_lines.append(f'<sup>{label}</sup> {body}')
         else:
             untyped_lines.append(body)
 
     if untyped_lines:
-        heading = explicit_title or 'Notes'
-        blocks.append(f'## {heading}\n\n' + '\n\n'.join(untyped_lines))
+        blocks.append(f'{_heading(level, explicit_title or "Notes")}\n\n' + '\n\n'.join(untyped_lines))
 
     return '\n\n'.join(blocks)
 
@@ -1339,9 +1375,52 @@ def _render_mixed_citation(ec: ET.Element) -> str:  # noqa: PLR0912
     return body
 
 
-def render_ref_list(ref_list: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
-    title = common.flat(ref_list.findtext('title')) or 'References'
-    lines = [f'## {title}', '']
+_NUMBERED_REF_ID_RE = re.compile(r'B?(\d+)')
+
+
+def render_ref_list(ref_list: ET.Element, level: int = 2) -> str:
+    """Render <ref-list> headed at ``level``; the heading is "References" when it has no <title>."""
+    title = inline_to_md(ref_list.find('title')).strip() or 'References'
+    return '\n'.join([_heading(level, title), '', *_render_refs(ref_list)])
+
+
+def _render_ref_list_in_sec(ref_list: ET.Element, level: int, sec_title: str) -> str:
+    """Render a <ref-list> nested in a <sec> headed ``sec_title`` at ``level``.
+
+    The section's heading already heads the list, so the list's own <title>
+    adds a heading one level down only when it says something else — Bookshelf
+    nests a "References" list under a "References" section. An untitled
+    section emits no heading, so the list's heading takes ``level`` itself.
+    """
+    title = inline_to_md(ref_list.find('title')).strip()
+    lines = _render_refs(ref_list)
+    if not title or _heading_key(title) == _heading_key(sec_title):
+        return '\n'.join(lines)
+    return '\n'.join([_heading(level + 1 if sec_title else level, title), '', *lines])
+
+
+def _heading_key(text: str) -> str:
+    """Heading text reduced for equality: case-folded, trailing ``.`` and ``:`` dropped."""
+    return text.rstrip('.:').casefold()
+
+
+def _ref_label(ref: ET.Element) -> str:
+    """The <ref>'s <label>, else the number a PMC-style ``B12`` or ``12`` id carries; ``''`` otherwise."""
+    label = common.flat_text(ref.find('label'))
+    if label:
+        return label
+    match = _NUMBERED_REF_ID_RE.fullmatch(ref.get('id', ''))
+    return match.group(1) if match else ''
+
+
+def _render_refs(ref_list: ET.Element) -> list[str]:  # noqa: C901, PLR0912, PLR0915
+    """Render each <ref> as its anchor line, its citation line and a blank line.
+
+    The citation line opens with the reference's label when it has one; a
+    citation whose <ref> carries only an opaque id (``CR45``, ``bib7``,
+    ``brca1.REF.doe.2020``) stands unlabelled behind its anchor.
+    """
+    lines: list[str] = []
 
     for ref in ref_list.findall('ref'):
         ref_id = ref.get('id', '')
@@ -1361,11 +1440,9 @@ def render_ref_list(ref_list: ET.Element) -> str:  # noqa: C901, PLR0912, PLR091
         if ec is None:
             continue
 
-        # Reference number label
-        label_text = common.flat(ref.findtext('label')) or ref_id.lstrip('B')
-        # The label often already ends with "." (e.g. "11."); avoid the
-        # double-period when we add our own separator.
-        label_sep = '' if label_text.rstrip().endswith('.') else '.'
+        label = _ref_label(ref)
+        # A label such as "11." already carries its period.
+        prefix = f'{label}{"" if label.endswith(".") else "."} ' if label else ''
 
         # Mixed-citation is a free-form text container — render verbatim
         # via inline_to_md. Trying to extract structured fields from it
@@ -1374,7 +1451,7 @@ def render_ref_list(ref_list: ET.Element) -> str:  # noqa: C901, PLR0912, PLR091
         if is_mixed:
             body = _render_mixed_citation(ec)
             lines.append(f'<a id="{ref_id}"></a>')
-            lines.append(f'{label_text}{label_sep} {body}'.rstrip())
+            lines.append(f'{prefix}{body}'.rstrip())
             lines.append('')
             continue
 
@@ -1462,17 +1539,18 @@ def render_ref_list(ref_list: ET.Element) -> str:  # noqa: C901, PLR0912, PLR091
             body = inline_to_md(ec).strip()
 
         lines.append(f'<a id="{ref_id}"></a>')
-        lines.append(f'{label_text}{label_sep} {body}'.rstrip())
+        lines.append(f'{prefix}{body}'.rstrip())
         lines.append('')
 
-    return '\n'.join(lines)
+    return lines
 
 
 # ---------------------------------------------------------------------------
-# Entry point
+# Entry points
 # ---------------------------------------------------------------------------
 
 _ADJACENT_SUP_RE = re.compile(r'</sup><sup>')
+_WRAPPER_META_TAGS = frozenset({'processing-meta', 'collection-meta', 'book-meta'})
 
 
 def render(root: ET.Element) -> str:
@@ -1481,33 +1559,89 @@ def render(root: ET.Element) -> str:
     The dispatcher in :func:`litdown.convert` parses and sniffs the root,
     then calls this; it does not re-parse.
     """
-    sections = []
-
     front = root.find('front')
-    if front is not None:
-        sections.append(render_front(front))
-
     body = root.find('body')
-    if body is not None:
-        sections.append(render_body(body))
-
     back = root.find('back')
-    if back is not None:
-        sections.append(render_back(back))
-
-    # <floats-group> is a JATS Archiving element (not in Article
-    # Authoring) for figs/tables placed by the publisher at article end
-    # rather than inline. Render its contents so they aren't lost.
+    # <floats-group> (Archiving only) holds the figs/tables a publisher
+    # places at article end rather than inline.
     floats = root.find('floats-group')
-    if floats is not None:
-        sections.append(render_floats_group(floats))
+    return _render_document(
+        [
+            render_front(front) if front is not None else '',
+            render_body(body) if body is not None else '',
+            render_back(back) if back is not None else '',
+            render_floats_group(floats) if floats is not None else '',
+        ]
+    )
 
-    md = '\n\n---\n\n'.join(sections)
-    # SPEC DEVIATION (post-process): some publisher source has split
-    # numeric exponents across two adjacent <sup> tags
-    # (e.g. 10<sup>-</sup><sup>4</sup>). The spec doesn't endorse this
-    # — it would render as "-4" in any consumer anyway, so collapse the
-    # pair. Strict adjacency only: any separator, now that inline output is
-    # whitespace-flattened, means two distinct superscripts (a unit exponent
-    # followed by a citation marker), and fusing those corrupts both.
+
+def render_book_part_wrapper(root: ET.Element) -> str:
+    """Render a parsed BITS ``<book-part-wrapper>`` root to Markdown.
+
+    The wrapper holds one unit of a book; Europe PMC serves NCBI Bookshelf
+    content as a wrapper around one ``<book-part>`` — a chapter. The part's
+    ``<book-part-meta>`` takes the place of an article's ``<front>``; its
+    ``<body>`` and ``<back>`` share the article content model and render
+    the same way.
+
+    Raises:
+        ValueError: If the wrapper does not hold exactly one unit, or that
+            unit is not a ``<book-part>`` — a ``<book-app>``, ``<preface>``,
+            ``<glossary>``, ``<ref-list>``, ...
+    """
+    units = [child for child in root if common.get_tag(child) not in _WRAPPER_META_TAGS]
+    if len(units) != 1 or common.get_tag(units[0]) != 'book-part':
+        held = ' '.join(f'<{common.get_tag(unit)}>' for unit in units) or 'no unit'
+        raise ValueError(f'book-part-wrapper holds {held}; only one <book-part> is rendered')
+    return _render_document(_book_part_sections(units[0], level=1))
+
+
+def render_book_part(part: ET.Element, level: int) -> str:
+    """Render a ``<book-part>`` nested in a ``<body>``, its title headed at ``level``.
+
+    BITS lets a part's body end in further parts — a Bookshelf part whose
+    chapters nest. Meta, body and back render as they do at the top level,
+    one heading level down per nesting, without rules between them.
+    """
+    return '\n\n'.join(_book_part_sections(part, level))
+
+
+def _book_part_sections(part: ET.Element, level: int) -> list[str]:
+    """Render a <book-part>'s meta, body and back, the title headed at ``level``; absent or empty ones are omitted."""
+    meta = part.find('book-part-meta')
+    body = part.find('body')
+    back = part.find('back')
+    sections = [
+        render_book_part_meta(meta, level) if meta is not None else '',
+        render_body(body, level + 1) if body is not None else '',
+        render_back(back, level + 1) if back is not None else '',
+    ]
+    return [section for section in sections if section]
+
+
+def render_book_part_meta(meta: ET.Element, level: int = 1) -> str:
+    """Render ``<book-part-meta>`` as front matter: the labelled title headed at ``level``, then each abstract."""
+    parts: list[str] = []
+    title_group = meta.find('title-group')
+    heading = _title_group_heading(title_group, 'title') if title_group is not None else ''
+    if heading:
+        parts.append(_heading(level, heading))
+    parts.extend(render_abstract(abstract, level + 1) for abstract in meta.findall('abstract'))
+    return '\n\n'.join(parts)
+
+
+def _render_document(sections: list[str]) -> str:
+    """Join a document's top-level sections with horizontal rules and fuse split superscripts.
+
+    Empty sections are dropped, so a front matter or back that rendered
+    nothing leaves no stray rule.
+
+    SPEC DEVIATION (post-process): some publisher source splits a numeric
+    exponent across two adjacent ``<sup>`` tags (``10<sup>-</sup><sup>4</sup>``).
+    Any consumer would show that as "-4" anyway, so the pair is collapsed.
+    Strict adjacency only: inline output is whitespace-flattened, so any
+    separator means two distinct superscripts (a unit exponent followed by a
+    citation marker), and fusing those corrupts both.
+    """
+    md = '\n\n---\n\n'.join(section for section in sections if section)
     return _ADJACENT_SUP_RE.sub('', md)
