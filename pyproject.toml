@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "litdown"
-version = "0.5.0"
-description = "Convert scholarly full-text XML (JATS, Elsevier) to Markdown."
+version = "0.6.0"
+description = "Convert scholarly full-text XML — JATS (articles and BITS book parts) and Elsevier — to Markdown."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [{ name = "Toby Sargeant" }]
-keywords = ["jats", "elsevier", "pmc", "markdown", "mathml", "latex"]
+keywords = ["jats", "bits", "bookshelf", "elsevier", "pmc", "markdown", "mathml", "latex"]
 dependencies = ["defusedxml>=0.7"]
 classifiers = [
     "Programming Language :: Python :: 3",

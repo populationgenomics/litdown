@@ -6,7 +6,10 @@ Convert scholarly full-text XML to Markdown with embedded LaTeX for inline and
 display math. Two dialects are supported behind a single `convert` entry point
 that sniffs the document root and dispatches:
 
-- **JATS** (`<article>`) — the format PubMed Central distributes.
+- **JATS** — a journal article (`<article>`, the format PubMed Central
+  distributes) or a BITS book part (`<book-part-wrapper>`, one NCBI Bookshelf
+  chapter as Europe PMC's `bookXML` endpoint serves it; a GeneReviews entry,
+  say). The chapter's `<book-part-meta>` stands in for `<front>`.
 - **Elsevier** (`<full-text-retrieval-response>`) — the ScienceDirect Article
   Retrieval API's `xocs`/`ja`/`ce` schema.
 
@@ -25,6 +28,15 @@ covers the entire PMC corpus regardless of when the article was authored.
 This is **not** the Article Authoring tag set (more restrictive; intended as
 an authoring target, not a corpus). Article-Authoring-only content is a
 subset of Archiving content and works without code changes.
+
+**BITS** (Book Interchange Tag Suite 2.x; content models checked against the
+2.1 Tag Library) is the book counterpart: a `<book-part>`'s `<body>` and
+`<back>` share the Archiving content model, so the same renderer handles them
+and reads the chapter's title and abstracts from `<book-part-meta>`. A `<book-part-wrapper>` holds one unit of a
+book, and only a `<book-part>` is rendered — a wrapper around a `<book-app>`,
+`<preface>`, `<glossary>` or other unit raises `ValueError`. A part whose body
+nests further parts renders them as sections, one heading level down per
+nesting.
 
 The **Elsevier** dialect targets the `ce:`/`ja:`/`xocs:` schema returned by
 the ScienceDirect Article Retrieval API. Math is standard W3C MathML (shared
@@ -57,7 +69,7 @@ Library:
 ```python
 from litdown import convert, mml_to_tex, render_mathml
 
-md = convert("article.xml")           # JATS or Elsevier XML path → markdown
+md = convert("article.xml")           # JATS (article or book part) or Elsevier → markdown
 latex = mml_to_tex(math_element)      # MathML Element → LaTeX
 fragment = render_mathml(math_element, display=True)  # → "$$...$$"
 ```
@@ -84,7 +96,7 @@ the regression suite re-runs the converter over them on every test run.
 pytest                                # full suite
 ```
 
-Three test files:
+Six test files:
 
 - `tests/test_mml_unit.py` — exhaustive per-element MathML cases.
 - `tests/test_jats_articles.py` — structural assertions over real PMC
@@ -98,6 +110,15 @@ Three test files:
   (math not dropped, CALS tables rendered, every cross-ref/float/reference
   anchored). Vendor only CC-BY (`by/4.0`) articles; see
   `docs/elsevier-dialect-plan.md` for how to harvest fixtures.
+- `tests/test_book_part_unit.py` — hand-written BITS `<book-part-wrapper>`
+  documents (Bookshelf prose is not redistributable): the title group,
+  abstracts, nested parts, refusal of other wrapper units, reference labels,
+  and a `<ref-list>` inside a `<sec>`.
+- `tests/test_convert_inputs.py` — `convert` accepts a path, raw bytes or a
+  binary stream and yields the same Markdown, for both dialects.
+- `tests/test_whitespace_unit.py` — single-line Markdown constructs (headings,
+  table rows, list items) survive pretty-printed source, one hand-written
+  document per construct.
 
 ### Fetching test fixtures
 
@@ -160,9 +181,10 @@ real defect the eval surfaces should be added to
 - The consortium author rendering for papers like gnomAD (PMC7334197)
   emits the consortium *name* only; individual members listed in nested
   `<contrib-group>` are dropped.
-- Some end-of-article metadata sections (Author contributions, Competing
-  interests, Funding, Data availability) live inside `<fn-group>` or
-  `<notes>` in `<back>`; these aren't currently rendered.
 - Soft hyphens / line-break artefacts in source XML are not normalised,
   so words split across lines in the JATS source can render with stray
   spaces ("si milarity").
+- A BITS `<book-part-meta>` yields the labelled title, its subtitles and the
+  abstracts only; contributors, `<alt-title>`, translated titles, keyword
+  groups, funding and notes are not rendered, nor are the enclosing
+  `<book-meta>` and a part's own `<front-matter>`.

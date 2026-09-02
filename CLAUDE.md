@@ -1,7 +1,8 @@
 # litdown development notes
 
-litdown converts scholarly full-text XML (JATS, Elsevier) to Markdown. See
-[`README.md`](README.md) for usage and the supported dialects.
+litdown converts scholarly full-text XML (JATS — journal articles and BITS book
+parts — and Elsevier) to Markdown. See [`README.md`](README.md) for usage and the
+supported dialects.
 
 ## Working norms
 
