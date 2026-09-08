@@ -98,19 +98,55 @@ def text_carrier(text: str | None) -> ET.Element:
 # decides how the fragment joins its neighbours inside a list item.
 BlockFragment = tuple[str, str]
 
+_PARAGRAPH_TAGS = frozenset({'p', 'para'})
 _NESTED_LIST_TAGS = frozenset({'list', 'def-list'})
 
+# The list markers CommonMark recognises: an ordinal of up to nine digits
+# closed by ``.`` or ``)``, or a bullet. Bullet glyphs publishers put in a
+# <label> stand for the bullet marker.
+_ORDINAL_MARKER_RE = re.compile(r'\d{1,9}[.)]')
+_BARE_ORDINAL_RE = re.compile(r'\d{1,9}')
+_BULLET_GLYPHS = frozenset({'•', '◦', '▪', '●', '○', '·', '-', '*', '+'})
 
-def list_item(marker: str, blocks: Sequence[BlockFragment]) -> str:
+
+def list_marker(label: str, default: str) -> tuple[str, str]:
+    """Resolve a list item's label to ``(marker, lead)``: a CommonMark marker, and content that opens the item.
+
+    An ordinal label (``3.``, ``10)``) is the marker verbatim and a bare
+    number gets its period; a bullet glyph is the bullet marker. Anything
+    else (``(i)``, ``a.``, ``Step 1:``) is not a marker CommonMark would
+    parse — the line would be a paragraph and nothing could nest under it —
+    so the list's ``default`` marker is used and the label opens the item's
+    content instead (``- (i) First.``). An empty label yields the default.
+    """
+    if not label:
+        return default, ''
+    if _ORDINAL_MARKER_RE.fullmatch(label):
+        return label, ''
+    if _BARE_ORDINAL_RE.fullmatch(label):
+        return f'{label}.', ''
+    if label in _BULLET_GLYPHS:
+        return '-', ''
+    return default, label
+
+
+def list_item(marker: str, blocks: Sequence[BlockFragment], lead: str = '') -> str:
     """Lay out one markdown list item from its block fragments.
 
     The first fragment follows ``marker``; every later line is indented by
     the marker's width — CommonMark's content offset — so it stays inside
     the item. A nested list (a fragment tagged ``list`` or ``def-list``)
     follows the line above directly; any other block is a paragraph of its
-    own, separated by a blank line. An item without content is the bare
-    marker.
+    own, separated by a blank line. ``lead`` (a label that is not a marker,
+    see :func:`list_marker`) opens the first paragraph, or is a paragraph of
+    its own when the item opens with another block. An item without content
+    is the bare marker.
     """
+    if lead:
+        if blocks and blocks[0][0] in _PARAGRAPH_TAGS:
+            blocks = [(blocks[0][0], f'{lead} {blocks[0][1]}'), *blocks[1:]]
+        else:
+            blocks = [('p', lead), *blocks]
     indent = ' ' * (len(marker) + 1)
     lines: list[str] = []
     for i, (tag, md) in enumerate(blocks):
@@ -124,12 +160,13 @@ def list_item(marker: str, blocks: Sequence[BlockFragment]) -> str:
 def definition_item(term: str, blocks: Sequence[BlockFragment]) -> str:
     """One definition-list entry as a bullet: ``- **term** — definition``.
 
-    The definition's first block joins the term line; the rest stack under it
-    as in :func:`list_item`. A definition that opens with a nested list keeps
-    the term line to itself, the list nested below it.
+    The definition's first block joins the term line when it is a paragraph;
+    the rest stack under it as in :func:`list_item`. A definition that opens
+    with any other block — a nested list, a code fence, a table — keeps the
+    term line to itself, the blocks beneath it.
     """
     head = f'**{term}**' if term else ''
-    if blocks and blocks[0][0] not in _NESTED_LIST_TAGS:
+    if blocks and blocks[0][0] in _PARAGRAPH_TAGS:
         first = blocks[0][1]
         head = f'{head} — {first}' if head else first
         blocks = blocks[1:]

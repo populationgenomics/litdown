@@ -24,12 +24,12 @@ def _jats(body: str) -> bytes:
 def _elsevier(section: str) -> bytes:
     return (
         '<full-text-retrieval-response><originalText><article><body><sections>'
-        f'<section><section-title>S</section-title>{section}</section></sections></body></article>'
+        f'<section><section-title>Section</section-title>{section}</section></sections></body></article>'
         '</originalText></full-text-retrieval-response>'
     ).encode()
 
 
-_TABLE = '<table><tbody><tr><td>cell</td></tr></tbody></table>'
+_TABLE = '<table><tbody><tr><td>cell text</td></tr></tbody></table>'
 
 # One document per container shape; the text of each is distinct so a missing node is attributable.
 DOCUMENTS = {
@@ -53,9 +53,22 @@ DOCUMENTS = {
         '<list-item><p>L3 a.</p></list-item><list-item><p>L3 b.</p></list-item></list></list-item></list>'
         '</list-item></list></sec>'
     ),
-    'jats-labels': _jats(
-        '<sec><list list-type="simple"><list-item><label>1</label><p>Describe the findings;</p></list-item>'
-        '<list-item><label>2</label><p>Review the causes.</p></list-item></list></sec>'
+    'jats-labels-bare-numbers': _jats(
+        '<sec><list list-type="simple"><list-item><label>11</label><p>Describe the findings;</p></list-item>'
+        '<list-item><label>12</label><p>Review the causes.</p></list-item></list></sec>'
+    ),
+    'jats-labels-ordinal-verbatim': _jats(
+        '<sec><list list-type="simple"><list-item><label>10)</label><p>Tenth item.</p>'
+        '<list><list-item><p>Under tenth.</p></list-item></list></list-item></list></sec>'
+    ),
+    'jats-labels-roman-with-continuation': _jats(
+        '<sec><list list-type="simple"><list-item><label>(i)</label><p>First roman.</p><p>Continued roman.</p>'
+        '</list-item><list-item><label>(ii)</label><p>Second roman.</p></list-item></list></sec>'
+    ),
+    'jats-labels-words': _jats(
+        '<sec><list list-type="simple"><list-item><label>Step 1:</label><p>Prepare the sample.</p>'
+        '<list><list-item><p>Under the step.</p></list-item></list></list-item>'
+        '<list-item><label>Step 2:</label><p>Run the assay.</p></list-item></list></sec>'
     ),
     'jats-multi-paragraph-item': _jats(
         '<sec><list><list-item><p>First paragraph.</p><p>Second paragraph.</p></list-item>'
@@ -81,16 +94,16 @@ DOCUMENTS = {
     ),
     'jats-table-foot-fn-group': _jats(
         f'<sec><table-wrap id="T1"><label>Table 1</label>{_TABLE}<table-wrap-foot><fn-group><fn id="tfn1">'
-        '<label>a</label><p>Grouped footnote.</p></fn></fn-group><attrib>Adapted from Doe.</attrib>'
+        '<label>fa</label><p>Grouped footnote.</p></fn></fn-group><attrib>Adapted from Doe.</attrib>'
         '</table-wrap-foot></table-wrap></sec>'
     ),
     'jats-list-in-footnote': _jats(
-        f'<sec><table-wrap id="T1"><label>Table 1</label>{_TABLE}<table-wrap-foot><fn><label>1</label>'
+        f'<sec><table-wrap id="T1"><label>Table 1</label>{_TABLE}<table-wrap-foot><fn><label>f1</label>'
         '<p>Note with <list><list-item><p>foot item</p></list-item></list></p></fn></table-wrap-foot>'
         '</table-wrap></sec>'
     ),
     'jats-boxed-text': _jats(
-        '<sec><boxed-text id="B1"><caption><title>Learn More</title><p>Caption para.</p></caption><p>Lead.</p>'
+        '<sec><boxed-text id="B1"><caption><title>Learn More</title><p>Caption para.</p></caption><p>Lead para.</p>'
         '<list><list-item><p>Boxed item.</p></list-item></list>'
         f'<table-wrap id="BT1"><label>Table B</label>{_TABLE}</table-wrap>'
         '<boxed-text id="B2"><p>Inner box.</p></boxed-text>'
@@ -105,6 +118,23 @@ DOCUMENTS = {
         '<sec><statement><label>Theorem 1</label><p>Claim.</p><list><list-item><p>Case A.</p></list-item></list>'
         '</statement></sec>'
     ),
+    'jats-statement-opening-with-table': _jats(
+        f'<sec><statement><label>Table note</label><table-wrap id="ST1"><label>Table S</label>{_TABLE}</table-wrap>'
+        '<p>After the table.</p></statement></sec>'
+    ),
+    'jats-def-opening-with-code': _jats(
+        '<sec><def-list><def-item><term>snippet</term><def><preformat>x = 1</preformat><p>After the code.</p></def>'
+        '</def-item></def-list></sec>'
+    ),
+    'jats-nested-titled-def-list': _jats(
+        '<sec><def-list><def-item><term>outer term</term><def><p>Outer definition.</p></def></def-item>'
+        '<def-list><title>Inner terms</title><def-item><term>inner term</term><def><p>Inner definition.</p></def>'
+        '</def-item></def-list></def-list></sec>'
+    ),
+    'jats-italic-attrib-foot': _jats(
+        f'<sec><table-wrap id="T1"><label>Table 1</label>{_TABLE}<table-wrap-foot>'
+        '<attrib><italic>Adapted from Doe.</italic></attrib></table-wrap-foot></table-wrap></sec>'
+    ),
     'jats-def-list': _jats(
         '<sec><def-list><title>Terms</title><def-item><term><italic>ABC1</italic> gene</term><def><p>Para one.</p>'
         '<p>Para two.</p><list><list-item><p>Def item.</p></list-item></list></def></def-item></def-list></sec>'
@@ -116,14 +146,16 @@ DOCUMENTS = {
     ),
     'jats-structured-abstract': (
         b'<article><front><article-meta><abstract><sec><title>Methods</title><p>We did.</p>'
-        b'<list><list-item><p>Abstract item.</p></list-item></list></sec></abstract></article-meta></front></article>'
+        b'<list><list-item><p>Abstract item.</p></list-item></list></sec><p>Trailing note.</p>'
+        b'</abstract></article-meta></front></article>'
     ),
     'jats-body-level-blocks': _jats(
         '<p>Body para.</p><list><list-item><p>Body item.</p></list-item></list>'
-        f'<table-wrap id="T1"><label>Table 1</label>{_TABLE}</table-wrap><sec><title>S</title><p>t</p></sec>'
+        f'<table-wrap id="T1"><label>Table 1</label>{_TABLE}</table-wrap>'
+        '<sec><title>Section title</title><p>Section text.</p></sec>'
     ),
     'jats-sec-label-and-fn-group': _jats(
-        '<sec id="s1"><label>1.</label><title>Intro</title><p>Text.</p>'
+        '<sec id="s1"><label>1.</label><title>Intro</title><p>Intro text.</p>'
         '<fn-group><fn><p>Section footnote.</p></fn></fn-group></sec>'
     ),
     'jats-captioned-media-in-paragraph': _jats(
@@ -142,13 +174,22 @@ DOCUMENTS = {
     'elsevier-labelled-multi-para-item': _elsevier(
         '<list><list-item><label>(i)</label><para>First.</para><para>Second.</para></list-item></list>'
     ),
+    'elsevier-bold-label': _elsevier(
+        '<list><list-item><label><bold>(a)</bold></label><para>Bold labelled.</para>'
+        '<list><list-item><para>Under bold.</para></list-item></list></list-item></list>'
+    ),
+    'elsevier-textbox-without-body': _elsevier(
+        '<textbox id="tb1"><label>Box 1</label><textbox-head>Box head</textbox-head><para>Box para.</para></textbox>'
+    ),
+    'elsevier-whitespace-only-para': _elsevier('<para>Real text.</para><para>\xa0</para><para>More text.</para>'),
+    'jats-whitespace-only-para': _jats('<sec><p>Real text.</p><p>\xa0</p><p>More text.</p></sec>'),
     'elsevier-def-list': _elsevier(
         '<def-list><def-term>term</def-term><def-description><para>Desc one.</para><para>Desc two.</para>'
         '<list><list-item><para>Desc item.</para></list-item></list></def-description></def-list>'
     ),
     'elsevier-display': _elsevier(
-        '<para>Lead.<display><def-list><def-term>t</def-term><def-description>d</def-description></def-list>'
-        '<displayed-quote><para>Quoted.</para></displayed-quote></display></para>'
+        '<para>Lead.<display><def-list><def-term>term-t</def-term><def-description>desc-d</def-description>'
+        '</def-list><displayed-quote><para>Quoted.</para></displayed-quote></display></para>'
     ),
     'elsevier-list-in-entry': _elsevier(
         '<table id="tbl1"><label>Table 1</label><tgroup cols="1"><colspec colname="c1"/><tbody><row><entry>'
@@ -157,7 +198,8 @@ DOCUMENTS = {
     ),
     'elsevier-table-footnote': _elsevier(
         '<table id="tbl1"><label>Table 1</label><tgroup cols="1"><colspec colname="c1"/><tbody><row>'
-        '<entry>x</entry></row></tbody></tgroup><table-footnote id="tf1"><label>a</label><note-para>Foot lead.'
+        '<entry>entry text</entry></row></tbody></tgroup><table-footnote id="tf1"><label>fa</label>'
+        '<note-para>Foot lead.'
         '<list><list-item><para>Foot item.</para></list-item></list></note-para></table-footnote></table>'
     ),
     'elsevier-quote-with-source': _elsevier(
@@ -167,6 +209,20 @@ DOCUMENTS = {
     'elsevier-enunciation': _elsevier(
         '<enunciation id="e1"><label>Theorem 1</label><para>Claim.</para>'
         '<list><list-item><para>Case A.</para></list-item></list></enunciation>'
+    ),
+}
+
+# Shapes whose output drops source text by design — a bullet glyph label is replaced by the marker, one
+# <alternatives> alternative is rendered — so only their layout is checked.
+LAYOUT_ONLY = {
+    'jats-labels-bullet-glyphs': _jats(
+        '<sec><list list-type="simple"><list-item><label>•</label><p>Outer glyph.</p>'
+        '<list list-type="simple"><list-item><label>◦</label><p>Inner glyph.</p></list-item></list></list-item>'
+        '<list-item><label>•</label><p>Second glyph.</p></list-item></list></sec>'
+    ),
+    'jats-alternatives-in-text': _jats(
+        '<sec><p>Let <alternatives><tex-math>a=b</tex-math><math xmlns="http://www.w3.org/1998/Math/MathML">'
+        '<mi>a</mi><mo>=</mo><mi>b</mi></math></alternatives> hold.</p></sec>'
     ),
 }
 
@@ -188,6 +244,7 @@ def test_every_text_node_survives(name: str) -> None:
     md = convert(xml)
     nodes = _text_nodes(xml)
     assert nodes, 'a document without text cannot exercise the invariant'
+    assert all(len(node) > 1 for node in nodes), 'a one-character node matches almost any output'
     for node in nodes:
         assert node in md
 
@@ -199,28 +256,44 @@ def test_every_text_node_survives(name: str) -> None:
         ('jats-list-inside-paragraph', '- Outer one.\n  - Inner A.\n  - Inner B.\n- Outer two.'),
         ('jats-ordered-under-ordered', '1. Step one.\n   1. Sub a.\n   2. Sub b.\n2. Step two.'),
         ('jats-three-levels', '- L1.\n  - L2.\n    1. L3 a.\n    2. L3 b.'),
-        ('jats-labels', '1 Describe the findings;\n2 Review the causes.'),
+        ('jats-labels-bare-numbers', '11. Describe the findings;\n12. Review the causes.'),
+        ('jats-labels-ordinal-verbatim', '10) Tenth item.\n    - Under tenth.'),
+        ('jats-labels-bullet-glyphs', '- Outer glyph.\n  - Inner glyph.\n- Second glyph.'),
+        ('jats-labels-roman-with-continuation', '- (i) First roman.\n\n  Continued roman.\n- (ii) Second roman.'),
+        ('jats-labels-words', '- Step 1: Prepare the sample.\n  - Under the step.\n- Step 2: Run the assay.'),
+        ('jats-statement-opening-with-table', '**Table note**\n\n<a id="ST1"></a>\n\n**Table S**'),
+        ('jats-def-opening-with-code', '- **snippet**\n\n  ```\n  x = 1\n  ```\n\n  After the code.'),
+        (
+            'jats-nested-titled-def-list',
+            '- **outer term** — Outer definition.\n\n  **Inner terms**\n\n  - **inner term** — Inner definition.',
+        ),
+        ('jats-italic-attrib-foot', '*Adapted from Doe.*'),
+        ('jats-alternatives-in-text', 'Let $a=b$ hold.'),
+        ('jats-whitespace-only-para', 'Real text.\n\nMore text.'),
+        ('elsevier-whitespace-only-para', 'Real text.\n\nMore text.'),
+        ('elsevier-bold-label', '- **(a)** Bold labelled.\n  - Under bold.'),
         ('jats-multi-paragraph-item', '- First paragraph.\n\n  Second paragraph.\n- Other.'),
         ('jats-def-list-under-item', '- Terms:\n  - **allele** — One version of a gene.'),
         ('jats-list-title', '**Newly Posted**\n\n- Alpha.'),
         ('jats-wide-marker', '10. Ten.\n    - Sub of ten.'),
         ('jats-list-in-cell', '| - *SOST*-related sclerosteosis<br>- Facial deformity | Para one<br>Para two |'),
-        ('jats-table-foot-fn-group', '*<sup>a</sup> Grouped footnote. Adapted from Doe.*'),
-        ('jats-boxed-text', '> **Learn More**\n>\n> Caption para.\n> \n> Lead.\n> \n> - Boxed item.'),
+        ('jats-table-foot-fn-group', '*<sup>fa</sup> Grouped footnote. Adapted from Doe.*'),
+        ('jats-boxed-text', '> **Learn More**\n>\n> Caption para.\n> \n> Lead para.\n> \n> - Boxed item.'),
         ('jats-boxed-text', '> <a id="B2"></a>\n> > Inner box.'),
         ('jats-disp-quote', '> Quoted.\n> \n> - Quoted item.\n> \n> — Someone'),
         ('jats-statement', '**Theorem 1** Claim.\n\n- Case A.'),
         ('jats-def-list', '**Terms**\n\n- ***ABC1* gene** — Para one.\n\n  Para two.\n  - Def item.'),
         ('jats-glossary', '## Glossary\n\n- ***ABC1* gene** — Gloss para.\n  - Gloss item.'),
-        ('jats-structured-abstract', '**Methods**\n\nWe did.\n\n- Abstract item.'),
-        ('jats-sec-label-and-fn-group', '## 1. Intro\n\nText.\n\n### Notes\n\nSection footnote.'),
+        ('jats-structured-abstract', '**Methods**\n\nWe did.\n\n- Abstract item.\n\nTrailing note.'),
+        ('jats-sec-label-and-fn-group', '## 1. Intro\n\nIntro text.\n\n### Notes\n\nSection footnote.'),
         (
             'jats-captioned-media-in-paragraph',
             '<a id="M1"></a>\n[media](s1.pdf)\n**Additional file 1.** Supplementary methods.',
         ),
         ('elsevier-list-under-item', '- Outer one.\n  - Inner A.\n- Outer two.'),
         ('elsevier-list-inside-para', '- Outer one.\n  - Inner A.\n  - Inner B.\n- Outer two.'),
-        ('elsevier-labelled-multi-para-item', '(i) First.\n\n    Second.'),
+        ('elsevier-labelled-multi-para-item', '- (i) First.\n\n  Second.'),
+        ('elsevier-textbox-without-body', '**Box 1**\n> **Box head**\n> \n> Box para.'),
         ('elsevier-def-list', '- **term** — Desc one.\n\n  Desc two.\n  - Desc item.'),
         ('elsevier-list-in-entry', '| - Cell item A<br>- Cell item B |'),
         ('elsevier-quote-with-source', '> Quoted.\n> \n> - Quoted item.\n> \n> Someone\n> \n> — Elsewhere'),
@@ -228,7 +301,7 @@ def test_every_text_node_survives(name: str) -> None:
 )
 def test_nesting_is_laid_out_as_markdown(name: str, expected: str) -> None:
     """A sub-list indents by its parent's marker width; a later block is a continuation paragraph."""
-    assert expected in convert(DOCUMENTS[name])
+    assert expected in convert({**DOCUMENTS, **LAYOUT_ONLY}[name])
 
 
 @pytest.mark.parametrize(

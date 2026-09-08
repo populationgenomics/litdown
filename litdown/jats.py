@@ -10,7 +10,7 @@ import copy
 import re
 import textwrap
 import xml.etree.ElementTree as ET
-from collections.abc import Callable
+from collections.abc import Callable, Mapping
 
 from litdown import common, mathml
 
@@ -103,6 +103,25 @@ def _extract_tex(tex_math_el: ET.Element) -> str:
     return text
 
 
+# Elements that carry math in running text outside an <inline-formula>.
+_BARE_MATH_TAGS = frozenset({'math', 'tex-math', 'alternatives'})
+
+
+def _bare_math_md(el: ET.Element) -> str:
+    """Render a bare <math>, <tex-math> or <alternatives> in running text as inline math.
+
+    An <alternatives> yields one alternative — math and graphics in
+    :func:`_formula_body`'s preference order, else the first that renders —
+    never every alternative in turn.
+    """
+    tag = common.get_tag(el)
+    if tag == 'math':
+        return mathml.render_mathml(el, display=False)
+    if tag == 'tex-math':
+        return f'${_extract_tex(el)}$'
+    return _formula_body(el, display=False) or next((md for alt in el if (md := inline_to_md(alt).strip())), '')
+
+
 def _heading(level: int, text: str) -> str:
     """An ATX heading at ``level``, clamped to the six Markdown has."""
     return f'{"#" * min(level, 6)} {text}'
@@ -173,10 +192,8 @@ def inline_to_md(elem: ET.Element | None) -> str:
             buf.append(_render_inline_formula(child) or inner)
         elif tag in ('inline-graphic', 'graphic', 'media'):
             buf.append(common.norm_ws(_render_graphic(child, 0).replace('\n', ' ')))
-        elif tag == 'math':
-            buf.append(mathml.render_mathml(child, display=False))
-        elif tag == 'tex-math':
-            buf.append(f'${_extract_tex(child)}$')
+        elif tag in _BARE_MATH_TAGS:
+            buf.append(_bare_math_md(child))
         else:
             buf.append(inner)
 
@@ -651,9 +668,7 @@ def render_abstract(abstract: ET.Element, level: int = 2) -> str:
             'precis': 'Précis',
         }.get(atype, 'Abstract')
     lines = [_heading(level, heading)]
-    lines.extend(md for _, md in _render_content(abstract, level, skip=frozenset({'label', 'title', 'sec'})))
-    for sec in abstract.findall('sec'):
-        lines.extend(_render_abstract_sec(sec, level))
+    lines.extend(md for _, md in _render_content(abstract, level, skip=_LABEL_AND_TITLE, overrides=_ABSTRACT_BLOCKS))
     return '\n\n'.join(lines)
 
 
@@ -664,12 +679,15 @@ def render_abstract(abstract: ET.Element, level: int = 2) -> str:
 _SKIPPED_ABSTRACT_SEC_TITLES = frozenset({'electronic supplementary material', 'supplementary material'})
 
 
-def _render_abstract_sec(sec: ET.Element, level: int) -> list[str]:
-    """Render a structured abstract's <sec>: its title in bold, not as a heading; then its blocks and sub-sections."""
+def _render_abstract_sec(sec: ET.Element, level: int) -> str:
+    """Render a structured abstract's <sec>: its title in bold, not as a heading, then its blocks; sub-sections alike.
+
+    Returns ``''`` for the auto-generated supplementary-material footer (:data:`_SKIPPED_ABSTRACT_SEC_TITLES`).
+    """
     title = sec.find('title')
     title_text = inline_to_md(title).strip()
     if title_text.lower() in _SKIPPED_ABSTRACT_SEC_TITLES:
-        return []
+        return ''
     sec_id = sec.get('id', '')
     anchor = f'<a id="{sec_id}"></a>\n' if sec_id else ''
     lines = []
@@ -677,10 +695,12 @@ def _render_abstract_sec(sec: ET.Element, level: int) -> list[str]:
         lines.append(f'{anchor}**{title_text}**')
     elif sec_id:
         lines.append(anchor.rstrip())
-    lines.extend(md for _, md in _render_content(sec, level, skip=frozenset({'label', 'title', 'sec'})))
-    for sub in sec.findall('sec'):
-        lines.extend(_render_abstract_sec(sub, level))
-    return lines
+    lines.extend(md for _, md in _render_content(sec, level, skip=_LABEL_AND_TITLE, overrides=_ABSTRACT_BLOCKS))
+    return '\n\n'.join(lines)
+
+
+# Inside an abstract a <sec> is a bold-titled run of paragraphs, not a heading.
+_ABSTRACT_BLOCKS: Mapping[str, Callable[[ET.Element, int], str]] = {'sec': _render_abstract_sec}
 
 
 # ---------------------------------------------------------------------------
@@ -696,9 +716,8 @@ def render_body(body: ET.Element, level: int = 2) -> str:
 def render_sec(sec: ET.Element, level: int = 2) -> str:
     """Render <sec> headed at ``level``: its label and title as the heading, then its blocks in document order.
 
-    A <ref-list> nested in the section follows the other blocks (JATS places
-    it last) and is headed against the section's title, see
-    :func:`_render_ref_list_in_sec`.
+    A <ref-list> nested in the section is headed against the section's
+    title, see :func:`_render_ref_list_in_sec`.
     """
     parts = []
 
@@ -714,8 +733,11 @@ def render_sec(sec: ET.Element, level: int = 2) -> str:
         # materials). Emit just the anchor so cross-references resolve.
         parts.append(f'<a id="{sec_id}"></a>')
 
-    parts.extend(md for _, md in _render_content(sec, level, skip=frozenset({'label', 'title', 'ref-list'})))
-    parts.extend(_render_ref_list_in_sec(ref_list, level, title_md) for ref_list in sec.findall('ref-list'))
+    def ref_list_in_sec(ref_list: ET.Element, ref_level: int) -> str:
+        return _render_ref_list_in_sec(ref_list, ref_level, title_md)
+
+    blocks = _render_content(sec, level, skip=_LABEL_AND_TITLE, overrides={'ref-list': ref_list_in_sec})
+    parts.extend(md for _, md in blocks)
     return '\n\n'.join(part for part in parts if part)
 
 
@@ -766,9 +788,15 @@ def render_statement(s: ET.Element, level: int = 2) -> str:
     """Render <statement> (theorem, axiom, definition...) as a labelled block: ``**label title** body``."""
     label = common.flat_text(s.find('label'))
     title = inline_to_md(s.find('title')).strip()
-    body = '\n\n'.join(md for _, md in _render_content(s, level, skip=frozenset({'label', 'title'})))
+    blocks = _render_content(s, level, skip=_LABEL_AND_TITLE)
     head = ' '.join(b for b in (label, title) if b)
-    return f'**{head}** {body}'.strip() if head else body
+    if head:
+        # The head joins an opening paragraph; a fence or table cannot follow it on one line.
+        if blocks and blocks[0][0] == 'p':
+            blocks = [('p', f'**{head}** {blocks[0][1]}'), *blocks[1:]]
+        else:
+            blocks = [('p', f'**{head}**'), *blocks]
+    return '\n\n'.join(md for _, md in blocks)
 
 
 def render_def_list(dl: ET.Element, level: int = 2) -> str:
@@ -795,9 +823,12 @@ def render_def_list(dl: ET.Element, level: int = 2) -> str:
                 entries.append(common.definition_item(term, blocks))
         elif tag == 'def-list':
             # Under preceding entries it is their sub-list; opening the list it is a plain grouping.
+            # A titled sub-list opens with a paragraph, which must not lazily continue the entry above.
             nested = render_def_list(child, level)
-            if nested:
-                entries.append(textwrap.indent(nested, '  ') if entries else nested)
+            if nested and entries:
+                entries.append(('\n' if not nested.startswith('- ') else '') + textwrap.indent(nested, '  '))
+            elif nested:
+                entries.append(nested)
     body = '\n'.join(entries)
     return '\n\n'.join([*lead, body]) if body else ''
 
@@ -832,17 +863,24 @@ def render_supplementary(sm: ET.Element) -> str:
 # Children that describe their container rather than being its content;
 # excluded from every block walk by name, never by falling through.
 _METADATA_TAGS = frozenset({'sec-meta', 'permissions', 'object-id'})
+_LABEL_AND_TITLE = frozenset({'label', 'title'})
 
 
-def _render_content(el: ET.Element, level: int, skip: frozenset[str] = frozenset()) -> list[common.BlockFragment]:
+def _render_content(
+    el: ET.Element,
+    level: int,
+    skip: frozenset[str] = frozenset(),
+    overrides: Mapping[str, Callable[[ET.Element, int], str]] | None = None,
+) -> list[common.BlockFragment]:
     """Render ``el``'s content in document order as ``(tag, markdown)`` block fragments.
 
-    A child with a block renderer (``_BLOCK_RENDERERS``) contributes its
-    rendering under its own tag, a <p> child its own fragments, and each run
-    of text and inline children between blocks one paragraph fragment tagged
-    ``p``. Children in ``skip`` are the caller's (a label or title it renders
-    itself) and metadata children are not content; any other child is inline
-    content, so nothing is dropped. Empty fragments are omitted.
+    A child with a block renderer (``_BLOCK_RENDERERS``, or the caller's
+    ``overrides`` by tag) contributes its rendering under its own tag, a <p>
+    child its own fragments, and each run of text and inline children
+    between blocks one paragraph fragment tagged ``p``. Children in ``skip``
+    are the caller's (a label or title it renders itself) and metadata
+    children are not content; any other child is inline content, so nothing
+    is dropped. Empty fragments are omitted.
 
     ``level`` is the heading level of the section enclosing ``el``: a nested
     <sec> heads one below it.
@@ -854,7 +892,7 @@ def _render_content(el: ET.Element, level: int, skip: frozenset[str] = frozenset
         synth = ET.Element('p')
         synth.extend(run)
         text = common.flat(inline_to_md(synth))
-        if text:
+        if text.strip():  # ASCII-trimmed for output; a run of NBSPs alone is not a paragraph
             fragments.append(('p', text))
 
     for child in el:
@@ -865,7 +903,7 @@ def _render_content(el: ET.Element, level: int, skip: frozenset[str] = frozenset
             flush()
             fragments.extend(_render_content(child, level))
             run = [common.text_carrier(child.tail)]
-        elif (render_block := _BLOCK_RENDERERS.get(tag)) is not None:
+        elif (render_block := (overrides or {}).get(tag) or _BLOCK_RENDERERS.get(tag)) is not None:
             flush()
             md = render_block(child, level)
             if md:
@@ -1029,7 +1067,11 @@ def _render_table_foot(foot: ET.Element, level: int) -> list[str]:
             parts.extend(_render_table_fn(fn, level) for fn in child.findall('fn'))
         elif tag not in _METADATA_TAGS:
             parts.append(common.flat(' '.join(md for _, md in _render_content(child, level))))
-    return [part for part in parts if part]
+    # The foot is set in italics as a whole; a part that is itself one italic span would double up to bold.
+    return [_WHOLE_ITALIC_RE.sub(r'\1', part) for part in parts if part]
+
+
+_WHOLE_ITALIC_RE = re.compile(r'\A\*([^*]+)\*\Z')
 
 
 def _render_table_fn(fn: ET.Element, level: int) -> str:
@@ -1076,18 +1118,19 @@ def render_table(table: ET.Element, level: int = 2) -> str:
 def render_list(lst: ET.Element, level: int = 2) -> str:
     """Render <list>: its <title> as a bold lead line, then each <list-item>'s blocks stacked under its marker.
 
-    The marker is the item's <label> when it has one, else its ordinal for
-    ``list-type="order"`` and a bullet otherwise. The item's blocks render in
-    document order (:func:`_render_content`) and are laid out by
-    :func:`common.list_item`: a nested <list> or <def-list> becomes an
-    indented sub-list, a later paragraph a continuation paragraph. ``level``
-    is the heading level of the section enclosing the list.
+    The marker is the item's ordinal for ``list-type="order"`` and a bullet
+    otherwise, unless the item's <label> resolves to a marker of its own
+    (:func:`common.list_marker`). The item's blocks render in document order
+    (:func:`_render_content`) and are laid out by :func:`common.list_item`:
+    a nested <list> or <def-list> becomes an indented sub-list, a later
+    paragraph a continuation paragraph. ``level`` is the heading level of
+    the section enclosing the list.
     """
     ordered = lst.get('list-type') == 'order'
     items = []
     for i, item in enumerate(lst.findall('list-item'), 1):
-        marker = common.flat_text(item.find('label')) or (f'{i}.' if ordered else '-')
-        items.append(common.list_item(marker, _render_content(item, level, skip=frozenset({'label'}))))
+        marker, lead = common.list_marker(common.flat_text(item.find('label')), f'{i}.' if ordered else '-')
+        items.append(common.list_item(marker, _render_content(item, level, skip=frozenset({'label'})), lead))
     body = '\n'.join(items)
     title = inline_to_md(lst.find('title')).strip()
     return f'**{title}**\n\n{body}' if title and body else body

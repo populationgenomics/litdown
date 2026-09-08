@@ -229,11 +229,7 @@ class _Renderer:
         label = _text(_child(fn, 'label'))
         if fid and fid not in self._footnote_ids:
             self._footnote_ids.add(fid)
-            # The note is rendered mid-run: keep the run's queued floats out
-            # of the note's own paragraph placement.
-            pending, self._pending = self._pending, []
             body = _norm(' '.join(md for _, md in self._content(fn, skip=frozenset({'label'}))))
-            self._pending = pending
             self.footnotes.append((fid, label, body))
         return f'<sup>{label}</sup>' if label else ''
 
@@ -308,7 +304,9 @@ class _Renderer:
 
     def _para_typed(self, p: ET.Element) -> list[common.BlockFragment]:
         """:meth:`_para` as ``(tag, markdown)`` fragments; a placed float is tagged with its own element name."""
-        self._pending = []
+        # A paragraph nested in another run (a list item's, a footnote's) must
+        # not place the floats that run has queued: they are restored after.
+        pending, self._pending = self._pending, []
         fragments = self._content(p)
         # Floats referenced by a <float-anchor> in this paragraph, placed
         # immediately after it (deduped against anything already rendered).
@@ -319,7 +317,7 @@ class _Renderer:
             if flt is not None:
                 fragments.append((common.get_tag(flt), self._render_float(flt)))
                 self.rendered_floats.add(refid)
-        self._pending = []
+        self._pending = pending
         return fragments
 
     def _content(self, el: ET.Element, skip: frozenset[str] = frozenset()) -> list[common.BlockFragment]:
@@ -339,7 +337,7 @@ class _Renderer:
             synth = ET.Element('para')
             synth.extend(run)
             text = _norm(self.inline(synth))
-            if text:
+            if text.strip():  # ASCII-trimmed for output; a run of NBSPs alone is not a paragraph
                 fragments.append(('para', text))
 
         for child in el:
@@ -442,11 +440,15 @@ class _Renderer:
         eid = enun.get('id', '')
         anchor = f'<a id="{eid}"></a>\n' if eid else ''
         label = _text(_child(enun, 'label'))
-        body = '\n\n'.join(md for _, md in self._content(enun, skip=frozenset({'label'})))
+        blocks = self._content(enun, skip=frozenset({'label'}))
         head = f'**{label}**' if label else ''
-        if head and body:
-            return f'{anchor}{head} {body}'
-        return f'{anchor}{head}{body}'.strip()
+        if head:
+            # The head joins an opening paragraph; a fence or table cannot follow it on one line.
+            if blocks and blocks[0][0] == 'para':
+                blocks = [('para', f'{head} {blocks[0][1]}'), *blocks[1:]]
+            else:
+                blocks = [('para', head), *blocks]
+        return (anchor + '\n\n'.join(md for _, md in blocks)).strip()
 
     def _render_deflist(self, dl: ET.Element) -> str:
         """Render <def-list> (e.g. a nomenclature/symbol glossary) as bullets.
@@ -477,14 +479,17 @@ class _Renderer:
         ordered = list_type in ('simple', 'ordered', 'order') or bool(lst.get('mark-prefix'))
         items = []
         for i, item in enumerate(_children(lst, 'list-item'), 1):
-            # Render the label via inline so any markup/math in it (some lists
-            # use a math symbol as the bullet) is rendered, not flattened.
-            label = _norm(self.inline(_child(item, 'label')))
-            marker = label or (f'{i}.' if ordered else '-')
+            label_el = _child(item, 'label')
+            marker, lead = common.list_marker(_text(label_el), f'{i}.' if ordered else '-')
+            if lead:
+                # A label that is not a marker opens the item's content; via
+                # inline so its markup or math (some lists bullet with a math
+                # symbol) is rendered, not flattened.
+                lead = _norm(self.inline(label_el))
             # The item's paragraphs, nested lists and other blocks in document
             # order; a display equation or table inside a paragraph is lifted
             # (and anchored) rather than inlined away.
-            items.append(common.list_item(marker, self._content(item, skip=frozenset({'label'}))))
+            items.append(common.list_item(marker, self._content(item, skip=frozenset({'label'})), lead))
         return '\n'.join(items)
 
     def _section(self, sec: ET.Element, level: int) -> str:
@@ -578,7 +583,7 @@ class _Renderer:
             return _norm(self.inline(cap))
         return ' '.join(parts)
 
-    def _render_float(self, flt: ET.Element) -> str:
+    def _render_float(self, flt: ET.Element) -> str:  # noqa: C901
         tag = common.get_tag(flt)
         fid = flt.get('id', '')
         label = _text(_child(flt, 'label'))
@@ -626,6 +631,8 @@ class _Renderer:
             def collect(container: ET.Element) -> None:
                 for c in container:
                     ct = common.get_tag(c)
+                    if ct in ('label', 'textbox-head', 'caption'):
+                        continue  # rendered as the float's head
                     if ct in ('sections',):
                         collect(c)
                     elif ct == 'section':
