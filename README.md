@@ -96,7 +96,7 @@ the regression suite re-runs the converter over them on every test run.
 pytest                                # full suite
 ```
 
-Six test files:
+Seven test files:
 
 - `tests/test_mml_unit.py` — exhaustive per-element MathML cases.
 - `tests/test_jats_articles.py` — structural assertions over real PMC
@@ -119,6 +119,10 @@ Six test files:
 - `tests/test_whitespace_unit.py` — single-line Markdown constructs (headings,
   table rows, list items) survive pretty-printed source, one hand-written
   document per construct.
+- `tests/test_block_content_unit.py` — block content inside a container (a
+  nested list, a second paragraph or a definition list under a list item;
+  lists in table cells, footnotes, boxed text and quotes) survives in both
+  dialects and nests as Markdown; one hand-written document per shape.
 
 ### Fetching test fixtures
 

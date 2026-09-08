@@ -54,6 +54,9 @@ _YEAR_RE = re.compile(r'\b(\d{4})\b')
 # <bib-reference>). Used to identify top-level reference entries.
 _ENTRY_TAGS = ('bib-reference', 'other-ref')
 
+# Paragraph elements: each renders to its own fragments (see _Renderer._content).
+_PARA_TAGS = frozenset({'para', 'simple-para', 'note-para'})
+
 
 def _find(elem: ET.Element, name: str) -> ET.Element | None:
     """First descendant (or self) with the given local tag name."""
@@ -226,10 +229,7 @@ class _Renderer:
         label = _text(_child(fn, 'label'))
         if fid and fid not in self._footnote_ids:
             self._footnote_ids.add(fid)
-            body_parts = [
-                _norm(self.inline(p)) for p in fn if common.get_tag(p) in ('note-para', 'para', 'simple-para')
-            ]
-            body = ' '.join(b for b in body_parts if b)
+            body = _norm(' '.join(md for _, md in self._content(fn, skip=frozenset({'label'}))))
             self.footnotes.append((fid, label, body))
         return f'<sup>{label}</sup>' if label else ''
 
@@ -300,40 +300,14 @@ class _Renderer:
         block for any float first referenced here via a <float-anchor>
         (placed after the paragraph, next to its discussion).
         """
-        self._pending = []
-        block_kids = [c for c in p if common.get_tag(c) in self._BLOCK_IN_PARA]
-        fragments: list[str] = []
+        return [md for _, md in self._para_typed(p)]
 
-        if not block_kids:
-            text = _norm(self.inline(p))
-            if text:
-                fragments.append(text)
-        else:
-            inline_kids: list[ET.Element] = []
-            lead = [p.text or '']
-
-            def flush() -> None:
-                if not inline_kids and not lead[0].strip():
-                    return
-                synth = ET.Element('para')
-                synth.text = lead[0]
-                synth.extend(inline_kids)
-                text = _norm(self.inline(synth))
-                if text:
-                    fragments.append(text)
-
-            for child in p:
-                if common.get_tag(child) in self._BLOCK_IN_PARA:
-                    flush()
-                    inline_kids = []
-                    block_md = self._render_block(child)
-                    if block_md:
-                        fragments.append(block_md)
-                    lead[0] = child.tail or ''
-                else:
-                    inline_kids.append(child)
-            flush()
-
+    def _para_typed(self, p: ET.Element) -> list[common.BlockFragment]:
+        """:meth:`_para` as ``(tag, markdown)`` fragments; a placed float is tagged with its own element name."""
+        # A paragraph nested in another run (a list item's, a footnote's) must
+        # not place the floats that run has queued: they are restored after.
+        pending, self._pending = self._pending, []
+        fragments = self._content(p)
         # Floats referenced by a <float-anchor> in this paragraph, placed
         # immediately after it (deduped against anything already rendered).
         for refid in self._pending:
@@ -341,10 +315,60 @@ class _Renderer:
                 continue
             flt = self.floats.get(refid)
             if flt is not None:
-                fragments.append(self._render_float(flt))
+                fragments.append((common.get_tag(flt), self._render_float(flt)))
                 self.rendered_floats.add(refid)
-        self._pending = []
-        return [f for f in fragments if f]
+        self._pending = pending
+        return fragments
+
+    def _content(self, el: ET.Element, skip: frozenset[str] = frozenset()) -> list[common.BlockFragment]:
+        """Render ``el``'s mixed content in document order as ``(tag, markdown)`` block fragments.
+
+        A paragraph child (:data:`_PARA_TAGS`) contributes its own fragments,
+        a child in :attr:`_BLOCK_IN_PARA` its block rendering under its own
+        tag, and each run of text and inline children between them one
+        fragment tagged ``para``. Children in ``skip`` are the caller's (a
+        label it renders itself); any other child is inline content, so
+        nothing is dropped. Empty fragments are omitted.
+        """
+        fragments: list[common.BlockFragment] = []
+        run: list[ET.Element] = [common.text_carrier(el.text)]
+
+        def flush() -> None:
+            synth = ET.Element('para')
+            synth.extend(run)
+            text = _norm(self.inline(synth))
+            if text.strip():  # ASCII-trimmed for output; a run of NBSPs alone is not a paragraph
+                fragments.append(('para', text))
+
+        for child in el:
+            tag = common.get_tag(child)
+            if tag in skip:
+                run.append(common.text_carrier(child.tail))
+            elif tag in _PARA_TAGS:
+                flush()
+                fragments.extend(self._para_typed(child))
+                run = [common.text_carrier(child.tail)]
+            elif tag in self._BLOCK_IN_PARA:
+                flush()
+                md = self._render_block(child)
+                if md:
+                    fragments.append((tag, md))
+                run = [common.text_carrier(child.tail)]
+            else:
+                run.append(child)
+        flush()
+        return fragments
+
+    def _child_blocks(self, child: ET.Element) -> list[str]:
+        """Render one child of a structural container: a paragraph's fragments, a block's rendering, else its text."""
+        tag = common.get_tag(child)
+        if tag in _PARA_TAGS:
+            return self._para(child)
+        if tag in self._BLOCK_IN_PARA:
+            md = self._render_block(child)
+            return [md] if md else []
+        text = _norm(self.inline(child))
+        return [text] if text else []
 
     def _render_block(self, child: ET.Element) -> str:
         """Render a block-level element (equation/float/list/display/theorem)."""
@@ -368,16 +392,9 @@ class _Renderer:
         return ''
 
     def _render_quote(self, quote: ET.Element) -> str:
-        """Render <displayed-quote> (a block quote / callout) as a blockquote."""
-        body_parts: list[str] = []
-        for c in quote:
-            ct = common.get_tag(c)
-            if ct in ('para', 'simple-para'):
-                body_parts.extend(self._para(c))
-            elif ct == 'attribution':
-                body_parts.append(f'— {_norm(self.inline(c))}')
-            elif ct in self._BLOCK_IN_PARA:
-                body_parts.append(self._render_block(c))
+        """Render <displayed-quote> (a block quote / callout) as a blockquote, each <attribution> last."""
+        body_parts = [md for _, md in self._content(quote, skip=frozenset({'attribution'}))]
+        body_parts.extend(f'— {_norm(self.inline(c))}' for c in _children(quote, 'attribution'))
         body = '\n\n'.join(p for p in body_parts if p)
         return '\n'.join('> ' + line for line in body.splitlines())
 
@@ -385,19 +402,8 @@ class _Renderer:
         """Render a <display> wrapper's block children in place.
 
         <display> groups inline-placed equations, floats and lists.
-        <e-component>/<link> point at publisher-internal multimedia
-        locators (no resolvable URL), so they're dropped.
         """
-        out = []
-        for c in display:
-            tag = common.get_tag(c)
-            if tag in ('formula', 'list', 'figure', 'table', 'textbox', 'enunciation'):
-                out.append(self._render_block(c))
-            elif tag in ('para', 'simple-para'):
-                out.extend(self._para(c))
-            elif tag == 'e-component':
-                out.append(self._render_ecomponent(c))
-        return '\n\n'.join(o for o in out if o)
+        return '\n\n'.join(md for _, md in self._content(display))
 
     def _render_ecomponent(self, ec: ET.Element) -> str:
         """Anchor + label a supplementary <e-component> (multimedia).
@@ -434,21 +440,22 @@ class _Renderer:
         eid = enun.get('id', '')
         anchor = f'<a id="{eid}"></a>\n' if eid else ''
         label = _text(_child(enun, 'label'))
-        body_parts: list[str] = []
-        for p in enun:
-            if common.get_tag(p) in ('para', 'simple-para'):
-                body_parts.extend(self._para(p))
-        body = '\n\n'.join(b for b in body_parts if b) or _norm(self.inline(enun))
+        blocks = self._content(enun, skip=frozenset({'label'}))
         head = f'**{label}**' if label else ''
-        if head and body:
-            return f'{anchor}{head} {body}'
-        return f'{anchor}{head}{body}'.strip()
+        if head:
+            # The head joins an opening paragraph; a fence or table cannot follow it on one line.
+            if blocks and blocks[0][0] == 'para':
+                blocks = [('para', f'{head} {blocks[0][1]}'), *blocks[1:]]
+            else:
+                blocks = [('para', head), *blocks]
+        return (anchor + '\n\n'.join(md for _, md in blocks)).strip()
 
     def _render_deflist(self, dl: ET.Element) -> str:
         """Render <def-list> (e.g. a nomenclature/symbol glossary) as bullets.
 
         ``<def-term>`` and ``<def-description>`` are siblings, so walk in
         document order to pair each term with the description that follows.
+        A description's blocks are laid out by :func:`common.definition_item`.
         """
         pairs: list[str] = []
         pending_term = ''
@@ -459,9 +466,9 @@ class _Renderer:
                     pairs.append(f'- **{pending_term}**')
                 pending_term = _norm(self.inline(child))
             elif ct == 'def-description':
-                desc = _norm(self.inline(child))
-                if pending_term or desc:
-                    pairs.append(f'- **{pending_term}** — {desc}' if pending_term else f'- {desc}')
+                blocks = self._content(child)
+                if pending_term or blocks:
+                    pairs.append(common.definition_item(pending_term, blocks))
                 pending_term = ''
         if pending_term:
             pairs.append(f'- **{pending_term}**')
@@ -472,22 +479,18 @@ class _Renderer:
         ordered = list_type in ('simple', 'ordered', 'order') or bool(lst.get('mark-prefix'))
         items = []
         for i, item in enumerate(_children(lst, 'list-item'), 1):
-            # Render the label via inline so any markup/math in it (some lists
-            # use a math symbol as the bullet) is rendered, not flattened.
-            label = _norm(self.inline(_child(item, 'label')))
-            paras = _children(item, 'para') or _children(item, 'simple-para')
-            if paras:
-                # Via _para so a display equation/table inside a list item is
-                # lifted (and anchored) rather than inlined away.
-                frags: list[str] = []
-                for p in paras:
-                    frags.extend(self._para(p))
-                body = ' '.join(f for f in frags if f).strip()
-            else:
-                # list-item may hold inline content directly.
-                body = _norm(self.inline(item))
-            prefix = label or (f'{i}.' if ordered else '-')
-            items.append(f'{prefix} {body}'.rstrip())
+            label_el = _child(item, 'label')
+            marker, lead = common.list_marker(_text(label_el), f'{i}.' if ordered else '-')
+            inline_label = _norm(self.inline(label_el)) if label_el is not None else ''
+            if lead or (inline_label and not _text(label_el)):
+                # A label that is not a marker — or has no text at all, only
+                # math or markup — opens the item's content behind a bullet;
+                # via inline so that math or markup is rendered, not flattened.
+                marker, lead = '-', inline_label
+            # The item's paragraphs, nested lists and other blocks in document
+            # order; a display equation or table inside a paragraph is lifted
+            # (and anchored) rather than inlined away.
+            items.append(common.list_item(marker, self._content(item, skip=frozenset({'label'})), lead))
         return '\n'.join(items)
 
     def _section(self, sec: ET.Element, level: int) -> str:
@@ -516,10 +519,6 @@ class _Renderer:
                     parts.append(_anchor_only(child))
                     continue
                 parts.append(self._section(child, level + 1))
-            elif tag in ('para', 'simple-para'):
-                parts.extend(self._para(child))
-            elif tag in self._BLOCK_IN_PARA:
-                parts.append(self._render_block(child))
             elif tag == 'float-anchor':
                 # A float-anchor outside a paragraph: resolve it directly.
                 refid = child.get('refid', '')
@@ -528,6 +527,8 @@ class _Renderer:
                     if flt is not None:
                         parts.append(self._render_float(flt))
                         self.rendered_floats.add(refid)
+            else:
+                parts.extend(self._child_blocks(child))
         return '\n\n'.join(p for p in parts if p)
 
     def _render_block_formula(self, formula: ET.Element) -> str:
@@ -631,14 +632,14 @@ class _Renderer:
             def collect(container: ET.Element) -> None:
                 for c in container:
                     ct = common.get_tag(c)
+                    if ct in ('label', 'textbox-head', 'caption'):
+                        continue  # rendered as the float's head
                     if ct in ('sections',):
                         collect(c)
                     elif ct == 'section':
                         body_parts.append(self._section(c, level=3))
-                    elif ct in ('para', 'simple-para'):
-                        body_parts.extend(self._para(c))
-                    elif ct in self._BLOCK_IN_PARA:
-                        body_parts.append(self._render_block(c))
+                    else:
+                        body_parts.extend(self._child_blocks(c))
 
             head_el = _child(flt, 'textbox-head')
             if head_el is not None:
@@ -664,24 +665,15 @@ class _Renderer:
         """
         parts: list[str] = []
         for legend in _children(flt, 'legend'):
-            for p in legend:
-                if common.get_tag(p) in ('simple-para', 'para'):
-                    t = _norm(self.inline(p))
-                    if t:
-                        parts.append(t)
+            parts.extend(_norm(md) for _, md in self._content(legend))
         for fn in _children(flt, 'table-footnote'):
             fn_id = fn.get('id', '')
             label = _text(_child(fn, 'label'))
-            body_parts = [
-                _norm(self.inline(p)) for p in fn if common.get_tag(p) in ('note-para', 'simple-para', 'para')
-            ]
-            body = ' '.join(b for b in body_parts if b) or _norm(self.inline(fn))
+            body = _norm(' '.join(md for _, md in self._content(fn, skip=frozenset({'label'}))))
             anchor = f'<a id="{fn_id}"></a>' if fn_id else ''
             marker = f'<sup>{label}</sup> ' if label else ''
             parts.append(f'{anchor}{marker}{body}'.strip())
-        if not parts:
-            return ''
-        return '*' + ' '.join(parts) + '*'
+        return ' '.join(parts)
 
     def _render_cals_table(self, tgroup: ET.Element) -> str:
         # Map colspec names → 1-based column number for namest/nameend spans.
@@ -696,7 +688,7 @@ class _Renderer:
         def cells(row: ET.Element) -> list[tuple[str, int, int]]:
             out = []
             for entry in _children(row, 'entry'):
-                content = common.md_escape_cell(self.inline(entry))
+                content = common.md_cell(md for _, md in self._content(entry))
                 namest = entry.get('namest')
                 nameend = entry.get('nameend')
                 colspan = 1
@@ -1090,10 +1082,8 @@ def _render_body(renderer: _Renderer, body: ET.Element, head: ET.Element | None)
                         parts.append(_anchor_only(sub))
                     else:
                         parts.append(renderer._section(sub, level=2))
-                elif stag in ('para', 'simple-para'):
-                    parts.extend(renderer._para(sub))
-                elif stag in renderer._BLOCK_IN_PARA:
-                    parts.append(renderer._render_block(sub))
+                else:
+                    parts.extend(renderer._child_blocks(sub))
         elif tag in ('para', 'simple-para'):
             parts.extend(renderer._para(child))
         elif tag == 'appendices':

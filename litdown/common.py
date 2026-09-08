@@ -4,8 +4,9 @@ These helpers carry no JATS- or Elsevier-specific knowledge; they're the
 bits both :mod:`litdown.jats` and :mod:`litdown.elsevier` would otherwise
 duplicate verbatim: namespace-stripping tag helpers, the xlink href
 accessor, source-whitespace normalization, table-cell escaping, the inline
-typographic leaf formatters, and the markdown-table grid builder
-(colspan/rowspan expansion + multi-row header collapse).
+typographic leaf formatters, the markdown-table grid builder
+(colspan/rowspan expansion + multi-row header collapse), and the layout of
+block fragments into a list item, a definition entry or a table cell.
 
 The inline *dispatchers* are deliberately NOT shared — JATS and Elsevier
 diverge on cross-ref/link attribute handling enough that one config-driven
@@ -16,7 +17,9 @@ own dispatcher and calls :func:`inline_wrap` for the shared leaf wrappings.
 from __future__ import annotations
 
 import re
+import textwrap
 import xml.etree.ElementTree as ET
+from collections.abc import Iterable, Sequence
 
 XLINK_NS = 'http://www.w3.org/1999/xlink'
 MML_NS = 'http://www.w3.org/1998/Math/MathML'
@@ -71,6 +74,125 @@ def flat_text(elem: ET.Element | None) -> str:
 def md_escape_cell(text: str) -> str:
     """Escape pipes and flatten to one line — a GFM row cannot span lines."""
     return flat(text).replace('|', '\\|')
+
+
+def text_carrier(text: str | None) -> ET.Element:
+    """An element whose only content is ``text``.
+
+    Lets a bare string — an element's ``.text``, or the ``.tail`` of a child
+    that is rendered separately — take its place in a list of children that
+    is rendered as one inline run. Both dialects' inline dispatchers render
+    an unknown tag as its inner text, which is all a carrier has.
+    """
+    carrier = ET.Element('#text')
+    carrier.text = text
+    return carrier
+
+
+# ---------------------------------------------------------------------------
+# Block-fragment layout
+# ---------------------------------------------------------------------------
+
+# A block fragment is ``(tag, markdown)``: the source tag it was rendered from
+# (``p``/``para`` for a run of inline content), and its markdown. The tag
+# decides how the fragment joins its neighbours inside a list item.
+BlockFragment = tuple[str, str]
+
+_PARAGRAPH_TAGS = frozenset({'p', 'para'})
+_NESTED_LIST_TAGS = frozenset({'list', 'def-list'})
+
+# The list markers CommonMark recognises: an ordinal of up to nine digits
+# closed by ``.`` or ``)``, or a bullet. Bullet glyphs publishers put in a
+# <label> stand for the bullet marker.
+_ORDINAL_MARKER_RE = re.compile(r'\d{1,9}[.)]')
+_BARE_ORDINAL_RE = re.compile(r'\d{1,9}')
+_BULLET_GLYPHS = frozenset({'•', '◦', '▪', '●', '○', '·', '‣', '⁃', '■', '◆', '▸', '►', '-', '–', '—', '*', '+'})
+# Only a bullet or a ``1.``/``1)`` item can interrupt a paragraph; any other
+# list line after a paragraph is a lazy continuation of it.
+_INTERRUPTING_LIST_RE = re.compile(r'(?:[-*+]|1[.)]) \S')
+# At the start of an item's content these would open a heading, a quote or a fence.
+_BLOCK_OPENERS = ('#', '>', '`', '~')
+
+
+def list_marker(label: str, default: str) -> tuple[str, str]:
+    """Resolve a list item's label to ``(marker, lead)``: a CommonMark marker, and content that opens the item.
+
+    An ordinal label (``3.``, ``10)``) is the marker verbatim — the markdown
+    keeps the source numbering, though a renderer renumbers from the first
+    item — and a bare number gets its period; a bullet glyph is the bullet
+    marker. Anything else (``(i)``, ``a.``, ``Step 1:``) is not a marker
+    CommonMark would parse — the line would be a paragraph and nothing could
+    nest under it — so the label opens the item's content behind a bullet
+    (``- (i) First.``): the label is the enumerator, so the list type's
+    ordinal is not emitted beside it. An empty label yields ``default``.
+    """
+    label = label.strip()
+    if not label:
+        return default, ''
+    if _ORDINAL_MARKER_RE.fullmatch(label):
+        return label, ''
+    if _BARE_ORDINAL_RE.fullmatch(label):
+        return f'{label}.', ''
+    if label in _BULLET_GLYPHS:
+        return '-', ''
+    return '-', label
+
+
+def list_item(marker: str, blocks: Sequence[BlockFragment], lead: str = '') -> str:
+    """Lay out one markdown list item from its block fragments.
+
+    The first fragment follows ``marker``; every later line is indented by
+    the marker's width — CommonMark's content offset — so it stays inside
+    the item. A nested list (a fragment tagged ``list`` or ``def-list``)
+    follows the line above directly; any other block is a paragraph of its
+    own, separated by a blank line — as is a nested list whose first line
+    could not interrupt a paragraph (an ordinal other than ``1``, an empty
+    item). ``lead`` (a label that is not a marker, see :func:`list_marker`)
+    opens the first paragraph, or is a paragraph of its own when the item
+    opens with another block; escaped when it would otherwise open a block
+    of its own. An item without content is the bare marker.
+    """
+    if lead:
+        if lead.startswith(_BLOCK_OPENERS):
+            lead = f'\\{lead}'
+        if blocks and blocks[0][0] in _PARAGRAPH_TAGS:
+            blocks = [(blocks[0][0], f'{lead} {blocks[0][1]}'), *blocks[1:]]
+        else:
+            blocks = [('p', lead), *blocks]
+    indent = ' ' * (len(marker) + 1)
+    lines: list[str] = []
+    for i, (tag, md) in enumerate(blocks):
+        if i and (tag not in _NESTED_LIST_TAGS or not _INTERRUPTING_LIST_RE.match(md)):
+            lines.append('')
+        lines.append(textwrap.indent(md, indent))
+    body = '\n'.join(lines)
+    return f'{marker} {body[len(indent) :]}' if body else marker
+
+
+def definition_item(term: str, blocks: Sequence[BlockFragment]) -> str:
+    """One definition-list entry as a bullet: ``- **term** — definition``.
+
+    The definition's first block joins the term line when it is a paragraph;
+    the rest stack under it as in :func:`list_item`. A definition that opens
+    with any other block — a nested list, a code fence, a table — keeps the
+    term line to itself, the blocks beneath it.
+    """
+    head = f'**{term}**' if term else ''
+    if blocks and blocks[0][0] in _PARAGRAPH_TAGS:
+        first = blocks[0][1]
+        head = f'{head} — {first}' if head else first
+        blocks = blocks[1:]
+    return list_item('-', [('p', head), *blocks] if head else list(blocks))
+
+
+def md_cell(blocks: Iterable[str]) -> str:
+    """One GFM cell from block fragments.
+
+    A row cannot span lines, so ``<br>`` separates the fragments and the
+    lines within each; the result is escaped and flattened by
+    :func:`md_escape_cell`.
+    """
+    return md_escape_cell('<br>'.join('<br>'.join(md.splitlines()) for md in blocks))
 
 
 # ---------------------------------------------------------------------------
