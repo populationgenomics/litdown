@@ -4,8 +4,9 @@ These helpers carry no JATS- or Elsevier-specific knowledge; they're the
 bits both :mod:`litdown.jats` and :mod:`litdown.elsevier` would otherwise
 duplicate verbatim: namespace-stripping tag helpers, the xlink href
 accessor, source-whitespace normalization, table-cell escaping, the inline
-typographic leaf formatters, and the markdown-table grid builder
-(colspan/rowspan expansion + multi-row header collapse).
+typographic leaf formatters, the markdown-table grid builder
+(colspan/rowspan expansion + multi-row header collapse), and the layout of
+block fragments into a list item, a definition entry or a table cell.
 
 The inline *dispatchers* are deliberately NOT shared — JATS and Elsevier
 diverge on cross-ref/link attribute handling enough that one config-driven
@@ -16,7 +17,9 @@ own dispatcher and calls :func:`inline_wrap` for the shared leaf wrappings.
 from __future__ import annotations
 
 import re
+import textwrap
 import xml.etree.ElementTree as ET
+from collections.abc import Iterable, Sequence
 
 XLINK_NS = 'http://www.w3.org/1999/xlink'
 MML_NS = 'http://www.w3.org/1998/Math/MathML'
@@ -71,6 +74,76 @@ def flat_text(elem: ET.Element | None) -> str:
 def md_escape_cell(text: str) -> str:
     """Escape pipes and flatten to one line — a GFM row cannot span lines."""
     return flat(text).replace('|', '\\|')
+
+
+def text_carrier(text: str | None) -> ET.Element:
+    """An element whose only content is ``text``.
+
+    Lets a bare string — an element's ``.text``, or the ``.tail`` of a child
+    that is rendered separately — take its place in a list of children that
+    is rendered as one inline run. Both dialects' inline dispatchers render
+    an unknown tag as its inner text, which is all a carrier has.
+    """
+    carrier = ET.Element('#text')
+    carrier.text = text
+    return carrier
+
+
+# ---------------------------------------------------------------------------
+# Block-fragment layout
+# ---------------------------------------------------------------------------
+
+# A block fragment is ``(tag, markdown)``: the source tag it was rendered from
+# (``p``/``para`` for a run of inline content), and its markdown. The tag
+# decides how the fragment joins its neighbours inside a list item.
+BlockFragment = tuple[str, str]
+
+_NESTED_LIST_TAGS = frozenset({'list', 'def-list'})
+
+
+def list_item(marker: str, blocks: Sequence[BlockFragment]) -> str:
+    """Lay out one markdown list item from its block fragments.
+
+    The first fragment follows ``marker``; every later line is indented by
+    the marker's width — CommonMark's content offset — so it stays inside
+    the item. A nested list (a fragment tagged ``list`` or ``def-list``)
+    follows the line above directly; any other block is a paragraph of its
+    own, separated by a blank line. An item without content is the bare
+    marker.
+    """
+    indent = ' ' * (len(marker) + 1)
+    lines: list[str] = []
+    for i, (tag, md) in enumerate(blocks):
+        if i and tag not in _NESTED_LIST_TAGS:
+            lines.append('')
+        lines.append(textwrap.indent(md, indent))
+    body = '\n'.join(lines)
+    return f'{marker} {body[len(indent) :]}' if body else marker
+
+
+def definition_item(term: str, blocks: Sequence[BlockFragment]) -> str:
+    """One definition-list entry as a bullet: ``- **term** — definition``.
+
+    The definition's first block joins the term line; the rest stack under it
+    as in :func:`list_item`. A definition that opens with a nested list keeps
+    the term line to itself, the list nested below it.
+    """
+    head = f'**{term}**' if term else ''
+    if blocks and blocks[0][0] not in _NESTED_LIST_TAGS:
+        first = blocks[0][1]
+        head = f'{head} — {first}' if head else first
+        blocks = blocks[1:]
+    return list_item('-', [('p', head), *blocks] if head else list(blocks))
+
+
+def md_cell(blocks: Iterable[str]) -> str:
+    """One GFM cell from block fragments.
+
+    A row cannot span lines, so ``<br>`` separates the fragments and the
+    lines within each; the result is escaped and flattened by
+    :func:`md_escape_cell`.
+    """
+    return md_escape_cell('<br>'.join('<br>'.join(md.splitlines()) for md in blocks))
 
 
 # ---------------------------------------------------------------------------
