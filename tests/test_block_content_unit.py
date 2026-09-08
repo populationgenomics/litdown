@@ -339,7 +339,8 @@ def test_every_text_node_survives(name: str) -> None:
         ('jats-list-title', '**Newly Posted**\n\n- Alpha.'),
         ('jats-wide-marker', '10. Ten.\n    - Sub of ten.'),
         ('jats-list-in-cell', '| - *SOST*-related sclerosteosis<br>- Facial deformity | Para one<br>Para two |'),
-        ('jats-table-foot-fn-group', '*<sup>fa</sup> Grouped footnote. Adapted from Doe.*'),
+        ('jats-table-foot-fn-group', '\n\n<sup>fa</sup> Grouped footnote. Adapted from Doe.'),
+        ('elsevier-table-footnote', '\n\n<a id="tf1"></a><sup>fa</sup> Foot lead. - Foot item.'),
         ('jats-boxed-text', '> **Learn More**\n>\n> Caption para.\n> \n> Lead para.\n> \n> - Boxed item.'),
         ('jats-boxed-text', '> <a id="B2"></a>\n> > Inner box.'),
         ('jats-disp-quote', '> Quoted.\n> \n> - Quoted item.\n> \n> — Someone'),
@@ -366,15 +367,15 @@ def test_nesting_is_laid_out_as_markdown(name: str, expected: str) -> None:
     assert expected in convert({**DOCUMENTS, **LAYOUT_ONLY}[name])
 
 
-def test_table_foot_is_italic_once() -> None:
-    """The foot is italicised as a whole only when nothing inside it could pair with the wrapper."""
-    for name in ('jats-italic-attrib-foot', 'jats-partly-italic-attrib-foot'):
+def test_table_foot_is_plain_text() -> None:
+    """A foot is not wrapped in emphasis: its own markup and literal asterisks stand as they are."""
+    for name in ('jats-italic-attrib-foot', 'jats-partly-italic-attrib-foot', 'jats-table-foot-fn-group'):
         assert '**' not in convert(DOCUMENTS[name]).split('| cell text |')[1]
     plain = _jats(
         f'<sec><table-wrap id="T1"><label>Table 1</label>{_TABLE}<table-wrap-foot>'
         '<fn><p>* P&lt;0.05 against control.</p></fn></table-wrap-foot></table-wrap></sec>'
     )
-    assert '\n\n* P<0.05 against control.' in convert(plain)
+    assert convert(plain).endswith('\n\n* P<0.05 against control.')
 
 
 def test_ref_list_mid_section_leaves_no_triple_newline() -> None:

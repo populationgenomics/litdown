@@ -673,9 +673,7 @@ class _Renderer:
             anchor = f'<a id="{fn_id}"></a>' if fn_id else ''
             marker = f'<sup>{label}</sup> ' if label else ''
             parts.append(f'{anchor}{marker}{body}'.strip())
-        if not parts:
-            return ''
-        return '*' + ' '.join(parts) + '*'
+        return ' '.join(parts)
 
     def _render_cals_table(self, tgroup: ET.Element) -> str:
         # Map colspec names → 1-based column number for namest/nameend spans.

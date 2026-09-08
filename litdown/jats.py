@@ -1056,9 +1056,7 @@ def render_table_wrap(tw: ET.Element, level: int = 2) -> str:
     elif image_md:
         parts.append(image_md)
     if foot_md:
-        # Italicised as a whole only when no asterisk inside — emphasis or a
-        # literal significance marker — could pair with the wrapper.
-        parts.append(f'*{foot_md}*' if '*' not in foot_md else foot_md)
+        parts.append(foot_md)
     return '\n\n'.join(parts)
 
 
