@@ -481,11 +481,12 @@ class _Renderer:
         for i, item in enumerate(_children(lst, 'list-item'), 1):
             label_el = _child(item, 'label')
             marker, lead = common.list_marker(_text(label_el), f'{i}.' if ordered else '-')
-            if lead:
-                # A label that is not a marker opens the item's content; via
-                # inline so its markup or math (some lists bullet with a math
-                # symbol) is rendered, not flattened.
-                lead = _norm(self.inline(label_el))
+            inline_label = _norm(self.inline(label_el)) if label_el is not None else ''
+            if lead or (inline_label and not _text(label_el)):
+                # A label that is not a marker — or has no text at all, only
+                # math or markup — opens the item's content behind a bullet;
+                # via inline so that math or markup is rendered, not flattened.
+                marker, lead = '-', inline_label
             # The item's paragraphs, nested lists and other blocks in document
             # order; a display equation or table inside a paragraph is lifted
             # (and anchored) rather than inlined away.

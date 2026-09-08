@@ -291,7 +291,7 @@ def test_ref_label_comes_from_the_label_or_a_numeric_id(ref: str, line: str) -> 
     xml = (
         f'<article><back><ref-list>{ref}<mixed-citation>Doe J. A study. 2020.</mixed-citation></ref></ref-list></back>'
     )
-    assert f'</a>\n{line} A study. 2020.\n' in convert(f'{xml}</article>'.encode())
+    assert convert(f'{xml}</article>'.encode()).endswith(f'</a>\n{line} A study. 2020.')
 
 
 @pytest.mark.parametrize(

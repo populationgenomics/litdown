@@ -135,6 +135,34 @@ DOCUMENTS = {
         f'<sec><table-wrap id="T1"><label>Table 1</label>{_TABLE}<table-wrap-foot>'
         '<attrib><italic>Adapted from Doe.</italic></attrib></table-wrap-foot></table-wrap></sec>'
     ),
+    'jats-partly-italic-attrib-foot': _jats(
+        f'<sec><table-wrap id="T1"><label>Table 1</label>{_TABLE}<table-wrap-foot>'
+        '<attrib><italic>Adapted</italic> from Doe.</attrib></table-wrap-foot></table-wrap></sec>'
+    ),
+    'jats-nested-ordinal-first-item': _jats(
+        '<sec><list><list-item><p>Steps:</p><list list-type="simple"><list-item><label>3.</label><p>Third.</p>'
+        '</list-item><list-item><label>4.</label><p>Fourth.</p></list-item></list></list-item></list></sec>'
+    ),
+    'jats-nested-paren-ordinal-first-item': _jats(
+        '<sec><list><list-item><p>Steps:</p><list list-type="simple"><list-item><label>10)</label><p>Tenth.</p>'
+        '</list-item></list></list-item></list></sec>'
+    ),
+    'jats-nested-empty-first-item': _jats(
+        '<sec><list><list-item><p>Steps:</p><list><list-item/><list-item><p>Second nested.</p></list-item></list>'
+        '</list-item></list></sec>'
+    ),
+    'jats-ordered-list-with-lead-labels': _jats(
+        '<sec><list list-type="order"><list-item><label>(a)</label><p>Alpha.</p></list-item>'
+        '<list-item><label>(b)</label><p>Beta.</p></list-item></list></sec>'
+    ),
+    'jats-block-opener-labels': _jats(
+        '<sec><list><list-item><label>#1</label><p>Hash label.</p></list-item>'
+        '<list-item><label>&gt;&gt;</label><p>Quote label.</p></list-item></list></sec>'
+    ),
+    'jats-ref-list-mid-section': _jats(
+        '<sec><title>Section title</title><p>Lead para.</p><ref-list><title>Refs</title>'
+        '<ref id="R1"><mixed-citation>Doe J. 2020.</mixed-citation></ref></ref-list><p>After refs.</p></sec>'
+    ),
     'jats-def-list': _jats(
         '<sec><def-list><title>Terms</title><def-item><term><italic>ABC1</italic> gene</term><def><p>Para one.</p>'
         '<p>Para two.</p><list><list-item><p>Def item.</p></list-item></list></def></def-item></def-list></sec>'
@@ -213,7 +241,8 @@ DOCUMENTS = {
 }
 
 # Shapes whose output drops source text by design — a bullet glyph label is replaced by the marker, one
-# <alternatives> alternative is rendered — so only their layout is checked.
+# <alternatives> alternative is rendered — or whose only distinguishing node is one character (a bare
+# ``3`` label, a one-letter math label), so only their layout is checked.
 LAYOUT_ONLY = {
     'jats-labels-bullet-glyphs': _jats(
         '<sec><list list-type="simple"><list-item><label>•</label><p>Outer glyph.</p>'
@@ -223,6 +252,27 @@ LAYOUT_ONLY = {
     'jats-alternatives-in-text': _jats(
         '<sec><p>Let <alternatives><tex-math>a=b</tex-math><math xmlns="http://www.w3.org/1998/Math/MathML">'
         '<mi>a</mi><mo>=</mo><mi>b</mi></math></alternatives> hold.</p></sec>'
+    ),
+    'jats-alternatives-unnamespaced-math': _jats(
+        '<sec><p>Let <alternatives><math><mi>a</mi><mo>=</mo><mi>b</mi></math>'
+        '<graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="e.jpg"/></alternatives> hold.</p></sec>'
+    ),
+    'jats-nested-bare-number-first-item': _jats(
+        '<sec><list><list-item><p>Steps:</p><list list-type="simple"><list-item><label>3</label><p>Third.</p>'
+        '</list-item></list></list-item></list></sec>'
+    ),
+    'jats-nested-zero-first-item': _jats(
+        '<sec><list><list-item><p>Steps:</p><list list-type="simple"><list-item><label>0</label><p>Zero.</p>'
+        '</list-item></list></list-item></list></sec>'
+    ),
+    'elsevier-math-label': _elsevier(
+        '<list><list-item><label><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math></label>'
+        '<para>Math labelled.</para></list-item></list>'
+    ),
+    'jats-labels-glyph-with-nbsp': _jats(
+        '<sec><list list-type="simple"><list-item><label>•\xa0</label><p>Outer glyph.</p>'
+        '<list list-type="simple"><list-item><label>–</label><p>Inner dash.</p></list-item></list></list-item>'
+        '</list></sec>'
     ),
 }
 
@@ -267,7 +317,19 @@ def test_every_text_node_survives(name: str) -> None:
             'jats-nested-titled-def-list',
             '- **outer term** — Outer definition.\n\n  **Inner terms**\n\n  - **inner term** — Inner definition.',
         ),
-        ('jats-italic-attrib-foot', '*Adapted from Doe.*'),
+        ('jats-italic-attrib-foot', '\n\n*Adapted from Doe.*'),
+        ('jats-partly-italic-attrib-foot', '\n\n*Adapted* from Doe.'),
+        ('jats-nested-ordinal-first-item', '- Steps:\n\n  3. Third.\n  4. Fourth.'),
+        ('jats-nested-paren-ordinal-first-item', '- Steps:\n\n  10) Tenth.'),
+        ('jats-nested-bare-number-first-item', '- Steps:\n\n  3. Third.'),
+        ('jats-nested-zero-first-item', '- Steps:\n\n  0. Zero.'),
+        ('jats-nested-empty-first-item', '- Steps:\n\n  -\n  - Second nested.'),
+        ('jats-ordered-list-with-lead-labels', '- (a) Alpha.\n- (b) Beta.'),
+        ('jats-block-opener-labels', '- \\#1 Hash label.\n- \\>> Quote label.'),
+        ('jats-ref-list-mid-section', 'Lead para.\n\n### Refs\n\n<a id="R1"></a>\nDoe J. 2020.\n\nAfter refs.'),
+        ('jats-alternatives-unnamespaced-math', 'Let $a=b$ hold.'),
+        ('jats-labels-glyph-with-nbsp', '- Outer glyph.\n  - Inner dash.'),
+        ('elsevier-math-label', '- $x$ Math labelled.'),
         ('jats-alternatives-in-text', 'Let $a=b$ hold.'),
         ('jats-whitespace-only-para', 'Real text.\n\nMore text.'),
         ('elsevier-whitespace-only-para', 'Real text.\n\nMore text.'),
@@ -302,6 +364,21 @@ def test_every_text_node_survives(name: str) -> None:
 def test_nesting_is_laid_out_as_markdown(name: str, expected: str) -> None:
     """A sub-list indents by its parent's marker width; a later block is a continuation paragraph."""
     assert expected in convert({**DOCUMENTS, **LAYOUT_ONLY}[name])
+
+
+def test_table_foot_is_italic_once() -> None:
+    """The foot is italicised as a whole only when nothing inside it could pair with the wrapper."""
+    for name in ('jats-italic-attrib-foot', 'jats-partly-italic-attrib-foot'):
+        assert '**' not in convert(DOCUMENTS[name]).split('| cell text |')[1]
+    plain = _jats(
+        f'<sec><table-wrap id="T1"><label>Table 1</label>{_TABLE}<table-wrap-foot>'
+        '<fn><p>* P&lt;0.05 against control.</p></fn></table-wrap-foot></table-wrap></sec>'
+    )
+    assert '\n\n* P<0.05 against control.' in convert(plain)
+
+
+def test_ref_list_mid_section_leaves_no_triple_newline() -> None:
+    assert '\n\n\n' not in convert(DOCUMENTS['jats-ref-list-mid-section'])
 
 
 @pytest.mark.parametrize(

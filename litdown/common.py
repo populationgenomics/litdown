@@ -106,19 +106,27 @@ _NESTED_LIST_TAGS = frozenset({'list', 'def-list'})
 # <label> stand for the bullet marker.
 _ORDINAL_MARKER_RE = re.compile(r'\d{1,9}[.)]')
 _BARE_ORDINAL_RE = re.compile(r'\d{1,9}')
-_BULLET_GLYPHS = frozenset({'•', '◦', '▪', '●', '○', '·', '-', '*', '+'})
+_BULLET_GLYPHS = frozenset({'•', '◦', '▪', '●', '○', '·', '‣', '⁃', '■', '◆', '▸', '►', '-', '–', '—', '*', '+'})
+# Only a bullet or a ``1.``/``1)`` item can interrupt a paragraph; any other
+# list line after a paragraph is a lazy continuation of it.
+_INTERRUPTING_LIST_RE = re.compile(r'(?:[-*+]|1[.)]) \S')
+# At the start of an item's content these would open a heading, a quote or a fence.
+_BLOCK_OPENERS = ('#', '>', '`', '~')
 
 
 def list_marker(label: str, default: str) -> tuple[str, str]:
     """Resolve a list item's label to ``(marker, lead)``: a CommonMark marker, and content that opens the item.
 
-    An ordinal label (``3.``, ``10)``) is the marker verbatim and a bare
-    number gets its period; a bullet glyph is the bullet marker. Anything
-    else (``(i)``, ``a.``, ``Step 1:``) is not a marker CommonMark would
-    parse — the line would be a paragraph and nothing could nest under it —
-    so the list's ``default`` marker is used and the label opens the item's
-    content instead (``- (i) First.``). An empty label yields the default.
+    An ordinal label (``3.``, ``10)``) is the marker verbatim — the markdown
+    keeps the source numbering, though a renderer renumbers from the first
+    item — and a bare number gets its period; a bullet glyph is the bullet
+    marker. Anything else (``(i)``, ``a.``, ``Step 1:``) is not a marker
+    CommonMark would parse — the line would be a paragraph and nothing could
+    nest under it — so the label opens the item's content behind a bullet
+    (``- (i) First.``): the label is the enumerator, so the list type's
+    ordinal is not emitted beside it. An empty label yields ``default``.
     """
+    label = label.strip()
     if not label:
         return default, ''
     if _ORDINAL_MARKER_RE.fullmatch(label):
@@ -127,7 +135,7 @@ def list_marker(label: str, default: str) -> tuple[str, str]:
         return f'{label}.', ''
     if label in _BULLET_GLYPHS:
         return '-', ''
-    return default, label
+    return '-', label
 
 
 def list_item(marker: str, blocks: Sequence[BlockFragment], lead: str = '') -> str:
@@ -137,12 +145,16 @@ def list_item(marker: str, blocks: Sequence[BlockFragment], lead: str = '') -> s
     the marker's width — CommonMark's content offset — so it stays inside
     the item. A nested list (a fragment tagged ``list`` or ``def-list``)
     follows the line above directly; any other block is a paragraph of its
-    own, separated by a blank line. ``lead`` (a label that is not a marker,
-    see :func:`list_marker`) opens the first paragraph, or is a paragraph of
-    its own when the item opens with another block. An item without content
-    is the bare marker.
+    own, separated by a blank line — as is a nested list whose first line
+    could not interrupt a paragraph (an ordinal other than ``1``, an empty
+    item). ``lead`` (a label that is not a marker, see :func:`list_marker`)
+    opens the first paragraph, or is a paragraph of its own when the item
+    opens with another block; escaped when it would otherwise open a block
+    of its own. An item without content is the bare marker.
     """
     if lead:
+        if lead.startswith(_BLOCK_OPENERS):
+            lead = f'\\{lead}'
         if blocks and blocks[0][0] in _PARAGRAPH_TAGS:
             blocks = [(blocks[0][0], f'{lead} {blocks[0][1]}'), *blocks[1:]]
         else:
@@ -150,7 +162,7 @@ def list_item(marker: str, blocks: Sequence[BlockFragment], lead: str = '') -> s
     indent = ' ' * (len(marker) + 1)
     lines: list[str] = []
     for i, (tag, md) in enumerate(blocks):
-        if i and tag not in _NESTED_LIST_TAGS:
+        if i and (tag not in _NESTED_LIST_TAGS or not _INTERRUPTING_LIST_RE.match(md)):
             lines.append('')
         lines.append(textwrap.indent(md, indent))
     body = '\n'.join(lines)

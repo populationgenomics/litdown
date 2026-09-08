@@ -110,15 +110,20 @@ _BARE_MATH_TAGS = frozenset({'math', 'tex-math', 'alternatives'})
 def _bare_math_md(el: ET.Element) -> str:
     """Render a bare <math>, <tex-math> or <alternatives> in running text as inline math.
 
-    An <alternatives> yields one alternative — math and graphics in
-    :func:`_formula_body`'s preference order, else the first that renders —
-    never every alternative in turn.
+    An <alternatives> yields one alternative — its <tex-math>, else its
+    <math> (namespaced or not), else :func:`_formula_body`'s graphic, else
+    the first alternative that renders as inline text — never every
+    alternative in turn.
     """
     tag = common.get_tag(el)
     if tag == 'math':
         return mathml.render_mathml(el, display=False)
     if tag == 'tex-math':
         return f'${_extract_tex(el)}$'
+    for math_tag in ('tex-math', 'math'):
+        math = next((alt for alt in el if common.get_tag(alt) == math_tag), None)
+        if math is not None:
+            return _bare_math_md(math)
     return _formula_body(el, display=False) or next((md for alt in el if (md := inline_to_md(alt).strip())), '')
 
 
@@ -1051,7 +1056,9 @@ def render_table_wrap(tw: ET.Element, level: int = 2) -> str:
     elif image_md:
         parts.append(image_md)
     if foot_md:
-        parts.append(f'*{foot_md}*')
+        # Italicised as a whole only when no asterisk inside — emphasis or a
+        # literal significance marker — could pair with the wrapper.
+        parts.append(f'*{foot_md}*' if '*' not in foot_md else foot_md)
     return '\n\n'.join(parts)
 
 
@@ -1067,11 +1074,7 @@ def _render_table_foot(foot: ET.Element, level: int) -> list[str]:
             parts.extend(_render_table_fn(fn, level) for fn in child.findall('fn'))
         elif tag not in _METADATA_TAGS:
             parts.append(common.flat(' '.join(md for _, md in _render_content(child, level))))
-    # The foot is set in italics as a whole; a part that is itself one italic span would double up to bold.
-    return [_WHOLE_ITALIC_RE.sub(r'\1', part) for part in parts if part]
-
-
-_WHOLE_ITALIC_RE = re.compile(r'\A\*([^*]+)\*\Z')
+    return [part for part in parts if part]
 
 
 def _render_table_fn(fn: ET.Element, level: int) -> str:
@@ -1451,7 +1454,7 @@ def _ref_label(ref: ET.Element) -> str:
 
 
 def _render_refs(ref_list: ET.Element) -> list[str]:  # noqa: C901, PLR0912, PLR0915
-    """Render each <ref> as its anchor line, its citation line and a blank line.
+    """Render each <ref> as its anchor line and its citation line, entries blank-line separated.
 
     The citation line opens with the reference's label when it has one; a
     citation whose <ref> carries only an opaque id (``CR45``, ``bib7``,
@@ -1487,9 +1490,10 @@ def _render_refs(ref_list: ET.Element) -> list[str]:  # noqa: C901, PLR0912, PLR
         # bare text rather than child elements.
         if is_mixed:
             body = _render_mixed_citation(ec)
+            if lines:
+                lines.append('')
             lines.append(f'<a id="{ref_id}"></a>')
             lines.append(f'{prefix}{body}'.rstrip())
-            lines.append('')
             continue
 
         # Authors
@@ -1575,9 +1579,10 @@ def _render_refs(ref_list: ET.Element) -> list[str]:  # noqa: C901, PLR0912, PLR
         if not body:
             body = inline_to_md(ec).strip()
 
+        if lines:
+            lines.append('')
         lines.append(f'<a id="{ref_id}"></a>')
         lines.append(f'{prefix}{body}'.rstrip())
-        lines.append('')
 
     return lines
 
