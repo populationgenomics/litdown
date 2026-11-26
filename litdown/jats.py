@@ -258,6 +258,63 @@ def _title_group_heading(title_group: ET.Element, title_tag: str) -> str:
     return f'{label} {text}'.strip()
 
 
+def _affiliations(ameta: ET.Element) -> list[tuple[ET.Element, ET.Element | None]]:
+    """Every affiliation beneath <article-meta> in document order, with the <contrib> it sits in directly, if any.
+
+    JATS places an <aff> in <article-meta>, in a <contrib-group> or in a
+    <contrib>. An <aff-alternatives> is one affiliation, given in several
+    languages by the <aff>s inside it.
+    """
+    found: list[tuple[ET.Element, ET.Element | None]] = []
+
+    def walk(parent: ET.Element) -> None:
+        for child in parent:
+            if common.get_tag(child) in ('aff', 'aff-alternatives'):
+                found.append((child, parent if common.get_tag(parent) == 'contrib' else None))
+            else:
+                walk(child)
+
+    walk(ameta)
+    return found
+
+
+def _cited_aff_ids(contrib: ET.Element) -> list[str]:
+    """The ids of the affiliations a <contrib>'s own ``<xref ref-type="aff">`` children cite."""
+    return [rid for x in contrib.findall("xref[@ref-type='aff']") if (rid := x.get('rid', ''))]
+
+
+def _affiliation_label(aff: ET.Element) -> str:
+    """An affiliation's own marker: its <label>, or a <sup> standing for one (Frontiers); ``''`` if it has neither."""
+    if common.get_tag(aff) == 'aff-alternatives':
+        return next((label for alt in aff.findall('aff') if (label := _affiliation_label(alt))), '')
+    label = common.flat_text(aff.find('label'))
+    if not label and (sup := aff.find('sup')) is not None:
+        label = common.flat(sup.text)
+    return label
+
+
+def _affiliation_text(aff: ET.Element) -> str:
+    """An affiliation's text without its marker and without registry identifiers (ROR, GRID, ISNI).
+
+    The texts of an <aff-alternatives> are joined by `` / ``.
+    """
+    if common.get_tag(aff) == 'aff-alternatives':
+        return ' / '.join(text for alt in aff.findall('aff') if (text := _affiliation_text(alt)))
+    text_parts = [common.flat(aff.text)]
+    for child in aff:
+        ctag = common.get_tag(child)
+        if ctag == 'institution-wrap':
+            text_parts.append(common.flat(child.text))
+            for sub in child:
+                if common.get_tag(sub) == 'institution':
+                    text_parts.append(inline_to_md(sub).strip())
+                text_parts.append(common.flat(sub.tail))
+        elif ctag not in {'label', 'sup', 'institution-id'}:
+            text_parts.append(inline_to_md(child).strip())
+        text_parts.append(common.flat(child.tail))
+    return ' '.join(t for t in text_parts if t)
+
+
 def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
     jmeta = front.find('journal-meta')
     ameta = front.find('article-meta')
@@ -283,34 +340,47 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
     for cg in ameta.findall('contrib-group'):
         contribs.extend(cg.findall("contrib[@contrib-type='author']"))
     contribs.extend(ameta.findall("contrib[@contrib-type='author']"))
-    # JATS Archiving permits <aff> as a direct child of <article-meta>,
-    # inside <contrib-group>, or inside an individual <contrib>. Collect
-    # from anywhere beneath article-meta so all three encodings work.
-    # aff_map is in document order (dict preserves insertion order).
-    aff_map: dict[str, ET.Element] = {
-        aff.get('id') or '': aff for aff in ameta.iter() if common.get_tag(aff) == 'aff' and aff.get('id')
-    }
+    editors: list[ET.Element] = []
+    for cg in ameta.findall('contrib-group'):
+        editors.extend(cg.findall("contrib[@contrib-type='editor']"))
 
-    # Build referenced-aff order + ordinal map. Some publishers (BMC
-    # Genome Biology, e.g. PMC4302049) ship <aff>s with no <label> or
-    # <sup>, and <xref ref-type="aff"> with empty text, expecting the
-    # consumer to generate ordinal markers (1, 2, 3, ...) from doc
-    # order. Build the ordinals once so xref-side and aff-side
-    # rendering agree.
-    referenced_set: set[str] = set()
-    for c in contribs:
-        for x in c.findall("xref[@ref-type='aff']"):
-            rid = x.get('rid', '')
-            if rid and rid in aff_map:
-                referenced_set.add(rid)
-    aff_ordinal: dict[str, str] = {}
+    affs = _affiliations(ameta)
+    aff_map = {aff_id: aff for aff, _ in affs if (aff_id := aff.get('id'))}
+    # An author's affiliations: those its <xref>s cite, and those inside its <contrib>.
+    owned_by = {aff: owner for aff, owner in affs if owner is not None}
+    author_set = set(contribs)
+    of_authors = {aff for aff, owner in owned_by.items() if owner in author_set}
+    of_authors.update(aff_map[rid] for c in contribs for rid in _cited_aff_ids(c) if rid in aff_map)
+    editor_set = set(editors)
+    of_editors_only = {aff for aff, owner in owned_by.items() if owner in editor_set}
+    of_editors_only.update(aff_map[rid] for c in editors for rid in _cited_aff_ids(c) if rid in aff_map)
+    of_editors_only -= of_authors
+
+    # Some publishers (BMC Genome Biology, e.g. PMC4302049) ship <aff>s with
+    # no <label> or <sup>, and <xref ref-type="aff"> with empty text,
+    # expecting the consumer to number the authors' affiliations in document
+    # order. An unlabelled affiliation inside a <contrib> whose text repeats
+    # an earlier one's (the same institution given in two <contrib>s) takes
+    # that one's number.
+    aff_text = {aff: _affiliation_text(aff) for aff, _ in affs}
+    aff_marker: dict[ET.Element, str] = {}
+    numbered: dict[str, str] = {}
     n = 0
-    for aff_id in aff_map:
-        if aff_id in referenced_set:
-            n += 1
-            aff_ordinal[aff_id] = str(n)
+    for aff, owner in affs:
+        if aff not in of_authors:
+            aff_marker[aff] = _affiliation_label(aff)
+            continue
+        label = _affiliation_label(aff)
+        if not label and owner is not None and aff_text[aff] in numbered:
+            aff_marker[aff] = numbered[aff_text[aff]]
+            continue
+        n += 1
+        aff_marker[aff] = label or str(n)
+        if not label:
+            numbered[aff_text[aff]] = str(n)
 
     author_lines = []
+    comment_parts = []
     for c in contribs:
         name = c.find('name')
         collab = c.find('collab')
@@ -335,32 +405,23 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
         # Treat <xref ref-type="author-notes"> the same as
         # ref-type="aff": both attach a superscript marker to the
         # author name. Used by some publishers for current-address /
-        # present-address footnotes.
-        for x in c.findall('xref'):
+        # present-address footnotes. An <aff> inside the <contrib> is
+        # marked where it sits.
+        for x in c:
+            if x in owned_by:
+                if (marker := aff_marker[x]) and marker not in aff_refs:
+                    aff_refs.append(marker)
+                continue
             rt = x.get('ref-type', '')
-            if rt not in ('aff', 'author-notes'):
+            if common.get_tag(x) != 'xref' or rt not in ('aff', 'author-notes'):
                 continue
             # The marker can be in xref.text directly OR wrapped in a
             # <sup> child (some Oxford journals use <xref><sup>2</sup></xref>).
             marker = common.flat_text(x)
             if not marker and rt == 'aff':
-                rid = x.get('rid', '')
-                aff = aff_map.get(rid)
+                aff = aff_map.get(x.get('rid', ''))
                 if aff is not None:
-                    marker = common.flat_text(aff.find('label'))
-                    if not marker:
-                        # JATS Archiving permits <sup> as an aff-level
-                        # marker alongside <label>. Frontiers uses <sup>;
-                        # PLOS uses <label>. Both are spec-valid.
-                        sup = aff.find('sup')
-                        if sup is not None:
-                            marker = common.flat(sup.text)
-                    if not marker:
-                        # Final fallback: doc-order ordinal. Used when
-                        # neither <label> nor <sup> is present and the
-                        # publisher expects the consumer to generate
-                        # markers (BMC Genome Biology pattern).
-                        marker = aff_ordinal.get(rid, '')
+                    marker = aff_marker[aff]
             if marker:
                 aff_refs.append(marker)
         # JATS Archiving's <contrib> content model allows <email> both
@@ -382,59 +443,34 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
         sup_str = f'<sup>{",".join(aff_refs)}</sup>' if aff_refs else ''
         email_str = f' <{email}>' if email else ''
         author_lines.append(f'{full}{corresp}{sup_str}{email_str}')
+        # A disclosure or a note on this author alone.
+        for comment in c.findall('author-comment'):
+            blocks = _render_content(comment, 2, skip=frozenset({'title'}))
+            head = ' '.join(t for t in (full, inline_to_md(comment.find('title')).strip()) if t)
+            if blocks and blocks[0][0] == 'p':
+                blocks = [('p', f'**{head}** {blocks[0][1]}'), *blocks[1:]]
+            elif blocks:
+                blocks = [('p', f'**{head}**'), *blocks]
+            comment_parts.extend(md for _, md in blocks)
 
     parts.append(', '.join(author_lines))
     if any(c.get('corresp') == 'yes' or c.find("xref[@ref-type='corresp']") is not None for c in contribs):
         parts.append('\\* Corresponding author')
 
     # --- Affiliations ---
-    # Render only aff entries referenced by an author xref. Article-level
-    # <aff>s often include the editor's affiliation alongside the
-    # authors' — without this filter the editor's aff would show up in
-    # the author affiliation block. The ordinal map computed above
-    # provides labels for affs that have no <label> or <sup>.
-    aff_parts = []
-    for aff_id, aff in aff_map.items():
-        if referenced_set and aff_id not in referenced_set:
+    # Every affiliation once, in document order; an editor's renders on the editor's line instead.
+    aff_lines: list[str] = []
+    for aff, _ in affs:
+        if aff in of_editors_only:
             continue
-        label = common.flat_text(aff.find('label'))
-        if not label:
-            sup = aff.find('sup')
-            if sup is not None:
-                label = common.flat(sup.text)
-        if not label:
-            label = aff_ordinal.get(aff_id, '')
-        text_parts = [common.flat(aff.text)]
-        for child in aff:
-            ctag = common.get_tag(child)
-            if ctag in {'label', 'sup'}:
-                # Skip label/sup-as-label markers — already extracted above.
-                pass
-            elif ctag == 'institution-wrap':
-                # <institution-wrap> contains <institution> name(s)
-                # alongside zero or more <institution-id> children
-                # carrying ROR / GRID / ISNI / FundRef identifiers.
-                # Render only the <institution> text — the URI-shaped
-                # identifiers don't help a markdown reader.
-                text_parts.append(common.flat(child.text))
-                for sub in child:
-                    if common.get_tag(sub) == 'institution':
-                        text_parts.append(inline_to_md(sub).strip())
-                    text_parts.append(common.flat(sub.tail))
-            elif ctag == 'institution-id':
-                pass
-            else:
-                text_parts.append(inline_to_md(child).strip())
-            text_parts.append(common.flat(child.tail))
-        aff_text = ' '.join(t for t in text_parts if t)
-        aff_parts.append(f'<sup>{label}</sup> {aff_text}' if label else aff_text)
-
-    parts.append('\n'.join(aff_parts))
+        marker = aff_marker[aff]
+        line = f'<sup>{marker}</sup> {aff_text[aff]}' if marker else aff_text[aff]
+        if line not in aff_lines:
+            aff_lines.append(line)
+    parts.append('\n'.join(aff_lines))
+    parts.extend(comment_parts)
 
     # --- Editors ---
-    editors: list[ET.Element] = []
-    for cg in ameta.findall('contrib-group'):
-        editors.extend(cg.findall("contrib[@contrib-type='editor']"))
     if editors:
         editor_lines = []
         for c in editors:
@@ -446,16 +482,11 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
             else:
                 full = common.flat_text(c)
             role = common.flat(c.findtext('role')) or 'Editor'
-            # Editor's affiliation lookup
-            aff_text = ''
-            for x in c.findall("xref[@ref-type='aff']"):
-                rid = x.get('rid', '')
-                aff = aff_map.get(rid)
-                if aff is not None:
-                    aff_text = common.flat_text(aff)
+            editor_affs = [aff_map[rid] for rid in _cited_aff_ids(c) if rid in aff_map]
+            editor_affs.extend(aff for aff, owner in owned_by.items() if owner is c and aff not in editor_affs)
             line = f'**{role}:** {full}'
-            if aff_text:
-                line += f', {aff_text}'
+            if editor_affs:
+                line += ', ' + '; '.join(aff_text[aff] for aff in editor_affs)
             editor_lines.append(line)
         parts.append('\n'.join(editor_lines))
 
