@@ -343,6 +343,18 @@ DOCUMENTS = {
 # <alternatives> alternative is rendered — or whose only distinguishing node is one character (a bare
 # ``3`` label, a one-letter math label), so only their layout is checked.
 LAYOUT_ONLY = {
+    'jats-adjacent-superscripts': _jats(
+        '<sec><p>Dose 10<sup>-</sup><sup>4</sup> M, area 5 m<sup>2</sup><sup>a</sup>, allele CG<sup>0</sup>'
+        '<sup>758-G4</sup>.</p></sec>'
+    ),
+    'jats-funder-identifier-beside-its-name': _jats(
+        '<sec><p>Funded by <funding-source><institution-wrap><institution-id institution-id-type="doi">'
+        '10.13039/501100000000</institution-id><institution>National Example Fund</institution></institution-wrap>'
+        '</funding-source> grant 7.</p></sec>'
+    ),
+    'jats-citation-of-several-references': _jats(
+        '<sec><p>As reported [<xref ref-type="bibr" rid="b8 b9 b10">8-10</xref>].</p></sec>'
+    ),
     'jats-header-spanning-columns': _jats(
         '<sec><table-wrap><label>Table 1</label><table><thead>'
         '<tr><th rowspan="2">Gene</th><th colspan="2">Patient 1</th><th colspan="2">Patient 2</th></tr>'
@@ -478,6 +490,12 @@ def test_every_text_node_survives(name: str) -> None:
         ('jats-table-of-bare-rows', '|  |\n| --- |\n| Bare one. |\n| Bare two. |'),
         ('jats-rowspan-to-the-end-of-the-group', '| P1 | c.1A>G |\n| P1 | c.2C>T |'),
         ('jats-label-with-inline-markup', '**Table 2** Marked label.'),
+        (
+            'jats-adjacent-superscripts',
+            'Dose 10<sup>-4</sup> M, area 5 m<sup>2</sup><sup>a</sup>, allele CG<sup>0</sup><sup>758-G4</sup>.',
+        ),
+        ('jats-funder-identifier-beside-its-name', 'Funded by National Example Fund grant 7.'),
+        ('jats-citation-of-several-references', 'As reported [[8-10](#b8)].'),
         ('jats-sub-articles', 'Main text.\n\n---\n\n# Decision letter\n\nThe reviewers ask for segregation data.'),
         ('jats-sub-articles', '\n\n---\n\n# Nested reply\n\nNested response text.'),
         (
