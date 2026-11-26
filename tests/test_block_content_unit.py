@@ -97,6 +97,21 @@ DOCUMENTS = {
         '<label>fa</label><p>Grouped footnote.</p></fn></fn-group><attrib>Adapted from Doe.</attrib>'
         '</table-wrap-foot></table-wrap></sec>'
     ),
+    'jats-table-wrap-of-several-tables': _jats(
+        '<sec><table-wrap id="T1"><label>Table 1</label><caption><p>Split caption.</p></caption>'
+        '<table><tbody><tr><td>First part.</td></tr></tbody></table>'
+        '<table><tbody><tr><td>Second part.</td></tr></tbody></table>'
+        '<table><tbody><tr><td>Third part.</td></tr></tbody></table>'
+        '<table-wrap-foot><p>Split foot.</p></table-wrap-foot></table-wrap></sec>'
+    ),
+    'jats-table-wrap-of-several-alternatives': _jats(
+        '<sec><table-wrap id="T1"><label>Table 1</label>'
+        '<alternatives><graphic xlink:href="t1a.png" xmlns:xlink="http://www.w3.org/1999/xlink"/>'
+        '<table><tbody><tr><td>Marked-up first.</td></tr></tbody></table></alternatives>'
+        '<alternatives><graphic xlink:href="t1b.png" xmlns:xlink="http://www.w3.org/1999/xlink"/>'
+        '<table><tbody><tr><td>Marked-up second.</td></tr></tbody></table></alternatives>'
+        '</table-wrap></sec>'
+    ),
     'jats-list-in-footnote': _jats(
         f'<sec><table-wrap id="T1"><label>Table 1</label>{_TABLE}<table-wrap-foot><fn><label>f1</label>'
         '<p>Note with <list><list-item><p>foot item</p></list-item></list></p></fn></table-wrap-foot>'
@@ -340,6 +355,11 @@ def test_every_text_node_survives(name: str) -> None:
         ('jats-wide-marker', '10. Ten.\n    - Sub of ten.'),
         ('jats-list-in-cell', '| - *SOST*-related sclerosteosis<br>- Facial deformity | Para one<br>Para two |'),
         ('jats-table-foot-fn-group', '\n\n<sup>fa</sup> Grouped footnote. Adapted from Doe.'),
+        (
+            'jats-table-wrap-of-several-tables',
+            '**Table 1** Split caption.\n\n|  |\n| --- |\n| First part. |\n\n|  |\n| --- |\n| Second part. |'
+            '\n\n|  |\n| --- |\n| Third part. |\n\nSplit foot.',
+        ),
         ('elsevier-table-footnote', '\n\n<a id="tf1"></a><sup>fa</sup> Foot lead. - Foot item.'),
         ('jats-boxed-text', '> **Learn More**\n>\n> Caption para.\n> \n> Lead para.\n> \n> - Boxed item.'),
         ('jats-boxed-text', '> <a id="B2"></a>\n> > Inner box.'),
