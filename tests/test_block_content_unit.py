@@ -295,6 +295,13 @@ DOCUMENTS = {
 # <alternatives> alternative is rendered — or whose only distinguishing node is one character (a bare
 # ``3`` label, a one-letter math label), so only their layout is checked.
 LAYOUT_ONLY = {
+    'jats-header-spanning-columns': _jats(
+        '<sec><table-wrap><label>Table 1</label><table><thead>'
+        '<tr><th rowspan="2">Gene</th><th colspan="2">Patient 1</th><th colspan="2">Patient 2</th></tr>'
+        '<tr><th>cDNA</th><th>Protein</th><th>cDNA</th><th>Protein</th></tr></thead>'
+        '<tbody><tr><td colspan="2">Spanning body</td><td>c.1A>G</td><td>c.2C>T</td><td>p.Arg2Ter</td></tr></tbody>'
+        '</table></table-wrap></sec>'
+    ),
     'jats-label-with-inline-markup': _jats(
         '<sec><table-wrap id="T2"><label>Table <bold>2</bold></label><caption><p>Marked label.</p></caption>'
         f'{_TABLE}</table-wrap></sec>'
@@ -423,6 +430,11 @@ def test_every_text_node_survives(name: str) -> None:
         ('jats-table-of-bare-rows', '|  |\n| --- |\n| Bare one. |\n| Bare two. |'),
         ('jats-rowspan-to-the-end-of-the-group', '| P1 | c.1A>G |\n| P1 | c.2C>T |'),
         ('jats-label-with-inline-markup', '**Table 2** Marked label.'),
+        (
+            'jats-header-spanning-columns',
+            '| Gene | Patient 1 / cDNA | Patient 1 / Protein | Patient 2 / cDNA | Patient 2 / Protein |\n'
+            '| --- | --- | --- | --- | --- |\n| Spanning body |  | c.1A>G | c.2C>T | p.Arg2Ter |',
+        ),
         ('jats-bare-table-in-section', 'Before the table.\n\n|  |  |\n| --- | --- |\n| Bare cell A. | Bare cell B. |'),
         ('jats-table-in-cell', '| Outer cell. | Inner one. ; Inner two.<br>Inner three. ; Inner four. |'),
         ('jats-rowspan-past-the-last-row', '| P1 | c.1A>G |\n| P1 | c.2C>T |\n\nAfter.'),

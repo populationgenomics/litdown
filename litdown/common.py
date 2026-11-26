@@ -228,13 +228,18 @@ def inline_wrap(name: str, inner: str) -> str | None:
 # ---------------------------------------------------------------------------
 
 
-def expand_rows(raw_rows: list[list[tuple[str, int, int]]]) -> list[list[str]]:
+def expand_rows(raw_rows: list[list[tuple[str, int, int]]], *, repeat_across: bool = False) -> list[list[str]]:
     """Expand colspan/rowspan into a rectangular grid of strings.
 
     Each input row is a list of ``(content, colspan, rowspan)`` tuples.
 
     colspan > 1: content in the first slot, empty string in the rest
-                 (preserves the column label without duplicating it).
+                 (preserves the column label without duplicating it);
+                 with ``repeat_across``, content in every spanned slot.
+                 A header row wants that: "Patient 1" over "cDNA" and
+                 "Protein" labels both columns, and collapsing the header
+                 rows column by column would otherwise leave the second
+                 as "Protein" with no patient.
     rowspan > 1: content repeated in each spanned row
                  (keeps every row self-contained for an LLM reader).
                  A span running past the last row stops there: the rows
@@ -251,8 +256,8 @@ def expand_rows(raw_rows: list[list[tuple[str, int, int]]]) -> list[list[str]]:
                 col_idx += 1
             for dr in range(min(rowspan, len(raw_rows) - row_idx)):
                 for dc in range(colspan):
-                    # Repeat content across rowspan; use "" for extra colspan slots.
-                    occupied[(row_idx + dr, col_idx + dc)] = content if dc == 0 else ''
+                    # Repeat content across rowspan; use "" for extra colspan slots unless asked to repeat there too.
+                    occupied[(row_idx + dr, col_idx + dc)] = content if dc == 0 or repeat_across else ''
             col_idx += colspan
 
     if not occupied:
@@ -274,7 +279,7 @@ def render_grid(
     header row, so multi-row headers are collapsed column-by-column with
     " / " joins (Nature / extended-data tables routinely use 2-4 levels).
     """
-    header_rows = expand_rows(header_rows_raw)
+    header_rows = expand_rows(header_rows_raw, repeat_across=True)
     body_rows = expand_rows(body_rows_raw)
 
     all_rows = header_rows + body_rows
