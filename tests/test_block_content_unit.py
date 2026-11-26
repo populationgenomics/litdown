@@ -104,6 +104,17 @@ DOCUMENTS = {
         '<table><tbody><tr><td>Third part.</td></tr></tbody></table>'
         '<table-wrap-foot><p>Split foot.</p></table-wrap-foot></table-wrap></sec>'
     ),
+    'jats-table-of-several-row-groups': _jats(
+        '<sec><table-wrap id="T1"><label>Table 1</label><table>'
+        '<thead><tr><th>Head cell.</th></tr></thead>'
+        '<tbody><tr><td>First body.</td></tr></tbody>'
+        '<tbody><tr><td>Second body.</td></tr></tbody>'
+        '<tfoot><tr><td>Foot row.</td></tr></tfoot></table></table-wrap></sec>'
+    ),
+    'jats-table-of-bare-rows': _jats(
+        '<sec><table-wrap id="T1"><label>Table 1</label><table>'
+        '<tr><td>Bare one.</td></tr><tr><td>Bare two.</td></tr></table></table-wrap></sec>'
+    ),
     'jats-table-wrap-of-several-feet': _jats(
         f'<sec><table-wrap id="T1"><label>Table 1</label>{_TABLE}'
         '<table-wrap-foot><fn id="tfn1"><label>fa</label><p>First foot.</p></fn></table-wrap-foot>'
@@ -265,6 +276,19 @@ DOCUMENTS = {
 # <alternatives> alternative is rendered — or whose only distinguishing node is one character (a bare
 # ``3`` label, a one-letter math label), so only their layout is checked.
 LAYOUT_ONLY = {
+    'jats-rowspan-to-the-end-of-the-group': _jats(
+        '<sec><table-wrap><label>Table 1</label><table><tbody>'
+        '<tr><td rowspan="0">P1</td><td>c.1A>G</td></tr><tr><td>c.2C>T</td></tr></tbody></table></table-wrap></sec>'
+    ),
+    'jats-rowspan-past-the-last-row': _jats(
+        '<sec><table-wrap><label>Table 1</label><table><tbody>'
+        '<tr><td rowspan="5">P1</td><td>c.1A>G</td></tr><tr><td>c.2C>T</td></tr></tbody></table></table-wrap>'
+        '<p>After.</p></sec>'
+    ),
+    'jats-span-that-is-no-number': _jats(
+        '<sec><table-wrap><label>Table 1</label><table><tbody>'
+        '<tr><td colspan="">P1</td><td rowspan="two">c.1A>G</td></tr></tbody></table></table-wrap></sec>'
+    ),
     'jats-footnote-reference-after-a-cell-value': _jats(
         '<sec><table-wrap id="T1"><label>Table 1</label><table><tbody><tr><td>P1<xref ref-type="table-fn" '
         'rid="tfn1">a</xref></td><td>12<sup><xref ref-type="table-fn" rid="tfn2">b</xref></sup></td>'
@@ -369,6 +393,14 @@ def test_every_text_node_survives(name: str) -> None:
         ('jats-wide-marker', '10. Ten.\n    - Sub of ten.'),
         ('jats-list-in-cell', '| - *SOST*-related sclerosteosis<br>- Facial deformity | Para one<br>Para two |'),
         ('jats-table-foot-fn-group', '\n\n<sup>fa</sup> Grouped footnote. Adapted from Doe.'),
+        (
+            'jats-table-of-several-row-groups',
+            '| Head cell. |\n| --- |\n| First body. |\n| Second body. |\n| Foot row. |',
+        ),
+        ('jats-table-of-bare-rows', '|  |\n| --- |\n| Bare one. |\n| Bare two. |'),
+        ('jats-rowspan-to-the-end-of-the-group', '| P1 | c.1A>G |\n| P1 | c.2C>T |'),
+        ('jats-rowspan-past-the-last-row', '| P1 | c.1A>G |\n| P1 | c.2C>T |\n\nAfter.'),
+        ('jats-span-that-is-no-number', '| P1 | c.1A>G |'),
         ('jats-footnote-reference-after-a-cell-value', '| P1<sup>a</sup> | 12<sup>b</sup> | Yes<sup>c</sup> |'),
         ('jats-footnote-reference-after-a-number', 'Significant at 0.05<sup>3</sup> in both cohorts.'),
         ('jats-table-wrap-of-several-feet', '\n\n<sup>fa</sup> First foot. <sup>fb</sup> Second foot. Third foot.'),
