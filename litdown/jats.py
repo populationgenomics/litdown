@@ -140,6 +140,15 @@ def _heading(level: int, text: str) -> str:
 # ---------------------------------------------------------------------------
 
 
+def _footnote_marker(inner: str) -> str:
+    """A footnote reference's rendered text as a superscript, with the whitespace around it left outside."""
+    marker = inner.strip()
+    if marker.startswith('<sup>') and marker.endswith('</sup>'):
+        return inner  # the source superscripts the marker inside the reference
+    lead, trail = inner[: len(inner) - len(inner.lstrip())], inner[len(inner.rstrip()) :]
+    return f'{lead}<sup>{marker}</sup>{trail}'
+
+
 def inline_to_md(elem: ET.Element | None) -> str:
     """Render an element's mixed content as inline Markdown.
 
@@ -185,7 +194,7 @@ def inline_to_md(elem: ET.Element | None) -> str:
             elif ref_type in _FOOTNOTE_REF_TYPES and inner.strip() and own_tag != 'sup':
                 # A footnote marker sits flush against the value it annotates ("P1" + "a", "0.05" + "3").
                 # Unmarked it reads as part of the value; the footnote's own label is a superscript too.
-                buf.append(f'<sup>{inner}</sup>')
+                buf.append(_footnote_marker(inner))
             else:
                 buf.append(inner)
         elif tag == 'ext-link':
