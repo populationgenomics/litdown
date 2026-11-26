@@ -379,6 +379,27 @@ DOCUMENTS = {
 # <alternatives> alternative is rendered — or whose only distinguishing node is one character (a bare
 # ``3`` label, a one-letter math label), so only their layout is checked.
 LAYOUT_ONLY = {
+    'jats-literal-star-inside-emphasis': _jats('<sec><p>Nonsense <italic>p.Arg97*</italic> found.</p></sec>'),
+    'jats-literal-star-after-emphasis': _jats('<sec><p>Frameshift (p.Gln12Arg <italic>fs</italic>*5).</p></sec>'),
+    'jats-literal-star-before-emphasis': _jats('<sec><p>Marked *<bold>significant</bold> here.</p></sec>'),
+    'jats-literal-underscore-inside-emphasis': _jats('<sec><p>Deletion <italic>c.76_78del</italic> found.</p></sec>'),
+    'jats-literal-star-inside-nested-emphasis': _jats(
+        '<sec><p>Allele <bold><italic>p.Arg97*</italic> stop</bold> found.</p></sec>'
+    ),
+    'jats-adjacent-emphasis-runs': _jats('<sec><p>Gene <italic>AB</italic><bold>CD</bold> here.</p></sec>'),
+    'jats-italic-at-the-edge-of-italic': _jats('<sec><p>See <italic><italic>Inner</italic> outer</italic>.</p></sec>'),
+    'jats-emphasis-between-words': _jats('<sec><p>The <italic>FGD1</italic> gene, <bold>bold</bold>.</p></sec>'),
+    'jats-emphasis-without-text': _jats('<sec><p>Before <italic></italic>after <bold> </bold>end.</p></sec>'),
+    'elsevier-literal-star-inside-emphasis': _elsevier('<para>Nonsense <italic>p.Arg97*</italic> found.</para>'),
+    'jats-emphasis-inside-a-word': _jats('<sec><p>Variant p.His445<italic>fs</italic>X136 found.</p></sec>'),
+    'jats-emphasis-flush-on-one-side': _jats(
+        '<sec><p>Variant c.76<italic>A</italic>&gt;<italic>G</italic> and <bold>Tgfb2</bold>-null.</p></sec>'
+    ),
+    'jats-footnote-opening-with-a-bold-heading': (
+        b'<article><back><fn-group><fn><p><bold>Funding information</bold>This study was funded.</p></fn>'
+        b'<fn><p><bold>Competing interests.</bold> None declared.</p></fn></fn-group></back></article>'
+    ),
+    'elsevier-emphasis-inside-a-word': _elsevier('<para>Variant p.His445<italic>fs</italic>X136 found.</para>'),
     'jats-adjacent-superscripts': _jats(
         '<sec><p>Dose 10<sup>-</sup><sup>4</sup> M, area 5 m<sup>2</sup><sup>a</sup>, allele CG<sup>0</sup>'
         '<sup>758-G4</sup>.</p></sec>'
@@ -579,6 +600,23 @@ def test_every_text_node_survives(name: str) -> None:
             'Xing Wu<sup>12</sup>\n\n<sup>12</sup> 医学遗传科 / Department of Medical Genetics',
         ),
         ('jats-author-comment', '**Ann Doe**\n\n**Patents:**\n\n1. NONE'),
+        ('jats-literal-star-inside-emphasis', 'Nonsense <em>p.Arg97*</em> found.'),
+        ('jats-literal-star-after-emphasis', 'Frameshift (p.Gln12Arg <em>fs</em>*5).'),
+        ('jats-literal-star-before-emphasis', 'Marked *<strong>significant</strong> here.'),
+        ('jats-literal-underscore-inside-emphasis', 'Deletion *c.76_78del* found.'),
+        ('jats-literal-star-inside-nested-emphasis', 'Allele <strong><em>p.Arg97*</em> stop</strong> found.'),
+        ('jats-adjacent-emphasis-runs', 'Gene *AB*<strong>CD</strong> here.'),
+        ('jats-italic-at-the-edge-of-italic', 'See *<em>Inner</em> outer*.'),
+        ('jats-emphasis-between-words', 'The *FGD1* gene, **bold**.'),
+        ('jats-emphasis-without-text', 'Before after end.'),
+        ('elsevier-literal-star-inside-emphasis', 'Nonsense <em>p.Arg97*</em> found.'),
+        ('jats-emphasis-inside-a-word', 'Variant p.His445<em>fs</em>X136 found.'),
+        ('jats-emphasis-flush-on-one-side', 'Variant c.76<em>A</em>>*G* and **Tgfb2**-null.'),
+        ('elsevier-emphasis-inside-a-word', 'Variant p.His445<em>fs</em>X136 found.'),
+        (
+            'jats-footnote-opening-with-a-bold-heading',
+            '## Funding information\n\nThis study was funded.\n\n## Competing interests\n\nNone declared.',
+        ),
         ('elsevier-list-under-item', '- Outer one.\n  - Inner A.\n- Outer two.'),
         ('elsevier-list-inside-para', '- Outer one.\n  - Inner A.\n  - Inner B.\n- Outer two.'),
         ('elsevier-labelled-multi-para-item', '- (i) First.\n\n  Second.'),

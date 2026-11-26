@@ -153,8 +153,13 @@ class _Renderer:
 
         Output is always a single line — see :func:`common.norm_ws`. The
         remaining :func:`_norm` calls at block boundaries are for edge
-        trimming, not flattening.
+        trimming, not flattening. An emphasis run is written as Markdown or
+        HTML by :func:`common.resolve_emphasis`.
         """
+        return common.resolve_emphasis(self._inline_raw(elem))
+
+    def _inline_raw(self, elem: ET.Element | None) -> str:
+        """:meth:`inline` with each emphasis run still between :func:`common.inline_wrap`'s sentinels."""
         if elem is None:
             return ''
         buf: list[str] = []
@@ -173,7 +178,7 @@ class _Renderer:
                 continue
 
             canonical = _INLINE_CANONICAL.get(tag)
-            wrapped = common.inline_wrap(canonical, self.inline(child)) if canonical else None
+            wrapped = common.inline_wrap(canonical, self._inline_raw(child)) if canonical else None
             if wrapped is not None:
                 buf.append(wrapped)
             elif tag in ('cross-ref', 'cross-refs'):
@@ -183,11 +188,11 @@ class _Renderer:
                 # several ids; link the rendered text to the first.
                 raw_refid = child.get('refid', '')
                 refid = raw_refid.split()[0] if raw_refid else ''
-                inner = _norm(self.inline(child))
+                inner = _norm(self._inline_raw(child))
                 buf.append(f'[{inner}](#{refid})' if refid else inner)
             elif tag == 'inter-ref':
                 href = common.xlink_href(child)
-                inner = self.inline(child)
+                inner = self._inline_raw(child)
                 if href.startswith(('http://', 'https://', 'ftp://')):
                     buf.append(f'[{inner or href}]({href})')
                 else:
@@ -199,7 +204,7 @@ class _Renderer:
             elif tag in ('inline-formula', 'formula'):
                 buf.append(self._math_inline(child))
             else:
-                buf.append(self.inline(child))
+                buf.append(self._inline_raw(child))
 
             if child.tail:
                 buf.append(child.tail)
