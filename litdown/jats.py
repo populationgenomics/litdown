@@ -1039,7 +1039,7 @@ def _wrap_tables(tw: ET.Element) -> list[ET.Element]:
 
 
 def render_table_wrap(tw: ET.Element, level: int = 2) -> str:
-    """Render a <table-wrap>: its label and caption, each <table> it holds as a grid of its own, then its foot."""
+    """Render a <table-wrap>: its label and caption, each <table> it holds as a grid of its own, then its feet."""
     tw_id = tw.get('id', '')
     label = common.flat(tw.findtext('label'))
 
@@ -1068,8 +1068,9 @@ def render_table_wrap(tw: ET.Element, level: int = 2) -> str:
                 alt = f'{label}: {caption_md}'[:120] if caption_md else label
                 image_md = f'![{alt}]({href})'
 
-    foot = tw.find('table-wrap-foot')
-    foot_md = ' '.join(_render_table_foot(foot, level)) if foot is not None else ''
+    # A wrap may hold several <table-wrap-foot>s, as it may several <table>s: one per footnote in some publishers' XML.
+    feet = [child for child in tw if child.tag == 'table-wrap-foot']
+    foot_md = ' '.join(part for foot in feet for part in _render_table_foot(foot, level))
 
     parts = []
     if tw_id:

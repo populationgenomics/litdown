@@ -104,6 +104,12 @@ DOCUMENTS = {
         '<table><tbody><tr><td>Third part.</td></tr></tbody></table>'
         '<table-wrap-foot><p>Split foot.</p></table-wrap-foot></table-wrap></sec>'
     ),
+    'jats-table-wrap-of-several-feet': _jats(
+        f'<sec><table-wrap id="T1"><label>Table 1</label>{_TABLE}'
+        '<table-wrap-foot><fn id="tfn1"><label>fa</label><p>First foot.</p></fn></table-wrap-foot>'
+        '<table-wrap-foot><fn id="tfn2"><label>fb</label><p>Second foot.</p></fn></table-wrap-foot>'
+        '<table-wrap-foot><p>Third foot.</p></table-wrap-foot></table-wrap></sec>'
+    ),
     'jats-table-wrap-of-several-alternatives': _jats(
         '<sec><table-wrap id="T1"><label>Table 1</label>'
         '<alternatives><graphic xlink:href="t1a.png" xmlns:xlink="http://www.w3.org/1999/xlink"/>'
@@ -355,6 +361,7 @@ def test_every_text_node_survives(name: str) -> None:
         ('jats-wide-marker', '10. Ten.\n    - Sub of ten.'),
         ('jats-list-in-cell', '| - *SOST*-related sclerosteosis<br>- Facial deformity | Para one<br>Para two |'),
         ('jats-table-foot-fn-group', '\n\n<sup>fa</sup> Grouped footnote. Adapted from Doe.'),
+        ('jats-table-wrap-of-several-feet', '\n\n<sup>fa</sup> First foot. <sup>fb</sup> Second foot. Third foot.'),
         (
             'jats-table-wrap-of-several-tables',
             '**Table 1** Split caption.\n\n|  |\n| --- |\n| First part. |\n\n|  |\n| --- |\n| Second part. |'
