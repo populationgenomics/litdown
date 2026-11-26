@@ -170,8 +170,15 @@ def inline_to_md(elem: ET.Element | None) -> str:
 
     Output is always a single line: PMC OA JATS is pretty-printed, and
     every markdown construct this feeds (heading, list item, table row,
-    caption line) is line-terminated. See :func:`common.norm_ws`.
+    caption line) is line-terminated. See :func:`common.norm_ws`. An
+    emphasis run is written as Markdown or HTML by
+    :func:`common.resolve_emphasis`.
     """
+    return common.resolve_emphasis(_inline_md_raw(elem))
+
+
+def _inline_md_raw(elem: ET.Element | None) -> str:
+    """:func:`inline_to_md` with each emphasis run still between :func:`common.inline_wrap`'s sentinels."""
     if elem is None:
         return ''
 
@@ -182,7 +189,7 @@ def inline_to_md(elem: ET.Element | None) -> str:
 
     for child in elem:
         tag = common.get_tag(child)
-        inner = inline_to_md(child)
+        inner = _inline_md_raw(child)
 
         # Shared inline typographic leaves (italic/bold/sup/sub/underline/
         # monospace/strike). JATS tag names line up 1:1 with the canonical

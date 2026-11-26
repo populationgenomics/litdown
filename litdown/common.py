@@ -16,6 +16,7 @@ own dispatcher and calls :func:`inline_wrap` for the shared leaf wrappings.
 
 from __future__ import annotations
 
+import dataclasses
 import re
 import textwrap
 import xml.etree.ElementTree as ET
@@ -199,12 +200,23 @@ def md_cell(blocks: Iterable[str]) -> str:
 # Inline leaf formatters
 # ---------------------------------------------------------------------------
 
+# An emphasis run's markers: (opening sentinel, closing sentinel, Markdown marker, HTML tag). The sentinels are
+# C0 controls, which XML 1.0 text cannot hold, so none comes from a source document.
+_EMPHASIS = {
+    'italic': ('\x01', '\x02', '*', 'em'),
+    'bold': ('\x03', '\x04', '**', 'strong'),
+}
+_OPENS = {opening: kind for kind, (opening, _, _, _) in _EMPHASIS.items()}
+_CLOSES = {closing: kind for kind, (_, closing, _, _) in _EMPHASIS.items()}
+_SENTINEL_RE = re.compile('[\x01-\x04]')
+
 # Canonical inline-styling tag → markdown wrapping template. Each dialect
 # maps its own element names (e.g. JATS <sub> vs Elsevier <inf>) onto these
-# canonical keys before calling inline_wrap.
+# canonical keys before calling inline_wrap; an emphasis run is wrapped in
+# sentinels that :func:`resolve_emphasis` writes out.
 _INLINE_WRAP = {
-    'italic': '*{}*',
-    'bold': '**{}**',
+    'italic': '\x01{}\x02',
+    'bold': '\x03{}\x04',
     'sup': '<sup>{}</sup>',
     'sub': '<sub>{}</sub>',
     'underline': '<u>{}</u>',
@@ -221,6 +233,91 @@ def inline_wrap(name: str, inner: str) -> str | None:
     """
     tpl = _INLINE_WRAP.get(name)
     return tpl.format(inner) if tpl is not None else None
+
+
+@dataclasses.dataclass
+class _Run:
+    """An emphasis run between its sentinels: its kind and its content, text and nested runs in order."""
+
+    kind: str
+    children: list[str | _Run]
+
+    def text(self) -> str:
+        return ''.join(child if isinstance(child, str) else child.text() for child in self.children)
+
+
+def _parse_emphasis(raw: str) -> list[str | _Run]:
+    root: list[str | _Run] = []
+    open_runs: list[_Run] = []
+    pos = 0
+    for match in _SENTINEL_RE.finditer(raw):
+        level = open_runs[-1].children if open_runs else root
+        if match.start() > pos:
+            level.append(raw[pos : match.start()])
+        pos = match.end()
+        sentinel = match.group()
+        if sentinel in _OPENS:
+            run = _Run(_OPENS[sentinel], [])
+            level.append(run)
+            open_runs.append(run)
+        elif open_runs and open_runs[-1].kind == _CLOSES[sentinel]:
+            open_runs.pop()
+        else:
+            raise ValueError(f'unbalanced {_CLOSES[sentinel]} emphasis close in {raw!r}')
+    if open_runs:
+        raise ValueError(f'unclosed {open_runs[-1].kind} emphasis in {raw!r}')
+    if pos < len(raw):
+        root.append(raw[pos:])
+    return root
+
+
+def _collides(neighbour: str) -> bool:
+    """A Markdown marker flush against ``neighbour`` (``''`` at an edge) would not delimit the run."""
+    return neighbour != '' and neighbour in '*_'
+
+
+def _render_emphasis(items: list[str | _Run], parent: tuple[str, bool] | None) -> str:
+    """Write ``items`` out; ``parent`` is the enclosing run's kind and whether it is written as Markdown."""
+    out = ''
+    for i, item in enumerate(items):
+        if isinstance(item, str):
+            out += item
+            continue
+        before = out[-1] if out else ''
+        nxt = items[i + 1] if i + 1 < len(items) else None
+        after = nxt[0] if isinstance(nxt, str) else ''
+        # A Markdown parent of the same kind would put this run's marker flush against its own.
+        at_edge = parent is not None and parent[1] and parent[0] == item.kind and (not before or nxt is None)
+        content = item.text()
+        if not content.strip():
+            out += _render_emphasis(item.children, parent)
+            continue
+        markdown = not (at_edge or '*' in content or '_' in content or _collides(before) or _collides(after))
+        inner = _render_emphasis(item.children, (item.kind, markdown))
+        _, _, marker, tag = _EMPHASIS[item.kind]
+        out += f'{marker}{inner}{marker}' if markdown else f'<{tag}>{inner}</{tag}>'
+    return out
+
+
+def resolve_emphasis(raw: str) -> str:
+    """Write each emphasis run :func:`inline_wrap` marked in ``raw`` as Markdown, or as HTML where markers misparse.
+
+    A run keeps its ``*``/``**`` markers unless a marker would sit flush against a literal ``*`` or ``_`` (inside
+    the run, or just outside it) or against the same marker of the run around it; such a run is written
+    ``<em>``/``<strong>``. An edge of ``raw`` counts as a boundary. A run with no visible text is written as its
+    content alone.
+
+    Raises:
+        ValueError: If the sentinels in ``raw`` are not balanced and nested.
+    """
+    return _render_emphasis(_parse_emphasis(raw), None)
+
+
+def check_no_emphasis_sentinel(markdown: str) -> str:
+    """Return ``markdown``, raising if an emphasis run was never passed through :func:`resolve_emphasis`."""
+    if _SENTINEL_RE.search(markdown):
+        raise ValueError('an emphasis run reached the output unresolved')
+    return markdown
 
 
 # ---------------------------------------------------------------------------

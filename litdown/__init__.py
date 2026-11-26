@@ -60,9 +60,11 @@ def convert(source: str | pathlib.Path | bytes | IO[bytes]) -> str:
 
     name = common.get_tag(root)
     if name == 'article':
-        return jats.render(root)
-    if name == 'book-part-wrapper':
-        return jats.render_book_part_wrapper(root)
-    if name == 'full-text-retrieval-response':
-        return elsevier.render(root)
-    raise ValueError(f'unrecognized root element: {root.tag}')
+        markdown = jats.render(root)
+    elif name == 'book-part-wrapper':
+        markdown = jats.render_book_part_wrapper(root)
+    elif name == 'full-text-retrieval-response':
+        markdown = elsevier.render(root)
+    else:
+        raise ValueError(f'unrecognized root element: {root.tag}')
+    return common.check_no_emphasis_sentinel(markdown)
