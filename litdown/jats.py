@@ -1127,19 +1127,21 @@ def _wrap_tables(tw: ET.Element) -> list[ET.Element]:
     page; each is a part of the table, and all of them render. An
     <alternatives> offers one table in several forms, so it gives its first
     <table> only. A wrap with neither as a child gives the first <table>
-    anywhere below it.
+    anywhere below it. A table matches by local name: an XHTML-namespaced
+    ``xhtml:table`` or an OASIS CALS ``oasis:table`` is a table too.
     """
     tables = []
     for child in tw:
-        if child.tag == 'table':
+        tag = common.get_tag(child)
+        if tag == 'table':
             tables.append(child)
-        elif child.tag == 'alternatives':
-            offered = child.find('table')
+        elif tag == 'alternatives':
+            offered = next((alt for alt in child if common.get_tag(alt) == 'table'), None)
             if offered is not None:
                 tables.append(offered)
     if tables:
         return tables
-    nested = tw.find('.//table')
+    nested = next((el for el in tw.iter() if el is not tw and common.get_tag(el) == 'table'), None)
     return [nested] if nested is not None else []
 
 
@@ -1224,15 +1226,18 @@ def _span(value: str | None, default: int = 1) -> int:
 def _row_groups(table: ET.Element) -> list[tuple[bool, list[ET.Element]]]:
     """A table's rows in document order, by group: ``(is a <thead>, its rows)``.
 
-    The rows of every <thead>, <tbody> and <tfoot>, and each <tr> the table holds directly as a group of one.
+    The rows of every <thead>, <tbody> and <tfoot>, and each <tr> the table holds directly as a group of one; for a
+    CALS table, the <row>s of each <tgroup>'s groups. Elements match by local name, whatever their namespace.
     """
     groups = []
     for group in table:
         tag = common.get_tag(group)
-        if tag == 'tr':
+        if tag in ('tr', 'row'):
             groups.append((False, [group]))
         elif tag in ('thead', 'tbody', 'tfoot'):
-            groups.append((tag == 'thead', group.findall('tr')))
+            groups.append((tag == 'thead', [row for row in group if common.get_tag(row) in ('tr', 'row')]))
+        elif tag == 'tgroup':
+            groups.extend(_row_groups(group))
     return groups
 
 
@@ -1244,7 +1249,7 @@ def _render_table_in_cell(table: ET.Element, level: int) -> str:
             cells = [
                 common.md_cell(md for _, md in _render_content(cell, level, overrides=_IN_CELL))
                 for cell in tr
-                if common.get_tag(cell) in ('td', 'th')
+                if common.get_tag(cell) in ('td', 'th', 'entry')
             ]
             lines.append(' ; '.join(cells))
     return '\n'.join(lines)
@@ -1254,11 +1259,19 @@ _IN_CELL: Mapping[str, Callable[[ET.Element, int], str]] = {'table': _render_tab
 
 
 def render_table(table: ET.Element, level: int = 2) -> str:
-    """Render an XHTML-model JATS <table> (thead/tbody/tr/td/th), or an <array>, as a GFM table.
+    """Render a JATS <table>, or an <array>, as a GFM table: XHTML-model (thead/tbody/tr/td/th) or OASIS CALS.
 
     A cell's block content — several <p>s, a <list> — is laid out on one
-    line with ``<br>`` separators (:func:`common.md_cell`).
+    line with ``<br>`` separators (:func:`common.md_cell`). A CALS table
+    renders each <tgroup> as a grid of its own (:func:`common.render_cals_grid`).
     """
+
+    def render_cell(cell: ET.Element) -> str:
+        return common.md_cell(md for _, md in _render_content(cell, level, overrides=_IN_CELL))
+
+    tgroups = [child for child in table if common.get_tag(child) == 'tgroup']
+    if tgroups:
+        return '\n\n'.join(grid for tgroup in tgroups if (grid := common.render_cals_grid(tgroup, render_cell)))
 
     def get_cells_raw(tr: ET.Element, rows_left: int) -> list[tuple[str, int, int]]:
         """Return list of (content, colspan, rowspan) for each cell in a row; ``rows_left`` counts this row."""
@@ -1266,7 +1279,7 @@ def render_table(table: ET.Element, level: int = 2) -> str:
         for cell in tr:
             if common.get_tag(cell) not in ('td', 'th'):
                 continue
-            content = common.md_cell(md for _, md in _render_content(cell, level, overrides=_IN_CELL))
+            content = render_cell(cell)
             colspan = _span(cell.get('colspan')) or 1
             # rowspan="0" spans to the end of the row group (HTML, which the JATS table model takes its cells from).
             rowspan = _span(cell.get('rowspan'), default=1) or rows_left

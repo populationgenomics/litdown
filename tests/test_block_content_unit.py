@@ -34,6 +34,8 @@ def _front(article_meta: str) -> bytes:
 
 
 _TABLE = '<table><tbody><tr><td>cell text</td></tr></tbody></table>'
+_XHTML = 'xmlns:xhtml="http://www.w3.org/1999/xhtml"'
+_OASIS = 'xmlns:oasis="http://www.niso.org/standards/z39-96/ns/oasis-exchange/table"'
 
 # One document per container shape; the text of each is distinct so a missing node is attributable.
 DOCUMENTS = {
@@ -320,6 +322,28 @@ DOCUMENTS = {
         '<contrib-group><contrib contrib-type="author"><name><surname>Doe</surname><given-names>Ann</given-names>'
         '</name></contrib><aff>From the Department of Neuroscience, Some Institute</aff></contrib-group>'
     ),
+    'jats-xhtml-namespaced-table': _jats(
+        f'<sec><table-wrap {_XHTML}><label>Table 1</label><caption><p>Namespaced grid.</p></caption><xhtml:table>'
+        '<xhtml:thead><xhtml:tr><xhtml:th>Gene</xhtml:th><xhtml:th>Variant</xhtml:th></xhtml:tr></xhtml:thead>'
+        '<xhtml:tbody><xhtml:tr><xhtml:td rowspan="2">ABC1</xhtml:td><xhtml:td>c.1A>G</xhtml:td></xhtml:tr>'
+        '<xhtml:tr><xhtml:td>c.2C>T</xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></table-wrap></sec>'
+    ),
+    'jats-cals-table': _jats(
+        f'<sec><table-wrap {_OASIS}><label>Table 2</label><caption><p>CALS grid.</p></caption><oasis:table>'
+        '<oasis:tgroup cols="3"><oasis:colspec colname="c1"/><oasis:colspec colname="c2"/>'
+        '<oasis:colspec colname="c3"/><oasis:thead><oasis:row><oasis:entry morerows="1">Gene</oasis:entry>'
+        '<oasis:entry namest="c2" nameend="c3">Patient one</oasis:entry></oasis:row><oasis:row>'
+        '<oasis:entry>cDNA</oasis:entry><oasis:entry>Protein</oasis:entry></oasis:row></oasis:thead><oasis:tbody>'
+        '<oasis:row><oasis:entry morerows="1">ABC1</oasis:entry><oasis:entry>c.1A>G</oasis:entry>'
+        '<oasis:entry>p.Lys1Arg</oasis:entry></oasis:row><oasis:row><oasis:entry>c.2C>T</oasis:entry>'
+        '<oasis:entry>p.Ala2Val</oasis:entry></oasis:row></oasis:tbody></oasis:tgroup></oasis:table></table-wrap></sec>'
+    ),
+    'jats-cals-table-in-cell': _jats(
+        f'<sec><table-wrap {_OASIS}><label>Table 3</label><table><tbody><tr><td>Outer cell.</td><td>'
+        '<oasis:table><oasis:tgroup cols="2"><oasis:tbody><oasis:row><oasis:entry>Inner one.</oasis:entry>'
+        '<oasis:entry>Inner two.</oasis:entry></oasis:row></oasis:tbody></oasis:tgroup></oasis:table>'
+        '</td></tr></tbody></table></table-wrap></sec>'
+    ),
     'jats-author-comment': _front(
         '<contrib-group><contrib contrib-type="author"><name><surname>Doe</surname><given-names>Ann</given-names>'
         '</name><author-comment content-type="disclosure"><p><list list-type="order"><title>Patents:</title>'
@@ -560,6 +584,16 @@ def test_every_text_node_survives(name: str) -> None:
             '| Gene | Patient 1 / cDNA | Patient 1 / Protein | Patient 2 / cDNA | Patient 2 / Protein |\n'
             '| --- | --- | --- | --- | --- |\n| Spanning body |  | c.1A>G | c.2C>T | p.Arg2Ter |',
         ),
+        (
+            'jats-xhtml-namespaced-table',
+            '**Table 1** Namespaced grid.\n\n| Gene | Variant |\n| --- | --- |\n| ABC1 | c.1A>G |\n| ABC1 | c.2C>T |',
+        ),
+        (
+            'jats-cals-table',
+            '**Table 2** CALS grid.\n\n| Gene | Patient one / cDNA | Patient one / Protein |\n| --- | --- | --- |\n'
+            '| ABC1 | c.1A>G | p.Lys1Arg |\n| ABC1 | c.2C>T | p.Ala2Val |',
+        ),
+        ('jats-cals-table-in-cell', '| Outer cell. | Inner one. ; Inner two. |'),
         ('jats-bare-table-in-section', 'Before the table.\n\n|  |  |\n| --- | --- |\n| Bare cell A. | Bare cell B. |'),
         ('jats-table-in-cell', '| Outer cell. | Inner one. ; Inner two.<br>Inner three. ; Inner four. |'),
         ('jats-rowspan-past-the-last-row', '| P1 | c.1A>G |\n| P1 | c.2C>T |\n\nAfter.'),

@@ -20,7 +20,7 @@ import dataclasses
 import re
 import textwrap
 import xml.etree.ElementTree as ET
-from collections.abc import Iterable, Sequence
+from collections.abc import Callable, Iterable, Sequence
 
 XLINK_NS = 'http://www.w3.org/1999/xlink'
 MML_NS = 'http://www.w3.org/1998/Math/MathML'
@@ -371,9 +371,9 @@ def render_grid(
 ) -> str:
     """Build a markdown table from normalized ``(content, colspan, rowspan)`` rows.
 
-    Shared by the JATS (XHTML) and Elsevier (CALS) table renderers: each
-    dialect translates its own spanning model into the normalized tuple
-    rows, then hands them here. Markdown tables only support a single
+    Shared by the XHTML table renderer of JATS and the CALS one
+    (:func:`render_cals_grid`): each translates its own spanning model into
+    the normalized tuple rows, then hands them here. Markdown tables only support a single
     header row, so multi-row headers are collapsed column-by-column with
     " / " joins (Nature / extended-data tables routinely use 2-4 levels).
     """
@@ -418,3 +418,42 @@ def render_grid(
         lines.append('| ' + ' | '.join(pad(row)) + ' |')
 
     return '\n'.join(lines)
+
+
+def _local_children(elem: ET.Element, name: str) -> list[ET.Element]:
+    return [child for child in elem if get_tag(child) == name]
+
+
+def render_cals_grid(tgroup: ET.Element, render_entry: Callable[[ET.Element], str]) -> str:
+    """Render an OASIS CALS ``<tgroup>`` as a markdown table, each ``<entry>``'s content by ``render_entry``.
+
+    Elements match by local name, so a namespaced ``oasis:tgroup`` renders as an unprefixed one does. An entry
+    spans the columns from its ``namest`` to its ``nameend``, each the ``colname`` of one of the group's
+    ``<colspec>``s, and ``morerows`` rows below its own. The rows of ``<thead>`` are the header, those of
+    ``<tbody>`` the body.
+    """
+    colnum: dict[str, int] = {}
+    for i, colspec in enumerate(_local_children(tgroup, 'colspec'), 1):
+        num = colspec.get('colnum')
+        name = colspec.get('colname')
+        if name:
+            colnum[name] = int(num) if num and num.isdigit() else i
+
+    def cells(row: ET.Element) -> list[tuple[str, int, int]]:
+        out = []
+        for entry in _local_children(row, 'entry'):
+            namest, nameend = entry.get('namest'), entry.get('nameend')
+            colspan = 1
+            if namest and nameend and namest in colnum and nameend in colnum:
+                colspan = max(1, colnum[nameend] - colnum[namest] + 1)
+            morerows = entry.get('morerows')
+            rowspan = int(morerows) + 1 if morerows and morerows.lstrip('-').isdigit() else 1
+            out.append((render_entry(entry), colspan, max(1, rowspan)))
+        return out
+
+    def rows_of(group_name: str) -> list[list[tuple[str, int, int]]]:
+        return [
+            cells(row) for group in _local_children(tgroup, group_name)[:1] for row in _local_children(group, 'row')
+        ]
+
+    return render_grid(rows_of('thead'), rows_of('tbody'))

@@ -16,9 +16,9 @@ Implementation notes:
   uses. In real articles ``<math>`` may sit inside ``ce:formula`` /
   ``ce:inline-formula`` or appear bare inline; all three are handled.
 * **Tables are CALS** (``tgroup``/``colspec``/``row``/``entry``), not the
-  XHTML model JATS uses, so :func:`_Renderer._render_cals_table` translates
-  CALS spanning into normalized rows and hands them to the shared grid
-  builder in :mod:`litdown.common`.
+  XHTML model JATS mostly uses, and render through
+  :func:`litdown.common.render_cals_grid`, which JATS shares for its
+  ``oasis:table``.
 * **References** parse the structured ``sb:`` model (Siemens) as primary,
   falling back to the publisher-rendered ``ce:source-text`` only when the
   structured parse comes up empty.
@@ -607,7 +607,7 @@ class _Renderer:
             # A CALS table may hold several <tgroup>s (a multi-part table);
             # render each as its own markdown grid.
             for tgroup in _children(flt, 'tgroup'):
-                table_md = self._render_cals_table(tgroup)
+                table_md = common.render_cals_grid(tgroup, self._table_entry)
                 if table_md:
                     lines.append('')
                     lines.append(table_md)
@@ -662,6 +662,9 @@ class _Renderer:
         # label + caption are the renderable content.
         return '\n'.join(lines)
 
+    def _table_entry(self, entry: ET.Element) -> str:
+        return common.md_cell(md for _, md in self._content(entry))
+
     def _table_footnotes(self, flt: ET.Element) -> str:
         """Render a table's <legend> + <table-footnote>s below the grid.
 
@@ -679,41 +682,6 @@ class _Renderer:
             marker = f'<sup>{label}</sup> ' if label else ''
             parts.append(f'{anchor}{marker}{body}'.strip())
         return ' '.join(parts)
-
-    def _render_cals_table(self, tgroup: ET.Element) -> str:
-        # Map colspec names → 1-based column number for namest/nameend spans.
-        colnum: dict[str, int] = {}
-        for i, cs in enumerate(_children(tgroup, 'colspec'), 1):
-            num = cs.get('colnum')
-            idx = int(num) if num and num.isdigit() else i
-            name = cs.get('colname')
-            if name:
-                colnum[name] = idx
-
-        def cells(row: ET.Element) -> list[tuple[str, int, int]]:
-            out = []
-            for entry in _children(row, 'entry'):
-                content = common.md_cell(md for _, md in self._content(entry))
-                namest = entry.get('namest')
-                nameend = entry.get('nameend')
-                colspan = 1
-                if namest and nameend and namest in colnum and nameend in colnum:
-                    colspan = max(1, colnum[nameend] - colnum[namest] + 1)
-                morerows = entry.get('morerows')
-                rowspan = int(morerows) + 1 if morerows and morerows.lstrip('-').isdigit() else 1
-                rowspan = max(1, rowspan)
-                out.append((content, colspan, rowspan))
-            return out
-
-        header_rows_raw = []
-        thead = _child(tgroup, 'thead')
-        if thead is not None:
-            header_rows_raw = [cells(r) for r in _children(thead, 'row')]
-        body_rows_raw = []
-        tbody = _child(tgroup, 'tbody')
-        if tbody is not None:
-            body_rows_raw = [cells(r) for r in _children(tbody, 'row')]
-        return common.render_grid(header_rows_raw, body_rows_raw)
 
     # -- references -------------------------------------------------------
 
