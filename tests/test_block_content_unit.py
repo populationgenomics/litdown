@@ -603,7 +603,7 @@ def test_every_text_node_survives(name: str) -> None:
         ('jats-literal-star-inside-emphasis', 'Nonsense <em>p.Arg97*</em> found.'),
         ('jats-literal-star-after-emphasis', 'Frameshift (p.Gln12Arg <em>fs</em>*5).'),
         ('jats-literal-star-before-emphasis', 'Marked *<strong>significant</strong> here.'),
-        ('jats-literal-underscore-inside-emphasis', 'Deletion <em>c.76_78del</em> found.'),
+        ('jats-literal-underscore-inside-emphasis', 'Deletion *c.76_78del* found.'),
         ('jats-literal-star-inside-nested-emphasis', 'Allele <strong><em>p.Arg97*</em> stop</strong> found.'),
         ('jats-adjacent-emphasis-runs', 'Gene *AB*<strong>CD</strong> here.'),
         ('jats-italic-at-the-edge-of-italic', 'See *<em>Inner</em> outer*.'),

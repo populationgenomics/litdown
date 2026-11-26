@@ -273,7 +273,7 @@ def _parse_emphasis(raw: str) -> list[str | _Run]:
 
 def _collides(neighbour: str) -> bool:
     """A Markdown marker flush against ``neighbour`` (``''`` at an edge) would not delimit the run at a word edge."""
-    return neighbour != '' and (neighbour in '*_' or neighbour.isalnum())
+    return neighbour != '' and (neighbour == '*' or neighbour.isalnum())
 
 
 def _render_emphasis(items: list[str | _Run], parent: tuple[str, bool] | None) -> str:
@@ -292,7 +292,7 @@ def _render_emphasis(items: list[str | _Run], parent: tuple[str, bool] | None) -
         if not content.strip():
             out += _render_emphasis(item.children, parent)
             continue
-        markdown = not (at_edge or '*' in content or '_' in content or _collides(before) or _collides(after))
+        markdown = not (at_edge or '*' in content or _collides(before) or _collides(after))
         inner = _render_emphasis(item.children, (item.kind, markdown))
         _, _, marker, tag = _EMPHASIS[item.kind]
         out += f'{marker}{inner}{marker}' if markdown else f'<{tag}>{inner}</{tag}>'
@@ -302,11 +302,11 @@ def _render_emphasis(items: list[str | _Run], parent: tuple[str, bool] | None) -
 def resolve_emphasis(raw: str) -> str:
     """Write each emphasis run :func:`inline_wrap` marked in ``raw`` as Markdown, or as HTML where markers misparse.
 
-    A run keeps its ``*``/``**`` markers unless a marker would sit flush against a literal ``*`` or ``_`` (inside
-    the run, or just outside it), against a letter or digit outside it (inside a word, where a reader that takes
-    markers only at word edges would keep them as text), or against the same marker of the run around it; such a
-    run is written ``<em>``/``<strong>``. An edge of ``raw`` counts as a boundary. A run with no visible text is
-    written as its content alone.
+    A run keeps its ``*``/``**`` markers unless a marker would sit flush against a literal ``*`` (inside the run,
+    or just outside it), against a letter or digit outside it (inside a word, where a reader that takes markers
+    only at word edges would keep them as text), or against the same marker of the run around it; such a run is
+    written ``<em>``/``<strong>``. A literal ``_`` changes nothing: no run is written with ``_`` markers. An edge
+    of ``raw`` counts as a boundary. A run with no visible text is written as its content alone.
 
     Raises:
         ValueError: If the sentinels in ``raw`` are not balanced and nested.
