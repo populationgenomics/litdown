@@ -1448,6 +1448,10 @@ _FN_TYPE_LABELS = {
 }
 
 
+# A footnote body's opening bold run, written as Markdown or, where markers would misparse, as HTML.
+_LEAD_BOLD_RE = re.compile(r'\*\*(?P<md>.*?)\*\*|<strong>(?P<html>.*?)</strong>', re.DOTALL)
+
+
 def render_fn_group(fn_group: ET.Element, level: int = 2) -> str:
     """Render <fn-group> with each <fn>'s typed entry as its own heading at ``level``.
 
@@ -1481,10 +1485,10 @@ def render_fn_group(fn_group: ET.Element, level: int = 2) -> str:
         # opening the first <p> with a bold heading
         # ("**Competing interests.** ..."). Detect that and promote
         # the inline heading to an H2 of its own.
-        if body.startswith('**') and '**' in body[2:]:
-            close = body.index('**', 2)
-            inline_heading = body[2:close].rstrip(':.').strip()
-            after = body[close + 2 :].lstrip(' .').strip()
+        lead = _LEAD_BOLD_RE.match(body)
+        if lead is not None:
+            inline_heading = (lead['md'] if lead['md'] is not None else lead['html']).rstrip(':.').strip()
+            after = body[lead.end() :].lstrip(' .').strip()
             if inline_heading and after:
                 blocks.append(f'{_heading(level, inline_heading)}\n\n{after}')
                 continue

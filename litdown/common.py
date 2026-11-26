@@ -272,8 +272,8 @@ def _parse_emphasis(raw: str) -> list[str | _Run]:
 
 
 def _collides(neighbour: str) -> bool:
-    """A Markdown marker flush against ``neighbour`` (``''`` at an edge) would not delimit the run."""
-    return neighbour != '' and neighbour in '*_'
+    """A Markdown marker flush against ``neighbour`` (``''`` at an edge) would not delimit the run at a word edge."""
+    return neighbour != '' and (neighbour in '*_' or neighbour.isalnum())
 
 
 def _render_emphasis(items: list[str | _Run], parent: tuple[str, bool] | None) -> str:
@@ -303,9 +303,10 @@ def resolve_emphasis(raw: str) -> str:
     """Write each emphasis run :func:`inline_wrap` marked in ``raw`` as Markdown, or as HTML where markers misparse.
 
     A run keeps its ``*``/``**`` markers unless a marker would sit flush against a literal ``*`` or ``_`` (inside
-    the run, or just outside it) or against the same marker of the run around it; such a run is written
-    ``<em>``/``<strong>``. An edge of ``raw`` counts as a boundary. A run with no visible text is written as its
-    content alone.
+    the run, or just outside it), against a letter or digit outside it (inside a word, where a reader that takes
+    markers only at word edges would keep them as text), or against the same marker of the run around it; such a
+    run is written ``<em>``/``<strong>``. An edge of ``raw`` counts as a boundary. A run with no visible text is
+    written as its content alone.
 
     Raises:
         ValueError: If the sentinels in ``raw`` are not balanced and nested.

@@ -391,6 +391,15 @@ LAYOUT_ONLY = {
     'jats-emphasis-between-words': _jats('<sec><p>The <italic>FGD1</italic> gene, <bold>bold</bold>.</p></sec>'),
     'jats-emphasis-without-text': _jats('<sec><p>Before <italic></italic>after <bold> </bold>end.</p></sec>'),
     'elsevier-literal-star-inside-emphasis': _elsevier('<para>Nonsense <italic>p.Arg97*</italic> found.</para>'),
+    'jats-emphasis-inside-a-word': _jats('<sec><p>Variant p.His445<italic>fs</italic>X136 found.</p></sec>'),
+    'jats-emphasis-flush-on-one-side': _jats(
+        '<sec><p>Variant c.76<italic>A</italic>&gt;<italic>G</italic> and <bold>Tgfb2</bold>-null.</p></sec>'
+    ),
+    'jats-footnote-opening-with-a-bold-heading': (
+        b'<article><back><fn-group><fn><p><bold>Funding information</bold>This study was funded.</p></fn>'
+        b'<fn><p><bold>Competing interests.</bold> None declared.</p></fn></fn-group></back></article>'
+    ),
+    'elsevier-emphasis-inside-a-word': _elsevier('<para>Variant p.His445<italic>fs</italic>X136 found.</para>'),
     'jats-adjacent-superscripts': _jats(
         '<sec><p>Dose 10<sup>-</sup><sup>4</sup> M, area 5 m<sup>2</sup><sup>a</sup>, allele CG<sup>0</sup>'
         '<sup>758-G4</sup>.</p></sec>'
@@ -601,6 +610,13 @@ def test_every_text_node_survives(name: str) -> None:
         ('jats-emphasis-between-words', 'The *FGD1* gene, **bold**.'),
         ('jats-emphasis-without-text', 'Before after end.'),
         ('elsevier-literal-star-inside-emphasis', 'Nonsense <em>p.Arg97*</em> found.'),
+        ('jats-emphasis-inside-a-word', 'Variant p.His445<em>fs</em>X136 found.'),
+        ('jats-emphasis-flush-on-one-side', 'Variant c.76<em>A</em>>*G* and **Tgfb2**-null.'),
+        ('elsevier-emphasis-inside-a-word', 'Variant p.His445<em>fs</em>X136 found.'),
+        (
+            'jats-footnote-opening-with-a-bold-heading',
+            '## Funding information\n\nThis study was funded.\n\n## Competing interests\n\nNone declared.',
+        ),
         ('elsevier-list-under-item', '- Outer one.\n  - Inner A.\n- Outer two.'),
         ('elsevier-list-inside-para', '- Outer one.\n  - Inner A.\n  - Inner B.\n- Outer two.'),
         ('elsevier-labelled-multi-para-item', '- (i) First.\n\n  Second.'),
