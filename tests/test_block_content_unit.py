@@ -29,6 +29,10 @@ def _elsevier(section: str) -> bytes:
     ).encode()
 
 
+def _front(article_meta: str) -> bytes:
+    return f'<article><front><article-meta>{article_meta}</article-meta></front></article>'.encode()
+
+
 _TABLE = '<table><tbody><tr><td>cell text</td></tr></tbody></table>'
 
 # One document per container shape; the text of each is distinct so a missing node is attributable.
@@ -289,6 +293,38 @@ DOCUMENTS = {
         '<sec><p><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="s1.pdf" id="M1">'
         '<label>Additional file 1.</label><caption><p>Supplementary methods.</p></caption></media></p></sec>'
     ),
+    'jats-affiliation-no-author-cites': _front(
+        '<contrib-group><contrib contrib-type="author"><name><surname>Doe</surname><given-names>Ann</given-names>'
+        '</name><xref ref-type="aff" rid="A11"/></contrib>'
+        '<aff id="A11"><label>11</label>Department of Genetics, Cited University</aff></contrib-group>'
+        '<aff id="A29"><label>29</label>Division of Cardiology, Uncited Hospital</aff>'
+    ),
+    'jats-affiliation-inside-contrib': _front(
+        '<contrib-group><contrib contrib-type="author"><name><surname>Doe</surname><given-names>Ann</given-names>'
+        '</name><aff>Department of Biotechnology, Verona, Italy</aff></contrib>'
+        '<contrib contrib-type="author" corresp="yes"><name><surname>Roe</surname><given-names>Bob</given-names>'
+        '</name><aff>Department of Biology, Padova, Italy</aff></contrib>'
+        '<contrib contrib-type="author"><name><surname>Poe</surname><given-names>Cy</given-names></name>'
+        '<aff>Department of Biotechnology, Verona, Italy</aff></contrib></contrib-group>'
+        '<contrib-group><contrib contrib-type="editor"><name><surname>Vee</surname><given-names>Olga</given-names>'
+        '</name><role>Reviewing editor</role><aff>Editorial Institute, Elsewhere</aff></contrib></contrib-group>'
+    ),
+    'jats-affiliation-alternatives': _front(
+        '<contrib-group><contrib contrib-type="author"><name><surname>Wu</surname><given-names>Xing</given-names>'
+        '</name><xref ref-type="aff" rid="aff1"/></contrib><aff-alternatives id="aff1">'
+        '<aff><label>12</label><institution>医学遗传科</institution></aff>'
+        '<aff xml:lang="en"><label>12</label><institution>Department of Medical Genetics</institution></aff>'
+        '</aff-alternatives></contrib-group>'
+    ),
+    'jats-affiliation-of-the-group-alone': _front(
+        '<contrib-group><contrib contrib-type="author"><name><surname>Doe</surname><given-names>Ann</given-names>'
+        '</name></contrib><aff>From the Department of Neuroscience, Some Institute</aff></contrib-group>'
+    ),
+    'jats-author-comment': _front(
+        '<contrib-group><contrib contrib-type="author"><name><surname>Doe</surname><given-names>Ann</given-names>'
+        '</name><author-comment content-type="disclosure"><p><list list-type="order"><title>Patents:</title>'
+        '<list-item><p>NONE</p></list-item></list></p></author-comment></contrib></contrib-group>'
+    ),
     'elsevier-list-under-item': _elsevier(
         '<list><list-item><para>Outer one.</para><list><list-item><para>Inner A.</para></list-item></list>'
         '</list-item><list-item><para>Outer two.</para></list-item></list>'
@@ -528,6 +564,21 @@ def test_every_text_node_survives(name: str) -> None:
             'jats-captioned-media-in-paragraph',
             '<a id="M1"></a>\n[media](s1.pdf)\n**Additional file 1.** Supplementary methods.',
         ),
+        (
+            'jats-affiliation-no-author-cites',
+            '<sup>11</sup> Department of Genetics, Cited University\n<sup>29</sup> Division of Cardiology, Uncited',
+        ),
+        ('jats-affiliation-inside-contrib', 'Ann Doe<sup>1</sup>, Bob Roe\\*<sup>2</sup>, Cy Poe<sup>1</sup>'),
+        (
+            'jats-affiliation-inside-contrib',
+            '<sup>1</sup> Department of Biotechnology, Verona, Italy\n<sup>2</sup> Department of Biology, Padova, '
+            'Italy\n\n**Reviewing editor:** Olga Vee, Editorial Institute, Elsewhere\n\n',
+        ),
+        (
+            'jats-affiliation-alternatives',
+            'Xing Wu<sup>12</sup>\n\n<sup>12</sup> 医学遗传科 / Department of Medical Genetics',
+        ),
+        ('jats-author-comment', '**Ann Doe**\n\n**Patents:**\n\n1. NONE'),
         ('elsevier-list-under-item', '- Outer one.\n  - Inner A.\n- Outer two.'),
         ('elsevier-list-inside-para', '- Outer one.\n  - Inner A.\n  - Inner B.\n- Outer two.'),
         ('elsevier-labelled-multi-para-item', '- (i) First.\n\n  Second.'),
