@@ -104,6 +104,19 @@ DOCUMENTS = {
         '<table><tbody><tr><td>Third part.</td></tr></tbody></table>'
         '<table-wrap-foot><p>Split foot.</p></table-wrap-foot></table-wrap></sec>'
     ),
+    'jats-sub-articles': (
+        b'<article><front><article-meta><title-group><article-title>Main title</article-title></title-group>'
+        b'</article-meta></front><body><p>Main text.</p></body>'
+        b'<sub-article article-type="decision-letter" id="sa1"><front-stub><title-group>'
+        b'<article-title>Decision letter</article-title></title-group></front-stub>'
+        b'<body><p>The reviewers ask for segregation data.</p></body></sub-article>'
+        b'<sub-article article-type="translation" id="sa2" xml:lang="en"><front><article-meta><title-group>'
+        b'<article-title>Translated title</article-title></title-group><abstract><p>Translated abstract.</p>'
+        b'</abstract></article-meta></front><body><sec><title>Case</title><p>Translated body.</p></sec></body>'
+        b'<back><ack><p>Translated thanks.</p></ack></back>'
+        b'<response id="sa3"><front-stub><title-group><article-title>Nested reply</article-title></title-group>'
+        b'</front-stub><body><p>Nested response text.</p></body></response></sub-article></article>'
+    ),
     'jats-ack-with-own-text-and-a-section': (
         b'<article><front><article-meta><title-group><article-title>Title text</article-title></title-group>'
         b'</article-meta></front><back><ack><title>Acknowledgements</title><p>We thank the family.</p>'
@@ -465,6 +478,8 @@ def test_every_text_node_survives(name: str) -> None:
         ('jats-table-of-bare-rows', '|  |\n| --- |\n| Bare one. |\n| Bare two. |'),
         ('jats-rowspan-to-the-end-of-the-group', '| P1 | c.1A>G |\n| P1 | c.2C>T |'),
         ('jats-label-with-inline-markup', '**Table 2** Marked label.'),
+        ('jats-sub-articles', 'Main text.\n\n---\n\n# Decision letter\n\nThe reviewers ask for segregation data.'),
+        ('jats-sub-articles', '\n\n---\n\n# Nested reply\n\nNested response text.'),
         (
             'jats-header-spanning-columns',
             '| Gene | Patient 1 / cDNA | Patient 1 / Protein | Patient 2 / cDNA | Patient 2 / Protein |\n'
