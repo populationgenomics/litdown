@@ -21,6 +21,9 @@ __all__ = ['render', 'render_book_part_wrapper']
 # template. PMC encodes accession numbers as ext-links with the bare
 # accession in xlink:href; resolving them to the appropriate database
 # makes the markdown directly usable downstream.
+# The <xref> kinds that point at a footnote: their text is the footnote's marker.
+_FOOTNOTE_REF_TYPES = frozenset({'table-fn', 'fn'})
+
 _EXT_LINK_RESOLVERS = {
     'pmc:entrez-protein': 'https://www.ncbi.nlm.nih.gov/protein/{}',
     'pmc:entrez-nucleotide': 'https://www.ncbi.nlm.nih.gov/nuccore/{}',
@@ -137,6 +140,15 @@ def _heading(level: int, text: str) -> str:
 # ---------------------------------------------------------------------------
 
 
+def _footnote_marker(inner: str) -> str:
+    """A footnote reference's rendered text as a superscript, with the whitespace around it left outside."""
+    marker = inner.strip()
+    if marker.startswith('<sup>') and marker.endswith('</sup>'):
+        return inner  # the source superscripts the marker inside the reference
+    lead, trail = inner[: len(inner) - len(inner.lstrip())], inner[len(inner.rstrip()) :]
+    return f'{lead}<sup>{marker}</sup>{trail}'
+
+
 def inline_to_md(elem: ET.Element | None) -> str:
     """Render an element's mixed content as inline Markdown.
 
@@ -150,6 +162,7 @@ def inline_to_md(elem: ET.Element | None) -> str:
     buf = []
     if elem.text:
         buf.append(elem.text)
+    own_tag = common.get_tag(elem)
 
     for child in elem:
         tag = common.get_tag(child)
@@ -178,6 +191,10 @@ def inline_to_md(elem: ET.Element | None) -> str:
                 buf.append(f'[{inner}](#{rid})')
             elif ref_type in ('fig', 'table'):
                 buf.append(f'[{inner}](#{rid})')
+            elif ref_type in _FOOTNOTE_REF_TYPES and inner.strip() and own_tag != 'sup':
+                # A footnote marker sits flush against the value it annotates ("P1" + "a", "0.05" + "3").
+                # Unmarked it reads as part of the value; the footnote's own label is a superscript too.
+                buf.append(_footnote_marker(inner))
             else:
                 buf.append(inner)
         elif tag == 'ext-link':

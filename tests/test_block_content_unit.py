@@ -265,6 +265,14 @@ DOCUMENTS = {
 # <alternatives> alternative is rendered — or whose only distinguishing node is one character (a bare
 # ``3`` label, a one-letter math label), so only their layout is checked.
 LAYOUT_ONLY = {
+    'jats-footnote-reference-after-a-cell-value': _jats(
+        '<sec><table-wrap id="T1"><label>Table 1</label><table><tbody><tr><td>P1<xref ref-type="table-fn" '
+        'rid="tfn1">a</xref></td><td>12<sup><xref ref-type="table-fn" rid="tfn2">b</xref></sup></td>'
+        '<td>Yes<xref ref-type="table-fn" rid="tfn3"><sup>c</sup></xref></td></tr></tbody></table></table-wrap></sec>'
+    ),
+    'jats-footnote-reference-after-a-number': _jats(
+        '<sec><p>Significant at 0.05<xref ref-type="fn" rid="fn3">3</xref> in both cohorts.</p></sec>'
+    ),
     'jats-labels-bullet-glyphs': _jats(
         '<sec><list list-type="simple"><list-item><label>•</label><p>Outer glyph.</p>'
         '<list list-type="simple"><list-item><label>◦</label><p>Inner glyph.</p></list-item></list></list-item>'
@@ -361,6 +369,8 @@ def test_every_text_node_survives(name: str) -> None:
         ('jats-wide-marker', '10. Ten.\n    - Sub of ten.'),
         ('jats-list-in-cell', '| - *SOST*-related sclerosteosis<br>- Facial deformity | Para one<br>Para two |'),
         ('jats-table-foot-fn-group', '\n\n<sup>fa</sup> Grouped footnote. Adapted from Doe.'),
+        ('jats-footnote-reference-after-a-cell-value', '| P1<sup>a</sup> | 12<sup>b</sup> | Yes<sup>c</sup> |'),
+        ('jats-footnote-reference-after-a-number', 'Significant at 0.05<sup>3</sup> in both cohorts.'),
         ('jats-table-wrap-of-several-feet', '\n\n<sup>fa</sup> First foot. <sup>fb</sup> Second foot. Third foot.'),
         (
             'jats-table-wrap-of-several-tables',
