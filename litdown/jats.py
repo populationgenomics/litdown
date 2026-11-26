@@ -149,6 +149,22 @@ def _footnote_marker(inner: str) -> str:
     return f'{lead}<sup>{marker}</sup>{trail}'
 
 
+def _xref_md(xref: ET.Element, inner: str, *, in_sup: bool) -> str:
+    """An <xref> whose content rendered as ``inner``: a link to a reference, figure or table, or a footnote's marker."""
+    ref_type = xref.get('ref-type', '')
+    # A reference to several targets lists their ids space-separated; a link takes one.
+    targets = xref.get('rid', '').split()
+    target = targets[0] if targets else ''
+    if ref_type in ('bibr', 'fig', 'table'):
+        # For a citation the surrounding text already provides [...] brackets; just make the number a hyperlink.
+        return f'[{inner}](#{target})'
+    if ref_type in _FOOTNOTE_REF_TYPES and inner.strip() and not in_sup:
+        # A footnote marker sits flush against the value it annotates ("P1" + "a", "0.05" + "3").
+        # Unmarked it reads as part of the value; the footnote's own label is a superscript too.
+        return _footnote_marker(inner)
+    return inner
+
+
 def inline_to_md(elem: ET.Element | None) -> str:
     """Render an element's mixed content as inline Markdown.
 
@@ -183,20 +199,10 @@ def inline_to_md(elem: ET.Element | None) -> str:
             # above, etc.). Preserve the text content; drop the styling.
             buf.append(inner)
         elif tag == 'xref':
-            ref_type = child.get('ref-type', '')
-            rid = child.get('rid', '')
-            if ref_type == 'bibr':
-                # Surrounding document text already provides [...] brackets;
-                # just make the number a hyperlink.
-                buf.append(f'[{inner}](#{rid})')
-            elif ref_type in ('fig', 'table'):
-                buf.append(f'[{inner}](#{rid})')
-            elif ref_type in _FOOTNOTE_REF_TYPES and inner.strip() and own_tag != 'sup':
-                # A footnote marker sits flush against the value it annotates ("P1" + "a", "0.05" + "3").
-                # Unmarked it reads as part of the value; the footnote's own label is a superscript too.
-                buf.append(_footnote_marker(inner))
-            else:
-                buf.append(inner)
+            buf.append(_xref_md(child, inner, in_sup=own_tag == 'sup'))
+        elif tag == 'institution-id':
+            # A funder's registry identifier beside its name: an id, not text, and flush against the name.
+            pass
         elif tag == 'ext-link':
             href = common.xlink_href(child)
             link_type = child.get('ext-link-type', '')
@@ -1715,7 +1721,8 @@ def _render_refs(ref_list: ET.Element) -> list[str]:  # noqa: C901, PLR0912, PLR
 # Entry points
 # ---------------------------------------------------------------------------
 
-_ADJACENT_SUP_RE = re.compile(r'</sup><sup>')
+# A sign alone in a superscript, straight before one that opens with a digit: one exponent split in two.
+_SPLIT_EXPONENT_RE = re.compile(r'<sup>([-+\u2212\u2013])</sup><sup>(?=\d)')
 _WRAPPER_META_TAGS = frozenset({'processing-meta', 'collection-meta', 'book-meta'})
 
 
@@ -1837,12 +1844,12 @@ def _render_document(sections: list[str]) -> str:
     SPEC DEVIATION (post-process): some publisher source splits a numeric
     exponent across two adjacent ``<sup>`` tags (``10<sup>-</sup><sup>4</sup>``).
     Any consumer would show that as "-4" anyway, so the pair is collapsed.
-    Strict adjacency only: inline output is whitespace-flattened, so any
-    separator means two distinct superscripts (a unit exponent followed by a
-    citation marker), and fusing those corrupts both.
+    Only that shape, a lone sign and then a digit: any other adjacent pair is
+    two superscripts (a unit exponent and a footnote marker, an allele name
+    and its suffix), and fusing those corrupts both.
     """
     md = '\n\n---\n\n'.join(section for section in sections if section)
-    return _ADJACENT_SUP_RE.sub('', md)
+    return _SPLIT_EXPONENT_RE.sub(r'<sup>\1', md)
 
 
 # ---------------------------------------------------------------------------
