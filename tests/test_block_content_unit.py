@@ -104,6 +104,25 @@ DOCUMENTS = {
         '<table><tbody><tr><td>Third part.</td></tr></tbody></table>'
         '<table-wrap-foot><p>Split foot.</p></table-wrap-foot></table-wrap></sec>'
     ),
+    'jats-table-wrap-in-supplementary-material': _jats(
+        '<sec><supplementary-material id="S1"><label>Table S1</label><caption><p>Supplementary caption.</p></caption>'
+        '<table-wrap id="TS1"><label>Inner table</label><table><tbody><tr><td>Supplementary cell.</td></tr></tbody>'
+        '</table></table-wrap><p>Supplementary note.</p></supplementary-material></sec>'
+    ),
+    'jats-table-wrap-in-fig': _jats(
+        '<sec><fig id="F1"><label>Figure 1</label><caption><p>Figure caption.</p></caption>'
+        '<table-wrap id="TF1"><label>Panel table</label><table><tbody><tr><td>Figure cell.</td></tr></tbody></table>'
+        '</table-wrap></fig></sec>'
+    ),
+    'jats-bare-table-in-section': _jats(
+        '<sec><p>Before the table.</p><table><tbody><tr><td>Bare cell A.</td><td>Bare cell B.</td></tr></tbody>'
+        '</table></sec>'
+    ),
+    'jats-table-in-cell': _jats(
+        '<sec><table-wrap id="T1"><label>Table 1</label><table><tbody><tr><td>Outer cell.</td><td><table><tbody>'
+        '<tr><td>Inner one.</td><td>Inner two.</td></tr><tr><td>Inner three.</td><td>Inner four.</td></tr></tbody>'
+        '</table></td></tr></tbody></table></table-wrap></sec>'
+    ),
     'jats-table-of-several-row-groups': _jats(
         '<sec><table-wrap id="T1"><label>Table 1</label><table>'
         '<thead><tr><th>Head cell.</th></tr></thead>'
@@ -276,6 +295,10 @@ DOCUMENTS = {
 # <alternatives> alternative is rendered — or whose only distinguishing node is one character (a bare
 # ``3`` label, a one-letter math label), so only their layout is checked.
 LAYOUT_ONLY = {
+    'jats-label-with-inline-markup': _jats(
+        '<sec><table-wrap id="T2"><label>Table <bold>2</bold></label><caption><p>Marked label.</p></caption>'
+        f'{_TABLE}</table-wrap></sec>'
+    ),
     'jats-rowspan-to-the-end-of-the-group': _jats(
         '<sec><table-wrap><label>Table 1</label><table><tbody>'
         '<tr><td rowspan="0">P1</td><td>c.1A>G</td></tr><tr><td>c.2C>T</td></tr></tbody></table></table-wrap></sec>'
@@ -399,6 +422,9 @@ def test_every_text_node_survives(name: str) -> None:
         ),
         ('jats-table-of-bare-rows', '|  |\n| --- |\n| Bare one. |\n| Bare two. |'),
         ('jats-rowspan-to-the-end-of-the-group', '| P1 | c.1A>G |\n| P1 | c.2C>T |'),
+        ('jats-label-with-inline-markup', '**Table 2** Marked label.'),
+        ('jats-bare-table-in-section', 'Before the table.\n\n|  |  |\n| --- | --- |\n| Bare cell A. | Bare cell B. |'),
+        ('jats-table-in-cell', '| Outer cell. | Inner one. ; Inner two.<br>Inner three. ; Inner four. |'),
         ('jats-rowspan-past-the-last-row', '| P1 | c.1A>G |\n| P1 | c.2C>T |\n\nAfter.'),
         ('jats-span-that-is-no-number', '| P1 | c.1A>G |'),
         ('jats-footnote-reference-after-a-cell-value', '| P1<sup>a</sup> | 12<sup>b</sup> | Yes<sup>c</sup> |'),

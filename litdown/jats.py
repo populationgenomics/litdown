@@ -248,7 +248,7 @@ def _title_group_heading(title_group: ET.Element, title_tag: str) -> str:
         sep = '' if tail.endswith(('.', '?', '!', ':')) else ':'
         text = f'{text}{sep} {subtitle}' if text else subtitle
         tail = common.flat_text(subtitle_el)
-    label = common.flat(title_group.findtext('label'))
+    label = common.flat_text(title_group.find('label'))
     return f'{label} {text}'.strip()
 
 
@@ -341,7 +341,7 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
                 rid = x.get('rid', '')
                 aff = aff_map.get(rid)
                 if aff is not None:
-                    marker = common.flat(aff.findtext('label'))
+                    marker = common.flat_text(aff.find('label'))
                     if not marker:
                         # JATS Archiving permits <sup> as an aff-level
                         # marker alongside <label>. Frontiers uses <sup>;
@@ -391,7 +391,7 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
     for aff_id, aff in aff_map.items():
         if referenced_set and aff_id not in referenced_set:
             continue
-        label = common.flat(aff.findtext('label'))
+        label = common.flat_text(aff.find('label'))
         if not label:
             sup = aff.find('sup')
             if sup is not None:
@@ -855,10 +855,14 @@ def render_def_list(dl: ET.Element, level: int = 2) -> str:
     return '\n\n'.join([*lead, body]) if body else ''
 
 
-def render_supplementary(sm: ET.Element) -> str:
-    """Render a <supplementary-material> entry: anchor + label + caption + link."""
+# What a <supplementary-material> or <fig> renders itself: the rest of its children are content.
+_FLOAT_OWN_CHILDREN = frozenset({'label', 'caption', 'media', 'graphic', 'alternatives', 'alt-text', 'long-desc'})
+
+
+def render_supplementary(sm: ET.Element, level: int = 2) -> str:
+    """Render a <supplementary-material> entry: anchor + label + caption + link, then any content it holds inline."""
     sm_id = sm.get('id', '')
-    label = common.flat(sm.findtext('label'))
+    label = common.flat_text(sm.find('label'))
 
     caption_md = _caption_text(sm.find('caption'))
 
@@ -879,6 +883,8 @@ def render_supplementary(sm: ET.Element) -> str:
     lines.append(head)
     if caption_md:
         lines.append(caption_md)
+    # Some publishers put a supplementary table in the article itself, as a <table-wrap> in here.
+    lines.extend(md for _, md in _render_content(sm, level, skip=_FLOAT_OWN_CHILDREN))
     return '\n\n'.join(lines)
 
 
@@ -954,7 +960,7 @@ def render_p(p: ET.Element, level: int = 2) -> list[str]:
 
 def render_fig(fig: ET.Element) -> str:
     fig_id = fig.get('id', '')
-    label = common.flat(fig.findtext('label'))
+    label = common.flat_text(fig.find('label'))
 
     # JATS <fig> permits multiple <graphic> children, one per panel
     # (a, b, c, ...). Emit one image link per panel. Some publishers
@@ -999,6 +1005,10 @@ def render_fig(fig: ET.Element) -> str:
             continue
         lines.append('')
         lines.append(render_fig(nested))
+    # A figure whose panel is a table carries it as a <table-wrap> child.
+    for table_wrap in fig.findall('table-wrap'):
+        lines.append('')
+        lines.append(render_table_wrap(table_wrap))
     return '\n'.join(lines)
 
 
@@ -1058,7 +1068,7 @@ def _wrap_tables(tw: ET.Element) -> list[ET.Element]:
 def render_table_wrap(tw: ET.Element, level: int = 2) -> str:
     """Render a <table-wrap>: its label and caption, each <table> it holds as a grid of its own, then its feet."""
     tw_id = tw.get('id', '')
-    label = common.flat(tw.findtext('label'))
+    label = common.flat_text(tw.find('label'))
 
     caption_md = _caption_text(tw.find('caption'))
     doi_link = _object_id_doi_link(tw)
@@ -1132,6 +1142,38 @@ def _span(value: str | None, default: int = 1) -> int:
         return default
 
 
+def _row_groups(table: ET.Element) -> list[tuple[bool, list[ET.Element]]]:
+    """A table's rows in document order, by group: ``(is a <thead>, its rows)``.
+
+    The rows of every <thead>, <tbody> and <tfoot>, and each <tr> the table holds directly as a group of one.
+    """
+    groups = []
+    for group in table:
+        tag = common.get_tag(group)
+        if tag == 'tr':
+            groups.append((False, [group]))
+        elif tag in ('thead', 'tbody', 'tfoot'):
+            groups.append((tag == 'thead', group.findall('tr')))
+    return groups
+
+
+def _render_table_in_cell(table: ET.Element, level: int) -> str:
+    """A <table> inside a cell, which a GFM cell cannot hold as a grid: a line per row, its cells ``;``-separated."""
+    lines = []
+    for _, rows in _row_groups(table):
+        for tr in rows:
+            cells = [
+                common.md_cell(md for _, md in _render_content(cell, level, overrides=_IN_CELL))
+                for cell in tr
+                if common.get_tag(cell) in ('td', 'th')
+            ]
+            lines.append(' ; '.join(cells))
+    return '\n'.join(lines)
+
+
+_IN_CELL: Mapping[str, Callable[[ET.Element, int], str]] = {'table': _render_table_in_cell}
+
+
 def render_table(table: ET.Element, level: int = 2) -> str:
     """Render an XHTML-model JATS <table> (thead/tbody/tr/td/th), or an <array>, as a GFM table.
 
@@ -1145,25 +1187,18 @@ def render_table(table: ET.Element, level: int = 2) -> str:
         for cell in tr:
             if common.get_tag(cell) not in ('td', 'th'):
                 continue
-            content = common.md_cell(md for _, md in _render_content(cell, level))
+            content = common.md_cell(md for _, md in _render_content(cell, level, overrides=_IN_CELL))
             colspan = _span(cell.get('colspan')) or 1
             # rowspan="0" spans to the end of the row group (HTML, which the JATS table model takes its cells from).
             rowspan = _span(cell.get('rowspan'), default=1) or rows_left
             cells.append((content, colspan, rowspan))
         return cells
 
-    # A table's rows, in document order: those of its <thead>s head the grid, and those of every <tbody> and
-    # <tfoot>, and any <tr> the table holds directly, fill it. A <thead> after the body has begun is body rows.
     header_rows_raw: list[list[tuple[str, int, int]]] = []
     body_rows_raw: list[list[tuple[str, int, int]]] = []
-    for group in table:
-        tag = common.get_tag(group)
-        if tag == 'tr':
-            body_rows_raw.append(get_cells_raw(group, rows_left=1))
-        elif tag in ('thead', 'tbody', 'tfoot'):
-            rows = group.findall('tr')
-            into = header_rows_raw if tag == 'thead' and not body_rows_raw else body_rows_raw
-            into.extend(get_cells_raw(tr, rows_left=len(rows) - i) for i, tr in enumerate(rows))
+    for is_header, rows in _row_groups(table):
+        into = header_rows_raw if is_header and not body_rows_raw else body_rows_raw
+        into.extend(get_cells_raw(tr, rows_left=len(rows) - i) for i, tr in enumerate(rows))
 
     return common.render_grid(header_rows_raw, body_rows_raw)
 
@@ -1229,7 +1264,7 @@ def _render_inline_formula(elem: ET.Element) -> str:
 def render_formula(formula: ET.Element) -> str:
     fid = formula.get('id', '')
     anchor = f'<a id="{fid}"></a>\n' if fid else ''
-    label = common.flat(formula.findtext('label'))
+    label = common.flat_text(formula.find('label'))
     label_suffix = f'  {label}' if label else ''
     body = _formula_body(formula, display=True)
     if body:
@@ -1760,6 +1795,7 @@ _BLOCK_RENDERERS: dict[str, Callable[[ET.Element, int], str]] = {
     'table-wrap': render_table_wrap,
     'table-wrap-group': _render_group,
     'array': render_table,
+    'table': render_table,
     'disp-formula': lambda el, _level: render_formula(el),
     'disp-formula-group': _render_group,
     'boxed-text': render_boxed_text,
@@ -1767,7 +1803,7 @@ _BLOCK_RENDERERS: dict[str, Callable[[ET.Element, int], str]] = {
     'code': lambda el, _level: render_code_block(el),
     'preformat': lambda el, _level: render_code_block(el),
     'statement': render_statement,
-    'supplementary-material': lambda el, _level: render_supplementary(el),
+    'supplementary-material': render_supplementary,
     'graphic': _render_graphic,
     'media': _render_graphic,
     'ref-list': lambda el, level: render_ref_list(el, level + 1),
