@@ -104,6 +104,26 @@ DOCUMENTS = {
         '<table><tbody><tr><td>Third part.</td></tr></tbody></table>'
         '<table-wrap-foot><p>Split foot.</p></table-wrap-foot></table-wrap></sec>'
     ),
+    'jats-ack-with-own-text-and-a-section': (
+        b'<article><front><article-meta><title-group><article-title>Title text</article-title></title-group>'
+        b'</article-meta></front><back><ack><title>Acknowledgements</title><p>We thank the family.</p>'
+        b'<sec><title>Disclosure</title><p>No conflicts.</p></sec></ack></back></article>'
+    ),
+    'jats-untitled-app-group-with-a-paragraph': (
+        b'<article><front><article-meta><title-group><article-title>Title text</article-title></title-group>'
+        b'</article-meta></front><back><app-group><p>Group lead paragraph.</p><app><title>Appendix A</title>'
+        b'<p>Appendix text.</p></app></app-group></back></article>'
+    ),
+    'jats-front-matter-notes-and-statements': (
+        b'<article><front><article-meta><title-group><article-title>Title text</article-title></title-group>'
+        b'<author-notes><corresp>Correspondence: someone@example.org</corresp>'
+        b'<p>These authors contributed equally.</p></author-notes>'
+        b'<abstract><p>Original abstract.</p></abstract>'
+        b'<trans-abstract xml:lang="en"><p>Translated abstract text.</p></trans-abstract>'
+        b'<funding-group><funding-statement>Supported by foundation grant 42.</funding-statement></funding-group>'
+        b'</article-meta><notes><fn-group><fn><p>Front note text.</p></fn></fn-group></notes></front>'
+        b'<body><p>Body text.</p></body></article>'
+    ),
     'jats-table-wrap-in-supplementary-material': _jats(
         '<sec><supplementary-material id="S1"><label>Table S1</label><caption><p>Supplementary caption.</p></caption>'
         '<table-wrap id="TS1"><label>Inner table</label><table><tbody><tr><td>Supplementary cell.</td></tr></tbody>'

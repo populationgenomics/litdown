@@ -466,6 +466,9 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
                 text = inline_to_md(child).strip()
                 if text:
                     notes_lines.append(text)
+            elif tag == 'p':
+                # A note with no footnote around it: "These authors contributed equally."
+                notes_lines.extend(md for _, md in _render_content(child, 2))
             elif tag == 'fn':
                 fn_type = child.get('fn-type', '')
                 fn_text = ' '.join(inline_to_md(p).strip() for p in child.findall('p')).strip()
@@ -586,7 +589,8 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
     # Articles often have multiple <abstract> elements: the default plus
     # publisher-specific variants like abstract-type="synopsis" (PLOS
     # Genetics) or "summary" (PMC author-summary). Render each.
-    for abstract in ameta.findall('abstract'):
+    # A <trans-abstract> is the abstract in another language; for a paper not written in English it is the English one.
+    for abstract in [*ameta.findall('abstract'), *ameta.findall('trans-abstract')]:
         parts.append(render_abstract(abstract))
 
     # --- Keywords ---
@@ -609,6 +613,10 @@ def render_front(front: ET.Element) -> str:  # noqa: C901, PLR0912, PLR0915
     if funding:
         parts.append(funding)
 
+    # --- Front-matter notes ---
+    # <notes> beside <article-meta>: author contributions, data availability, a note added in proof.
+    parts.extend(md for notes in front.findall('notes') if (md := render_sec(notes, 2)))
+
     return '\n\n'.join(parts)
 
 
@@ -622,7 +630,8 @@ def render_funding_group(fg: ET.Element) -> str:
     if fg is None:
         return ''
     awards = fg.findall('award-group')
-    if not awards:
+    statements = [text for st in fg.findall('funding-statement') if (text := inline_to_md(st).strip())]
+    if not awards and not statements:
         return ''
 
     lines = [_heading(2, 'Funding')]
@@ -667,6 +676,9 @@ def render_funding_group(fg: ET.Element) -> str:
         if bits:
             lines.append('- ' + ' — '.join(bits))
 
+    if statements:
+        # The funder's sentence as the authors wrote it, which may be all a funding-group holds.
+        lines.extend(['', *statements] if len(lines) > 1 else statements)
     if len(lines) == 1:
         return ''
     return '\n'.join(lines)
@@ -688,7 +700,7 @@ def render_abstract(abstract: ET.Element, level: int = 2) -> str:
             'web-summary': 'Web summary',
             'executive-summary': 'Executive Summary',
             'precis': 'Précis',
-        }.get(atype, 'Abstract')
+        }.get(atype, 'Translated abstract' if common.get_tag(abstract) == 'trans-abstract' else 'Abstract')
     lines = [_heading(level, heading)]
     lines.extend(md for _, md in _render_content(abstract, level, skip=_LABEL_AND_TITLE, overrides=_ABSTRACT_BLOCKS))
     return '\n\n'.join(lines)
@@ -1301,7 +1313,10 @@ def render_back(back: ET.Element, level: int = 2) -> str:
             # without a <title>. Render the heading explicitly so it
             # doesn't disappear into the surrounding paragraph stream.
             sub_secs = child.findall('sec')
-            if sub_secs:
+            only_secs = (
+                all(common.get_tag(c) in ('sec', *_METADATA_TAGS) for c in child) and not (child.text or '').strip()
+            )
+            if sub_secs and only_secs:
                 # If the inner <sec>s carry their own titles, let them
                 # provide the heading. If not, prepend a default first.
                 if not any(s.find('title') is not None for s in sub_secs):
@@ -1309,6 +1324,7 @@ def render_back(back: ET.Element, level: int = 2) -> str:
                 for sec in sub_secs:
                     parts.append(render_sec(sec, level))
             else:
+                # An <ack> with a title or paragraphs of its own renders whole, its <sec>s one level down.
                 if child.find('title') is None:
                     parts.append(_heading(level, 'Acknowledgments'))
                 parts.append(render_sec(child, level))
@@ -1318,7 +1334,8 @@ def render_back(back: ET.Element, level: int = 2) -> str:
             if child.find('title') is not None or child.find('label') is not None:
                 parts.append(render_sec(child, level))
             else:
-                parts.extend(render_sec(app, level) for app in child.findall('app'))
+                # Every child in order, an <app> headed at ``level``: the group may hold paragraphs beside them.
+                parts.extend(md for _, md in _render_content(child, level - 1))
         elif tag in {'app', 'sec', 'bio'}:
             parts.append(render_sec(child, level))
         elif tag == 'ref-list':
