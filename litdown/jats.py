@@ -1015,7 +1015,31 @@ def _render_group(group: ET.Element, level: int) -> str:
     return '\n\n'.join(part for part in (head, *members) if part)
 
 
+def _wrap_tables(tw: ET.Element) -> list[ET.Element]:
+    """The <table>s a <table-wrap> holds, in document order.
+
+    A long table is published as several <table>s in one wrap, one per printed
+    page; each is a part of the table, and all of them render. An
+    <alternatives> offers one table in several forms, so it gives its first
+    <table> only. A wrap with neither as a child gives the first <table>
+    anywhere below it.
+    """
+    tables = []
+    for child in tw:
+        if child.tag == 'table':
+            tables.append(child)
+        elif child.tag == 'alternatives':
+            offered = child.find('table')
+            if offered is not None:
+                tables.append(offered)
+    if tables:
+        return tables
+    nested = tw.find('.//table')
+    return [nested] if nested is not None else []
+
+
 def render_table_wrap(tw: ET.Element, level: int = 2) -> str:
+    """Render a <table-wrap>: its label and caption, each <table> it holds as a grid of its own, then its feet."""
     tw_id = tw.get('id', '')
     label = common.flat(tw.findtext('label'))
 
@@ -1024,8 +1048,8 @@ def render_table_wrap(tw: ET.Element, level: int = 2) -> str:
     if doi_link:
         caption_md = (caption_md + ' ' + doi_link).strip()
 
-    table = tw.find('.//table')
-    table_md = render_table(table, level) if table is not None else ''
+    tables = _wrap_tables(tw)
+    table_md = '\n\n'.join(render_table(table, level) for table in tables)
 
     # JATS <table-wrap> content model lists <table> and <graphic> as
     # alternatives. Older articles (especially PLOS Genetics circa
@@ -1034,7 +1058,7 @@ def render_table_wrap(tw: ET.Element, level: int = 2) -> str:
     # content isn't silently dropped — markdown can't reconstruct the
     # tabular structure from the image without an OCR step.
     image_md = ''
-    if table is None:
+    if not tables:
         graphic = tw.find('graphic')
         if graphic is None:
             graphic = tw.find('.//graphic')
@@ -1044,8 +1068,9 @@ def render_table_wrap(tw: ET.Element, level: int = 2) -> str:
                 alt = f'{label}: {caption_md}'[:120] if caption_md else label
                 image_md = f'![{alt}]({href})'
 
-    foot = tw.find('table-wrap-foot')
-    foot_md = ' '.join(_render_table_foot(foot, level)) if foot is not None else ''
+    # A wrap may hold several <table-wrap-foot>s, as it may several <table>s: one per footnote in some publishers' XML.
+    feet = [child for child in tw if child.tag == 'table-wrap-foot']
+    foot_md = ' '.join(part for foot in feet for part in _render_table_foot(foot, level))
 
     parts = []
     if tw_id:
