@@ -1737,8 +1737,40 @@ def render(root: ET.Element) -> str:
             render_body(body) if body is not None else '',
             render_back(back) if back is not None else '',
             render_floats_group(floats) if floats is not None else '',
+            *_sub_article_sections(root),
         ]
     )
+
+
+def _sub_article_sections(parent: ET.Element) -> list[str]:
+    """Render each <sub-article> and <response> under ``parent`` as a section of the document, nested ones after.
+
+    A sub-article is an article within the article: a decision letter, the authors' reply, or the whole text in
+    another language. One with a <front> renders it as the article's is; one with a <front-stub> is headed by its
+    title, or by its ``article-type`` where it has none.
+    """
+    sections = []
+    for sub in parent:
+        if common.get_tag(sub) not in ('sub-article', 'response'):
+            continue
+        front, stub = sub.find('front'), sub.find('front-stub')
+        if front is not None:
+            head = render_front(front)
+        else:
+            title_group = stub.find('title-group') if stub is not None else None
+            title = _title_group_heading(title_group, 'article-title') if title_group is not None else ''
+            kind = sub.get('article-type') or sub.get('response-type') or common.get_tag(sub)
+            head = _heading(1, title or kind.replace('-', ' ').capitalize())
+        body, back, floats = sub.find('body'), sub.find('back'), sub.find('floats-group')
+        parts = [
+            head,
+            render_body(body) if body is not None else '',
+            render_back(back) if back is not None else '',
+            render_floats_group(floats) if floats is not None else '',
+        ]
+        sections.append('\n\n'.join(part for part in parts if part))
+        sections.extend(_sub_article_sections(sub))
+    return sections
 
 
 def render_book_part_wrapper(root: ET.Element) -> str:
