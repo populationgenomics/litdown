@@ -237,6 +237,8 @@ def expand_rows(raw_rows: list[list[tuple[str, int, int]]]) -> list[list[str]]:
                  (preserves the column label without duplicating it).
     rowspan > 1: content repeated in each spanned row
                  (keeps every row self-contained for an LLM reader).
+                 A span running past the last row stops there: the rows
+                 given are all the rows there are.
     """
     if not raw_rows:
         return []
@@ -247,7 +249,7 @@ def expand_rows(raw_rows: list[list[tuple[str, int, int]]]) -> list[list[str]]:
             # Advance past any cells already occupied by a rowspan above.
             while (row_idx, col_idx) in occupied:
                 col_idx += 1
-            for dr in range(rowspan):
+            for dr in range(min(rowspan, len(raw_rows) - row_idx)):
                 for dc in range(colspan):
                     # Repeat content across rowspan; use "" for extra colspan slots.
                     occupied[(row_idx + dr, col_idx + dc)] = content if dc == 0 else ''

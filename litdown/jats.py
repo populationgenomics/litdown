@@ -1124,6 +1124,14 @@ def _render_table_fn(fn: ET.Element, level: int) -> str:
     return f'<sup>{label}</sup> {body}' if label and body else body
 
 
+def _span(value: str | None, default: int = 1) -> int:
+    """A cell's ``colspan`` or ``rowspan`` as a count: ``default`` when absent or not a number, never negative."""
+    try:
+        return max(0, int(value)) if value is not None else default
+    except ValueError:
+        return default
+
+
 def render_table(table: ET.Element, level: int = 2) -> str:
     """Render an XHTML-model JATS <table> (thead/tbody/tr/td/th), or an <array>, as a GFM table.
 
@@ -1131,29 +1139,31 @@ def render_table(table: ET.Element, level: int = 2) -> str:
     line with ``<br>`` separators (:func:`common.md_cell`).
     """
 
-    def get_cells_raw(tr: ET.Element) -> list[tuple[str, int, int]]:
-        """Return list of (content, colspan, rowspan) for each cell in a row."""
+    def get_cells_raw(tr: ET.Element, rows_left: int) -> list[tuple[str, int, int]]:
+        """Return list of (content, colspan, rowspan) for each cell in a row; ``rows_left`` counts this row."""
         cells = []
         for cell in tr:
             if common.get_tag(cell) not in ('td', 'th'):
                 continue
             content = common.md_cell(md for _, md in _render_content(cell, level))
-            colspan = max(1, int(cell.get('colspan', 1)))
-            rowspan = max(1, int(cell.get('rowspan', 1)))
+            colspan = _span(cell.get('colspan')) or 1
+            # rowspan="0" spans to the end of the row group (HTML, which the JATS table model takes its cells from).
+            rowspan = _span(cell.get('rowspan'), default=1) or rows_left
             cells.append((content, colspan, rowspan))
         return cells
 
-    header_rows_raw = []
-    thead = table.find('thead')
-    if thead is not None:
-        for tr in thead.findall('tr'):
-            header_rows_raw.append(get_cells_raw(tr))
-
-    body_rows_raw = []
-    tbody = table.find('tbody')
-    if tbody is not None:
-        for tr in tbody.findall('tr'):
-            body_rows_raw.append(get_cells_raw(tr))
+    # A table's rows, in document order: those of its <thead>s head the grid, and those of every <tbody> and
+    # <tfoot>, and any <tr> the table holds directly, fill it. A <thead> after the body has begun is body rows.
+    header_rows_raw: list[list[tuple[str, int, int]]] = []
+    body_rows_raw: list[list[tuple[str, int, int]]] = []
+    for group in table:
+        tag = common.get_tag(group)
+        if tag == 'tr':
+            body_rows_raw.append(get_cells_raw(group, rows_left=1))
+        elif tag in ('thead', 'tbody', 'tfoot'):
+            rows = group.findall('tr')
+            into = header_rows_raw if tag == 'thead' and not body_rows_raw else body_rows_raw
+            into.extend(get_cells_raw(tr, rows_left=len(rows) - i) for i, tr in enumerate(rows))
 
     return common.render_grid(header_rows_raw, body_rows_raw)
 
