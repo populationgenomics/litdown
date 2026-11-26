@@ -124,6 +124,21 @@ DOCUMENTS = {
         b'</article-meta><notes><fn-group><fn><p>Front note text.</p></fn></fn-group></notes></front>'
         b'<body><p>Body text.</p></body></article>'
     ),
+    'jats-supplementary-material-labelled-on-its-media': _jats(
+        '<sec><supplementary-material id="S1"><media xlink:href="s1.docx" '
+        'xmlns:xlink="http://www.w3.org/1999/xlink"><label>Additional file 1</label><caption><p>Variants found in '
+        'the proband.</p></caption></media></supplementary-material></sec>'
+    ),
+    'jats-float-with-attribution-and-note': _jats(
+        '<sec><fig id="F1"><label>Figure 1</label><caption><p>Figure caption.</p></caption>'
+        '<graphic xlink:href="f1.jpg" xmlns:xlink="http://www.w3.org/1999/xlink"/><p>Figure note.</p>'
+        '<attrib>Reproduced from Doe.</attrib></fig>'
+        f'<table-wrap id="T1"><label>Table 1</label><caption><p>Table caption.</p></caption>{_TABLE}'
+        '<attrib>Adapted from Roe.</attrib></table-wrap></sec>'
+    ),
+    'jats-display-formula-of-text': _jats(
+        '<sec><disp-formula id="E1">Score = <italic>count</italic> times weight<label>(1)</label></disp-formula></sec>'
+    ),
     'jats-table-wrap-in-supplementary-material': _jats(
         '<sec><supplementary-material id="S1"><label>Table S1</label><caption><p>Supplementary caption.</p></caption>'
         '<table-wrap id="TS1"><label>Inner table</label><table><tbody><tr><td>Supplementary cell.</td></tr></tbody>'

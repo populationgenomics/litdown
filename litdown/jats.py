@@ -874,9 +874,6 @@ _FLOAT_OWN_CHILDREN = frozenset({'label', 'caption', 'media', 'graphic', 'altern
 def render_supplementary(sm: ET.Element, level: int = 2) -> str:
     """Render a <supplementary-material> entry: anchor + label + caption + link, then any content it holds inline."""
     sm_id = sm.get('id', '')
-    label = common.flat_text(sm.find('label'))
-
-    caption_md = _caption_text(sm.find('caption'))
 
     # The asset can sit in either <media> (xlink:href to a file) or a
     # nested <graphic>/<inline-graphic>. <media> is the JATS norm for
@@ -885,6 +882,13 @@ def render_supplementary(sm: ET.Element, level: int = 2) -> str:
     if media is None:
         media = sm.find('.//graphic')
     href = common.xlink_href(media) if media is not None else ''
+
+    # Some publishers label and caption the <media>, not the <supplementary-material> around it.
+    label = common.flat_text(sm.find('label'))
+    caption_md = _caption_text(sm.find('caption'))
+    if media is not None:
+        label = label or common.flat_text(media.find('label'))
+        caption_md = caption_md or _caption_text(media.find('caption'))
 
     lines = []
     if sm_id:
@@ -1021,7 +1025,25 @@ def render_fig(fig: ET.Element) -> str:
     for table_wrap in fig.findall('table-wrap'):
         lines.append('')
         lines.append(render_table_wrap(table_wrap))
+    for extra in _float_extras(fig, 2):
+        lines.append('')
+        lines.append(extra)
     return '\n'.join(lines)
+
+
+def _float_extras(float_el: ET.Element, level: int) -> list[str]:
+    """What a <fig> or <table-wrap> says beside its label, caption and body: an attribution, a note, a second caption.
+
+    A <p> holding a nested <fig> is left to the figure's own walk of its supplements.
+    """
+    extras = []
+    for child in float_el:
+        tag = common.get_tag(child)
+        if tag in ('attrib', 'abstract') or (tag == 'p' and child.find('.//fig') is None):
+            text = common.flat(' '.join(md for _, md in _render_content(child, level)))
+            if text:
+                extras.append(text)
+    return extras
 
 
 def _render_graphic(g: ET.Element, _level: int) -> str:
@@ -1121,6 +1143,7 @@ def render_table_wrap(tw: ET.Element, level: int = 2) -> str:
         parts.append(image_md)
     if foot_md:
         parts.append(foot_md)
+    parts.extend(_float_extras(tw, level))
     return '\n\n'.join(parts)
 
 
@@ -1281,11 +1304,10 @@ def render_formula(formula: ET.Element) -> str:
     body = _formula_body(formula, display=True)
     if body:
         return f'{anchor}{body}{label_suffix}'
-    # Last resort: any text directly inside the disp-formula. Avoid
-    # itertext() so we don't pick up tex-math preamble or MathML
-    # element names from earlier-attempted siblings.
-    text = common.flat(formula.text)
-    return f'{anchor}$${text}$${label_suffix}' if text else ''
+    # Last resort: a formula written as text with inline markup, no <tex-math>, <math> or <graphic> in it. It is
+    # prose, not TeX, so it is not put between dollar signs.
+    text = common.flat(' '.join(md for _, md in _render_content(formula, 2, skip=frozenset({'label'}))))
+    return f'{anchor}{text}{label_suffix}' if text else ''
 
 
 # ---------------------------------------------------------------------------
